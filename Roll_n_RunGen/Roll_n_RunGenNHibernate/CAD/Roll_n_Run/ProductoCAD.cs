@@ -142,13 +142,6 @@ public int New_ (ProductoEN producto)
         try
         {
                 SessionInitializeTransaction ();
-                if (producto.Comentario != null) {
-                        // Argumento OID y no colección.
-                        producto.Comentario = (Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN)session.Load (typeof(Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN), producto.Comentario.Id);
-
-                        producto.Comentario.Producto
-                                = producto;
-                }
 
                 session.Save (producto);
                 SessionCommit ();

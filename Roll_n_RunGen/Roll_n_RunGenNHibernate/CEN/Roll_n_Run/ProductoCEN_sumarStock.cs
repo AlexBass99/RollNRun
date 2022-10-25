@@ -23,13 +23,15 @@ public void SumarStock (int p_oid, int p_cantidad)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_sumarStock) ENABLED START*/
 
-        ProductoEN productoEN = new ProductoEN();
-        ProductoCEN productoCEN = new ProductoCEN();
-        productoEN = productoCEN.ReadOID(p_oid);
-        if(p_cantidad>0){
-                productoEN.Stock = productoEN.Stock+p_cantidad;
+        ProductoEN productoEN = new ProductoEN ();
+        ProductoCEN productoCEN = new ProductoCEN ();
+
+        productoEN = productoCEN.ReadOID (p_oid);
+        if (p_cantidad > 0) {
+                productoEN.Stock = productoEN.Stock + p_cantidad;
                 //se avisa de que se ha sumado el stock
-        }else{
+        }
+        else{
                 //se avisa de que no se ha podido sumar el stock
         }
 

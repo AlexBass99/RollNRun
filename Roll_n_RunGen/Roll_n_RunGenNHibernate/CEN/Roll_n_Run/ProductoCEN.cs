@@ -39,7 +39,7 @@ public IProductoCAD get_IProductoCAD ()
         return this._IProductoCAD;
 }
 
-public int New_ (string p_nombre, string p_marca, int p_stock, double p_precio, string p_imagen, string p_descripcion, double p_val_media, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum p_tipo, int p_comentario)
+public int New_ (string p_nombre, string p_marca, int p_stock, double p_precio, string p_imagen, string p_descripcion, double p_val_media, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum p_tipo)
 {
         ProductoEN productoEN = null;
         int oid;
@@ -61,14 +61,6 @@ public int New_ (string p_nombre, string p_marca, int p_stock, double p_precio, 
         productoEN.Val_media = p_val_media;
 
         productoEN.Tipo = p_tipo;
-
-
-        if (p_comentario != -1) {
-                // El argumento p_comentario -> Property comentario es oid = false
-                // Lista de oids id
-                productoEN.Comentario = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN ();
-                productoEN.Comentario.Id = p_comentario;
-        }
 
         //Call to ProductoCAD
 

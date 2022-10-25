@@ -23,14 +23,16 @@ public void RestarStock (int p_oid, int p_cantidad)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_restarStock) ENABLED START*/
 
-        ProductoEN productoEN = new ProductoEN();
-        ProductoCEN productoCEN = new ProductoCEN();
-        productoEN = productoCEN.ReadOID(p_oid);
+        ProductoEN productoEN = new ProductoEN ();
+        ProductoCEN productoCEN = new ProductoCEN ();
 
-        if(p_cantidad>0 && productoCEN.HayStock(p_oid, p_cantidad)){
-                productoEN.Stock = productoEN.Stock-p_cantidad;
+        productoEN = productoCEN.ReadOID (p_oid);
+
+        if (p_cantidad > 0 && productoCEN.HayStock (p_oid, p_cantidad)) {
+                productoEN.Stock = productoEN.Stock - p_cantidad;
                 //se avisa de que se ha restado el stock
-        }else{
+        }
+        else{
                 //se avisa de que no se ha podido restar el stock
         }
         // Write here your custom code...

@@ -105,5 +105,9 @@ public System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int si
         list = _IComentarioCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> GetComentariosSubforo ()
+{
+        return _IComentarioCAD.GetComentariosSubforo ();
+}
 }
 }

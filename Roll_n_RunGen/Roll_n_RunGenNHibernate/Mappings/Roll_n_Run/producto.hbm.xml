@@ -78,12 +78,15 @@
 			
 			
 		  			
+						<bag name="Comentario" >
+							<key>
+							
+								
+								<column name="FK_idProducto_idProducto"/>
+					      	</key>
+							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN"/>
+					    </bag>
 					
-							<many-to-one name="Comentario" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN" >
-								<column name="FK_idComentario_idComentario"/> 
-        					</many-to-one>
-					 
-						
 					
 					
 					

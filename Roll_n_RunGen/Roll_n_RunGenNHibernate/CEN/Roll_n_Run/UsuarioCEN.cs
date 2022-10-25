@@ -39,7 +39,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public int New_ (string p_nombre, string p_email, string p_apellidos, string p_nickname, String p_pass, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum p_rol, string p_telefono)
+public int New_ (string p_nombre, string p_email, string p_apellidos, string p_nickname, String p_pass, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum p_rol)
 {
         UsuarioEN usuarioEN = null;
         int oid;

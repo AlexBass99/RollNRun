@@ -92,7 +92,7 @@ private Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo;
 /**
  *	Atributo comentario
  */
-private Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN comentario;
+private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> comentario;
 
 
 
@@ -171,7 +171,7 @@ public virtual Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum T
 
 
 
-public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN Comentario {
+public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> Comentario {
         get { return comentario; } set { comentario = value;  }
 }
 
@@ -183,11 +183,12 @@ public ProductoEN()
 {
         valoracion = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN>();
         usuario = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN>();
+        comentario = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN>();
 }
 
 
 
-public ProductoEN(int id, string nombre, string marca, int stock, double precio, string imagen, string descripcion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, double val_media, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuario, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo, Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN comentario
+public ProductoEN(int id, string nombre, string marca, int stock, double precio, string imagen, string descripcion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, double val_media, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuario, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> comentario
                   )
 {
         this.init (Id, nombre, marca, stock, precio, imagen, descripcion, lineaPedido, valoracion, val_media, usuario, tipo, comentario);
@@ -200,7 +201,7 @@ public ProductoEN(ProductoEN producto)
 }
 
 private void init (int id
-                   , string nombre, string marca, int stock, double precio, string imagen, string descripcion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, double val_media, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuario, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo, Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN comentario)
+                   , string nombre, string marca, int stock, double precio, string imagen, string descripcion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, double val_media, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuario, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> comentario)
 {
         this.Id = id;
 

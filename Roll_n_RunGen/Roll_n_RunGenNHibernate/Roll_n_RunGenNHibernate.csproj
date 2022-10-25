@@ -231,6 +231,8 @@
 			
 			
 			
+			<Compile Include="CEN\Roll_n_Run\SubforoCEN_ActualizarNumComentarios.cs" />
+			
 	<Compile Include="EN\Roll_n_Run\ComentarioEN.cs" />
 	<Compile Include="CEN\Roll_n_Run\ComentarioCEN.cs" />
 	<Compile Include="CAD\Roll_n_Run\IComentarioCAD.cs" />
@@ -242,6 +244,7 @@
 			
 			
 			<Compile Include="CP\Roll_n_Run\ComentarioCP_InsertarProducto.cs" />
+			
 			
 	<Compile Include="Enumerated\Roll_n_Run\EstadoEnum.cs" />
 	<Compile Include="Enumerated\Roll_n_Run\PagoEnum.cs" />

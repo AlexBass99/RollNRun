@@ -21,18 +21,17 @@ public partial class PedidoCEN
 {
 public void CambiarEstado (int p_oid, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum p_estado)
 {
-            /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_cambiarEstado) ENABLED START*/
+        /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_cambiarEstado) ENABLED START*/
 
-            // Write here your custom code...
-            PedidoCEN pedidoCEN = new PedidoCEN();
-            PedidoEN pedidoEN = new PedidoEN();
+        // Write here your custom code...
+        PedidoCEN pedidoCEN = new PedidoCEN ();
+        PedidoEN pedidoEN = new PedidoEN ();
 
-            pedidoEN = pedidoCEN.ReadOID(p_oid);
+        pedidoEN = pedidoCEN.ReadOID (p_oid);
 
-            if (pedidoEN.Estado != p_estado)
-            {
+        if (pedidoEN.Estado != p_estado) {
                 pedidoEN.Estado = p_estado;
-            }
+        }
         /*PROTECTED REGION END*/
 }
 }

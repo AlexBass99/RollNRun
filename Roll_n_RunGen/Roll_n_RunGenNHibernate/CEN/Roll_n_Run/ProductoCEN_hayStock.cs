@@ -21,24 +21,23 @@ public partial class ProductoCEN
 {
 public bool HayStock (int p_oid, int p_cantidad)
 {
-            /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_hayStock) ENABLED START*/
+        /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_hayStock) ENABLED START*/
 
-           ProductoEN productoEN = new ProductoEN();
-            ProductoCEN productoCEN = new ProductoCEN();
-            productoEN = productoCEN.ReadOID(p_oid);
+        ProductoEN productoEN = new ProductoEN ();
+        ProductoCEN productoCEN = new ProductoCEN ();
 
-            //La cantidad es el numero de ese producto que se quiere restar del stock total
-            //Comprobamos si la cantidad es MAYOR a cero y MENOR O IGUAL que el stock actual y se lo restamos
-            if (p_cantidad > 0 && p_cantidad <= productoEN.Stock)
-            {
+        productoEN = productoCEN.ReadOID (p_oid);
+
+        //La cantidad es el numero de ese producto que se quiere restar del stock total
+        //Comprobamos si la cantidad es MAYOR a cero y MENOR O IGUAL que el stock actual y se lo restamos
+        if (p_cantidad > 0 && p_cantidad <= productoEN.Stock) {
                 return true;
                 //notificar que hay suficiente stock
-            }
-            else
-            {
+        }
+        else{
                 return false;
                 //notificar en consola que no hay suficiente stock
-            }
+        }
         /*PROTECTED REGION END*/
 }
 }
