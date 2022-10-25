@@ -104,5 +104,6 @@
 		  <query name="ProductoENbuscarPrecioHQL"><![CDATA[FROM ProductoEN]]></query>
 		  <query name="ProductoENbuscarNombreHQL"><![CDATA[FROM ProductoEN]]></query>
 		  <query name="ProductoENbuscarTipoHQL"><![CDATA[FROM ProductoEN]]></query>
+		  <query name="ProductoENgetProductosDeseadosUsuarioHQL"><![CDATA[FROM ProductoEN]]></query>
 		</hibernate-mapping>
 	

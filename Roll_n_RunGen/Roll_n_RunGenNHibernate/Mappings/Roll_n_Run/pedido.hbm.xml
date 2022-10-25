@@ -77,7 +77,7 @@
 		 </class>	
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
-		  <query name="PedidoENgetEstadoHQL"><![CDATA[FROM PedidoEN]]></query>
 		  <query name="PedidoENgetPedidosEstadoHQL"><![CDATA[FROM PedidoEN]]></query>
+		  <query name="PedidoENgetPedidosUsuarioHQL"><![CDATA[FROM PedidoEN]]></query>
 		</hibernate-mapping>
 	

@@ -130,5 +130,9 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
 {
         return _IProductoCAD.BuscarTipo ();
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> GetProductosDeseadosUsuario ()
+{
+        return _IProductoCAD.GetProductosDeseadosUsuario ();
+}
 }
 }

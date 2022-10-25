@@ -289,7 +289,7 @@ public System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetEstado ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosEstado ()
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> result;
         try
@@ -297,7 +297,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pe
                 SessionInitializeTransaction ();
                 //String sql = @"FROM PedidoEN self where FROM PedidoEN";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetEstadoHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosEstadoHQL");
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN>();
                 SessionCommit ();
@@ -318,7 +318,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pe
 
         return result;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosEstado ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosUsuario ()
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> result;
         try
@@ -326,7 +326,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pe
                 SessionInitializeTransaction ();
                 //String sql = @"FROM PedidoEN self where FROM PedidoEN";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosEstadoHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosUsuarioHQL");
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN>();
                 SessionCommit ();

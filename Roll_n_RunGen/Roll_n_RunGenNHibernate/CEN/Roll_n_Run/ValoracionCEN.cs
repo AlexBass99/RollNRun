@@ -108,5 +108,9 @@ public System.Collections.Generic.IList<ValoracionEN> ReadAll (int first, int si
         list = _IValoracionCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> GetValoracionesProducto ()
+{
+        return _IValoracionCAD.GetValoracionesProducto ();
+}
 }
 }

@@ -112,13 +112,13 @@ public System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size)
         list = _IPedidoCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetEstado ()
-{
-        return _IPedidoCAD.GetEstado ();
-}
 public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosEstado ()
 {
         return _IPedidoCAD.GetPedidosEstado ();
+}
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosUsuario ()
+{
+        return _IPedidoCAD.GetPedidosUsuario ();
 }
 }
 }

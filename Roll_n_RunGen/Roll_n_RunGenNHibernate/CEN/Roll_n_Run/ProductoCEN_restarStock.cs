@@ -19,7 +19,7 @@ namespace Roll_n_RunGenNHibernate.CEN.Roll_n_Run
 {
 public partial class ProductoCEN
 {
-public void RestarStock (int p_oid)
+public void RestarStock (int p_oid, int p_cantidad)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_restarStock) ENABLED START*/
 

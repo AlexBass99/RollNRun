@@ -43,5 +43,6 @@
 		 </class>	
 		  
 		  <query name="ValoracionENReadAllHQL">from ValoracionEN</query>
+		  <query name="ValoracionENgetValoracionesProductoHQL"><![CDATA[FROM ValoracionEN]]></query>
 		</hibernate-mapping>
 	

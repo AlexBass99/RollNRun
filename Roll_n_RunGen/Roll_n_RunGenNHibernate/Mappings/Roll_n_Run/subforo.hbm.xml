@@ -70,5 +70,7 @@
 		 </class>	
 		  
 		  <query name="SubforoENReadAllHQL">from SubforoEN</query>
+		  <query name="SubforoENgetSubforosUsuarioHQL"><![CDATA[FROM SubforoEN]]></query>
+		  <query name="SubforoENgetSeguidosUsuarioHQL"><![CDATA[FROM SubforoEN]]></query>
 		</hibernate-mapping>
 	

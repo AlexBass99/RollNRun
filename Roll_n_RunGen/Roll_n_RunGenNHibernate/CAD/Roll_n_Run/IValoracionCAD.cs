@@ -29,5 +29,8 @@ ValoracionEN ReadOID (int id
 
 
 System.Collections.Generic.IList<ValoracionEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> GetValoracionesProducto ();
 }
 }

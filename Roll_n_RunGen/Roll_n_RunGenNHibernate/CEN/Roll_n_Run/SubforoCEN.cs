@@ -106,5 +106,13 @@ public System.Collections.Generic.IList<SubforoEN> ReadAll (int first, int size)
         list = _ISubforoCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSubforosUsuario ()
+{
+        return _ISubforoCAD.GetSubforosUsuario ();
+}
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSeguidosUsuario ()
+{
+        return _ISubforoCAD.GetSeguidosUsuario ();
+}
 }
 }

@@ -19,7 +19,7 @@ namespace Roll_n_RunGenNHibernate.CEN.Roll_n_Run
 {
 public partial class PedidoCEN
 {
-public void CambiarEstado (int p_oid)
+public void CambiarEstado (int p_oid, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum p_estado)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_cambiarEstado) ENABLED START*/
 
