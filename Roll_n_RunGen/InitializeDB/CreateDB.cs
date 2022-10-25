@@ -8,6 +8,7 @@ using System.Data;
 using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
+using Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run;
 
 /*PROTECTED REGION END*/
 namespace InitializeDB
@@ -80,13 +81,20 @@ public static void InitializeData ()
                 // Insert the initilizations of entities using the CEN classes
 
 
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
+                UsuarioEN usuarioEN = new UsuarioEN();
+                int id_usu = usuarioCEN.New_(p_nombre: "Yo", p_email:"yo@gmail.com", p_apellidos:"Yomismo", p_nickname:"Mimismo", p_telefono:"123456789", p_pass:"1234", p_rol:RolEnum.usuario_base);
+
+                if (usuarioCEN.Login(id_usu, "1234") != null) {
+                    Console.WriteLine("El usuario esta creado");
+                }
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
 
 
 
                 /*PROTECTED REGION END*/
-        }
+            }
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
