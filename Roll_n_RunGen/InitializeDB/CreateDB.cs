@@ -111,12 +111,12 @@ public static void InitializeData ()
 
                 //PRODUCTOS
                 ProductoCEN productoCEN = new ProductoCEN ();
-                int id_producto = productoCEN.New_ ("Dados", "Marca Blanca", 27, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado);
-                int id_producto2 = productoCEN.New_("Dados", "Marca 1", 30, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura);
-                int id_producto3 = productoCEN.New_("Dados", "Marca 2", 35, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas);
-                int id_producto4 = productoCEN.New_("Dados", "Marca 3", 40, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa);
-                int id_producto5 = productoCEN.New_("Dados", "Marca 4", 43, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro);
-                int id_producto6 = productoCEN.New_("Dados", "Marca 5", 60, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros);
+                int id_producto = productoCEN.New_ ("Dados d6", "Marca Blanca", 27, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado);
+                int id_producto2 = productoCEN.New_("Figura", "Marca 1", 30, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura);
+                int id_producto3 = productoCEN.New_("Juego de Cartas", "Marca 2", 35, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas);
+                int id_producto4 = productoCEN.New_("Juego de Mesa", "Marca 3", 40, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa);
+                int id_producto5 = productoCEN.New_("Manual D&D", "Marca 4", 43, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro);
+                int id_producto6 = productoCEN.New_("Colmillos Vampiro", "Marca 5", 60, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros);
 
                 //PEDIDOS
                 PedidoCEN pedidoCEN = new PedidoCEN ();
@@ -147,15 +147,12 @@ public static void InitializeData ()
 
                 //COMENTARIOS
                 ComentarioCEN comentarioCEN = new ComentarioCEN ();
-                comentarioCEN.New_ (id_subforo, id_usu, "Que si que no me apetece pensar");
-
-
-                
-
-
+                comentarioCEN.New_ (id_subforo, id_usu, "Que si que no me apetece pensar.");
 
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
+
+
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS CUSTOM-------------");
 
                 // metodo restar, sumar y comprobar stock y mortrar por consola
