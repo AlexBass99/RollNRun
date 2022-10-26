@@ -295,7 +295,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pe
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PedidoEN self where FROM PedidoEN";
+                //String sql = @"FROM PedidoEN self where select ped FROM PedidoEN as ped where ped.estado = p_estado";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosEstadoHQL");
 
@@ -324,7 +324,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pe
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PedidoEN self where FROM PedidoEN";
+                //String sql = @"FROM PedidoEN self where select ped FROM PedidoEN as pen inner join Usuario as usu where usu.id = p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosUsuarioHQL");
 

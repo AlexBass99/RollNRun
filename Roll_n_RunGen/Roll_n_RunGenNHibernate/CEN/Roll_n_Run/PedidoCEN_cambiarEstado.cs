@@ -21,18 +21,18 @@ public partial class PedidoCEN
 {
 public void CambiarEstado (int p_oid, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum p_estado)
 {
-            /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_cambiarEstado) ENABLED START*/
+        /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_cambiarEstado) ENABLED START*/
 
-        PedidoEN pedidoEN = _IPedidoCAD.ReadOIDDefault(p_oid);
+        PedidoEN pedidoEN = _IPedidoCAD.ReadOIDDefault (p_oid);
 
         if (p_estado != null && pedidoEN.Estado != p_estado) {
                 pedidoEN.Estado = p_estado;
-                _IPedidoCAD.ModifyDefault(pedidoEN);
-                Console.WriteLine("Se ha cambiado exitosamente el estado del pedido a " + p_estado);
+                _IPedidoCAD.ModifyDefault (pedidoEN);
+                Console.WriteLine ("Se ha cambiado exitosamente el estado del pedido a " + p_estado);
         }
 
         else{
-                Console.WriteLine("Ha habido un problema con el estado, o es el mismo que el actual o no es valido.");
+                Console.WriteLine ("Ha habido un problema con el estado, o es el mismo que el actual o no es valido.");
         }
         /*PROTECTED REGION END*/
 }

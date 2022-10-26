@@ -46,6 +46,6 @@
 		 </class>	
 		  
 		  <query name="TarjetaENReadAllHQL">from TarjetaEN</query>
-		  <query name="TarjetaENgetTarjetasUsuarioHQL"><![CDATA[FROM TarjetaEN]]></query>
+		  <query name="TarjetaENgetTarjetasUsuarioHQL"><![CDATA[select tarj FROM TarjetaEN as tarj inner join Usuario as usu where usu.id = p_usuario]]></query>
 		</hibernate-mapping>
 	

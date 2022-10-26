@@ -77,7 +77,7 @@
 		 </class>	
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
-		  <query name="PedidoENgetPedidosEstadoHQL"><![CDATA[FROM PedidoEN]]></query>
-		  <query name="PedidoENgetPedidosUsuarioHQL"><![CDATA[FROM PedidoEN]]></query>
+		  <query name="PedidoENgetPedidosEstadoHQL"><![CDATA[select ped FROM PedidoEN as ped where ped.estado = p_estado]]></query>
+		  <query name="PedidoENgetPedidosUsuarioHQL"><![CDATA[select ped FROM PedidoEN as pen inner join Usuario as usu where usu.id = p_usuario]]></query>
 		</hibernate-mapping>
 	

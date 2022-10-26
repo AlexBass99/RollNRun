@@ -277,7 +277,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Va
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ValoracionEN self where FROM ValoracionEN";
+                //String sql = @"FROM ValoracionEN self where FROM ValoracionEN  select val FROM ValoracionEN as val inner join Producto as prod where prod.id = p_producto";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ValoracionENgetValoracionesProductoHQL");
 
