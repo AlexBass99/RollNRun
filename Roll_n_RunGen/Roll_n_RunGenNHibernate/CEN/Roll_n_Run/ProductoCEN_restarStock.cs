@@ -30,7 +30,7 @@ public void RestarStock (int p_oid, int p_cantidad)
 
         if (p_cantidad > 0 && productoCEN.HayStock (p_oid, p_cantidad)) {
                 productoEN.Stock = productoEN.Stock - p_cantidad;
-                Console.WriteLine("Se ha disminuido exitósamente el Stock en '" + p_cantidad + "'.");
+                Console.WriteLine("Se ha disminuido exitosamente el Stock en '" + p_cantidad + "'.");
             }
         
         else{

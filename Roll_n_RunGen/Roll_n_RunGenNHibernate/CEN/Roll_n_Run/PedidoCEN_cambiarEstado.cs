@@ -28,9 +28,13 @@ public void CambiarEstado (int p_oid, Roll_n_RunGenNHibernate.Enumerated.Roll_n_
 
         pedidoEN = pedidoCEN.ReadOID (p_oid);
 
-        if (pedidoEN.Estado != p_estado) {
+        if (p_estado != null && pedidoEN.Estado != p_estado) {
                 pedidoEN.Estado = p_estado;
                 Console.WriteLine("Se ha cambiado exitosamente el estado del pedido a " + p_estado);
+        }
+
+        else{
+                Console.WriteLine("Ha habido un problema con el estado, o es el mismo que el actual o no es valido.");
         }
         /*PROTECTED REGION END*/
 }

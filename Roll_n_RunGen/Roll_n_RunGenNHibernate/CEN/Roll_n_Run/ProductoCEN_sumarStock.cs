@@ -29,7 +29,7 @@ public void SumarStock (int p_oid, int p_cantidad)
         productoEN = productoCEN.ReadOID (p_oid);
         if (p_cantidad > 0) {
                 productoEN.Stock = productoEN.Stock + p_cantidad;
-                Console.WriteLine("Se ha aumentado exitósamente el Stock en '" + p_cantidad + "'.");
+                Console.WriteLine("Se ha aumentado exitosamente el Stock en '" + p_cantidad + "'.");
         }
         
         else{
