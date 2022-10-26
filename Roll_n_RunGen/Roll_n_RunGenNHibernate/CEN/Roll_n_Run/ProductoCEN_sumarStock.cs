@@ -29,15 +29,12 @@ public void SumarStock (int p_oid, int p_cantidad)
         productoEN = productoCEN.ReadOID (p_oid);
         if (p_cantidad > 0) {
                 productoEN.Stock = productoEN.Stock + p_cantidad;
-                //se avisa de que se ha sumado el stock
+                Console.WriteLine("Se ha aumentado exitósamente el Stock en '" + p_cantidad + "'.");
         }
+        
         else{
-                //se avisa de que no se ha podido sumar el stock
+                Console.WriteLine("Lamentablemente '" + p_cantidad + "' no es un valor correcto para sumar stock.");
         }
-
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method SumarStock() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

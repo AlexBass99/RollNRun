@@ -31,12 +31,13 @@ public bool HayStock (int p_oid, int p_cantidad)
         //La cantidad es el numero de ese producto que se quiere restar del stock total
         //Comprobamos si la cantidad es MAYOR a cero y MENOR O IGUAL que el stock actual y se lo restamos
         if (p_cantidad > 0 && p_cantidad <= productoEN.Stock) {
+                Console.WriteLine("Hay suficiente stock para la cantidad de '" + p_cantidad + "'.");
                 return true;
-                //notificar que hay suficiente stock
         }
+
         else{
+                Console.WriteLine("No es un valor correcto o no hay suficiente stock para la cantidad de '" + p_cantidad + "'.");
                 return false;
-                //notificar en consola que no hay suficiente stock
         }
         /*PROTECTED REGION END*/
 }

@@ -23,7 +23,6 @@ public void CambiarEstado (int p_oid, Roll_n_RunGenNHibernate.Enumerated.Roll_n_
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_cambiarEstado) ENABLED START*/
 
-        // Write here your custom code...
         PedidoCEN pedidoCEN = new PedidoCEN ();
         PedidoEN pedidoEN = new PedidoEN ();
 
@@ -31,6 +30,7 @@ public void CambiarEstado (int p_oid, Roll_n_RunGenNHibernate.Enumerated.Roll_n_
 
         if (pedidoEN.Estado != p_estado) {
                 pedidoEN.Estado = p_estado;
+                Console.WriteLine("Se ha cambiado exitosamente el estado del pedido a " + p_estado);
         }
         /*PROTECTED REGION END*/
 }

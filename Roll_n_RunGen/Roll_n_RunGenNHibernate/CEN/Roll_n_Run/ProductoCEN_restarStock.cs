@@ -30,14 +30,12 @@ public void RestarStock (int p_oid, int p_cantidad)
 
         if (p_cantidad > 0 && productoCEN.HayStock (p_oid, p_cantidad)) {
                 productoEN.Stock = productoEN.Stock - p_cantidad;
-                //se avisa de que se ha restado el stock
-        }
+                Console.WriteLine("Se ha disminuido exitósamente el Stock en '" + p_cantidad + "'.");
+            }
+        
         else{
-                //se avisa de que no se ha podido restar el stock
+                Console.WriteLine("Ha habido un fallo con el valor '" + p_cantidad + "' o no hay suficiente stock.");
         }
-        // Write here your custom code...
-
-        throw new NotImplementedException ("Method RestarStock() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }
