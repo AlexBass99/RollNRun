@@ -21,14 +21,13 @@ public partial class ProductoCEN
 {
 public void SumarStock (int p_oid, int p_cantidad)
 {
-        /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_sumarStock) ENABLED START*/
+            /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_sumarStock) ENABLED START*/
 
-        ProductoEN productoEN = new ProductoEN ();
-        ProductoCEN productoCEN = new ProductoCEN ();
+        ProductoEN productoEN = _IProductoCAD.ReadOIDDefault(p_oid);
 
-        productoEN = productoCEN.ReadOID (p_oid);
         if (p_cantidad > 0) {
                 productoEN.Stock = productoEN.Stock + p_cantidad;
+                _IProductoCAD.ModifyDefault(productoEN);
                 Console.WriteLine("Se ha aumentado exitosamente el Stock en '" + p_cantidad + "'.");
         }
         

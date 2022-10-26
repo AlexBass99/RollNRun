@@ -21,17 +21,17 @@ public partial class ProductoCEN
 {
 public void RestarStock (int p_oid, int p_cantidad)
 {
-        /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_restarStock) ENABLED START*/
+            /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_restarStock) ENABLED START*/
 
-        ProductoEN productoEN = new ProductoEN ();
-        ProductoCEN productoCEN = new ProductoCEN ();
-
-        productoEN = productoCEN.ReadOID (p_oid);
+        ProductoEN productoEN = _IProductoCAD.ReadOIDDefault(p_oid);
+        ProductoCEN productoCEN = new ProductoCEN();
 
         if (p_cantidad > 0 && productoCEN.HayStock (p_oid, p_cantidad)) {
+        
                 productoEN.Stock = productoEN.Stock - p_cantidad;
+                _IProductoCAD.ModifyDefault(productoEN);
                 Console.WriteLine("Se ha disminuido exitosamente el Stock en '" + p_cantidad + "'.");
-            }
+        }
         
         else{
                 Console.WriteLine("Ha habido un fallo con el valor '" + p_cantidad + "' o no hay suficiente stock.");

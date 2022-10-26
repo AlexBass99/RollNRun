@@ -90,7 +90,8 @@ public static void InitializeData ()
 
                 //LOGIN usuario
                 if (usuarioCEN.Login (id_usu, "1234") != null) {
-                        Console.WriteLine ("El Login es correcto");
+                    Console.WriteLine ("El Login es correcto");
+                    Console.WriteLine();
                 }
 
                 //TARJETAS
@@ -111,12 +112,12 @@ public static void InitializeData ()
 
                 //PRODUCTOS
                 ProductoCEN productoCEN = new ProductoCEN ();
-                int id_producto = productoCEN.New_ ("Dados d6", "Marca Blanca", 27, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado);
-                int id_producto2 = productoCEN.New_("Figura", "Marca 1", 30, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura);
-                int id_producto3 = productoCEN.New_("Juego de Cartas", "Marca 2", 35, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas);
-                int id_producto4 = productoCEN.New_("Juego de Mesa", "Marca 3", 40, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa);
-                int id_producto5 = productoCEN.New_("Manual D&D", "Marca 4", 43, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro);
-                int id_producto6 = productoCEN.New_("Colmillos Vampiro", "Marca 5", 60, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros);
+                int id_producto = productoCEN.New_ ("Dados d6", "Marca Blanca", 270, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado);
+                int id_producto2 = productoCEN.New_("Figura", "Marca 1", 300, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura);
+                int id_producto3 = productoCEN.New_("Juego de Cartas", "Marca 2", 305, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas);
+                int id_producto4 = productoCEN.New_("Juego de Mesa", "Marca 3", 400, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa);
+                int id_producto5 = productoCEN.New_("Manual D&D", "Marca 4", 403, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro);
+                int id_producto6 = productoCEN.New_("Colmillos Vampiro", "Marca 5", 600, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros);
 
                 //PEDIDOS
                 PedidoCEN pedidoCEN = new PedidoCEN ();
@@ -140,55 +141,92 @@ public static void InitializeData ()
                 //VALORACIONES
                 ValoracionCEN valoracionCEN = new ValoracionCEN ();
                 valoracionCEN.New_ (3, "Pues esta bastante bien", id_producto, id_usu);
+                valoracionCEN.New_(2, "Pues esta bastante bien", id_producto, id_usu2);
+                valoracionCEN.New_(5, "Pues esta bastante bien", id_producto, id_usu3);
+                valoracionCEN.New_(3, "Pues esta bastante bien", id_producto2, id_usu);
+                valoracionCEN.New_(1, "Pues esta bastante bien", id_producto2, id_usu2);
+                valoracionCEN.New_(5, "Pues esta bastante bien", id_producto2, id_usu3);
+                valoracionCEN.New_(4, "Pues esta bastante bien", id_producto2, id_usu4);
 
                 //SUBFOROS
                 SubforoCEN subforoCEN = new SubforoCEN ();
                 int id_subforo = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3); // El numero de comentarios esta por cambiar a falta de confirmacion
-
+                int id_subforo2 = subforoCEN.New_(id_usu, "Mesa cuadrada para flexear de personaje", new DateTime(2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
+                int id_subforo3 = subforoCEN.New_(id_usu2, "Mesa cuadrada para flexear de personaje", new DateTime(2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
+                int id_subforo4 = subforoCEN.New_(id_usu2, "Mesa cuadrada para flexear de personaje", new DateTime(2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
                 //COMENTARIOS
                 ComentarioCEN comentarioCEN = new ComentarioCEN ();
                 comentarioCEN.New_ (id_subforo, id_usu, "Que si que no me apetece pensar.");
+                comentarioCEN.New_(id_subforo, id_usu2, "Que si que no me apetece pensar.");
+                comentarioCEN.New_(id_subforo, id_usu3, "Que si que no me apetece pensar.");
+                comentarioCEN.New_(id_subforo2, id_usu, "Que si que no me apetece pensar.");
+                comentarioCEN.New_(id_subforo3, id_usu2, "Que si que no me apetece pensar.");
+                comentarioCEN.New_(id_subforo2, id_usu3, "Que si que no me apetece pensar.");
 
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
 
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS CUSTOM-------------");
+                Console.WriteLine();
+                Console.WriteLine();
 
                 // metodo restar, sumar y comprobar stock y mortrar por consola
-                /*
-                ProductoEN prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
-                Console.WriteLine ("-------------Metodo restar stock-------------");
 
-                Console.WriteLine ("Stock inicial: " + masEN.Stock);
+                ProductoEN prodEN = new ProductoCAD().ReadOIDDefault (id_producto);
+                PedidoEN pedEN = new PedidoCAD().ReadOIDDefault(id_pedido);
+
+                Console.WriteLine("Stock inicial: " + prodEN.Stock);
+                Console.WriteLine();
+
+                Console.WriteLine ("-------------Metodo restar stock-------------");
 
                 try
                 {
-                        masCEN.RestarStock (idmas, 23);
+                        productoCEN.RestarStock (id_producto, 23);
                 }
                 catch (Exception e)
                 {
                         System.Console.WriteLine (e.Message);
                 }
 
-                masEN = new MascarillaCAD ().ReadOIDDefault (idmas);
+                prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
 
-                Console.WriteLine ("Stock restado(23): " + masEN.Stock);
+                Console.WriteLine ("Stock restado(23): " + prodEN.Stock);
                 Console.WriteLine ();
+                Console.WriteLine();
 
-                masCEN.SumarStock (idmas, 47);
-
-                masEN = new MascarillaCAD ().ReadOIDDefault (idmas);
                 Console.WriteLine ("-------------Metodo sumar stock-------------");
-
-                Console.WriteLine ("Stock sumado(47): " + masEN.Stock);
+                productoCEN.SumarStock(id_producto, 47);
+                prodEN = new ProductoCAD().ReadOIDDefault(id_producto);
+                Console.WriteLine ("Stock sumado(47): " + prodEN.Stock);
                 Console.WriteLine ();
+                Console.WriteLine();
 
                 Console.WriteLine ("-------------Metodo comprobar stock-------------");
-                Console.WriteLine ("�Hay 221 de Stock? " + masCEN.HayStock (idmas, 221));
+                Console.WriteLine ("¿Hay 2021 de Stock? " + productoCEN.HayStock (id_producto, 2201));
                 Console.WriteLine ();
-                
-                */
+
+                Console.WriteLine("¿Hay 21 de Stock? " + productoCEN.HayStock(id_producto, 21));
+                Console.WriteLine();
+                Console.WriteLine();
+
+                Console.WriteLine("-------------Metodo cambiar estado-------------");
+                Console.WriteLine("El estado actual del pedido es: " + pedEN.Estado);
+                Console.WriteLine();
+
+                Console.WriteLine("Se va a intentar cambiar el estado del pedido a 'EnProceso' (su estado actual)");
+                pedidoCEN.CambiarEstado(id_pedido, EstadoEnum.enProceso);
+                pedEN = new PedidoCAD().ReadOIDDefault(id_pedido);
+                Console.WriteLine("El estado actual del pedido es: " + pedEN.Estado);
+                Console.WriteLine();
+
+                Console.WriteLine("Se va a intentar cambiar el estado del pedido a 'Devuelto'");
+                pedidoCEN.CambiarEstado(id_pedido, EstadoEnum.devuelto);
+                pedEN = new PedidoCAD().ReadOIDDefault(id_pedido);
+                Console.WriteLine("El estado actual del pedido es: " + pedEN.Estado);
+                Console.WriteLine();
+                Console.WriteLine();
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
                 /*PROTECTED REGION END*/
