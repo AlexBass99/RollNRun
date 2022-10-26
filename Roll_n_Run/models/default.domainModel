@@ -202,13 +202,11 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_xWH8IE_IEe2okZAJRi4vlA" alias="idUsuario" associationOrigin="_xWHVEE_IEe2okZAJRi4vlA" name="usuario" type="Object"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_mVjMkE4FEe2oPOAEyd8Jwg" name="Pedido" alias="Pedido" asociationTarget="_vr_3ME4IEe2oPOAEyd8Jwg" associationOrigin="_0zkN8E4IEe2oPOAEyd8Jwg _Jy35cE4JEe2oPOAEyd8Jwg">
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_f3Zn8U4GEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_f3Zn8U4GEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg" automaticSynchronize="false" customized="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwoE4JEe2oPOAEyd8Jwg" name="p_fecha" type="Date"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwoU4JEe2oPOAEyd8Jwg" name="p_direccion"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwok4JEe2oPOAEyd8Jwg" name="p_precio" type="Double"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwo04JEe2oPOAEyd8Jwg" name="p_cantidad" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwpE4JEe2oPOAEyd8Jwg" name="p_metodoPago" type="Enum" typeEnum="_nTwPUE4HEe2oPOAEyd8Jwg"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwpU4JEe2oPOAEyd8Jwg" name="p_estado" type="Enum" typeEnum="_5MO-sE4FEe2oPOAEyd8Jwg"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwpk4JEe2oPOAEyd8Jwg" name="p_usuario" type="OID" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_f3Zn904GEe2oPOAEyd8Jwg" name="modify" operationType="Modifier" type="Void">

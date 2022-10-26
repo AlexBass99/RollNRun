@@ -187,6 +187,7 @@
 	<Compile Include="CAD\Roll_n_Run\IPedidoCAD.cs" />
 	<Compile Include="CAD\Roll_n_Run\PedidoCAD.cs" />
 	<Compile Include="CP\Roll_n_Run\PedidoCP.cs" />
+			<Compile Include="CEN\Roll_n_Run\PedidoCEN_New_.cs" />
 			
 			
 			

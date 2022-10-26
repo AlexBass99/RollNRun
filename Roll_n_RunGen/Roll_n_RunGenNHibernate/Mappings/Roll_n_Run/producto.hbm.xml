@@ -104,9 +104,9 @@
 		 </class>	
 		  
 		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
-		  <query name="ProductoENbuscarPrecioHQL"><![CDATA[FROM ProductoEN]]></query>
-		  <query name="ProductoENbuscarNombreHQL"><![CDATA[FROM ProductoEN]]></query>
-		  <query name="ProductoENbuscarTipoHQL"><![CDATA[FROM ProductoEN]]></query>
-		  <query name="ProductoENgetProductosDeseadosUsuarioHQL"><![CDATA[FROM ProductoEN]]></query>
+		  <query name="ProductoENbuscarPrecioHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.precio = p_precio]]></query>
+		  <query name="ProductoENbuscarNombreHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.nombre = p_nombre]]></query>
+		  <query name="ProductoENbuscarTipoHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.tipo = p_tipo]]></query>
+		  <query name="ProductoENgetProductosDeseadosUsuarioHQL"><![CDATA[select prod FROM ProductoEN as prod inner join Usuario as usu where usu.id = p_usuario]]></query>
 		</hibernate-mapping>
 	

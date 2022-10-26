@@ -39,39 +39,6 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int New_ (Nullable<DateTime> p_fecha, string p_direccion, double p_precio, int p_cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum p_metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum p_estado, int p_usuario)
-{
-        PedidoEN pedidoEN = null;
-        int oid;
-
-        //Initialized PedidoEN
-        pedidoEN = new PedidoEN ();
-        pedidoEN.Fecha = p_fecha;
-
-        pedidoEN.Direccion = p_direccion;
-
-        pedidoEN.Precio = p_precio;
-
-        pedidoEN.Cantidad = p_cantidad;
-
-        pedidoEN.MetodoPago = p_metodoPago;
-
-        pedidoEN.Estado = p_estado;
-
-
-        if (p_usuario != -1) {
-                // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
-                pedidoEN.Usuario = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN ();
-                pedidoEN.Usuario.Id = p_usuario;
-        }
-
-        //Call to PedidoCAD
-
-        oid = _IPedidoCAD.New_ (pedidoEN);
-        return oid;
-}
-
 public void Modify (int p_Pedido_OID, Nullable<DateTime> p_fecha, string p_direccion, double p_precio, int p_cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum p_metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum p_estado)
 {
         PedidoEN pedidoEN = null;
