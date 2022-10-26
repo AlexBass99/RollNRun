@@ -154,10 +154,10 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_zMYuMFBMEe2iNN73jFHcyA" name="calcularValoracionMedia" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_zMjGQFBMEe2iNN73jFHcyA" name="p_oid" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_kMFQYFBPEe2iNN73jFHcyA" name="buscarPrecio" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="FROM ProductoEN" automaticSynchronize="false"/>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_nCGbQFBPEe2iNN73jFHcyA" name="buscarNombre" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="FROM ProductoEN" automaticSynchronize="false"/>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oWk64FBPEe2iNN73jFHcyA" name="buscarTipo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="FROM ProductoEN" automaticSynchronize="false"/>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Y3V9EFR-Ee2eV_FNwkrMPw" name="getProductosDeseadosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="FROM ProductoEN" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_kMFQYFBPEe2iNN73jFHcyA" name="buscarPrecio" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod where prod.precio = p_precio" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_nCGbQFBPEe2iNN73jFHcyA" name="buscarNombre" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod where prod.nombre = p_nombre" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oWk64FBPEe2iNN73jFHcyA" name="buscarTipo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod where prod.tipo = p_tipo" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Y3V9EFR-Ee2eV_FNwkrMPw" name="getProductosDeseadosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod inner join Usuario as usu where usu.id = p_usuario" automaticSynchronize="false"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_jeIVkFR-Ee2eV_FNwkrMPw" name="marcarDeseado" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_jeI8oFR-Ee2eV_FNwkrMPw" name="p_oid" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
       </operations>
@@ -345,8 +345,8 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_BeM9gE_KEe2okZAJRi4vlA" name="seguirSubforo" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_BeOLoE_KEe2okZAJRi4vlA" name="p_oid" type="OID" typeObject="_3N3LkE_IEe2okZAJRi4vlA"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_vr2XAFR7Ee2eV_FNwkrMPw" name="getSubforosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_3N3LkE_IEe2okZAJRi4vlA" filter="FROM SubforoEN" automaticSynchronize="false"/>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_5l3JEFR7Ee2eV_FNwkrMPw" name="getSeguidosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_3N3LkE_IEe2okZAJRi4vlA" filter="FROM SubforoEN" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_vr2XAFR7Ee2eV_FNwkrMPw" name="getSubforosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_3N3LkE_IEe2okZAJRi4vlA" filter="select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = p_autor" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_5l3JEFR7Ee2eV_FNwkrMPw" name="getSeguidosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_3N3LkE_IEe2okZAJRi4vlA" filter="select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = p_usuarios" automaticSynchronize="false"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_VQivUFSbEe2eV_FNwkrMPw" name="actualizarNumComentarios" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_VQivUVSbEe2eV_FNwkrMPw" name="p_oid" type="OID" typeObject="_3N3LkE_IEe2okZAJRi4vlA"/>
       </operations>
