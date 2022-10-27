@@ -277,7 +277,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Li
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM LineaPedidoEN self where select lin FROM LineaPedidoEN as lin inner join Pedido as ped where usu.id = p_pedido";
+                //String sql = @"FROM LineaPedidoEN self where select lin FROM LineaPedidoEN as lin inner join Pedido as ped where usu.id = :p_pedido";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("LineaPedidoENgetLineasPedidoHQL");
 

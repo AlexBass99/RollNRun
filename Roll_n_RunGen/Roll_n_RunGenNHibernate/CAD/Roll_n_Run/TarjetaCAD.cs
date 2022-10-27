@@ -281,7 +281,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Ta
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM TarjetaEN self where select tarj FROM TarjetaEN as tarj inner join Usuario as usu where usu.id = p_usuario";
+                //String sql = @"FROM TarjetaEN self where select tarj FROM TarjetaEN as tarj inner join Usuario as usu where usu.id = :p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("TarjetaENgetTarjetasUsuarioHQL");
 

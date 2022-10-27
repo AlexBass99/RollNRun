@@ -43,6 +43,6 @@
 		 </class>	
 		  
 		  <query name="ValoracionENReadAllHQL">from ValoracionEN</query>
-		  <query name="ValoracionENgetValoracionesProductoHQL"><![CDATA[FROM ValoracionEN  select val FROM ValoracionEN as val inner join Producto as prod where prod.id = p_producto]]></query>
+		  <query name="ValoracionENgetValoracionesProductoHQL"><![CDATA[select val FROM ValoracionEN as val inner join Producto as prod where prod.id = :p_producto]]></query>
 		</hibernate-mapping>
 	

@@ -37,16 +37,11 @@ public int New_ (Nullable<DateTime> p_fecha, string p_direccion, double p_precio
 
         pedidoEN.Cantidad = p_cantidad;
 
-        
-
 
         if (p_usuario != -1) {
                 pedidoEN.Usuario = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN ();
                 pedidoEN.Usuario.Id = p_usuario;
         }
-
-        pedidoEN.Estado = Enumerated.Roll_n_Run.EstadoEnum.enCarrito;
-        pedidoEN.MetodoPago = Enumerated.Roll_n_Run.PagoEnum.tarjeta;
 
         //Call to PedidoCAD
 

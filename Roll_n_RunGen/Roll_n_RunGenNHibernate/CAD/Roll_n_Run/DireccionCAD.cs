@@ -281,7 +281,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Di
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM DireccionEN self where select dir FROM DireccionEN as dir inner join Usuario as usu where usu.id = p_usuario";
+                //String sql = @"FROM DireccionEN self where select dir FROM DireccionEN as dir inner join Usuario as usu where usu.id = :p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("DireccionENgetDireccionesUsuarioHQL");
 

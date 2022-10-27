@@ -301,7 +301,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.precio = p_precio";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.precio = :p_precio";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarPrecioHQL");
 
@@ -330,7 +330,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.nombre = p_nombre";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.nombre = :p_nombre";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarNombreHQL");
 
@@ -359,7 +359,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.tipo = p_tipo";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.tipo = :p_tipo";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarTipoHQL");
 
@@ -388,7 +388,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod inner join Usuario as usu where usu.id = p_usuario";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod inner join Usuario as usu where usu.id = :p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENgetProductosDeseadosUsuarioHQL");
 

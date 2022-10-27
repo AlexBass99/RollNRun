@@ -283,7 +283,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Su
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM SubforoEN self where select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = p_autor";
+                //String sql = @"FROM SubforoEN self where select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = :p_autor";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("SubforoENgetSubforosUsuarioHQL");
 
@@ -312,7 +312,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Su
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM SubforoEN self where select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = p_usuarios";
+                //String sql = @"FROM SubforoEN self where select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = :p_usuarios";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("SubforoENgetSeguidosUsuarioHQL");
 

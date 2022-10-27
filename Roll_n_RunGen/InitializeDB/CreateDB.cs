@@ -123,10 +123,10 @@ public static void InitializeData ()
                 PedidoCEN pedidoCEN = new PedidoCEN ();
                 int id_pedido = pedidoCEN.New_ (new DateTime (2023, 1, 1), "Sigo igual", 30, 1, id_usu);
                 int id_pedido2 = pedidoCEN.New_ (new DateTime (2023, 1, 2), "Calle Falsa 123", 30, 1, id_usu);
-                int id_pedido3 = pedidoCEN.New_ (new DateTime (2023, 1, 3), "Calle Real 321", 30, 1 id_usu);
-                int id_pedido4 = pedidoCEN.New_ (new DateTime (2023, 1, 4), "IES Carrus", 30, 1 id_usu);
-                int id_pedido5 = pedidoCEN.New_ (new DateTime (2023, 1, 5), "No se donde estoy", 30, 1 id_usu);
-                int id_pedido6 = pedidoCEN.New_ (new DateTime (2023, 1, 6), "Sigo andando", 30, 1 id_usu);
+                int id_pedido3 = pedidoCEN.New_ (new DateTime (2023, 1, 3), "Calle Real 321", 30, 1, id_usu);
+                int id_pedido4 = pedidoCEN.New_ (new DateTime (2023, 1, 4), "IES Carrus", 30, 1, id_usu);
+                int id_pedido5 = pedidoCEN.New_ (new DateTime (2023, 1, 5), "No se donde estoy", 30, 1, id_usu);
+                int id_pedido6 = pedidoCEN.New_ (new DateTime (2023, 1, 6), "Sigo andando", 30, 1, id_usu);
 
                 //LINEAS DE PEDIDO
                 LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN ();
