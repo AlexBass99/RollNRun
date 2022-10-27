@@ -275,15 +275,16 @@ public System.Collections.Generic.IList<DireccionEN> ReadAll (int first, int siz
         return result;
 }
 
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> GetDireccionesUsuario ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> GetDireccionesUsuario (int ? p_usuario)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM DireccionEN self where select dir FROM DireccionEN as dir inner join Usuario as usu where usu.id = :p_usuario";
+                //String sql = @"FROM DireccionEN self where select dir FROM DireccionEN as dir inner join dir.Usuario as usu where usu.Id = :p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("DireccionENgetDireccionesUsuarioHQL");
+                query.SetParameter ("p_usuario", p_usuario);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN>();
                 SessionCommit ();

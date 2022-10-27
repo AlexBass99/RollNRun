@@ -31,6 +31,6 @@ LineaPedidoEN ReadOID (int id
 System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int size);
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> GetLineasPedido ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> GetLineasPedido (int ? p_pedido);
 }
 }

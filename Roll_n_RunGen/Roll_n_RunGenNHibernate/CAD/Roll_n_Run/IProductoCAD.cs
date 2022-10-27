@@ -35,15 +35,21 @@ System.Collections.Generic.IList<ProductoEN> ReadAll (int first, int size);
 
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarPrecio ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarPrecio (double ? p_precio);
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarNombre ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarNombre (string p_nombre);
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarTipo ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarTipo (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum ? p_tipo);
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> GetProductosDeseadosUsuario ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> GetProductosDeseadosUsuario (int ? p_usuario);
+
+
+
+
+
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarOfertas ();
 }
 }

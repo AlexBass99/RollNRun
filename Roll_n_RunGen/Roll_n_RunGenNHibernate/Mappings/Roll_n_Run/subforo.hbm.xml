@@ -21,8 +21,8 @@
 					<property name="Descripcion" type="string"> 
 						<column name="descripcion"  not-null="true"/>
 					</property>
-					<property name="NumComentarios" type="integer"> 
-						<column name="numComentarios"  not-null="true"/>
+					<property name="NumEntradas" type="integer"> 
+						<column name="numEntradas"  not-null="true"/>
 					</property>
 			
 			
@@ -37,13 +37,13 @@
 			
 			
 		  			
-						<bag name="Comentario" >
+						<bag name="Entrada" >
 							<key>
 							
 								
 								<column name="FK_idSubforo_idSubforo"/>
 					      	</key>
-							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN"/>
+							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN"/>
 					    </bag>
 					
 			
@@ -70,7 +70,7 @@
 		 </class>	
 		  
 		  <query name="SubforoENReadAllHQL">from SubforoEN</query>
-		  <query name="SubforoENgetSubforosUsuarioHQL"><![CDATA[select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = :p_autor]]></query>
-		  <query name="SubforoENgetSeguidosUsuarioHQL"><![CDATA[select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = :p_usuarios]]></query>
+		  <query name="SubforoENgetSubforosUsuarioHQL"><![CDATA[select sfor FROM SubforoEN as sfor inner join sfor.Autor as usu where usu.Id = :p_autor]]></query>
+		  <query name="SubforoENgetSeguidosUsuarioHQL"><![CDATA[select sfor FROM SubforoEN as sfor inner join sfor.Usuarios as usu where usu.Id = :p_usuarios]]></query>
 		</hibernate-mapping>
 	

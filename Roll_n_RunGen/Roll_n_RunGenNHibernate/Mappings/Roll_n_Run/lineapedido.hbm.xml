@@ -43,6 +43,6 @@
 		 </class>	
 		  
 		  <query name="LineaPedidoENReadAllHQL">from LineaPedidoEN</query>
-		  <query name="LineaPedidoENgetLineasPedidoHQL"><![CDATA[select lin FROM LineaPedidoEN as lin inner join Pedido as ped where usu.id = :p_pedido]]></query>
+		  <query name="LineaPedidoENgetLineasPedidoHQL"><![CDATA[select lin FROM LineaPedidoEN as lin inner join lin.Pedido as ped where ped.Id = :p_pedido]]></query>
 		</hibernate-mapping>
 	

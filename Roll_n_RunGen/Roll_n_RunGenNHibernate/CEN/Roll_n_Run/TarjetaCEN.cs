@@ -106,9 +106,9 @@ public System.Collections.Generic.IList<TarjetaEN> ReadAll (int first, int size)
         list = _ITarjetaCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> GetTarjetasUsuario ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> GetTarjetasUsuario (int ? p_usuario)
 {
-        return _ITarjetaCAD.GetTarjetasUsuario ();
+        return _ITarjetaCAD.GetTarjetasUsuario (p_usuario);
 }
 }
 }

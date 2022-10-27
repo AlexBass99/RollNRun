@@ -271,15 +271,16 @@ public System.Collections.Generic.IList<ValoracionEN> ReadAll (int first, int si
         return result;
 }
 
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> GetValoracionesProducto ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> GetValoracionesProducto (int ? p_producto)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ValoracionEN self where select val FROM ValoracionEN as val inner join Producto as prod where prod.id = :p_producto";
+                //String sql = @"FROM ValoracionEN self where select val FROM ValoracionEN as val inner join val.Producto as prod where prod.Id = :p_producto";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ValoracionENgetValoracionesProductoHQL");
+                query.SetParameter ("p_producto", p_producto);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN>();
                 SessionCommit ();

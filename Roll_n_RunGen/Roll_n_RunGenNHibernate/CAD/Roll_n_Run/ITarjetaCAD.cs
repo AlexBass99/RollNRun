@@ -31,6 +31,6 @@ TarjetaEN ReadOID (int id
 System.Collections.Generic.IList<TarjetaEN> ReadAll (int first, int size);
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> GetTarjetasUsuario ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> GetTarjetasUsuario (int ? p_usuario);
 }
 }

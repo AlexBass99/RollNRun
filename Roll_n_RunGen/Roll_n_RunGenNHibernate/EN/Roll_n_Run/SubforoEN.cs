@@ -41,16 +41,16 @@ private string descripcion;
 
 
 /**
- *	Atributo comentario
+ *	Atributo entrada
  */
-private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> comentario;
+private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada;
 
 
 
 /**
- *	Atributo numComentarios
+ *	Atributo numEntradas
  */
-private int numComentarios;
+private int numEntradas;
 
 
 
@@ -94,14 +94,14 @@ public virtual string Descripcion {
 
 
 
-public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> Comentario {
-        get { return comentario; } set { comentario = value;  }
+public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> Entrada {
+        get { return entrada; } set { entrada = value;  }
 }
 
 
 
-public virtual int NumComentarios {
-        get { return numComentarios; } set { numComentarios = value;  }
+public virtual int NumEntradas {
+        get { return numEntradas; } set { numEntradas = value;  }
 }
 
 
@@ -116,26 +116,26 @@ public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_
 
 public SubforoEN()
 {
-        comentario = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN>();
+        entrada = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN>();
         usuarios = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN>();
 }
 
 
 
-public SubforoEN(int id, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN autor, string titulo, Nullable<DateTime> fecha, string descripcion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> comentario, int numComentarios, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuarios
+public SubforoEN(int id, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN autor, string titulo, Nullable<DateTime> fecha, string descripcion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, int numEntradas, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuarios
                  )
 {
-        this.init (Id, autor, titulo, fecha, descripcion, comentario, numComentarios, usuarios);
+        this.init (Id, autor, titulo, fecha, descripcion, entrada, numEntradas, usuarios);
 }
 
 
 public SubforoEN(SubforoEN subforo)
 {
-        this.init (Id, subforo.Autor, subforo.Titulo, subforo.Fecha, subforo.Descripcion, subforo.Comentario, subforo.NumComentarios, subforo.Usuarios);
+        this.init (Id, subforo.Autor, subforo.Titulo, subforo.Fecha, subforo.Descripcion, subforo.Entrada, subforo.NumEntradas, subforo.Usuarios);
 }
 
 private void init (int id
-                   , Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN autor, string titulo, Nullable<DateTime> fecha, string descripcion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN> comentario, int numComentarios, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuarios)
+                   , Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN autor, string titulo, Nullable<DateTime> fecha, string descripcion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, int numEntradas, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuarios)
 {
         this.Id = id;
 
@@ -148,9 +148,9 @@ private void init (int id
 
         this.Descripcion = descripcion;
 
-        this.Comentario = comentario;
+        this.Entrada = entrada;
 
-        this.NumComentarios = numComentarios;
+        this.NumEntradas = numEntradas;
 
         this.Usuarios = usuarios;
 }

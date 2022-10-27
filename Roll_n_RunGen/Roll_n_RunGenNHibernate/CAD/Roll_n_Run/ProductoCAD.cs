@@ -118,6 +118,9 @@ public void ModifyDefault (ProductoEN producto)
                 productoEN.Tipo = producto.Tipo;
 
 
+
+                productoEN.Oferta = producto.Oferta;
+
                 session.Update (productoEN);
                 SessionCommit ();
         }
@@ -192,6 +195,9 @@ public void Modify (ProductoEN producto)
 
 
                 productoEN.Tipo = producto.Tipo;
+
+
+                productoEN.Oferta = producto.Oferta;
 
                 session.Update (productoEN);
                 SessionCommit ();
@@ -295,15 +301,16 @@ public System.Collections.Generic.IList<ProductoEN> ReadAll (int first, int size
         return result;
 }
 
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarPrecio ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarPrecio (double ? p_precio)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.precio = :p_precio";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.Precio = :p_precio";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarPrecioHQL");
+                query.SetParameter ("p_precio", p_precio);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN>();
                 SessionCommit ();
@@ -324,15 +331,16 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
 
         return result;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarNombre ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarNombre (string p_nombre)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.nombre = :p_nombre";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.Nombre = :p_nombre";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarNombreHQL");
+                query.SetParameter ("p_nombre", p_nombre);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN>();
                 SessionCommit ();
@@ -353,15 +361,16 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
 
         return result;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarTipo ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarTipo (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum ? p_tipo)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.tipo = :p_tipo";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.Tipo = :p_tipo";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarTipoHQL");
+                query.SetParameter ("p_tipo", p_tipo);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN>();
                 SessionCommit ();
@@ -382,15 +391,45 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
 
         return result;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> GetProductosDeseadosUsuario ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> GetProductosDeseadosUsuario (int ? p_usuario)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod inner join Usuario as usu where usu.id = :p_usuario";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod inner join prod.Usuario as usu where usu.Id = :p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENgetProductosDeseadosUsuarioHQL");
+                query.SetParameter ("p_usuario", p_usuario);
+
+                result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarOfertas ()
+{
+        System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ProductoEN self where FROM ProductoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarOfertasHQL");
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN>();
                 SessionCommit ();

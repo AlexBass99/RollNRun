@@ -275,15 +275,16 @@ public System.Collections.Generic.IList<TarjetaEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> GetTarjetasUsuario ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> GetTarjetasUsuario (int ? p_usuario)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM TarjetaEN self where select tarj FROM TarjetaEN as tarj inner join Usuario as usu where usu.id = :p_usuario";
+                //String sql = @"FROM TarjetaEN self where select tarj FROM TarjetaEN as tarj inner join tarj.Usuario as usu where usu.Id = :p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("TarjetaENgetTarjetasUsuarioHQL");
+                query.SetParameter ("p_usuario", p_usuario);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN>();
                 SessionCommit ();

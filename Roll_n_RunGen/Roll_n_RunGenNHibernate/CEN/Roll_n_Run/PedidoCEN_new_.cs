@@ -21,7 +21,7 @@ public partial class PedidoCEN
 {
 public int New_ (Nullable<DateTime> p_fecha, string p_direccion, double p_precio, int p_cantidad, int p_usuario)
 {
-        /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_new__customized) START*/
+        /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_new__customized) ENABLED START*/
 
         PedidoEN pedidoEN = null;
 
@@ -43,9 +43,14 @@ public int New_ (Nullable<DateTime> p_fecha, string p_direccion, double p_precio
                 pedidoEN.Usuario.Id = p_usuario;
         }
 
+
         //Call to PedidoCAD
 
+        pedidoEN.Estado = Enumerated.Roll_n_Run.EstadoEnum.enCarrito;
+        pedidoEN.MetodoPago = Enumerated.Roll_n_Run.PagoEnum.tarjeta;
+
         oid = _IPedidoCAD.New_ (pedidoEN);
+
         return oid;
         /*PROTECTED REGION END*/
 }

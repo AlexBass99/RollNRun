@@ -31,10 +31,10 @@ PedidoEN ReadOID (int id
 System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size);
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosEstado ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosEstado (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum ? p_estado);
 
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosUsuario ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosUsuario (int ? p_usuario);
 }
 }

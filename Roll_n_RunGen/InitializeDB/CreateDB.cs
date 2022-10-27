@@ -112,12 +112,12 @@ public static void InitializeData ()
 
                 //PRODUCTOS
                 ProductoCEN productoCEN = new ProductoCEN ();
-                int id_producto = productoCEN.New_ ("Dados d6", "Marca Blanca", 270, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado);
-                int id_producto2 = productoCEN.New_ ("Figura", "Marca 1", 300, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura);
-                int id_producto3 = productoCEN.New_ ("Juego de Cartas", "Marca 2", 305, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas);
-                int id_producto4 = productoCEN.New_ ("Juego de Mesa", "Marca 3", 400, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa);
-                int id_producto5 = productoCEN.New_ ("Manual D&D", "Marca 4", 403, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro);
-                int id_producto6 = productoCEN.New_ ("Colmillos Vampiro", "Marca 5", 600, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros);
+                int id_producto = productoCEN.New_ ("Dados d6", "Marca Blanca", 270, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado, 1);
+                int id_producto2 = productoCEN.New_ ("Figura", "Marca 1", 300, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 1);
+                int id_producto3 = productoCEN.New_ ("Juego de Cartas", "Marca 2", 305, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 1);
+                int id_producto4 = productoCEN.New_ ("Juego de Mesa", "Marca 3", 400, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 1);
+                int id_producto5 = productoCEN.New_ ("Manual D&D", "Marca 4", 403, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 1);
+                int id_producto6 = productoCEN.New_ ("Colmillos Vampiro", "Marca 5", 600, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 1);
 
                 //PEDIDOS
                 PedidoCEN pedidoCEN = new PedidoCEN ();
@@ -150,18 +150,30 @@ public static void InitializeData ()
 
                 //SUBFOROS
                 SubforoCEN subforoCEN = new SubforoCEN ();
-                int id_subforo = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3); // El numero de comentarios esta por cambiar a falta de confirmacion
-                int id_subforo2 = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
-                int id_subforo3 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
-                int id_subforo4 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
-                //COMENTARIOS
-                ComentarioCEN comentarioCEN = new ComentarioCEN ();
-                comentarioCEN.New_ (id_subforo, id_usu, "Que si que no me apetece pensar.");
-                comentarioCEN.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar.");
-                comentarioCEN.New_ (id_subforo, id_usu3, "Que si que no me apetece pensar.");
-                comentarioCEN.New_ (id_subforo2, id_usu, "Que si que no me apetece pensar.");
-                comentarioCEN.New_ (id_subforo3, id_usu2, "Que si que no me apetece pensar.");
-                comentarioCEN.New_ (id_subforo2, id_usu3, "Que si que no me apetece pensar.");
+                int id_subforo = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje 1", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3); // El numero de comentarios esta por cambiar a falta de confirmacion
+                int id_subforo2 = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje 2", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
+                int id_subforo3 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje 3", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
+                int id_subforo4 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje 4", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
+
+                //ENTRADAS
+                EntradaCEN entradaCEN = new EntradaCEN ();
+                entradaCEN.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar.");
+                entradaCEN.New_ (id_subforo, id_usu, "Que si que no me apetece pensar.");
+                entradaCEN.New_ (id_subforo, id_usu3, "Que si que no me apetece pensar.");
+                entradaCEN.New_ (id_subforo2, id_usu, "Que si que no me apetece pensar.");
+                entradaCEN.New_ (id_subforo3, id_usu2, "Que si que no me apetece pensar.");
+                entradaCEN.New_ (id_subforo2, id_usu3, "Que si que no me apetece pensar.");
+
+                //DEVOLUCIONES
+                DevolucionCEN devolucionCEN = new DevolucionCEN ();
+                devolucionCEN.New_ ("Estos no son los dados que pedi", Motivo_DevolucionEnum.producto_incorrecto, id_pedido, id_usu);
+                devolucionCEN.New_ ("No me gusta, cambialo", Motivo_DevolucionEnum.otros, id_pedido2, id_usu);
+
+                //PREGUNTAS FRECUENTES
+                PreguntaFrecuenteCEN preguntaFrecuenteCEN = new PreguntaFrecuenteCEN ();
+                preguntaFrecuenteCEN.New_ ("Como creo un subforo?", "Pues creandolo");
+                preguntaFrecuenteCEN.New_ ("Poque existo?", "No se");
+                preguntaFrecuenteCEN.New_ ("Poque sigo en la carrera?", "Porque no sabes hacer nada con tu vida");
 
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
@@ -227,6 +239,24 @@ public static void InitializeData ()
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
                 Console.WriteLine ();
                 Console.WriteLine ();
+
+
+                Console.WriteLine ("-------------Metodo seguir subforo-------------");
+
+                Console.WriteLine ("Se va a intentar mostrar los subforos que sigue usu");
+                subforoCEN.SeguirSubforo (id_subforo, new List<int> { id_usu });
+                subforoCEN.SeguirSubforo (id_subforo2, new List<int> { id_usu });
+                subforoCEN.SeguirSubforo (id_subforo3, new List<int> { id_usu });
+                subforoCEN.SeguirSubforo (id_subforo4, new List<int> { id_usu });
+
+                //SubforoEN subfEN = new SubforoCAD().ReadOIDDefault(id_subforo);
+                Console.WriteLine ("Los subforos que sigue son: ");
+                foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario (id_usu)) {
+                        Console.WriteLine (subf.Titulo);
+                }
+                Console.WriteLine ();
+                Console.WriteLine ();
+
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
                 /*PROTECTED REGION END*/

@@ -36,6 +36,9 @@
 					<property name="Tipo" > 
 						<column name="tipo"  not-null="true"/>
 					</property>
+					<property name="Oferta" type="double"> 
+						<column name="oferta"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -66,7 +69,7 @@
 			
 			
 		  			
-						<bag name="Usuario" table="[producto_usuario]"  >
+						<bag name="Usuarios" table="[producto_usuario]"  >
 							<key>
 								
 									<column name="FK_idProducto_idProducto"/> 
@@ -78,14 +81,16 @@
 			
 			
 		  			
-						<bag name="Comentario" >
+						<bag name="Entrada" >
 							<key>
 							
 								
 								<column name="FK_idProducto_idProducto"/>
 					      	</key>
-							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN"/>
+							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN"/>
 					    </bag>
+					
+			
 					
 					
 					
@@ -104,9 +109,10 @@
 		 </class>	
 		  
 		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
-		  <query name="ProductoENbuscarPrecioHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.precio = :p_precio]]></query>
-		  <query name="ProductoENbuscarNombreHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.nombre = :p_nombre]]></query>
-		  <query name="ProductoENbuscarTipoHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.tipo = :p_tipo]]></query>
-		  <query name="ProductoENgetProductosDeseadosUsuarioHQL"><![CDATA[select prod FROM ProductoEN as prod inner join Usuario as usu where usu.id = :p_usuario]]></query>
+		  <query name="ProductoENbuscarPrecioHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.Precio = :p_precio]]></query>
+		  <query name="ProductoENbuscarNombreHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.Nombre = :p_nombre]]></query>
+		  <query name="ProductoENbuscarTipoHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.Tipo = :p_tipo]]></query>
+		  <query name="ProductoENgetProductosDeseadosUsuarioHQL"><![CDATA[select prod FROM ProductoEN as prod inner join prod.Usuario as usu where usu.Id = :p_usuario]]></query>
+		  <query name="ProductoENbuscarOfertasHQL"><![CDATA[FROM ProductoEN]]></query>
 		</hibernate-mapping>
 	

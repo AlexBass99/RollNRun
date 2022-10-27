@@ -39,7 +39,7 @@ public ISubforoCAD get_ISubforoCAD ()
         return this._ISubforoCAD;
 }
 
-public int New_ (int p_autor, string p_titulo, Nullable<DateTime> p_fecha, string p_descripcion, int p_numComentarios)
+public int New_ (int p_autor, string p_titulo, Nullable<DateTime> p_fecha, string p_descripcion, int p_numEntradas)
 {
         SubforoEN subforoEN = null;
         int oid;
@@ -60,7 +60,7 @@ public int New_ (int p_autor, string p_titulo, Nullable<DateTime> p_fecha, strin
 
         subforoEN.Descripcion = p_descripcion;
 
-        subforoEN.NumComentarios = p_numComentarios;
+        subforoEN.NumEntradas = p_numEntradas;
 
         //Call to SubforoCAD
 
@@ -68,7 +68,7 @@ public int New_ (int p_autor, string p_titulo, Nullable<DateTime> p_fecha, strin
         return oid;
 }
 
-public void Modify (int p_Subforo_OID, string p_titulo, Nullable<DateTime> p_fecha, string p_descripcion, int p_numComentarios)
+public void Modify (int p_Subforo_OID, string p_titulo, Nullable<DateTime> p_fecha, string p_descripcion, int p_numEntradas)
 {
         SubforoEN subforoEN = null;
 
@@ -78,7 +78,7 @@ public void Modify (int p_Subforo_OID, string p_titulo, Nullable<DateTime> p_fec
         subforoEN.Titulo = p_titulo;
         subforoEN.Fecha = p_fecha;
         subforoEN.Descripcion = p_descripcion;
-        subforoEN.NumComentarios = p_numComentarios;
+        subforoEN.NumEntradas = p_numEntradas;
         //Call to SubforoCAD
 
         _ISubforoCAD.Modify (subforoEN);
@@ -106,13 +106,19 @@ public System.Collections.Generic.IList<SubforoEN> ReadAll (int first, int size)
         list = _ISubforoCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSubforosUsuario ()
+public void SeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs)
 {
-        return _ISubforoCAD.GetSubforosUsuario ();
+        //Call to SubforoCAD
+
+        _ISubforoCAD.SeguirSubforo (p_Subforo_OID, p_usuarios_OIDs);
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSeguidosUsuario ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSubforosUsuario (int ? p_autor)
 {
-        return _ISubforoCAD.GetSeguidosUsuario ();
+        return _ISubforoCAD.GetSubforosUsuario (p_autor);
+}
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSeguidosUsuario (int ? p_usuarios)
+{
+        return _ISubforoCAD.GetSeguidosUsuario (p_usuarios);
 }
 }
 }

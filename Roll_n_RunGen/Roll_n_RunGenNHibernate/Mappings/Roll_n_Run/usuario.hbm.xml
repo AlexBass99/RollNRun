@@ -96,13 +96,13 @@
 					
 			
 		  			
-						<bag name="Comentario" >
+						<bag name="Entrada" >
 							<key>
 							
 								
 								<column name="FK_idUsuario_idUsuario"/>
 					      	</key>
-							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.ComentarioEN"/>
+							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN"/>
 					    </bag>
 					
 			
@@ -120,7 +120,7 @@
     					</bag>
 			
 		  			
-						<bag name="Subforo" table="[subforo_0_usuario]" inverse="true" >
+						<bag name="Subforos" table="[subforo_0_usuario]" inverse="true" >
 							<key>
 								
 									<column name="FK_idUsuario_idUsuario"/> 
@@ -130,6 +130,18 @@
       						</many-to-many>
     					</bag>
 			
+			
+		  			
+						<bag name="Devolucion" >
+							<key>
+							
+								
+								<column name="FK_idUsuario_idUsuario"/>
+					      	</key>
+							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN"/>
+					    </bag>
+					
+					
 					
 					
 					

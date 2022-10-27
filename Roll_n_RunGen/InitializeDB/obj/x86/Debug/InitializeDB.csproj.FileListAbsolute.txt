@@ -22,3 +22,27 @@ C:\Users\MSI\Desktop\Cosas de Estudiar\3o\DSM\Cosas que me consumen recursos en 
 C:\Users\MSI\Desktop\Cosas de Estudiar\3o\DSM\Cosas que me consumen recursos en el PC\GitHub_Movidas\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.pdb
 C:\Users\MSI\Desktop\Cosas de Estudiar\3o\DSM\Cosas que me consumen recursos en el PC\GitHub_Movidas\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll.config
 C:\Users\MSI\Desktop\Cosas de Estudiar\3o\DSM\Cosas que me consumen recursos en el PC\GitHub_Movidas\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.exe
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.pdb
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\log4net.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\nunit.core.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\nunit.framework.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\jose-jwt.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.pdb
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll.config
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.AssemblyReference.cache
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CoreCompileInputs.cache
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb

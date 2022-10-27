@@ -111,6 +111,7 @@ public void ModifyDefault (PedidoEN pedido)
 
 
 
+
                 session.Update (pedidoEN);
                 SessionCommit ();
         }
@@ -289,15 +290,16 @@ public System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosEstado ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosEstado (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum ? p_estado)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PedidoEN self where select ped FROM PedidoEN as ped where ped.estado = :p_estado";
+                //String sql = @"FROM PedidoEN self where select ped FROM PedidoEN as ped where ped.Estado = :p_estado";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosEstadoHQL");
+                query.SetParameter ("p_estado", p_estado);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN>();
                 SessionCommit ();
@@ -318,15 +320,16 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pe
 
         return result;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosUsuario ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> GetPedidosUsuario (int ? p_usuario)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PedidoEN self where select ped FROM PedidoEN as pen inner join Usuario as usu where usu.id = :p_usuario";
+                //String sql = @"FROM PedidoEN self where select ped FROM PedidoEN as ped inner join ped.Usuario as usu where usu.Id = :p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosUsuarioHQL");
+                query.SetParameter ("p_usuario", p_usuario);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN>();
                 SessionCommit ();

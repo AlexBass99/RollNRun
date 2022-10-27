@@ -119,6 +119,7 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioEN.Rol = usuario.Rol;
 
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }

@@ -108,9 +108,9 @@ public System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int s
         list = _ILineaPedidoCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> GetLineasPedido ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> GetLineasPedido (int ? p_pedido)
 {
-        return _ILineaPedidoCAD.GetLineasPedido ();
+        return _ILineaPedidoCAD.GetLineasPedido (p_pedido);
 }
 }
 }

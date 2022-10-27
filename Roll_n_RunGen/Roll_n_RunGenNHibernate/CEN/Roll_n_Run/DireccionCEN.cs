@@ -106,9 +106,9 @@ public System.Collections.Generic.IList<DireccionEN> ReadAll (int first, int siz
         list = _IDireccionCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> GetDireccionesUsuario ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> GetDireccionesUsuario (int ? p_usuario)
 {
-        return _IDireccionCAD.GetDireccionesUsuario ();
+        return _IDireccionCAD.GetDireccionesUsuario (p_usuario);
 }
 }
 }

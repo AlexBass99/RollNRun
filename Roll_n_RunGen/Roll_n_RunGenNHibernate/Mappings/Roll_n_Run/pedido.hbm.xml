@@ -63,6 +63,18 @@
 							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN"/>
 					    </bag>
 					
+			
+		  			
+						<bag name="Devolucion" >
+							<key>
+							
+								
+								<column name="FK_idPedido_idPedido"/>
+					      	</key>
+							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN"/>
+					    </bag>
+					
+					
 					
 					
 					
@@ -77,7 +89,7 @@
 		 </class>	
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
-		  <query name="PedidoENgetPedidosEstadoHQL"><![CDATA[select ped FROM PedidoEN as ped where ped.estado = :p_estado]]></query>
-		  <query name="PedidoENgetPedidosUsuarioHQL"><![CDATA[select ped FROM PedidoEN as pen inner join Usuario as usu where usu.id = :p_usuario]]></query>
+		  <query name="PedidoENgetPedidosEstadoHQL"><![CDATA[select ped FROM PedidoEN as ped where ped.Estado = :p_estado]]></query>
+		  <query name="PedidoENgetPedidosUsuarioHQL"><![CDATA[select ped FROM PedidoEN as ped inner join ped.Usuario as usu where usu.Id = :p_usuario]]></query>
 		</hibernate-mapping>
 	

@@ -31,6 +31,6 @@ DireccionEN ReadOID (int id
 System.Collections.Generic.IList<DireccionEN> ReadAll (int first, int size);
 
 
-System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> GetDireccionesUsuario ();
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> GetDireccionesUsuario (int ? p_usuario);
 }
 }

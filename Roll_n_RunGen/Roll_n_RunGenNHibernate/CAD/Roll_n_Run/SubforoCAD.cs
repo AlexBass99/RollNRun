@@ -102,7 +102,7 @@ public void ModifyDefault (SubforoEN subforo)
 
 
 
-                subforoEN.NumComentarios = subforo.NumComentarios;
+                subforoEN.NumEntradas = subforo.NumEntradas;
 
 
                 session.Update (subforoEN);
@@ -173,7 +173,7 @@ public void Modify (SubforoEN subforo)
                 subforoEN.Descripcion = subforo.Descripcion;
 
 
-                subforoEN.NumComentarios = subforo.NumComentarios;
+                subforoEN.NumEntradas = subforo.NumEntradas;
 
                 session.Update (subforoEN);
                 SessionCommit ();
@@ -277,15 +277,55 @@ public System.Collections.Generic.IList<SubforoEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSubforosUsuario ()
+public void SeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs)
+{
+        Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN subforoEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                subforoEN = (SubforoEN)session.Load (typeof(SubforoEN), p_Subforo_OID);
+                Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuariosENAux = null;
+                if (subforoEN.Usuarios == null) {
+                        subforoEN.Usuarios = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN>();
+                }
+
+                foreach (int item in p_usuarios_OIDs) {
+                        usuariosENAux = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN ();
+                        usuariosENAux = (Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN)session.Load (typeof(Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN), item);
+                        usuariosENAux.Subforos.Add (subforoEN);
+
+                        subforoEN.Usuarios.Add (usuariosENAux);
+                }
+
+
+                session.Update (subforoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in SubforoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSubforosUsuario (int ? p_autor)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM SubforoEN self where select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = :p_autor";
+                //String sql = @"FROM SubforoEN self where select sfor FROM SubforoEN as sfor inner join sfor.Autor as usu where usu.Id = :p_autor";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("SubforoENgetSubforosUsuarioHQL");
+                query.SetParameter ("p_autor", p_autor);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN>();
                 SessionCommit ();
@@ -306,15 +346,16 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Su
 
         return result;
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSeguidosUsuario ()
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSeguidosUsuario (int ? p_usuarios)
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM SubforoEN self where select sfor FROMSubforoEN as sfor inner join Usuario as usu where usu.id = :p_usuarios";
+                //String sql = @"FROM SubforoEN self where select sfor FROM SubforoEN as sfor inner join sfor.Usuarios as usu where usu.Id = :p_usuarios";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("SubforoENgetSeguidosUsuarioHQL");
+                query.SetParameter ("p_usuarios", p_usuarios);
 
                 result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN>();
                 SessionCommit ();

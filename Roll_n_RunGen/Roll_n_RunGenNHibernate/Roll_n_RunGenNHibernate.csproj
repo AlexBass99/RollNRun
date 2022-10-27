@@ -171,6 +171,11 @@
 			
 			<Compile Include="CP\Roll_n_Run\ProductoCP_MarcarDeseado.cs" />
 			
+			<Compile Include="CEN\Roll_n_Run\ProductoCEN_CompartirProducto.cs" />
+			
+			<Compile Include="CEN\Roll_n_Run\ProductoCEN_CambiarOferta.cs" />
+			
+			
 	<Compile Include="EN\Roll_n_Run\ValoracionEN.cs" />
 	<Compile Include="CEN\Roll_n_Run\ValoracionCEN.cs" />
 	<Compile Include="CAD\Roll_n_Run\IValoracionCAD.cs" />
@@ -196,6 +201,8 @@
 			
 			<Compile Include="CEN\Roll_n_Run\PedidoCEN_CambiarEstado.cs" />
 			
+			
+			<Compile Include="CEN\Roll_n_Run\PedidoCEN_DevolverPedido.cs" />
 			
 	<Compile Include="EN\Roll_n_Run\LineaPedidoEN.cs" />
 	<Compile Include="CEN\Roll_n_Run\LineaPedidoCEN.cs" />
@@ -228,29 +235,51 @@
 			
 			
 			
-			<Compile Include="CP\Roll_n_Run\SubforoCP_SeguirSubforo.cs" />
 			
 			
 			
-			<Compile Include="CEN\Roll_n_Run\SubforoCEN_ActualizarNumComentarios.cs" />
+			<Compile Include="CEN\Roll_n_Run\SubforoCEN_ActualizarNumEntradas.cs" />
 			
-	<Compile Include="EN\Roll_n_Run\ComentarioEN.cs" />
-	<Compile Include="CEN\Roll_n_Run\ComentarioCEN.cs" />
-	<Compile Include="CAD\Roll_n_Run\IComentarioCAD.cs" />
-	<Compile Include="CAD\Roll_n_Run\ComentarioCAD.cs" />
-	<Compile Include="CP\Roll_n_Run\ComentarioCP.cs" />
+			<Compile Include="CEN\Roll_n_Run\SubforoCEN_DejarSeguirSubforo.cs" />
+			
+	<Compile Include="EN\Roll_n_Run\EntradaEN.cs" />
+	<Compile Include="CEN\Roll_n_Run\EntradaCEN.cs" />
+	<Compile Include="CAD\Roll_n_Run\IEntradaCAD.cs" />
+	<Compile Include="CAD\Roll_n_Run\EntradaCAD.cs" />
+	<Compile Include="CP\Roll_n_Run\EntradaCP.cs" />
 			
 			
 			
 			
 			
-			<Compile Include="CP\Roll_n_Run\ComentarioCP_InsertarProducto.cs" />
+			<Compile Include="CP\Roll_n_Run\EntradaCP_InsertarProducto.cs" />
+			
+			
+	<Compile Include="EN\Roll_n_Run\DevolucionEN.cs" />
+	<Compile Include="CEN\Roll_n_Run\DevolucionCEN.cs" />
+	<Compile Include="CAD\Roll_n_Run\IDevolucionCAD.cs" />
+	<Compile Include="CAD\Roll_n_Run\DevolucionCAD.cs" />
+	<Compile Include="CP\Roll_n_Run\DevolucionCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\Roll_n_Run\PreguntaFrecuenteEN.cs" />
+	<Compile Include="CEN\Roll_n_Run\PreguntaFrecuenteCEN.cs" />
+	<Compile Include="CAD\Roll_n_Run\IPreguntaFrecuenteCAD.cs" />
+	<Compile Include="CAD\Roll_n_Run\PreguntaFrecuenteCAD.cs" />
+	<Compile Include="CP\Roll_n_Run\PreguntaFrecuenteCP.cs" />
+			
+			
+			
 			
 			
 	<Compile Include="Enumerated\Roll_n_Run\EstadoEnum.cs" />
 	<Compile Include="Enumerated\Roll_n_Run\PagoEnum.cs" />
 	<Compile Include="Enumerated\Roll_n_Run\Tipo_productoEnum.cs" />
 	<Compile Include="Enumerated\Roll_n_Run\RolEnum.cs" />
+	<Compile Include="Enumerated\Roll_n_Run\Motivo_DevolucionEnum.cs" />
 	
 	
 
@@ -275,7 +304,9 @@
 	<EmbeddedResource Include="Mappings\Roll_n_Run\lineapedido.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Roll_n_Run\factura.hbm.xml" />
 	<EmbeddedResource Include="Mappings\Roll_n_Run\subforo.hbm.xml" />
-	<EmbeddedResource Include="Mappings\Roll_n_Run\comentario.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Roll_n_Run\entrada.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Roll_n_Run\devolucion.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Roll_n_Run\preguntafrecuente.hbm.xml" />
 	
 	
 

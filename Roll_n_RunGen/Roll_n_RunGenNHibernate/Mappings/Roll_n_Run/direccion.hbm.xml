@@ -46,6 +46,6 @@
 		 </class>	
 		  
 		  <query name="DireccionENReadAllHQL">from DireccionEN</query>
-		  <query name="DireccionENgetDireccionesUsuarioHQL"><![CDATA[select dir FROM DireccionEN as dir inner join Usuario as usu where usu.id = :p_usuario]]></query>
+		  <query name="DireccionENgetDireccionesUsuarioHQL"><![CDATA[select dir FROM DireccionEN as dir inner join dir.Usuario as usu where usu.Id = :p_usuario]]></query>
 		</hibernate-mapping>
 	
