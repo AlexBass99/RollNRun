@@ -397,7 +397,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod inner join prod.Usuario as usu where usu.Id = :p_usuario";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod inner join prod.Usuarios as usu where usu.Id = :p_usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENgetProductosDeseadosUsuarioHQL");
                 query.SetParameter ("p_usuario", p_usuario);
@@ -421,6 +421,45 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
 
         return result;
 }
+public void MarcarDeseado (int p_Producto_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs)
+{
+        Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN productoEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                productoEN = (ProductoEN)session.Load (typeof(ProductoEN), p_Producto_OID);
+                Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuariosENAux = null;
+                if (productoEN.Usuarios == null) {
+                        productoEN.Usuarios = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN>();
+                }
+
+                foreach (int item in p_usuarios_OIDs) {
+                        usuariosENAux = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN ();
+                        usuariosENAux = (Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN)session.Load (typeof(Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN), item);
+                        usuariosENAux.Productos_deseados.Add (productoEN);
+
+                        productoEN.Usuarios.Add (usuariosENAux);
+                }
+
+
+                session.Update (productoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
 public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarOfertas ()
 {
         System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> result;

@@ -169,7 +169,6 @@
 			
 			
 			
-			<Compile Include="CP\Roll_n_Run\ProductoCP_MarcarDeseado.cs" />
 			
 			<Compile Include="CEN\Roll_n_Run\ProductoCEN_CompartirProducto.cs" />
 			

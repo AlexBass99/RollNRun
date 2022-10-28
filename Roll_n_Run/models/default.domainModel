@@ -170,11 +170,12 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oWk64FBPEe2iNN73jFHcyA" name="buscarTipo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod where prod.Tipo = :p_tipo" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_i4bWoFYiEe2vguAXlNP9jw" name="p_tipo" type="Enum" typeEnum="_tnl-AFBOEe2iNN73jFHcyA"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Y3V9EFR-Ee2eV_FNwkrMPw" name="getProductosDeseadosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod inner join prod.Usuario as usu where usu.Id = :p_usuario" automaticSynchronize="false">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Y3V9EFR-Ee2eV_FNwkrMPw" name="getProductosDeseadosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod inner join prod.Usuarios as usu where usu.Id = :p_usuario" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_1wK4sFYiEe2vguAXlNP9jw" name="p_usuario" type="Integer"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_jeIVkFR-Ee2eV_FNwkrMPw" name="marcarDeseado" operationType="CustomTransaction" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_jeI8oFR-Ee2eV_FNwkrMPw" name="p_oid" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_jeIVkFR-Ee2eV_FNwkrMPw" name="marcarDeseado" operationType="Relationer" type="Void" relatedRol="_4AjLUlBNEe2iNN73jFHcyA">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_v0sEYFa0Ee2Wtf1AIBzUag" name="p_Producto_OID" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_v0srcFa0Ee2Wtf1AIBzUag" name="p_usuarios_OIDs" type="OID" collectionType="List" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="__p8QQFXMEe21dMBuqRnEXA" name="compartirProducto" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__p_TkFXMEe21dMBuqRnEXA" name="p_oid" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
