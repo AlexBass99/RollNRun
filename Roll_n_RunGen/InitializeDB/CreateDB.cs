@@ -257,6 +257,21 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
+                Console.WriteLine("-------------COMPROBACIÓN DE QUE AUMENTA EL NÚMERO DE ENTRADAS-------------");
+
+                SubforoEN subforito = new SubforoCAD().ReadOIDDefault(id_subforo);
+
+                Console.WriteLine(subforito.NumEntradas);
+
+                entradaCEN.New_(id_subforo, id_usu5, "Que si que no me apetece pensar.");
+                /*
+                subforito = new SubforoCAD().ReadOIDDefault(id_subforo);
+
+                subforoCEN.ActualizarNumEntradas(id_subforo);
+                PRUEBA DE QUE FUNCIONA ActualizarNumEntradas (Sale Mal)
+                */
+                Console.WriteLine(subforito.NumEntradas);
+
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
                 /*PROTECTED REGION END*/

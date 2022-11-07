@@ -23,9 +23,11 @@ public void ActualizarNumEntradas (int p_oid)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Subforo_actualizarNumEntradas) ENABLED START*/
 
-        // Write here your custom code...
+        SubforoEN subforoEN = _ISubforoCAD.ReadOIDDefault (p_oid);
 
-        throw new NotImplementedException ("Method ActualizarNumEntradas() not yet implemented.");
+                subforoEN.NumEntradas++;
+                _ISubforoCAD.ModifyDefault (subforoEN);
+                Console.WriteLine ("Se ha aumentado exitosamente el número de entradas.");
 
         /*PROTECTED REGION END*/
 }

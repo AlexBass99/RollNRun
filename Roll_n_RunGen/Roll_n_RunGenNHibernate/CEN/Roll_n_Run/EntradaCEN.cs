@@ -54,7 +54,6 @@ public int New_ (int p_subforo, int p_usuario, string p_texto)
                 entradaEN.Subforo.Id = p_subforo;
         }
 
-
         if (p_usuario != -1) {
                 // El argumento p_usuario -> Property usuario es oid = false
                 // Lista de oids id

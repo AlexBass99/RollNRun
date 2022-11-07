@@ -112,11 +112,11 @@ public void SeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IList<i
 
         _ISubforoCAD.SeguirSubforo (p_Subforo_OID, p_usuarios_OIDs);
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSubforosUsuario (int ? p_autor)
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSubforosUsuario (int p_autor)
 {
         return _ISubforoCAD.GetSubforosUsuario (p_autor);
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSeguidosUsuario (int ? p_usuarios)
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSeguidosUsuario (int p_usuarios)
 {
         return _ISubforoCAD.GetSeguidosUsuario (p_usuarios);
 }
