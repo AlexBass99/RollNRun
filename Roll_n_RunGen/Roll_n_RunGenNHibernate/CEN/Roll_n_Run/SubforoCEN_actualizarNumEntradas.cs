@@ -25,9 +25,9 @@ public void ActualizarNumEntradas (int p_oid)
 
         SubforoEN subforoEN = _ISubforoCAD.ReadOIDDefault (p_oid);
 
-                subforoEN.NumEntradas++;
-                _ISubforoCAD.ModifyDefault (subforoEN);
-                Console.WriteLine ("Se ha aumentado exitosamente el número de entradas.");
+        subforoEN.NumEntradas++;
+        _ISubforoCAD.ModifyDefault (subforoEN);
+        Console.WriteLine ("Se ha aumentado exitosamente el numero de entradas.");
 
         /*PROTECTED REGION END*/
 }

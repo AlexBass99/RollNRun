@@ -120,5 +120,11 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Su
 {
         return _ISubforoCAD.GetSeguidosUsuario (p_usuarios);
 }
+public void DejarSeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs)
+{
+        //Call to SubforoCAD
+
+        _ISubforoCAD.DejarSeguirSubforo (p_Subforo_OID, p_usuarios_OIDs);
+}
 }
 }

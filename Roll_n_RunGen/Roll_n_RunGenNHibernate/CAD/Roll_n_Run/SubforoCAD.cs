@@ -376,5 +376,43 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Su
 
         return result;
 }
+public void DejarSeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN subforoEN = null;
+                subforoEN = (SubforoEN)session.Load (typeof(SubforoEN), p_Subforo_OID);
+
+                Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuariosENAux = null;
+                if (subforoEN.Usuarios != null) {
+                        foreach (int item in p_usuarios_OIDs) {
+                                usuariosENAux = (Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN)session.Load (typeof(Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN), item);
+                                if (subforoEN.Usuarios.Contains (usuariosENAux) == true) {
+                                        subforoEN.Usuarios.Remove (usuariosENAux);
+                                        usuariosENAux.Subforos.Remove (subforoEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_usuarios_OIDs you are trying to unrelationer, doesn't exist in SubforoEN");
+                        }
+                }
+
+                session.Update (subforoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in SubforoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

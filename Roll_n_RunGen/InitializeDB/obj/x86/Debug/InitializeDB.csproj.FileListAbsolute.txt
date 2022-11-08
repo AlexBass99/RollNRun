@@ -46,3 +46,27 @@ C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Initi
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.exe
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.pdb
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\log4net.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\nunit.core.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\nunit.framework.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\jose-jwt.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\Newtonsoft.Json.dll
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.pdb
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll.config
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.AssemblyReference.cache
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CoreCompileInputs.cache
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
