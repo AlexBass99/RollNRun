@@ -175,6 +175,7 @@
 			<Compile Include="CEN\Roll_n_Run\ProductoCEN_CambiarOferta.cs" />
 			
 			
+			
 	<Compile Include="EN\Roll_n_Run\ValoracionEN.cs" />
 	<Compile Include="CEN\Roll_n_Run\ValoracionCEN.cs" />
 	<Compile Include="CAD\Roll_n_Run\IValoracionCAD.cs" />
@@ -201,7 +202,7 @@
 			<Compile Include="CEN\Roll_n_Run\PedidoCEN_CambiarEstado.cs" />
 			
 			
-			<Compile Include="CEN\Roll_n_Run\PedidoCEN_DevolverPedido.cs" />
+			<Compile Include="CP\Roll_n_Run\PedidoCP_DevolverPedido.cs" />
 			
 	<Compile Include="EN\Roll_n_Run\LineaPedidoEN.cs" />
 	<Compile Include="CEN\Roll_n_Run\LineaPedidoCEN.cs" />

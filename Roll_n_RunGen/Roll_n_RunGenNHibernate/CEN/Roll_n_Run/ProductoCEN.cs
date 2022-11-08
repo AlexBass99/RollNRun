@@ -139,5 +139,11 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
 {
         return _IProductoCAD.BuscarOfertas ();
 }
+public void QuitarDeseado (int p_Producto_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs)
+{
+        //Call to ProductoCAD
+
+        _IProductoCAD.QuitarDeseado (p_Producto_OID, p_usuarios_OIDs);
+}
 }
 }

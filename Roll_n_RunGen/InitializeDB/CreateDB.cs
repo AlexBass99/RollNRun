@@ -243,11 +243,10 @@ public static void InitializeData ()
 
                 Console.WriteLine ("-------------Metodo seguir subforo-------------");
 
-                Console.WriteLine("Los subforos que sigue usu son (no sigue ninguno): ");
-                Console.WriteLine();
-                foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario(id_usu))
-                {
-                    Console.WriteLine(subf.Titulo);
+                Console.WriteLine ("Los subforos que sigue usu son (no sigue ninguno): ");
+                Console.WriteLine ();
+                foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario (id_usu)) {
+                        Console.WriteLine (subf.Titulo);
                 }
                 subforoCEN.SeguirSubforo (id_subforo, new List<int> { id_usu });
                 subforoCEN.SeguirSubforo (id_subforo2, new List<int> { id_usu });
@@ -262,26 +261,24 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                Console.WriteLine("-------------Metodo dejar de seguir subforo-------------");
+                Console.WriteLine ("-------------Metodo dejar de seguir subforo-------------");
 
-                Console.WriteLine("Los subforos que sigue son: ");
-                foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario(id_usu))
-                {
-                    Console.WriteLine(subf.Titulo);
+                Console.WriteLine ("Los subforos que sigue son: ");
+                foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario (id_usu)) {
+                        Console.WriteLine (subf.Titulo);
                 }
-                Console.WriteLine();
+                Console.WriteLine ();
 
-                Console.WriteLine("Se va a intentar hacer que usu deje de seguir a subforo");
-                subforoCEN.DejarSeguirSubforo(id_subforo, new List<int> { id_usu });
-                Console.WriteLine();
+                Console.WriteLine ("Se va a intentar hacer que usu deje de seguir a subforo");
+                subforoCEN.DejarSeguirSubforo (id_subforo, new List<int> { id_usu });
+                Console.WriteLine ();
 
-                Console.WriteLine("Los subforos que sigue son: ");
-                foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario(id_usu))
-                {
-                    Console.WriteLine(subf.Titulo);
+                Console.WriteLine ("Los subforos que sigue son: ");
+                foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario (id_usu)) {
+                        Console.WriteLine (subf.Titulo);
                 }
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine ();
+                Console.WriteLine ();
 
                 Console.WriteLine ("-------------COMPROBACIÓN DE QUE AUMENTA EL NÚMERO DE ENTRADAS-------------");
 
@@ -290,10 +287,10 @@ public static void InitializeData ()
                 Console.WriteLine (subforito.NumEntradas);
 
                 entradaCEN.New_ (id_subforo, id_usu5, "Que si que no me apetece pensar.");
-                
-                subforoCEN.ActualizarNumEntradas(id_subforo);
-                
-                subforito = new SubforoCAD().ReadOIDDefault(id_subforo);
+
+                subforoCEN.ActualizarNumEntradas (id_subforo);
+
+                subforito = new SubforoCAD ().ReadOIDDefault (id_subforo);
                 Console.WriteLine (subforito.NumEntradas);
 
 

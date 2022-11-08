@@ -183,7 +183,11 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_LbkZUFXPEe21dMBuqRnEXA" name="cambiarOferta" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LblAYFXPEe21dMBuqRnEXA" name="p_oid" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_SqsScFXPEe21dMBuqRnEXA" name="buscarOfertas" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="FROM ProductoEN" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_SqsScFXPEe21dMBuqRnEXA" name="buscarOfertas" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod where prod.Oferta > 0" automaticSynchronize="false"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_BJllcF-OEe2tD4D0WjLD9g" name="quitarDeseado" operationType="Unrelationer" type="Void" relatedRol="_4AjLUlBNEe2iNN73jFHcyA">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_FBFbcF-OEe2tD4D0WjLD9g" name="p_Producto_OID" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_FBGCgF-OEe2tD4D0WjLD9g" name="p_usuarios_OIDs" type="OID" collectionType="List" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
+      </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_y3KvgE4EEe2oPOAEyd8Jwg" alias="nombre" name="nombre"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_1BFCUE4EEe2oPOAEyd8Jwg" alias="marca" name="marca"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_2rfVsE4EEe2oPOAEyd8Jwg" alias="stock" name="stock" type="Integer"/>
@@ -261,7 +265,7 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_zd16kFR-Ee2eV_FNwkrMPw" name="getPedidosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg" filter="select ped FROM PedidoEN as ped inner join ped.Usuario as usu where usu.Id = :p_usuario" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_-_9bUFYdEe2vguAXlNP9jw" name="p_usuario" type="Integer"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_DEHboFXOEe21dMBuqRnEXA" name="devolverPedido" type="Void">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_DEHboFXOEe21dMBuqRnEXA" name="devolverPedido" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_DEMUIFXOEe21dMBuqRnEXA" name="p_oid" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_plwZEE4FEe2oPOAEyd8Jwg" alias="fecha" name="fecha" type="Date"/>
@@ -972,6 +976,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_Sqs5g1XPEe21dMBuqRnEXA" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_Sqs5hFXPEe21dMBuqRnEXA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Sqs5hVXPEe21dMBuqRnEXA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_BJnaoF-OEe2tD4D0WjLD9g" type="3004" element="_BJllcF-OEe2tD4D0WjLD9g">
+          <children xmi:type="notation:DecorationNode" xmi:id="_BJnapV-OEe2tD4D0WjLD9g" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_BJnaoV-OEe2tD4D0WjLD9g"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_BJnaol-OEe2tD4D0WjLD9g" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_BJnao1-OEe2tD4D0WjLD9g"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJnapF-OEe2tD4D0WjLD9g"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_veXntU4EEe2oPOAEyd8Jwg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_veXntk4EEe2oPOAEyd8Jwg"/>

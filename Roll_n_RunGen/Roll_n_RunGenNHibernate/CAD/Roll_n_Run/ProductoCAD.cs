@@ -466,7 +466,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where FROM ProductoEN";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.Oferta > 0";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarOfertasHQL");
 
@@ -488,6 +488,44 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         }
 
         return result;
+}
+public void QuitarDeseado (int p_Producto_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN productoEN = null;
+                productoEN = (ProductoEN)session.Load (typeof(ProductoEN), p_Producto_OID);
+
+                Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuariosENAux = null;
+                if (productoEN.Usuarios != null) {
+                        foreach (int item in p_usuarios_OIDs) {
+                                usuariosENAux = (Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN)session.Load (typeof(Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN), item);
+                                if (productoEN.Usuarios.Contains (usuariosENAux) == true) {
+                                        productoEN.Usuarios.Remove (usuariosENAux);
+                                        usuariosENAux.Productos_deseados.Remove (productoEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_usuarios_OIDs you are trying to unrelationer, doesn't exist in ProductoEN");
+                        }
+                }
+
+                session.Update (productoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }
