@@ -39,39 +39,6 @@ public IValoracionCAD get_IValoracionCAD ()
         return this._IValoracionCAD;
 }
 
-public int New_ (double p_valor, string p_comentario, int p_producto, int p_usuario)
-{
-        ValoracionEN valoracionEN = null;
-        int oid;
-
-        //Initialized ValoracionEN
-        valoracionEN = new ValoracionEN ();
-        valoracionEN.Valor = p_valor;
-
-        valoracionEN.Comentario = p_comentario;
-
-
-        if (p_producto != -1) {
-                // El argumento p_producto -> Property producto es oid = false
-                // Lista de oids id
-                valoracionEN.Producto = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN ();
-                valoracionEN.Producto.Id = p_producto;
-        }
-
-
-        if (p_usuario != -1) {
-                // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
-                valoracionEN.Usuario = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN ();
-                valoracionEN.Usuario.Id = p_usuario;
-        }
-
-        //Call to ValoracionCAD
-
-        oid = _IValoracionCAD.New_ (valoracionEN);
-        return oid;
-}
-
 public void Modify (int p_Valoracion_OID, double p_valor, string p_comentario)
 {
         ValoracionEN valoracionEN = null;
@@ -84,12 +51,6 @@ public void Modify (int p_Valoracion_OID, double p_valor, string p_comentario)
         //Call to ValoracionCAD
 
         _IValoracionCAD.Modify (valoracionEN);
-}
-
-public void Destroy (int id
-                     )
-{
-        _IValoracionCAD.Destroy (id);
 }
 
 public ValoracionEN ReadOID (int id

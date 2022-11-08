@@ -205,7 +205,7 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_C4lEkFXPEe21dMBuqRnEXA" alias="oferta" name="oferta" type="Double"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_X7v1cE4FEe2oPOAEyd8Jwg" name="Valoracion" alias="Valoracion" associationOrigin="_mYETIE_IEe2okZAJRi4vlA _xWHVEE_IEe2okZAJRi4vlA">
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_fwCRIE4FEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_X7v1cE4FEe2oPOAEyd8Jwg">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_fwCRIE4FEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_X7v1cE4FEe2oPOAEyd8Jwg" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xEQE_IEe2okZAJRi4vlA" name="p_valor" type="Double"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xEQU_IEe2okZAJRi4vlA" name="p_comentario"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xEQk_IEe2okZAJRi4vlA" name="p_producto" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
@@ -216,7 +216,7 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xERU_IEe2okZAJRi4vlA" name="p_valor" type="Double"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xERk_IEe2okZAJRi4vlA" name="p_comentario"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_fwC4ME4FEe2oPOAEyd8Jwg" name="destroy" operationType="Destroy" type="Void">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_fwC4ME4FEe2oPOAEyd8Jwg" name="destroy" operationType="Destroy" type="Void" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xER0_IEe2okZAJRi4vlA" name="p_Valoracion_OID" type="OID" typeObject="_X7v1cE4FEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_iRqgYE4FEe2oPOAEyd8Jwg" name="readOID" operationType="ReadOID" type="Object" typeObject="_X7v1cE4FEe2oPOAEyd8Jwg">

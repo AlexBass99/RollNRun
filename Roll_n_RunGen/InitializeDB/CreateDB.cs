@@ -9,6 +9,7 @@ using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run;
+using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
 
 /*PROTECTED REGION END*/
 namespace InitializeDB
@@ -129,24 +130,24 @@ public static void InitializeData ()
                 int id_pedido6 = pedidoCEN.New_ (new DateTime (2023, 1, 6), "Sigo andando", 30, 1, id_usu);
 
                 //LINEAS DE PEDIDO
-                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN ();
-                lineaPedidoCEN.New_ (3, 30, id_pedido, id_producto);
-                lineaPedidoCEN.New_ (2, 20, id_pedido2, id_producto2);
-                lineaPedidoCEN.New_ (5, 10, id_pedido3, id_producto3);
-                lineaPedidoCEN.New_ (1, 50, id_pedido4, id_producto4);
-                lineaPedidoCEN.New_ (2, 20, id_pedido5, id_producto5);
-                lineaPedidoCEN.New_ (3, 1, id_pedido6, id_producto6);
+                LineaPedidoCP lineaPedidoCP = new LineaPedidoCP ();
+                lineaPedidoCP.New_ (3, 30, id_pedido, id_producto);
+                lineaPedidoCP.New_ (2, 20, id_pedido2, id_producto2);
+                lineaPedidoCP.New_ (5, 10, id_pedido3, id_producto3);
+                lineaPedidoCP.New_ (1, 50, id_pedido4, id_producto4);
+                lineaPedidoCP.New_ (2, 20, id_pedido5, id_producto5);
+                lineaPedidoCP.New_ (3, 1, id_pedido6, id_producto6);
 
 
                 //VALORACIONES
-                ValoracionCEN valoracionCEN = new ValoracionCEN ();
-                valoracionCEN.New_ (3, "Pues esta bastante bien", id_producto, id_usu);
-                valoracionCEN.New_ (2, "Pues esta bastante bien", id_producto, id_usu2);
-                valoracionCEN.New_ (5, "Pues esta bastante bien", id_producto, id_usu3);
-                valoracionCEN.New_ (3, "Pues esta bastante bien", id_producto2, id_usu);
-                valoracionCEN.New_ (1, "Pues esta bastante bien", id_producto2, id_usu2);
-                valoracionCEN.New_ (5, "Pues esta bastante bien", id_producto2, id_usu3);
-                valoracionCEN.New_ (4, "Pues esta bastante bien", id_producto2, id_usu4);
+                ValoracionCP valoracionCP = new ValoracionCP ();
+                valoracionCP.New_ (3, "Pues esta bastante bien", id_producto, id_usu);
+                valoracionCP.New_ (2, "Pues esta bastante bien", id_producto, id_usu2);
+                valoracionCP.New_ (5, "Pues esta bastante bien", id_producto, id_usu3);
+                valoracionCP.New_ (3, "Pues esta bastante bien", id_producto2, id_usu);
+                valoracionCP.New_ (1, "Pues esta bastante bien", id_producto2, id_usu2);
+                valoracionCP.New_ (5, "Pues esta bastante bien", id_producto2, id_usu3);
+                valoracionCP.New_ (4, "Pues esta bastante bien", id_producto2, id_usu4);
 
                 //SUBFOROS
                 SubforoCEN subforoCEN = new SubforoCEN ();
@@ -234,6 +235,26 @@ public static void InitializeData ()
                 productoCEN.CambiarOferta (id_producto, 20);
                 prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
                 Console.WriteLine ("La oferta actual del producto es: " + prodEN.Oferta);
+
+                Console.WriteLine ();
+                Console.WriteLine ();
+
+
+
+                Console.WriteLine ("-------------Cambio valoracion media producto-------------");
+
+                Console.WriteLine ("La valoracion media del producto es: " + prodEN.Val_media);
+                Console.WriteLine ();
+
+                Console.WriteLine ("Se va a añadir una nueva valoracion para ver si cambia la media");
+                ValoracionEN valEN = valoracionCP.New_ (1, "No me gusta cambialo", id_producto, id_usu4);
+                prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
+                Console.WriteLine ("La valoracion media del producto es: " + prodEN.Val_media);
+
+                Console.WriteLine ("Se va a borrar la nueva valoracion para ver si cambia correctamente la media del producto");
+                valoracionCP.Destroy (valEN.Id);
+                prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
+                Console.WriteLine ("La valoracion media del producto es: " + prodEN.Val_media);
 
                 Console.WriteLine ();
                 Console.WriteLine ();
