@@ -19,13 +19,24 @@ namespace Roll_n_RunGenNHibernate.CEN.Roll_n_Run
 {
 public partial class ProductoCEN
 {
-public void CambiarOferta (int p_oid)
+public void CambiarOferta (int p_oid, double val_oferta)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Producto_cambiarOferta) ENABLED START*/
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method CambiarOferta() not yet implemented.");
+        ProductoEN productoEN = _IProductoCAD.ReadOIDDefault (p_oid);
+
+        if (productoEN.Oferta != val_oferta) {
+                productoEN.Oferta = val_oferta;
+                _IProductoCAD.ModifyDefault (productoEN);
+                Console.WriteLine ("Se ha cambiado exitosamente la oferta del producto a " + val_oferta);
+        }
+
+        else{
+                Console.WriteLine ("Ha habido un problema con la oferta, o es la misma que el valor actual.");
+        }
+
 
         /*PROTECTED REGION END*/
 }

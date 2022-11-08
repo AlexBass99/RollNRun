@@ -39,39 +39,6 @@ public ILineaPedidoCAD get_ILineaPedidoCAD ()
         return this._ILineaPedidoCAD;
 }
 
-public int New_ (int p_cantidad, double p_precio, int p_pedido, int p_producto)
-{
-        LineaPedidoEN lineaPedidoEN = null;
-        int oid;
-
-        //Initialized LineaPedidoEN
-        lineaPedidoEN = new LineaPedidoEN ();
-        lineaPedidoEN.Cantidad = p_cantidad;
-
-        lineaPedidoEN.Precio = p_precio;
-
-
-        if (p_pedido != -1) {
-                // El argumento p_pedido -> Property pedido es oid = false
-                // Lista de oids id
-                lineaPedidoEN.Pedido = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN ();
-                lineaPedidoEN.Pedido.Id = p_pedido;
-        }
-
-
-        if (p_producto != -1) {
-                // El argumento p_producto -> Property producto es oid = false
-                // Lista de oids id
-                lineaPedidoEN.Producto = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN ();
-                lineaPedidoEN.Producto.Id = p_producto;
-        }
-
-        //Call to LineaPedidoCAD
-
-        oid = _ILineaPedidoCAD.New_ (lineaPedidoEN);
-        return oid;
-}
-
 public void Modify (int p_LineaPedido_OID, int p_cantidad, double p_precio)
 {
         LineaPedidoEN lineaPedidoEN = null;
@@ -84,12 +51,6 @@ public void Modify (int p_LineaPedido_OID, int p_cantidad, double p_precio)
         //Call to LineaPedidoCAD
 
         _ILineaPedidoCAD.Modify (lineaPedidoEN);
-}
-
-public void Destroy (int id
-                     )
-{
-        _ILineaPedidoCAD.Destroy (id);
 }
 
 public LineaPedidoEN ReadOID (int id

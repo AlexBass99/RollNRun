@@ -182,6 +182,7 @@
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_LbkZUFXPEe21dMBuqRnEXA" name="cambiarOferta" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LblAYFXPEe21dMBuqRnEXA" name="p_oid" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_0bFDwF-TEe2tD4D0WjLD9g" name="val_oferta" type="Double"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_SqsScFXPEe21dMBuqRnEXA" name="buscarOfertas" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select prod FROM ProductoEN as prod where prod.Oferta > 0" automaticSynchronize="false"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_BJllcF-OEe2tD4D0WjLD9g" name="quitarDeseado" operationType="Unrelationer" type="Void" relatedRol="_4AjLUlBNEe2iNN73jFHcyA">
@@ -290,7 +291,7 @@
       <enumerationLiterals xmi:type="es.ua.dlsi.ooh:EnumerationLiteral" xmi:id="_vHLSsFBUEe2iNN73jFHcyA" name="devuelto" value="7"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_iRZlME4GEe2oPOAEyd8Jwg" name="LineaPedido" alias="LineaPedido" asociationTarget="_Jy35cE4JEe2oPOAEyd8Jwg _Wef3gE4JEe2oPOAEyd8Jwg">
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_sVSsAU4GEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_iRZlME4GEe2oPOAEyd8Jwg">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_sVSsAU4GEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_iRZlME4GEe2oPOAEyd8Jwg" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_b9ugUE4JEe2oPOAEyd8Jwg" name="p_cantidad" type="Integer"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_b9ugUU4JEe2oPOAEyd8Jwg" name="p_precio" type="Double"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_b9ugUk4JEe2oPOAEyd8Jwg" name="p_pedido" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
@@ -301,7 +302,7 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_b9ugVU4JEe2oPOAEyd8Jwg" name="p_cantidad" type="Integer"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_b9ugVk4JEe2oPOAEyd8Jwg" name="p_precio" type="Double"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_sVTTEk4GEe2oPOAEyd8Jwg" name="destroy" operationType="Destroy" type="Void">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_sVTTEk4GEe2oPOAEyd8Jwg" name="destroy" operationType="Destroy" type="Void" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_b9ugV04JEe2oPOAEyd8Jwg" name="p_LineaPedido_OID" type="OID" typeObject="_iRZlME4GEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_uBnD4E4GEe2oPOAEyd8Jwg" name="readOID" operationType="ReadOID" type="Object" typeObject="_iRZlME4GEe2oPOAEyd8Jwg">

@@ -112,12 +112,12 @@ public static void InitializeData ()
 
                 //PRODUCTOS
                 ProductoCEN productoCEN = new ProductoCEN ();
-                int id_producto = productoCEN.New_ ("Dados d6", "Marca Blanca", 270, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado, 1);
-                int id_producto2 = productoCEN.New_ ("Figura", "Marca 1", 300, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 1);
-                int id_producto3 = productoCEN.New_ ("Juego de Cartas", "Marca 2", 305, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 1);
-                int id_producto4 = productoCEN.New_ ("Juego de Mesa", "Marca 3", 400, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 1);
-                int id_producto5 = productoCEN.New_ ("Manual D&D", "Marca 4", 403, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 1);
-                int id_producto6 = productoCEN.New_ ("Colmillos Vampiro", "Marca 5", 600, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 1);
+                int id_producto = productoCEN.New_ ("Dados d6", "Marca Blanca", 270, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado, 0);
+                int id_producto2 = productoCEN.New_ ("Figura", "Marca 1", 300, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
+                int id_producto3 = productoCEN.New_ ("Juego de Cartas", "Marca 2", 305, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
+                int id_producto4 = productoCEN.New_ ("Juego de Mesa", "Marca 3", 400, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
+                int id_producto5 = productoCEN.New_ ("Manual D&D", "Marca 4", 403, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
+                int id_producto6 = productoCEN.New_ ("Colmillos Vampiro", "Marca 5", 600, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
 
                 //PEDIDOS
                 PedidoCEN pedidoCEN = new PedidoCEN ();
@@ -223,6 +223,22 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
+
+
+                Console.WriteLine ("-------------Metodo cambio oferta-------------");
+
+                Console.WriteLine ("La oferta actual del producto es: " + prodEN.Oferta);
+                Console.WriteLine ();
+
+                Console.WriteLine ("Se va a intentar cambiar la oferta del producto a 20");
+                productoCEN.CambiarOferta (id_producto, 20);
+                prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
+                Console.WriteLine ("La oferta actual del producto es: " + prodEN.Oferta);
+
+                Console.WriteLine ();
+                Console.WriteLine ();
+
+
                 Console.WriteLine ("-------------Metodo cambiar estado-------------");
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
                 Console.WriteLine ();
@@ -239,6 +255,8 @@ public static void InitializeData ()
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
                 Console.WriteLine ();
                 Console.WriteLine ();
+
+
 
 
                 Console.WriteLine ("-------------Metodo seguir subforo-------------");
