@@ -27,7 +27,11 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad,
 
         ILineaPedidoCAD lineaPedidoCAD = null;
         LineaPedidoCEN lineaPedidoCEN = null;
+        PedidoCAD pedidoCAD = null;
+        PedidoCEN pedidoCEN = null;
 
+        pedidoCAD = new PedidoCAD(session);
+        pedidoCEN = new PedidoCEN(pedidoCAD);
         Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN result = null;
 
 
@@ -35,10 +39,7 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad,
         {
                 SessionInitializeTransaction ();
                 lineaPedidoCAD = new LineaPedidoCAD (session);
-                lineaPedidoCEN = new  LineaPedidoCEN (lineaPedidoCAD);
-
-
-
+                lineaPedidoCEN = new LineaPedidoCEN(lineaPedidoCAD);
 
                 int oid;
                 //Initialized LineaPedidoEN
@@ -63,9 +64,12 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad,
                 //Call to LineaPedidoCAD
 
                 oid = lineaPedidoCAD.New_ (lineaPedidoEN);
+
+                PedidoEN pedidoEN = pedidoCEN.ReadOID(lineaPedidoEN.Pedido.Id);
+                pedidoEN.Precio += lineaPedidoEN.Precio * lineaPedidoEN.Cantidad;
+                pedidoCAD.ModifyDefault(pedidoEN);
+
                 result = lineaPedidoCAD.ReadOIDDefault (oid);
-
-
 
                 SessionCommit ();
         }

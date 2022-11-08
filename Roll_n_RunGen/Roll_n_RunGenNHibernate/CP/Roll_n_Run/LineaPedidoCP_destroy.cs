@@ -27,7 +27,11 @@ public void Destroy (int p_LineaPedido_OID)
 
         ILineaPedidoCAD lineaPedidoCAD = null;
         LineaPedidoCEN lineaPedidoCEN = null;
+        PedidoCAD pedidoCAD = null;
+        PedidoCEN pedidoCEN = null;
 
+        pedidoCAD = new PedidoCAD(session);
+        pedidoCEN = new PedidoCEN(pedidoCAD);
 
 
         try
@@ -35,12 +39,13 @@ public void Destroy (int p_LineaPedido_OID)
                 SessionInitializeTransaction ();
                 lineaPedidoCAD = new LineaPedidoCAD (session);
                 lineaPedidoCEN = new  LineaPedidoCEN (lineaPedidoCAD);
+                LineaPedidoEN lineaPedidoEN = lineaPedidoCEN.ReadOID(p_LineaPedido_OID); 
 
-
-
+                PedidoEN pedidoEN = pedidoCEN.ReadOID(lineaPedidoEN.Pedido.Id);
+                pedidoEN.Precio -= lineaPedidoEN.Precio * lineaPedidoEN.Cantidad;
+                pedidoCAD.ModifyDefault(pedidoEN);
 
                 lineaPedidoCAD.Destroy (p_LineaPedido_OID);
-
 
                 SessionCommit ();
         }
