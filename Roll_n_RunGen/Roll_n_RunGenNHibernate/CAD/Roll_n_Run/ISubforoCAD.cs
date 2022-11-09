@@ -39,7 +39,6 @@ System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN
 System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> GetSeguidosUsuario (int p_usuarios);
 
 
-
 void DejarSeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs);
 }
 }

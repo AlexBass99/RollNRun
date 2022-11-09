@@ -39,37 +39,6 @@ public IEntradaCAD get_IEntradaCAD ()
         return this._IEntradaCAD;
 }
 
-public int New_ (int p_subforo, int p_usuario, string p_texto)
-{
-        EntradaEN entradaEN = null;
-        int oid;
-
-        //Initialized EntradaEN
-        entradaEN = new EntradaEN ();
-
-        if (p_subforo != -1) {
-                // El argumento p_subforo -> Property subforo es oid = false
-                // Lista de oids id
-                entradaEN.Subforo = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN ();
-                entradaEN.Subforo.Id = p_subforo;
-        }
-
-
-        if (p_usuario != -1) {
-                // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
-                entradaEN.Usuario = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN ();
-                entradaEN.Usuario.Id = p_usuario;
-        }
-
-        entradaEN.Texto = p_texto;
-
-        //Call to EntradaCAD
-
-        oid = _IEntradaCAD.New_ (entradaEN);
-        return oid;
-}
-
 public void Modify (int p_Entrada_OID, string p_texto)
 {
         EntradaEN entradaEN = null;
@@ -81,12 +50,6 @@ public void Modify (int p_Entrada_OID, string p_texto)
         //Call to EntradaCAD
 
         _IEntradaCAD.Modify (entradaEN);
-}
-
-public void Destroy (int id
-                     )
-{
-        _IEntradaCAD.Destroy (id);
 }
 
 public EntradaEN ReadOID (int id

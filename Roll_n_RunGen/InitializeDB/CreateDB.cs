@@ -156,13 +156,13 @@ public static void InitializeData ()
                 int id_subforo4 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje 4", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
 
                 //ENTRADAS
-                EntradaCEN entradaCEN = new EntradaCEN ();
-                entradaCEN.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar.");
-                entradaCEN.New_ (id_subforo, id_usu, "Que si que no me apetece pensar.");
-                entradaCEN.New_ (id_subforo, id_usu3, "Que si que no me apetece pensar.");
-                entradaCEN.New_ (id_subforo2, id_usu, "Que si que no me apetece pensar.");
-                entradaCEN.New_ (id_subforo3, id_usu2, "Que si que no me apetece pensar.");
-                entradaCEN.New_ (id_subforo2, id_usu3, "Que si que no me apetece pensar.");
+                EntradaCP entradaCP = new EntradaCP ();
+                entradaCP.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar.");
+                entradaCP.New_ (id_subforo, id_usu, "Que si que no me apetece pensar.");
+                entradaCP.New_ (id_subforo, id_usu3, "Que si que no me apetece pensar.");
+                entradaCP.New_ (id_subforo2, id_usu, "Que si que no me apetece pensar.");
+                entradaCP.New_ (id_subforo3, id_usu2, "Que si que no me apetece pensar.");
+                entradaCP.New_ (id_subforo2, id_usu3, "Que si que no me apetece pensar.");
 
                 //DEVOLUCIONES
                 DevolucionCEN devolucionCEN = new DevolucionCEN ();
@@ -270,20 +270,16 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                Console.WriteLine("-------------Comprobacion de que aumenta el numero de entradas-------------");
+                Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
 
-                SubforoEN subforito = new SubforoCAD().ReadOIDDefault(id_subforo);
 
-                Console.WriteLine(subforito.NumEntradas);
 
-                entradaCEN.New_(id_subforo, id_usu5, "Que si que no me apetece pensar.");
 
-                subforoCEN.ActualizarNumEntradas(id_subforo);
 
-                subforito = new SubforoCAD().ReadOIDDefault(id_subforo);
-                Console.WriteLine(subforito.NumEntradas);
 
-                Console.WriteLine("-------------COMPROBACIONES DE LOS RELATIONER-------------");
+
+
+                Console.WriteLine ("-------------COMPROBACIONES DE LOS RELATIONER-------------");
 
                 Console.WriteLine ("-------------Metodo seguir subforo-------------");
 
@@ -324,51 +320,45 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                Console.WriteLine("-------------Metodo marcar deseado-------------");
+                Console.WriteLine ("-------------Metodo marcar deseado-------------");
 
-                Console.WriteLine("Los productos deseados de usu (no tiene): ");
-                Console.WriteLine();
-                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario(id_usu))
-                {
-                    Console.WriteLine(fav.Nombre);
+                Console.WriteLine ("Los productos deseados de usu (no tiene): ");
+                Console.WriteLine ();
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu)) {
+                        Console.WriteLine (fav.Nombre);
                 }
 
-                productoCEN.MarcarDeseado(id_producto, new List<int> { id_usu });
-                productoCEN.MarcarDeseado(id_producto2, new List<int> { id_usu });
-                productoCEN.MarcarDeseado(id_producto5, new List<int> { id_usu });
+                productoCEN.MarcarDeseado (id_producto, new List<int> { id_usu });
+                productoCEN.MarcarDeseado (id_producto2, new List<int> { id_usu });
+                productoCEN.MarcarDeseado (id_producto5, new List<int> { id_usu });
 
-                Console.WriteLine("Usu ha marcado como deseados: ");
-                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario(id_usu))
-                {
-                    Console.WriteLine(fav.Nombre);
+                Console.WriteLine ("Usu ha marcado como deseados: ");
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu)) {
+                        Console.WriteLine (fav.Nombre);
                 }
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine ();
+                Console.WriteLine ();
 
-                Console.WriteLine("-------------Metodo quitar deseado-------------");
+                Console.WriteLine ("-------------Metodo quitar deseado-------------");
 
-                Console.WriteLine("Los productos deseados de usu: ");
-                Console.WriteLine();
-                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario(id_usu))
-                {
-                    Console.WriteLine(fav.Nombre);
+                Console.WriteLine ("Los productos deseados de usu: ");
+                Console.WriteLine ();
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu)) {
+                        Console.WriteLine (fav.Nombre);
                 }
-                Console.WriteLine();
+                Console.WriteLine ();
 
-                Console.WriteLine("Se va a intentar hacer que usu quite a Dados de sus deseados");
-                productoCEN.QuitarDeseado(id_producto, new List<int> { id_usu });
-                Console.WriteLine();
+                Console.WriteLine ("Se va a intentar hacer que usu quite a Dados de sus deseados");
+                productoCEN.QuitarDeseado (id_producto, new List<int> { id_usu });
+                Console.WriteLine ();
 
-                Console.WriteLine("Los productos deseados de usu: ");
-                Console.WriteLine();
-                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario(id_usu))
-                {
-                    Console.WriteLine(fav.Nombre);
+                Console.WriteLine ("Los productos deseados de usu: ");
+                Console.WriteLine ();
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu)) {
+                        Console.WriteLine (fav.Nombre);
                 }
-                Console.WriteLine();
-                Console.WriteLine();
-
-                Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
+                Console.WriteLine ();
+                Console.WriteLine ();
                 /*PROTECTED REGION END*/
         }
         catch (Exception ex)
