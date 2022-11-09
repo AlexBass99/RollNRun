@@ -138,7 +138,6 @@ public static void InitializeData ()
                 lineaPedidoCP.New_ (2, 20, id_pedido5, id_producto5);
                 lineaPedidoCP.New_ (3, 1, id_pedido6, id_producto6);
 
-
                 //VALORACIONES
                 ValoracionCP valoracionCP = new ValoracionCP ();
                 valoracionCP.New_ (3, "Pues esta bastante bien", id_producto, id_usu);
@@ -178,7 +177,6 @@ public static void InitializeData ()
 
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
-
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS CUSTOM-------------");
                 Console.WriteLine ();
@@ -224,8 +222,6 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-
-
                 Console.WriteLine ("-------------Metodo cambio oferta-------------");
 
                 Console.WriteLine ("La oferta actual del producto es: " + prodEN.Oferta);
@@ -238,8 +234,6 @@ public static void InitializeData ()
 
                 Console.WriteLine ();
                 Console.WriteLine ();
-
-
 
                 Console.WriteLine ("-------------Cambio valoracion media producto-------------");
 
@@ -259,7 +253,6 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-
                 Console.WriteLine ("-------------Metodo cambiar estado-------------");
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
                 Console.WriteLine ();
@@ -277,8 +270,20 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
+                Console.WriteLine("-------------Comprobacion de que aumenta el numero de entradas-------------");
 
+                SubforoEN subforito = new SubforoCAD().ReadOIDDefault(id_subforo);
 
+                Console.WriteLine(subforito.NumEntradas);
+
+                entradaCEN.New_(id_subforo, id_usu5, "Que si que no me apetece pensar.");
+
+                subforoCEN.ActualizarNumEntradas(id_subforo);
+
+                subforito = new SubforoCAD().ReadOIDDefault(id_subforo);
+                Console.WriteLine(subforito.NumEntradas);
+
+                Console.WriteLine("-------------COMPROBACIONES DE LOS RELATIONER-------------");
 
                 Console.WriteLine ("-------------Metodo seguir subforo-------------");
 
@@ -319,19 +324,49 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                Console.WriteLine ("-------------COMPROBACIÓN DE QUE AUMENTA EL NÚMERO DE ENTRADAS-------------");
+                Console.WriteLine("-------------Metodo marcar deseado-------------");
 
-                SubforoEN subforito = new SubforoCAD ().ReadOIDDefault (id_subforo);
+                Console.WriteLine("Los productos deseados de usu (no tiene): ");
+                Console.WriteLine();
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario(id_usu))
+                {
+                    Console.WriteLine(fav.Nombre);
+                }
 
-                Console.WriteLine (subforito.NumEntradas);
+                productoCEN.MarcarDeseado(id_producto, new List<int> { id_usu });
+                productoCEN.MarcarDeseado(id_producto2, new List<int> { id_usu });
+                productoCEN.MarcarDeseado(id_producto5, new List<int> { id_usu });
 
-                entradaCEN.New_ (id_subforo, id_usu5, "Que si que no me apetece pensar.");
+                Console.WriteLine("Usu ha marcado como deseados: ");
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario(id_usu))
+                {
+                    Console.WriteLine(fav.Nombre);
+                }
+                Console.WriteLine();
+                Console.WriteLine();
 
-                subforoCEN.ActualizarNumEntradas (id_subforo);
+                Console.WriteLine("-------------Metodo quitar deseado-------------");
 
-                subforito = new SubforoCAD ().ReadOIDDefault (id_subforo);
-                Console.WriteLine (subforito.NumEntradas);
+                Console.WriteLine("Los productos deseados de usu: ");
+                Console.WriteLine();
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario(id_usu))
+                {
+                    Console.WriteLine(fav.Nombre);
+                }
+                Console.WriteLine();
 
+                Console.WriteLine("Se va a intentar hacer que usu quite a Dados de sus deseados");
+                productoCEN.QuitarDeseado(id_producto, new List<int> { id_usu });
+                Console.WriteLine();
+
+                Console.WriteLine("Los productos deseados de usu: ");
+                Console.WriteLine();
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario(id_usu))
+                {
+                    Console.WriteLine(fav.Nombre);
+                }
+                Console.WriteLine();
+                Console.WriteLine();
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
                 /*PROTECTED REGION END*/

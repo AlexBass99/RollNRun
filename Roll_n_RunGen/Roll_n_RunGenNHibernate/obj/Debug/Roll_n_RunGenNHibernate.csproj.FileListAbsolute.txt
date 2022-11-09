@@ -52,4 +52,3 @@ F:\OOH4RIA\DSM2021\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGen
 F:\OOH4RIA\DSM2021\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.CopyComplete
 F:\OOH4RIA\DSM2021\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.dll
 F:\OOH4RIA\DSM2021\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.pdb
-F:\OOH4RIA\DSM2021\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.AssemblyReference.cache
