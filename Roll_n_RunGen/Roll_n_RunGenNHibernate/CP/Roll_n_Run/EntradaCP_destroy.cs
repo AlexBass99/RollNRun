@@ -31,22 +31,22 @@ public void Destroy (int p_Entrada_OID)
         SubforoCAD subforoCAD = null;
         SubforoCEN subforoCEN = null;
 
-        subforoCAD = new SubforoCAD(session);
-        subforoCEN = new SubforoCEN(subforoCAD);
+        subforoCAD = new SubforoCAD (session);
+        subforoCEN = new SubforoCEN (subforoCAD);
 
 
-            try
+        try
         {
                 SessionInitializeTransaction ();
                 entradaCAD = new EntradaCAD (session);
                 entradaCEN = new  EntradaCEN (entradaCAD);
-                
 
-                EntradaEN entradaEN = entradaCEN.ReadOID(p_Entrada_OID);
 
-                subforoEN = subforoCEN.ReadOID(entradaEN.Subforo.Id);
+                EntradaEN entradaEN = entradaCEN.ReadOID (p_Entrada_OID);
+
+                subforoEN = subforoCEN.ReadOID (entradaEN.Subforo.Id);
                 subforoEN.NumEntradas--;
-                subforoCAD.ModifyDefault(subforoEN);
+                subforoCAD.ModifyDefault (subforoEN);
 
 
                 entradaCAD.Destroy (p_Entrada_OID);

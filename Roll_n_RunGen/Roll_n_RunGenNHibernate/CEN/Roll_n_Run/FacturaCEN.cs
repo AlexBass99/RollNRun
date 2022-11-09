@@ -39,35 +39,6 @@ public IFacturaCAD get_IFacturaCAD ()
         return this._IFacturaCAD;
 }
 
-public int New_ (Nullable<DateTime> p_fecha, string p_direccion, double p_precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum p_metodoPago, int p_pedido)
-{
-        FacturaEN facturaEN = null;
-        int oid;
-
-        //Initialized FacturaEN
-        facturaEN = new FacturaEN ();
-        facturaEN.Fecha = p_fecha;
-
-        facturaEN.Direccion = p_direccion;
-
-        facturaEN.Precio = p_precio;
-
-        facturaEN.MetodoPago = p_metodoPago;
-
-
-        if (p_pedido != -1) {
-                // El argumento p_pedido -> Property pedido es oid = false
-                // Lista de oids id
-                facturaEN.Pedido = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN ();
-                facturaEN.Pedido.Id = p_pedido;
-        }
-
-        //Call to FacturaCAD
-
-        oid = _IFacturaCAD.New_ (facturaEN);
-        return oid;
-}
-
 public void Modify (int p_Factura_OID, Nullable<DateTime> p_fecha, string p_direccion, double p_precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum p_metodoPago)
 {
         FacturaEN facturaEN = null;

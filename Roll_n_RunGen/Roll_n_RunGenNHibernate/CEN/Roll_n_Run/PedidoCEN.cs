@@ -39,7 +39,7 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public void Modify (int p_Pedido_OID, Nullable<DateTime> p_fecha, string p_direccion, double p_precio, int p_cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum p_metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum p_estado)
+public void Modify (int p_Pedido_OID, Nullable<DateTime> p_fecha, string p_direccion, double p_total, int p_cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum p_metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum p_estado)
 {
         PedidoEN pedidoEN = null;
 
@@ -48,7 +48,7 @@ public void Modify (int p_Pedido_OID, Nullable<DateTime> p_fecha, string p_direc
         pedidoEN.Id = p_Pedido_OID;
         pedidoEN.Fecha = p_fecha;
         pedidoEN.Direccion = p_direccion;
-        pedidoEN.Precio = p_precio;
+        pedidoEN.Total = p_total;
         pedidoEN.Cantidad = p_cantidad;
         pedidoEN.MetodoPago = p_metodoPago;
         pedidoEN.Estado = p_estado;

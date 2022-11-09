@@ -32,6 +32,7 @@
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_mCrbEFBOEe2iNN73jFHcyA" name="confirmarRecepcion" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_mCsCIFBOEe2iNN73jFHcyA" name="p_oid" type="OID" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_e28GcGBPEe2Ye-_g8YAwsA" name="p_pedido" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_slsRwE4BEe2oPOAEyd8Jwg" alias="nombre" name="nombre"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_yQTEIE4BEe2oPOAEyd8Jwg" alias="email" name="email" unique="true"/>
@@ -236,24 +237,22 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_f3Zn8U4GEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg" automaticSynchronize="false" customized="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwoE4JEe2oPOAEyd8Jwg" name="p_fecha" type="Date"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwoU4JEe2oPOAEyd8Jwg" name="p_direccion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwok4JEe2oPOAEyd8Jwg" name="p_precio" type="Double"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwo04JEe2oPOAEyd8Jwg" name="p_cantidad" type="Integer"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yxRwpk4JEe2oPOAEyd8Jwg" name="p_usuario" type="OID" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_f3Zn904GEe2oPOAEyd8Jwg" name="modify" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGVOiVXOEe21dMBuqRnEXA" name="p_Pedido_OID" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGVOilXOEe21dMBuqRnEXA" name="p_fecha" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGVOi1XOEe21dMBuqRnEXA" name="p_direccion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGVOjFXOEe21dMBuqRnEXA" name="p_precio" type="Double"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGV1kFXOEe21dMBuqRnEXA" name="p_cantidad" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGV1kVXOEe21dMBuqRnEXA" name="p_metodoPago" type="Enum" typeEnum="_nTwPUE4HEe2oPOAEyd8Jwg"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGV1klXOEe21dMBuqRnEXA" name="p_estado" type="Enum" typeEnum="_5MO-sE4FEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERFwkGBMEe2Ye-_g8YAwsA" name="p_Pedido_OID" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERFwkWBMEe2Ye-_g8YAwsA" name="p_fecha" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERFwkmBMEe2Ye-_g8YAwsA" name="p_direccion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERFwk2BMEe2Ye-_g8YAwsA" name="p_total" type="Double"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERFwlGBMEe2Ye-_g8YAwsA" name="p_cantidad" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERFwlWBMEe2Ye-_g8YAwsA" name="p_metodoPago" type="Enum" typeEnum="_nTwPUE4HEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERFwlmBMEe2Ye-_g8YAwsA" name="p_estado" type="Enum" typeEnum="_5MO-sE4FEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_f3Zn_k4GEe2oPOAEyd8Jwg" name="destroy" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGV1k1XOEe21dMBuqRnEXA" name="p_Pedido_OID" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERKpEGBMEe2Ye-_g8YAwsA" name="p_Pedido_OID" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_gyHjwE4GEe2oPOAEyd8Jwg" name="readOID" operationType="ReadOID" type="Object" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pGV1lFXOEe21dMBuqRnEXA" name="p_Pedido_OID" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ERKpEWBMEe2Ye-_g8YAwsA" name="p_Pedido_OID" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_gyIK0E4GEe2oPOAEyd8Jwg" name="readAll" operationType="ReadAll" type="Object" collectionType="List" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_YCK0QE4KEe2oPOAEyd8Jwg" name="getPedidosEstado" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg" filter="select ped FROM PedidoEN as ped where ped.Estado = :p_estado" automaticSynchronize="false">
@@ -268,10 +267,13 @@
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_DEHboFXOEe21dMBuqRnEXA" name="devolverPedido" operationType="CustomTransaction" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_DEMUIFXOEe21dMBuqRnEXA" name="p_oid" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_cdt6YGBREe2Ye-_g8YAwsA" name="p_descripcion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_csc58GBREe2Ye-_g8YAwsA" name="p_motivo" type="Enum" typeEnum="_hdwJAFXNEe21dMBuqRnEXA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_czpHEGBREe2Ye-_g8YAwsA" name="p_usuario" type="OID" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_plwZEE4FEe2oPOAEyd8Jwg" alias="fecha" name="fecha" type="Date"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_sZOmQE4FEe2oPOAEyd8Jwg" alias="direccion" name="direccion"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_u_kWYE4FEe2oPOAEyd8Jwg" alias="precio" name="precio" type="Double"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_u_kWYE4FEe2oPOAEyd8Jwg" alias="total" name="total" type="Double"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_x3EvAE4FEe2oPOAEyd8Jwg" alias="cantidad" name="cantidad" type="Integer"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_d2uJoE4GEe2oPOAEyd8Jwg" alias="metodoPago" name="metodoPago" type="Enum" typeEnum="_nTwPUE4HEe2oPOAEyd8Jwg"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_f3Zn8E4GEe2oPOAEyd8Jwg" alias="idPedido" name="id" type="Autogenerated" isOID="true" isToken="true"/>
@@ -319,11 +321,8 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_Wef3gk4JEe2oPOAEyd8Jwg" alias="idProducto" associationTarget="_Wef3gE4JEe2oPOAEyd8Jwg" name="producto" type="Object"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_HO_5YE4HEe2oPOAEyd8Jwg" name="Factura" alias="Factura" asociationTarget="_0zkN8E4IEe2oPOAEyd8Jwg">
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_YNqZ8U4HEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_HO_5YE4HEe2oPOAEyd8Jwg">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_YNqZ8U4HEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_HO_5YE4HEe2oPOAEyd8Jwg" automaticSynchronize="false" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9MtqME4IEe2oPOAEyd8Jwg" name="p_fecha" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9MtqMU4IEe2oPOAEyd8Jwg" name="p_direccion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9MtqMk4IEe2oPOAEyd8Jwg" name="p_precio" type="Double"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9MtqM04IEe2oPOAEyd8Jwg" name="p_metodoPago" type="Enum" typeEnum="_nTwPUE4HEe2oPOAEyd8Jwg"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9MtqNE4IEe2oPOAEyd8Jwg" name="p_pedido" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_YNqZ9k4HEe2oPOAEyd8Jwg" name="modify" operationType="Modifier" type="Void">

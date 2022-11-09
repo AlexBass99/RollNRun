@@ -42,7 +42,8 @@ public void Destroy (int p_LineaPedido_OID)
                 LineaPedidoEN lineaPedidoEN = lineaPedidoCEN.ReadOID (p_LineaPedido_OID);
 
                 PedidoEN pedidoEN = pedidoCEN.ReadOID (lineaPedidoEN.Pedido.Id);
-                pedidoEN.Precio -= lineaPedidoEN.Precio * lineaPedidoEN.Cantidad;
+                pedidoEN.Cantidad -= lineaPedidoEN.Cantidad;
+                pedidoEN.Total -= lineaPedidoEN.Precio * lineaPedidoEN.Cantidad;
                 pedidoCAD.ModifyDefault (pedidoEN);
 
                 lineaPedidoCAD.Destroy (p_LineaPedido_OID);

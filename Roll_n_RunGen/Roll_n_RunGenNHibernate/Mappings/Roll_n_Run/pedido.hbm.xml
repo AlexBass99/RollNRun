@@ -18,8 +18,8 @@
 					<property name="Direccion" type="string"> 
 						<column name="direccion"  not-null="true"/>
 					</property>
-					<property name="Precio" type="double"> 
-						<column name="precio"  not-null="true"/>
+					<property name="Total" type="double"> 
+						<column name="total"  not-null="true"/>
 					</property>
 					<property name="Cantidad" type="integer"> 
 						<column name="cantidad"  not-null="true"/>

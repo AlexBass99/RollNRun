@@ -66,7 +66,8 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad,
                 oid = lineaPedidoCAD.New_ (lineaPedidoEN);
 
                 PedidoEN pedidoEN = pedidoCEN.ReadOID (lineaPedidoEN.Pedido.Id);
-                pedidoEN.Precio += lineaPedidoEN.Precio * lineaPedidoEN.Cantidad;
+                pedidoEN.Cantidad += lineaPedidoEN.Cantidad;
+                pedidoEN.Total += lineaPedidoEN.Precio * lineaPedidoEN.Cantidad;
                 pedidoCAD.ModifyDefault (pedidoEN);
 
                 result = lineaPedidoCAD.ReadOIDDefault (oid);

@@ -21,13 +21,14 @@ namespace Roll_n_RunGenNHibernate.CP.Roll_n_Run
 {
 public partial class PedidoCP : BasicCP
 {
-public void DevolverPedido (int p_oid)
+public void DevolverPedido (int p_oid, string p_descripcion, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Motivo_DevolucionEnum p_motivo, int p_usuario)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CP.Roll_n_Run_Pedido_devolverPedido) ENABLED START*/
 
         IPedidoCAD pedidoCAD = null;
         PedidoCEN pedidoCEN = null;
-
+        DevolucionCAD devolucionCAD = null;
+        DevolucionCEN devolucionCEN = null;
 
 
         try
@@ -35,14 +36,11 @@ public void DevolverPedido (int p_oid)
                 SessionInitializeTransaction ();
                 pedidoCAD = new PedidoCAD (session);
                 pedidoCEN = new  PedidoCEN (pedidoCAD);
+                PedidoEN pedidoEN = pedidoCEN.ReadOID (p_oid);
 
+                pedidoEN.Estado = Enumerated.Roll_n_Run.EstadoEnum.enDevolucion;
 
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method DevolverPedido() not yet implemented.");
-
-
+                devolucionCEN.New_ (p_descripcion, p_motivo, p_oid, p_usuario);
 
                 SessionCommit ();
         }

@@ -122,12 +122,12 @@ public static void InitializeData ()
 
                 //PEDIDOS
                 PedidoCEN pedidoCEN = new PedidoCEN ();
-                int id_pedido = pedidoCEN.New_ (new DateTime (2023, 1, 1), "Sigo igual", 30, 1, id_usu);
-                int id_pedido2 = pedidoCEN.New_ (new DateTime (2023, 1, 2), "Calle Falsa 123", 30, 1, id_usu);
-                int id_pedido3 = pedidoCEN.New_ (new DateTime (2023, 1, 3), "Calle Real 321", 30, 1, id_usu);
-                int id_pedido4 = pedidoCEN.New_ (new DateTime (2023, 1, 4), "IES Carrus", 30, 1, id_usu);
-                int id_pedido5 = pedidoCEN.New_ (new DateTime (2023, 1, 5), "No se donde estoy", 30, 1, id_usu);
-                int id_pedido6 = pedidoCEN.New_ (new DateTime (2023, 1, 6), "Sigo andando", 30, 1, id_usu);
+                int id_pedido = pedidoCEN.New_ (new DateTime (2023, 1, 1), "Sigo igual", id_usu);
+                int id_pedido2 = pedidoCEN.New_ (new DateTime (2023, 1, 2), "Calle Falsa 123", id_usu);
+                int id_pedido3 = pedidoCEN.New_ (new DateTime (2023, 1, 3), "Calle Real 321", id_usu);
+                int id_pedido4 = pedidoCEN.New_ (new DateTime (2023, 1, 4), "IES Carrus", id_usu);
+                int id_pedido5 = pedidoCEN.New_ (new DateTime (2023, 1, 5), "No se donde estoy", id_usu);
+                int id_pedido6 = pedidoCEN.New_ (new DateTime (2023, 1, 6), "Sigo andando", id_usu);
 
                 //LINEAS DE PEDIDO
                 LineaPedidoCP lineaPedidoCP = new LineaPedidoCP ();
@@ -137,6 +137,15 @@ public static void InitializeData ()
                 lineaPedidoCP.New_ (1, 50, id_pedido4, id_producto4);
                 lineaPedidoCP.New_ (2, 20, id_pedido5, id_producto5);
                 lineaPedidoCP.New_ (3, 1, id_pedido6, id_producto6);
+
+                //FACTURAS
+                FacturaCP facturaCP = new FacturaCP ();
+                facturaCP.New_ (new DateTime (2023, 1, 4), id_pedido);
+                facturaCP.New_ (new DateTime (2023, 1, 5), id_pedido2);
+                facturaCP.New_ (new DateTime (2023, 1, 6), id_pedido3);
+                facturaCP.New_ (new DateTime (2023, 1, 7), id_pedido4);
+                facturaCP.New_ (new DateTime (2023, 1, 8), id_pedido5);
+                facturaCP.New_ (new DateTime (2023, 1, 9), id_pedido6);
 
                 //VALORACIONES
                 ValoracionCP valoracionCP = new ValoracionCP ();
@@ -181,8 +190,6 @@ public static void InitializeData ()
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS CUSTOM-------------");
                 Console.WriteLine ();
                 Console.WriteLine ();
-
-                // metodo restar, sumar y comprobar stock y mortrar por consola
 
                 ProductoEN prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
                 PedidoEN pedEN = new PedidoCAD ().ReadOIDDefault (id_pedido);

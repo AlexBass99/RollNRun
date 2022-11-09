@@ -97,7 +97,7 @@ public void ModifyDefault (PedidoEN pedido)
                 pedidoEN.Direccion = pedido.Direccion;
 
 
-                pedidoEN.Precio = pedido.Precio;
+                pedidoEN.Total = pedido.Total;
 
 
                 pedidoEN.Cantidad = pedido.Cantidad;
@@ -177,7 +177,7 @@ public void Modify (PedidoEN pedido)
                 pedidoEN.Direccion = pedido.Direccion;
 
 
-                pedidoEN.Precio = pedido.Precio;
+                pedidoEN.Total = pedido.Total;
 
 
                 pedidoEN.Cantidad = pedido.Cantidad;

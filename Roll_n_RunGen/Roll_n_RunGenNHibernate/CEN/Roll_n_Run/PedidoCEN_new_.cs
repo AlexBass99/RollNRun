@@ -19,7 +19,7 @@ namespace Roll_n_RunGenNHibernate.CEN.Roll_n_Run
 {
 public partial class PedidoCEN
 {
-public int New_ (Nullable<DateTime> p_fecha, string p_direccion, double p_precio, int p_cantidad, int p_usuario)
+public int New_ (Nullable<DateTime> p_fecha, string p_direccion, int p_usuario)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Pedido_new__customized) ENABLED START*/
 
@@ -33,9 +33,9 @@ public int New_ (Nullable<DateTime> p_fecha, string p_direccion, double p_precio
 
         pedidoEN.Direccion = p_direccion;
 
-        pedidoEN.Precio = p_precio;
+        pedidoEN.Total = 0;
 
-        pedidoEN.Cantidad = p_cantidad;
+        pedidoEN.Cantidad = 0;
 
 
         if (p_usuario != -1) {

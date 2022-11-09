@@ -224,6 +224,7 @@
 	<Compile Include="CAD\Roll_n_Run\IFacturaCAD.cs" />
 	<Compile Include="CAD\Roll_n_Run\FacturaCAD.cs" />
 	<Compile Include="CP\Roll_n_Run\FacturaCP.cs" />
+			<Compile Include="CP\Roll_n_Run\FacturaCP_New_.cs" />
 			
 			
 			

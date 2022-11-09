@@ -21,13 +21,17 @@ namespace Roll_n_RunGenNHibernate.CP.Roll_n_Run
 {
 public partial class UsuarioCP : BasicCP
 {
-public void ConfirmarRecepcion (int p_oid)
+public void ConfirmarRecepcion (int p_oid, int p_pedido)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CP.Roll_n_Run_Usuario_confirmarRecepcion) ENABLED START*/
 
         IUsuarioCAD usuarioCAD = null;
         UsuarioCEN usuarioCEN = null;
+        PedidoCAD pedidoCAD = null;
+        PedidoCEN pedidoCEN = null;
 
+        pedidoCAD = new PedidoCAD (session);
+        pedidoCEN = new PedidoCEN (pedidoCAD);
 
 
         try
@@ -35,14 +39,12 @@ public void ConfirmarRecepcion (int p_oid)
                 SessionInitializeTransaction ();
                 usuarioCAD = new UsuarioCAD (session);
                 usuarioCEN = new  UsuarioCEN (usuarioCAD);
+                UsuarioEN usuarioEN = usuarioCEN.ReadOID (p_oid);
+                PedidoEN pedidoEN = pedidoCEN.ReadOID (p_pedido);
 
+                pedidoEN.Estado = Enumerated.Roll_n_Run.EstadoEnum.recibido;
 
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method ConfirmarRecepcion() not yet implemented.");
-
-
+                pedidoCAD.ModifyDefault (pedidoEN);
 
                 SessionCommit ();
         }

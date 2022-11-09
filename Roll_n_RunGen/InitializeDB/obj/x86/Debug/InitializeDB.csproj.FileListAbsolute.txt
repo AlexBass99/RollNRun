@@ -70,3 +70,27 @@ F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.
 F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
 F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 F:\OOH4RIA\DSM2021\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.exe
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.pdb
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\log4net.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\nunit.core.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\nunit.framework.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\jose-jwt.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Newtonsoft.Json.dll
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.pdb
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll.config
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.AssemblyReference.cache
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CoreCompileInputs.cache
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
