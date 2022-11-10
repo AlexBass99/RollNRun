@@ -99,10 +99,10 @@ public static void InitializeData ()
                 //TARJETAS
                 TarjetaCEN tarjetaCEN = new TarjetaCEN ();
                 tarjetaCEN.New_ ("Yo Yomismo", "12341234", 123, new DateTime (2023, 1, 1), id_usu);
-                tarjetaCEN.New_ ("Tu Tumismo", "12341234", 123, new DateTime (2023, 1, 2), id_usu2);
-                tarjetaCEN.New_ ("El Elmismo", "12341234", 123, new DateTime (2023, 1, 3), id_usu3);
-                tarjetaCEN.New_ ("Nosotros Nosotrosmismos", "12341234", 123, new DateTime (2023, 1, 4), id_usu4);
-                tarjetaCEN.New_ ("Vosotros Vosotrosmismos", "12341234", 123, new DateTime (2023, 1, 5), id_usu5);
+                tarjetaCEN.New_ ("Tu Tumismo", "98769876", 123, new DateTime (2023, 1, 2), id_usu);
+                tarjetaCEN.New_ ("El Elmismo", "12986745", 123, new DateTime (2023, 1, 3), id_usu3);
+                tarjetaCEN.New_ ("Nosotros Nosotrosmismos", "98765432", 123, new DateTime (2023, 1, 4), id_usu4);
+                tarjetaCEN.New_ ("Vosotros Vosotrosmismos", "51369251", 123, new DateTime (2023, 1, 5), id_usu5);
 
                 //DIRECCIONES
                 DireccionCEN direccionCEN = new DireccionCEN ();
@@ -185,7 +185,11 @@ public static void InitializeData ()
                 preguntaFrecuenteCEN.New_ ("Por qué existo?", "No se");
                 preguntaFrecuenteCEN.New_ ("Po qué sigo en la carrera?", "Porque no sabes hacer nada con tu vida");
 
+                //DESEOS USUARIO
+                productoCEN.MarcarDeseado(id_producto, new List<int> { id_usu });
 
+                //ESTADOS EN PROCESO
+                pedidoCEN.CambiarEstado(id_pedido, EstadoEnum.enProceso);
 
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS CUSTOM-------------");
@@ -294,14 +298,70 @@ public static void InitializeData ()
                 //FUNCIONAMIENTO DEL NEW Y DESTROY DE ENTRADA AUTOCOMPLETANDO LA CANTIDAD DE ENTRADAS DE SUBFORO
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
+                Console.WriteLine();
+                Console.WriteLine();
 
-                //GET TARJETAS USUARIO
+                Console.WriteLine("------------- Filtro de obtener las tarjetas de un usuario -------------");
 
-                //GET DIRECCIONES USUARIO
+                IList<TarjetaEN> tarjetas = tarjetaCEN.GetTarjetasUsuario(id_usu);
 
-                //GET PEDIDOS ESTADO
+                int i = 0;
+                foreach (TarjetaEN tarj in tarjetas)
+                {
+                    i++;
+                    Console.WriteLine("Tarjeta "+i+": "+tarj.Numero);
+                }
 
-                //GET PEDIDOS USUARIO
+                Console.WriteLine();
+                Console.WriteLine();
+
+                Console.WriteLine("------------- Filtro de obtener las direcciones de un usuario -------------");
+
+                IList<DireccionEN> direcciones = direccionCEN.GetDireccionesUsuario(id_usu);
+
+                i = 0;
+                foreach (DireccionEN dir in direcciones)
+                {
+                    i++;
+                    Console.WriteLine("Direccion " + i + ": " + dir.Provincia + ", " + dir.Localidad + ", C/ " + dir.Calle);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+
+                //NOTA: No funciona bien, el fallo debe estar en el filtro del enum, ya que existe al menos un pedido en el estado En Proceso
+                Console.WriteLine("------------- Filtro de obtener los pedidos que se encuentran en un estado específico -------------");
+
+                IList<PedidoEN> pedidosEst = pedidoCEN.GetPedidosEstado(Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum.enProceso);
+
+                i = 0;
+                Console.WriteLine("Los siguientes pedidos se encuentran en el estado 'En Proceso':");
+                Console.WriteLine();
+                foreach (PedidoEN ped in pedidosEst)
+                {
+                    i++;
+                    Console.WriteLine("El pedido número " + i + ", con dirección: " + ped.Direccion);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+                Console.WriteLine("------------- Filtro de obtener los pedidos de un usuario específico -------------");
+
+                IList<PedidoEN> pedidosUsu = pedidoCEN.GetPedidosUsuario(id_usu);
+
+                i = 0;
+                Console.WriteLine("El usuario "+ id_usu + " tiene los siguientes pedidos:");
+                Console.WriteLine();
+                foreach (PedidoEN ped in pedidosUsu)
+                {
+                    i++;
+                    Console.WriteLine("El pedido número "+i+", con dirección: "+ped.Direccion);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
 
                 //GET LINEAS PEDIDO
 
@@ -313,7 +373,22 @@ public static void InitializeData ()
 
                 //BUSCAR PRECIO
 
-                //GET PRODUCTOS DESEADOS USUARIO
+                Console.WriteLine("------------- Filtro de obtener los productos deseados de un usuario específico -------------");
+
+                IList<ProductoEN> prodDes = productoCEN.GetProductosDeseadosUsuario(id_usu);
+
+                i = 0;
+                Console.WriteLine("El usuario " + id_usu + " desea los siguientes productos:");
+                Console.WriteLine();
+
+                foreach (ProductoEN prod in prodDes)
+                {
+                    i++;
+                    Console.WriteLine("El producto "+prod.Nombre+" es fervientemente deseado por nuestro usuario");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
 
                 //BUSCAR OFERTAS
 
@@ -350,7 +425,7 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                Console.WriteLine ("-------------Metodo dejar de seguir subforo-------------");
+                Console.WriteLine("-------------Metodo dejar de seguir subforo-------------");
 
                 Console.WriteLine ("Los subforos que sigue son: ");
                 foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario (id_usu)) {
