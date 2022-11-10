@@ -527,5 +527,35 @@ public void QuitarDeseado (int p_Producto_OID, System.Collections.Generic.IList<
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarDescripcion (string p_Descripcion)
+{
+        System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ProductoEN self where select pro FROM ProductoEN as pro where pro.Descripcion like '%:p_Descripcion%'";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarDescripcionHQL");
+                query.SetParameter ("p_Descripcion", p_Descripcion);
+
+                result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

@@ -114,5 +114,6 @@
 		  <query name="ProductoENbuscarTipoHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.Tipo = :p_tipo]]></query>
 		  <query name="ProductoENgetProductosDeseadosUsuarioHQL"><![CDATA[select prod FROM ProductoEN as prod inner join prod.Usuarios as usu where usu.Id = :p_usuario]]></query>
 		  <query name="ProductoENbuscarOfertasHQL"><![CDATA[select prod FROM ProductoEN as prod where prod.Oferta > 0]]></query>
+		  <query name="ProductoENbuscarDescripcionHQL"><![CDATA[select pro FROM ProductoEN as pro where pro.Descripcion like '%:p_Descripcion%']]></query>
 		</hibernate-mapping>
 	

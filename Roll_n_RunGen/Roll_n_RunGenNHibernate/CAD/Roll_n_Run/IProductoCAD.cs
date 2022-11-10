@@ -53,5 +53,7 @@ System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoE
 
 
 void QuitarDeseado (int p_Producto_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs);
+
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarDescripcion (string p_Descripcion);
 }
 }

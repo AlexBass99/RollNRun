@@ -184,6 +184,9 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_FBFbcF-OEe2tD4D0WjLD9g" name="p_Producto_OID" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_FBGCgF-OEe2tD4D0WjLD9g" name="p_usuarios_OIDs" type="OID" collectionType="List" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
       </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_6WlJoGDXEe2q2rLT65C8uA" name="buscarDescripcion" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg" filter="select pro FROM ProductoEN as pro where pro.Descripcion like '%:p_Descripcion%'" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_J2VcMGDYEe2q2rLT65C8uA" name="p_Descripcion"/>
+      </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_y3KvgE4EEe2oPOAEyd8Jwg" alias="nombre" name="nombre"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_1BFCUE4EEe2oPOAEyd8Jwg" alias="marca" name="marca"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_2rfVsE4EEe2oPOAEyd8Jwg" alias="stock" name="stock" type="Integer"/>
@@ -417,8 +420,8 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_tloLFlYgEe2vguAXlNP9jw" name="p_Entrada_OID" type="OID" typeObject="_OYQOkE_JEe2okZAJRi4vlA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_R6MrUU_JEe2okZAJRi4vlA" name="readAll" operationType="ReadAll" type="Object" collectionType="List" typeObject="_OYQOkE_JEe2okZAJRi4vlA"/>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oTAxIFIeEe2oP9PluEzwQA" name="insertarProducto" operationType="CustomTransaction" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_oTCmUFIeEe2oP9PluEzwQA" name="p_oid" type="OID" typeObject="_OYQOkE_JEe2okZAJRi4vlA"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oTAxIFIeEe2oP9PluEzwQA" name="insertarProducto" type="Object" collectionType="List" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_oTCmUFIeEe2oP9PluEzwQA" name="p_Descripcion" type="OID" typeObject="_OYQOkE_JEe2okZAJRi4vlA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Nz27UFSbEe2eV_FNwkrMPw" name="getEntradasSubforo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_OYQOkE_JEe2okZAJRi4vlA" filter="select ent FROM EntradaEN as ent inner join ent.Subforo as subf where subf.Id = :p_subforo" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_zaXw4FYgEe2vguAXlNP9jw" name="p_subforo" type="Integer"/>
@@ -963,6 +966,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_BJnaol-OEe2tD4D0WjLD9g" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_BJnao1-OEe2tD4D0WjLD9g"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJnapF-OEe2tD4D0WjLD9g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6WwIwGDXEe2q2rLT65C8uA" type="3004" element="_6WlJoGDXEe2q2rLT65C8uA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_6WwIxWDXEe2q2rLT65C8uA" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_6WwIwWDXEe2q2rLT65C8uA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_6WwIwmDXEe2q2rLT65C8uA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_6WwIw2DXEe2q2rLT65C8uA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6WwIxGDXEe2q2rLT65C8uA"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_veXntU4EEe2oPOAEyd8Jwg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_veXntk4EEe2oPOAEyd8Jwg"/>
