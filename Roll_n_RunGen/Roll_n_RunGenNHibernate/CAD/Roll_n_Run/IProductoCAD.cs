@@ -34,7 +34,6 @@ System.Collections.Generic.IList<ProductoEN> ReadAll (int first, int size);
 
 
 
-
 System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarPrecio (double ? p_precio);
 
 
@@ -48,7 +47,6 @@ System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoE
 
 
 void MarcarDeseado (int p_Producto_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs);
-
 
 
 System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarOfertas ();

@@ -414,5 +414,35 @@ public void DejarSeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IL
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> BuscarTitulo (string p_titulo)
+{
+        System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM SubforoEN self where select sfor FROM SubforoEN as sfor where sfor.Titulo = :p_titulo";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("SubforoENbuscarTituloHQL");
+                query.SetParameter ("p_titulo", p_titulo);
+
+                result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in SubforoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

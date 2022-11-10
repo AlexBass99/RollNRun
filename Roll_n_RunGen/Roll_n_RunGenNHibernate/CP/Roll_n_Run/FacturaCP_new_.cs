@@ -30,8 +30,8 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> 
         PedidoCAD pedidoCAD = null;
         PedidoCEN pedidoCEN = null;
 
-        pedidoCAD = new PedidoCAD(session);
-        pedidoCEN = new PedidoCEN(pedidoCAD);
+        pedidoCAD = new PedidoCAD (session);
+        pedidoCEN = new PedidoCEN (pedidoCAD);
         Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN result = null;
 
 
@@ -46,8 +46,8 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> 
                 FacturaEN facturaEN;
                 facturaEN = new FacturaEN ();
                 facturaEN.Fecha = p_fecha;
-                
-                PedidoEN pedidoEN = pedidoCEN.ReadOID(p_pedido);
+
+                PedidoEN pedidoEN = pedidoCEN.ReadOID (p_pedido);
 
 
                 if (p_pedido != -1) {

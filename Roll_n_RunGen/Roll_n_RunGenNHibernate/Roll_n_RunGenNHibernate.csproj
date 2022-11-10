@@ -163,14 +163,10 @@
 			
 			<Compile Include="CEN\Roll_n_Run\ProductoCEN_HayStock.cs" />
 			
-			<Compile Include="CP\Roll_n_Run\ProductoCP_CalcularValoracionMedia.cs" />
 			
 			
 			
 			
-			
-			
-			<Compile Include="CEN\Roll_n_Run\ProductoCEN_CompartirProducto.cs" />
 			
 			<Compile Include="CEN\Roll_n_Run\ProductoCEN_CambiarOferta.cs" />
 			
@@ -235,6 +231,7 @@
 	<Compile Include="CAD\Roll_n_Run\ISubforoCAD.cs" />
 	<Compile Include="CAD\Roll_n_Run\SubforoCAD.cs" />
 	<Compile Include="CP\Roll_n_Run\SubforoCP.cs" />
+			
 			
 			
 			

@@ -126,5 +126,9 @@ public void DejarSeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IL
 
         _ISubforoCAD.DejarSeguirSubforo (p_Subforo_OID, p_usuarios_OIDs);
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> BuscarTitulo (string p_titulo)
+{
+        return _ISubforoCAD.BuscarTitulo (p_titulo);
+}
 }
 }
