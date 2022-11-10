@@ -29,15 +29,16 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad,
         LineaPedidoCEN lineaPedidoCEN = null;
         PedidoCAD pedidoCAD = null;
         PedidoCEN pedidoCEN = null;
-
-        pedidoCAD = new PedidoCAD (session);
-        pedidoCEN = new PedidoCEN (pedidoCAD);
+        
         Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN result = null;
 
 
         try
         {
                 SessionInitializeTransaction ();
+                pedidoCAD = new PedidoCAD(session);
+                pedidoCEN = new PedidoCEN(pedidoCAD);
+
                 lineaPedidoCAD = new LineaPedidoCAD (session);
                 lineaPedidoCEN = new LineaPedidoCEN (lineaPedidoCAD);
 

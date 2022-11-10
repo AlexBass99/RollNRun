@@ -25,21 +25,16 @@ public void ConfirmarRecepcion (int p_oid, int p_pedido)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CP.Roll_n_Run_Usuario_confirmarRecepcion) ENABLED START*/
 
-        IUsuarioCAD usuarioCAD = null;
-        UsuarioCEN usuarioCEN = null;
         PedidoCAD pedidoCAD = null;
         PedidoCEN pedidoCEN = null;
-
-        pedidoCAD = new PedidoCAD (session);
-        pedidoCEN = new PedidoCEN (pedidoCAD);
 
 
         try
         {
                 SessionInitializeTransaction ();
-                usuarioCAD = new UsuarioCAD (session);
-                usuarioCEN = new  UsuarioCEN (usuarioCAD);
-                UsuarioEN usuarioEN = usuarioCEN.ReadOID (p_oid);
+
+                pedidoCAD = new PedidoCAD (session);
+                pedidoCEN = new PedidoCEN (pedidoCAD);
                 PedidoEN pedidoEN = pedidoCEN.ReadOID (p_pedido);
 
                 pedidoEN.Estado = Enumerated.Roll_n_Run.EstadoEnum.recibido;

@@ -24,10 +24,10 @@
 			
 			
 		  			
-						<many-to-one name="Pedido" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN" >	
-								<column name="FK_idPedido_idPedido"/> 
-						</many-to-one>
-											 					
+					
+							   <one-to-one name="Pedido" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN" property-ref="Devolucion" />							
+					 
+						
 			
 		  			
 						<many-to-one name="Usuario" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN" >	

@@ -79,6 +79,8 @@ public static void InitializeData ()
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
         try
         {
+                int i = 0;
+
                 //USUARIOS
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
                 int id_usu = usuarioCEN.New_ (p_nombre: "Yo", p_email: "yo@gmail.com", p_apellidos: "Yomismo", p_nickname: "Mimismo1", p_pass: "1234", p_rol: RolEnum.usuario_base);
@@ -132,11 +134,12 @@ public static void InitializeData ()
                 //LINEAS DE PEDIDO
                 LineaPedidoCP lineaPedidoCP = new LineaPedidoCP ();
                 lineaPedidoCP.New_ (3, 30, id_pedido, id_producto);
-                lineaPedidoCP.New_ (2, 20, id_pedido2, id_producto2);
+                lineaPedidoCP.New_ (2, 20, id_pedido, id_producto2);
                 lineaPedidoCP.New_ (5, 10, id_pedido3, id_producto3);
                 lineaPedidoCP.New_ (1, 50, id_pedido4, id_producto4);
                 lineaPedidoCP.New_ (2, 20, id_pedido5, id_producto5);
                 lineaPedidoCP.New_ (3, 1, id_pedido6, id_producto6);
+
 
                 //FACTURAS
                 FacturaCP facturaCP = new FacturaCP ();
@@ -190,6 +193,11 @@ public static void InitializeData ()
                 //ESTADOS EN PROCESO
                 pedidoCEN.CambiarEstado (id_pedido, EstadoEnum.enProceso);
 
+
+
+                PedidoEN pedidoEN = null;
+
+                //CUSTOM
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS CUSTOM-------------");
                 Console.WriteLine ();
@@ -256,15 +264,31 @@ public static void InitializeData ()
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
                 Console.WriteLine ();
 
-                Console.WriteLine ("Se va a intentar cambiar el estado del pedido a 'Devuelto'");
-                pedidoCEN.CambiarEstado (id_pedido, EstadoEnum.devuelto);
+                Console.WriteLine ("Se va a intentar cambiar el estado del pedido a 'Enviado'");
+                pedidoCEN.CambiarEstado (id_pedido, EstadoEnum.enviado);
                 pedEN = new PedidoCAD ().ReadOIDDefault (id_pedido);
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
                 Console.WriteLine ();
-                Console.WriteLine ();
+
+                Console.WriteLine("Se va a intentar cambiar el estado del pedido2 a 'enProceso'");
+                pedidoCEN.CambiarEstado(id_pedido2, EstadoEnum.enProceso);
+                pedEN = new PedidoCAD().ReadOIDDefault(id_pedido2);
+                Console.WriteLine("El estado actual del pedido es: " + pedEN.Estado);
+                Console.WriteLine();
+                Console.WriteLine();
+
+                Console.WriteLine("Se va a intentar cambiar el estado del pedido3 a 'enProceso'");
+                pedidoCEN.CambiarEstado(id_pedido3, EstadoEnum.enProceso);
+                pedEN = new PedidoCAD().ReadOIDDefault(id_pedido3);
+                Console.WriteLine("El estado actual del pedido es: " + pedEN.Estado);
+
+                Console.WriteLine();
+                Console.WriteLine();
 
 
 
+
+                //CUSTOM TRANSACTION
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS CUSTOM TRANSACTION-------------");
                 Console.WriteLine ();
@@ -288,13 +312,135 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                //CONFIRMAR RECEPCION
 
-                //DEVOLVER PRODUCTO
+                Console.WriteLine ("-------------Confirmar la recepción de un pedido-------------");
+
+                UsuarioEN usuarioEN = usuarioCEN.ReadOID (id_usu);
+                pedEN = new PedidoCAD ().ReadOIDDefault (id_pedido);
+                Console.WriteLine ("El pedido con la id " + id_pedido + " está ahora mismo en el estado: " + pedEN.Estado + ".");
+
+                UsuarioCP usuarioCP = new UsuarioCP ();
+                usuarioCP.ConfirmarRecepcion (id_usu, id_pedido);
+
+                pedEN = new PedidoCAD ().ReadOID (id_pedido);
+                Console.WriteLine ("Tras unos días el pedido le llega a casa y el usuario '" + usuarioEN.Nombre + "' confirma su llegada, siendo ahora el estado: " + pedEN.Estado + ".");
+                Console.WriteLine ();
+
+                 
+                Console.WriteLine("-------------Devolver un pedido-------------");
+                 
+                pedidoEN = new PedidoCAD().ReadOIDDefault(id_pedido3);
+
+                DevolucionEN dev = pedidoEN.Devolucion;
+                 
+                Console.WriteLine("El pedido actual tiene esta devolución: ");
+                Console.WriteLine("No tiene ahora mismo ninguna devolución. (El valor es nulo)");
+                Console.WriteLine("Ahora procedemos a devolver el pedido y comprobamos que exista la devolución: ");
+                 
+                PedidoCP pedidoCP = new PedidoCP();
+                pedidoCP.DevolverPedido(id_pedido3, "No me gusta, cambiamelo", Motivo_DevolucionEnum.otros, id_usu);
+                pedidoEN = new PedidoCAD().ReadOIDDefault(id_pedido3);
+                int idDev = pedidoEN.Devolucion.Id;
+                dev = new DevolucionCAD().ReadOIDDefault(idDev);
+
+                Console.WriteLine("El pedido actual tiene ahora esta devolución:");
+
+                Console.WriteLine("Devolución " + i + ": " + dev.Motivo + " y el estado del Pedido es '" + pedidoEN.Estado + "'.");
+                  
+                Console.WriteLine();
+                Console.WriteLine();
+                 
 
                 //FUNCIONAMIENTO DEL NEW Y DESTROY DE LINEAPEDIDO AUTOCOMPLETANDO LA CANTIDAD Y PRECIO DEL PEDIDO
+                Console.WriteLine ("-------------Crear Lineas de pedido afectando al Pedido-------------");
+                Console.WriteLine ("Vamos a comprobar los datos actuales del pedido con la ID " + id_pedido2 + " (no tiene ninguna)");
 
-                //FUNCIONAMIENTO DEL NEW Y DESTROY DE ENTRADA AUTOCOMPLETANDO LA CANTIDAD DE ENTRADAS DE SUBFORO
+                pedidoEN = new PedidoCAD ().ReadOIDDefault (id_pedido2);
+                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN ();
+                ProductoEN productoEN = productoCEN.ReadOID (id_producto3);
+                ProductoEN productoEN2 = productoCEN.ReadOID (id_producto5);
+
+
+                Console.WriteLine ("Precio total: " + pedidoEN.Total);
+                Console.WriteLine ("Cantidad total de productos: " + pedidoEN.Cantidad);
+
+                IList<LineaPedidoEN> lineas = lineaPedidoCEN.GetLineasPedido (id_pedido2);
+
+                i = 0;
+                foreach (LineaPedidoEN linea in lineas) {
+                        i++;
+                        Console.WriteLine ("Linea " + i + ": " + linea.Precio + "$ -- x" + linea.Cantidad);
+                }
+
+                Console.WriteLine ();
+                Console.WriteLine ("Ahora creamos un par de lineas de pedido para actualizarlo");
+
+                int idLinea1 = lineaPedidoCP.New_ (2, productoEN.Precio, id_pedido2, id_producto3).Id;
+                lineaPedidoCP.New_ (3, productoEN2.Precio, id_pedido2, id_producto);
+
+                pedidoEN = new PedidoCAD ().ReadOIDDefault (id_pedido2);
+
+                Console.WriteLine ("Precio total: " + pedidoEN.Total);
+                Console.WriteLine ("Cantidad total de productos: " + pedidoEN.Cantidad);
+
+                lineas = lineaPedidoCEN.GetLineasPedido (id_pedido2);
+
+                i = 0;
+                foreach (LineaPedidoEN linea in lineas) {
+                        i++;
+                        Console.WriteLine ("Linea " + i + ": " + linea.Precio + "$ -- x" + linea.Cantidad);
+                }
+
+                /*Console.WriteLine("Se va a intentar eliminar una de las lineas de pedido para que cambie el precio");
+
+                lineaPedidoCP.Destroy(idLinea1);
+
+                pedidoEN = new PedidoCAD().ReadOIDDefault(id_pedido2);
+
+                Console.WriteLine("Precio total: " + pedidoEN.Total);
+                Console.WriteLine("Cantidad total de productos: " + pedidoEN.Cantidad);
+
+                lineas = lineaPedidoCEN.GetLineasPedido(id_pedido2);
+
+                i = 0;
+                foreach (LineaPedidoEN linea in lineas)
+                {
+                    i++;
+                    Console.WriteLine("Linea " + i + ": " + linea.Precio + "$ -- x" + linea.Cantidad);
+                }*/
+
+
+                Console.WriteLine ("-------------Crear y borrar Entradas autocompletando la cantidad del Subforo-------------");
+                SubforoEN subfEN = new SubforoCAD().ReadOIDDefault(id_subforo);
+                Console.WriteLine("El subforo tiene " + subfEN.NumEntradas + "entradas");
+
+                Console.WriteLine();
+
+                Console.WriteLine("Se va a intentar añadir una entrada al subforo para comprobar que se modifica el numero de entradas");
+
+                EntradaEN entEN = entradaCP.New_(id_subforo, id_usu2, "Que si que no me apetece pensar uevo.");
+
+                subfEN = new SubforoCAD().ReadOIDDefault(id_subforo);
+                Console.WriteLine("El subforo tiene " + subfEN.NumEntradas + " entradas");
+
+                Console.WriteLine();
+
+                Console.WriteLine("Se va a intentar eliminar la nueva entrada de subforo para comprobar que se modifica el numero de entradas");
+
+                entradaCP.Destroy(entEN.Id);
+
+
+                subfEN = new SubforoCAD().ReadOIDDefault(id_subforo);
+                Console.WriteLine("El subforo tiene " + subfEN.NumEntradas + "entradas");
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+
+
+
+
+                //READFILTERS
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
                 Console.WriteLine ();
@@ -304,7 +450,7 @@ public static void InitializeData ()
 
                 IList<TarjetaEN> tarjetas = tarjetaCEN.GetTarjetasUsuario (id_usu);
 
-                int i = 0;
+                i = 0;
                 foreach (TarjetaEN tarj in tarjetas) {
                         i++;
                         Console.WriteLine ("Tarjeta " + i + ": " + tarj.Numero);
@@ -327,10 +473,9 @@ public static void InitializeData ()
                 Console.WriteLine ();
 
 
-                //NOTA: No funciona bien, el fallo debe estar en el filtro del enum, ya que existe al menos un pedido en el estado En Proceso
                 Console.WriteLine ("------------- Filtro de obtener los pedidos que se encuentran en un estado específico -------------");
 
-                IList<PedidoEN> pedidosEst = pedidoCEN.GetPedidosEstado (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum.enProceso);
+                IList<PedidoEN> pedidosEst = pedidoCEN.GetPedidosEstado (EstadoEnum.enProceso);
 
                 i = 0;
                 Console.WriteLine ("Los siguientes pedidos se encuentran en el estado 'En Proceso':");
@@ -358,17 +503,108 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                //GET LINEAS PEDIDO
 
-                //BUSCAR NOMBRE
+                Console.WriteLine ("------------- Filtro de obtener las lineas de un pedido específico -------------");
 
-                //BUSCAR TIPO
+                lineaPedidoCEN = new LineaPedidoCEN ();
+                IList<LineaPedidoEN> lineasPedido = lineaPedidoCEN.GetLineasPedido (id_pedido);
 
-                //BUSCAR DESCRIPCION
+                i = 0;
+                Console.WriteLine ("Las lineas de este pedido tienen los siguientes precios: ");
+                Console.WriteLine ();
+                foreach (LineaPedidoEN linea in lineasPedido) {
+                        i++;
+                        Console.WriteLine ("La línea número " + i + ", con un precio de: " + linea.Precio + "$");
+                }
 
-                //BUSCAR PRECIO
+
+                Console.WriteLine ("------------- Filtro de obtener los productos con un nombre -------------");
+
+                IList<ProductoEN> productos = productoCEN.BuscarNombre ("Juego de Mesa");
+
+                i = 0;
+                Console.WriteLine ("Los productos de 'Juego de Mesa' son los siguientes: ");
+                Console.WriteLine ();
+                foreach (ProductoEN prod in productos) {
+                        i++;
+                        Console.WriteLine ("El producto número " + i + ", con un precio de " + prod.Precio + "$ se llama '" + prod.Nombre + "'");
+                }
+
+
+                Console.WriteLine ("------------- Filtro de obtener los productos de un tipo concreto -------------");
+
+                productos = productoCEN.BuscarTipo (Tipo_productoEnum.dado);
+
+                i = 0;
+                Console.WriteLine ("Los productos de tipo 'Dado' son los siguientes: ");
+                Console.WriteLine ();
+                foreach (ProductoEN prod in productos) {
+                        i++;
+                        Console.WriteLine ("El producto número " + i + ", con un tipo de '" + prod.Tipo + "' se llama '" + prod.Nombre + "'");
+                }
+
+
+                Console.WriteLine ();
+
+
+                Console.WriteLine ("------------- Filtro de obtener los productos filtrados por descripcion -------------");
+                IList<ProductoEN> listadesc = productoCEN.BuscarDescripcion ("de");
+                i = 0;
+                foreach (ProductoEN prod in listadesc) {
+                        i++;
+                        Console.WriteLine ("Producto con id: " + prod.Id + " tiene 'de' en la descricion desc: " + prod.Descripcion);
+                }
+                Console.WriteLine ("productos que tienen coincidencias: " + i);
+                Console.WriteLine ();
+                Console.WriteLine ();
+
+
+                Console.WriteLine ("------------- Filtro de obtener los productos dentro de un rango de precios -------------");
+                IList<ProductoEN> listprodPrec = productoCEN.BuscarPrecio (1.99);
+                Console.WriteLine ("productos con 1.99 de precio: ");
+                i = 0;
+                foreach (ProductoEN prod in listprodPrec) {
+                        i++;
+                        Console.WriteLine ("Producto con id: " + prod.Id);
+                }
+                if (i == 0)
+                        Console.WriteLine ("No hay productos con ese precio");
+                else
+                        Console.WriteLine ("Hay " + i + " con ese precio");
+                Console.WriteLine ();
+
+                listprodPrec = productoCEN.BuscarPrecio (2.99);
+                Console.WriteLine ("productos con 2.99 de precio: ");
+                i = 0;
+                foreach (ProductoEN prod in listprodPrec) {
+                        i++;
+                        Console.WriteLine ("Producto con id: " + prod.Id);
+                }
+                if (i == 0)
+                        Console.WriteLine ("No hay productos con ese precio");
+                else
+                        Console.WriteLine ("Hay " + i + " con ese precio");
+                Console.WriteLine ();
+
+                listprodPrec = productoCEN.BuscarPrecio (20.99);
+                Console.WriteLine ("productos con 20.99 de precio: ");
+                i = 0;
+                foreach (ProductoEN prod in listprodPrec) {
+                        i++;
+                        Console.WriteLine ("Producto con id: " + prod.Id);
+                }
+
+                if (i == 0)
+                        Console.WriteLine ("No hay productos con ese precio");
+                else
+                        Console.WriteLine ("Hay " + i + " con ese precio");
+                Console.WriteLine ();
+                Console.WriteLine ();
+
+
 
                 Console.WriteLine ("------------- Filtro de obtener los productos deseados de un usuario específico -------------");
+                Console.WriteLine ();
 
                 IList<ProductoEN> prodDes = productoCEN.GetProductosDeseadosUsuario (id_usu);
 
@@ -384,22 +620,92 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                //BUSCAR OFERTAS
-
-                //GET SUBFOROS USUARIO
-
-                //GET SEGUIDOS USUARIO
-
-                //BUSCAR TITULO
-
-                //GET VALORACIONES PRODUCTO
 
 
+                Console.WriteLine ("------------- Filtro de obtener los productos que tengan algun tipo de oferta -------------");
 
+                IList<ProductoEN> listaoferta = productoCEN.BuscarOfertas ();
+
+                i = 0;
+                foreach (ProductoEN prod in listaoferta) {
+                        i++;
+                        Console.WriteLine ("El producto " + prod.Nombre + " esta en oferta");
+                }
+                if (i == 0)
+                        Console.WriteLine ("No hay ningun producto en ofrta");
+                else
+                        Console.WriteLine ("Hay " + i + " productos en oferta");
+
+                Console.WriteLine ();
+                Console.WriteLine ();
+
+
+                Console.WriteLine ("------------- Filtro de obtener los subforos creados por un usuario -------------");
+                Console.WriteLine("Los subforos que ha creado usu son: ");
+                Console.WriteLine();
+                foreach (SubforoEN subf in subforoCEN.GetSubforosUsuario(id_usu))
+                {
+                    Console.WriteLine("Subforo con titulo: " + subf.Titulo);
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+
+                Console.WriteLine ("------------- Filtro de obtener los subforos con un titulo -------------");
+                IList<SubforoEN> subftit = subforoCEN.BuscarTitulo ("Mesa cuadrada para flexear de personaje 1");
+
+                foreach (SubforoEN sub in subftit) {
+                        Console.WriteLine ("El subforo con id " + sub.Id + " tiene de titulo 'Mesa cuadrada para flexear de personaje 1'");
+                }
+                Console.WriteLine ();
+                subftit = subforoCEN.BuscarTitulo ("Mesa cuadrada para flexear de personaje 2");
+
+                foreach (SubforoEN sub in subftit) {
+                        Console.WriteLine ("El subforo con id " + sub.Id + " tiene de titulo 'Mesa cuadrada para flexear de personaje 2'");
+                }
+                Console.WriteLine ();
+                subftit = subforoCEN.BuscarTitulo ("Mesa cuadrada para flexear de personaje 3");
+
+                foreach (SubforoEN sub in subftit) {
+                        Console.WriteLine ("El subforo con id " + sub.Id + " tiene de titulo 'Mesa cuadrada para flexear de personaje 3'");
+                }
+                Console.WriteLine ();
+                Console.WriteLine ();
+
+
+                Console.WriteLine ("------------- Filtro de obtener las valoraciones de un producto -------------");
+                ValoracionCEN valoracionCEN = new ValoracionCEN ();
+
+                ProductoCAD productoCAD = new ProductoCAD ();
+                IList<ProductoEN> listaproductos = productoCAD.BuscarDescripcion ("");
+
+                int o;
+                foreach (ProductoEN prod in listaproductos) {
+                        IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> listaValoraciones = valoracionCEN.GetValoracionesProducto (prod.Id);
+                        o = 0;
+                        foreach (ValoracionEN val in listaValoraciones) {
+                                o++;
+                                Console.WriteLine ("El producto con id: " + prod.Id + " tiene una valoracion de : " + val.Valor);
+                        }
+                        if (o == 0)
+                                Console.WriteLine ("El producto con id: " + prod.Id + " no tiene ninguna valoracion");
+                        else
+                                Console.WriteLine ("Tiene un total de " + o + " valoraciones");
+                }
+                Console.WriteLine ();
+                Console.WriteLine ();
+
+
+
+                //RELATIONERS
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS RELATIONER-------------");
+                Console.WriteLine ();
+                Console.WriteLine ();
 
-                Console.WriteLine ("-------------Metodo seguir subforo-------------");
+
+                Console.WriteLine ("-------------Metodo seguir subforo y de getSeguidosUsuario -------------");
 
                 Console.WriteLine ("Los subforos que sigue usu son (no sigue ninguno): ");
                 Console.WriteLine ();
@@ -411,7 +717,6 @@ public static void InitializeData ()
                 subforoCEN.SeguirSubforo (id_subforo3, new List<int> { id_usu });
                 subforoCEN.SeguirSubforo (id_subforo4, new List<int> { id_usu });
 
-                //SubforoEN subfEN = new SubforoCAD().ReadOIDDefault(id_subforo);
                 Console.WriteLine ("Usu ha seguido los subforos: ");
                 foreach (SubforoEN subf in subforoCEN.GetSeguidosUsuario (id_usu)) {
                         Console.WriteLine (subf.Titulo);
@@ -440,18 +745,18 @@ public static void InitializeData ()
 
                 Console.WriteLine ("-------------Metodo marcar deseado-------------");
 
-                Console.WriteLine ("Los productos deseados de usu (no tiene): ");
+                Console.WriteLine ("Los productos deseados de usu2 (no tiene): ");
                 Console.WriteLine ();
-                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu)) {
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu2)) {
                         Console.WriteLine (fav.Nombre);
                 }
 
-                productoCEN.MarcarDeseado (id_producto, new List<int> { id_usu });
-                productoCEN.MarcarDeseado (id_producto2, new List<int> { id_usu });
-                productoCEN.MarcarDeseado (id_producto5, new List<int> { id_usu });
+                productoCEN.MarcarDeseado (id_producto, new List<int> { id_usu2 });
+                productoCEN.MarcarDeseado (id_producto2, new List<int> { id_usu2 });
+                productoCEN.MarcarDeseado (id_producto5, new List<int> { id_usu2 });
 
-                Console.WriteLine ("Usu ha marcado como deseados: ");
-                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu)) {
+                Console.WriteLine ("Usu2 ha marcado como deseados: ");
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu2)) {
                         Console.WriteLine (fav.Nombre);
                 }
                 Console.WriteLine ();
@@ -459,20 +764,20 @@ public static void InitializeData ()
 
                 Console.WriteLine ("-------------Metodo quitar deseado-------------");
 
-                Console.WriteLine ("Los productos deseados de usu: ");
+                Console.WriteLine ("Los productos deseados de usu2: ");
                 Console.WriteLine ();
-                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu)) {
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu2)) {
                         Console.WriteLine (fav.Nombre);
                 }
                 Console.WriteLine ();
 
-                Console.WriteLine ("Se va a intentar hacer que usu quite a Dados de sus deseados");
-                productoCEN.QuitarDeseado (id_producto, new List<int> { id_usu });
+                Console.WriteLine ("Se va a intentar hacer que usu2 quite a Dados de sus deseados");
+                productoCEN.QuitarDeseado (id_producto, new List<int> { id_usu2 });
                 Console.WriteLine ();
 
-                Console.WriteLine ("Los productos deseados de usu: ");
+                Console.WriteLine ("Los productos deseados de usu2: ");
                 Console.WriteLine ();
-                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu)) {
+                foreach (ProductoEN fav in productoCEN.GetProductosDeseadosUsuario (id_usu2)) {
                         Console.WriteLine (fav.Nombre);
                 }
                 Console.WriteLine ();

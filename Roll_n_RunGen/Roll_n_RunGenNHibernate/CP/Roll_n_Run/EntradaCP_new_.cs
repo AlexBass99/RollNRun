@@ -30,8 +30,6 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN New_ (int p_subforo, int 
         SubforoCAD subforoCAD = null;
         SubforoCEN subforoCEN = null;
 
-        subforoCAD = new SubforoCAD (session);
-        subforoCEN = new SubforoCEN (subforoCAD);
         Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN result = null;
 
 
@@ -41,7 +39,8 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN New_ (int p_subforo, int 
                 entradaCAD = new EntradaCAD (session);
                 entradaCEN = new  EntradaCEN (entradaCAD);
 
-
+                subforoCAD = new SubforoCAD(session);
+                subforoCEN = new SubforoCEN(subforoCAD);
 
 
                 int oid;

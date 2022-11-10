@@ -30,8 +30,7 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> 
         PedidoCAD pedidoCAD = null;
         PedidoCEN pedidoCEN = null;
 
-        pedidoCAD = new PedidoCAD (session);
-        pedidoCEN = new PedidoCEN (pedidoCAD);
+        
         Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN result = null;
 
 
@@ -40,6 +39,9 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> 
                 SessionInitializeTransaction ();
                 facturaCAD = new FacturaCAD (session);
                 facturaCEN = new  FacturaCEN (facturaCAD);
+
+                pedidoCAD = new PedidoCAD(session);
+                pedidoCEN = new PedidoCEN(pedidoCAD);
 
                 int oid;
                 //Initialized FacturaEN

@@ -127,7 +127,7 @@ public int New_ (DevolucionEN devolucion)
                         devolucion.Pedido = (Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN)session.Load (typeof(Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN), devolucion.Pedido.Id);
 
                         devolucion.Pedido.Devolucion
-                        .Add (devolucion);
+                                = devolucion;
                 }
                 if (devolucion.Usuario != null) {
                         // Argumento OID y no colección.

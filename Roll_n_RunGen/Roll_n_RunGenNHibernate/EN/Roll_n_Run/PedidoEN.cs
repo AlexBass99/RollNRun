@@ -78,7 +78,7 @@ private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.L
 /**
  *	Atributo devolucion
  */
-private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN> devolucion;
+private Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN devolucion;
 
 
 
@@ -145,7 +145,7 @@ public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_
 
 
 
-public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN> Devolucion {
+public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN Devolucion {
         get { return devolucion; } set { devolucion = value;  }
 }
 
@@ -156,12 +156,11 @@ public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_
 public PedidoEN()
 {
         lineaPedido = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN>();
-        devolucion = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN>();
 }
 
 
 
-public PedidoEN(int id, Nullable<DateTime> fecha, string direccion, double total, int cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum estado, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN factura, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN> devolucion
+public PedidoEN(int id, Nullable<DateTime> fecha, string direccion, double total, int cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum estado, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN factura, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN devolucion
                 )
 {
         this.init (Id, fecha, direccion, total, cantidad, metodoPago, estado, usuario, factura, lineaPedido, devolucion);
@@ -174,7 +173,7 @@ public PedidoEN(PedidoEN pedido)
 }
 
 private void init (int id
-                   , Nullable<DateTime> fecha, string direccion, double total, int cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum estado, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN factura, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN> devolucion)
+                   , Nullable<DateTime> fecha, string direccion, double total, int cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum estado, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN factura, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN devolucion)
 {
         this.Id = id;
 

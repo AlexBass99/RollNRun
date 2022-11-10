@@ -65,15 +65,12 @@
 					
 			
 		  			
-						<bag name="Devolucion" >
-							<key>
-							
-								
-								<column name="FK_idPedido_idPedido"/>
-					      	</key>
-							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN"/>
-					    </bag>
 					
+							<many-to-one name="Devolucion" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN" >
+								<column name="FK_idDevolucion_idDevolucion"/> 
+        					</many-to-one>
+					 
+						
 					
 					
 					
