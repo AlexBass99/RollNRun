@@ -79,7 +79,6 @@ public static void InitializeData ()
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
         try
         {
-                // Insert the initilizations of entities using the CEN classes
 
                 //USUARIOS
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
@@ -90,6 +89,8 @@ public static void InitializeData ()
                 int id_usu5 = usuarioCEN.New_ (p_nombre: "Vosotros", p_email: "vosotros@gmail.com", p_apellidos: "Vosotrosmismos", p_nickname: "Mimismo5", p_pass: "1234", p_rol: RolEnum.usuario_base);
 
                 //LOGIN usuario
+                Console.WriteLine("-------------COMPROBACION DEL LOGIN-------------");
+                Console.WriteLine();
                 if (usuarioCEN.Login (id_usu, "1234") != null) {
                         Console.WriteLine ("El Login es correcto");
                         Console.WriteLine ();
@@ -166,12 +167,12 @@ public static void InitializeData ()
 
                 //ENTRADAS
                 EntradaCP entradaCP = new EntradaCP ();
-                entradaCP.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar.");
-                entradaCP.New_ (id_subforo, id_usu, "Que si que no me apetece pensar.");
-                entradaCP.New_ (id_subforo, id_usu3, "Que si que no me apetece pensar.");
-                entradaCP.New_ (id_subforo2, id_usu, "Que si que no me apetece pensar.");
-                entradaCP.New_ (id_subforo3, id_usu2, "Que si que no me apetece pensar.");
-                entradaCP.New_ (id_subforo2, id_usu3, "Que si que no me apetece pensar.");
+                entradaCP.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar1.");
+                entradaCP.New_ (id_subforo, id_usu, "Que si que no me apetece pensar 2.");
+                entradaCP.New_ (id_subforo, id_usu3, "Que si que no me apetece pensar 3.");
+                entradaCP.New_ (id_subforo2, id_usu, "Que si que no me apetece pensar 4.");
+                entradaCP.New_ (id_subforo3, id_usu2, "Que si que no me apetece pensar 5.");
+                entradaCP.New_ (id_subforo2, id_usu3, "Que si que no me apetece pensar 6.");
 
                 //DEVOLUCIONES
                 DevolucionCEN devolucionCEN = new DevolucionCEN ();
@@ -181,11 +182,11 @@ public static void InitializeData ()
                 //PREGUNTAS FRECUENTES
                 PreguntaFrecuenteCEN preguntaFrecuenteCEN = new PreguntaFrecuenteCEN ();
                 preguntaFrecuenteCEN.New_ ("Como creo un subforo?", "Pues creandolo");
-                preguntaFrecuenteCEN.New_ ("Poque existo?", "No se");
-                preguntaFrecuenteCEN.New_ ("Poque sigo en la carrera?", "Porque no sabes hacer nada con tu vida");
+                preguntaFrecuenteCEN.New_ ("Por qué existo?", "No se");
+                preguntaFrecuenteCEN.New_ ("Po qué sigo en la carrera?", "Porque no sabes hacer nada con tu vida");
 
-                // p.e. CustomerCEN customer = new CustomerCEN();
-                // customer.New_ (p_user:"user", p_password:"1234");
+
+
 
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS CUSTOM-------------");
                 Console.WriteLine ();
@@ -242,24 +243,6 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
-                Console.WriteLine ("-------------Cambio valoracion media producto-------------");
-
-                Console.WriteLine ("La valoracion media del producto es: " + prodEN.Val_media);
-                Console.WriteLine ();
-
-                Console.WriteLine ("Se va a añadir una nueva valoracion para ver si cambia la media");
-                ValoracionEN valEN = valoracionCP.New_ (1, "No me gusta cambialo", id_producto, id_usu4);
-                prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
-                Console.WriteLine ("La valoracion media del producto es: " + prodEN.Val_media);
-
-                Console.WriteLine ("Se va a borrar la nueva valoracion para ver si cambia correctamente la media del producto");
-                valoracionCP.Destroy (valEN.Id);
-                prodEN = new ProductoCAD ().ReadOIDDefault (id_producto);
-                Console.WriteLine ("La valoracion media del producto es: " + prodEN.Val_media);
-
-                Console.WriteLine ();
-                Console.WriteLine ();
-
                 Console.WriteLine ("-------------Metodo cambiar estado-------------");
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
                 Console.WriteLine ();
@@ -277,11 +260,70 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ();
 
+
+
+
+                Console.WriteLine("-------------COMPROBACIONES DE LOS CUSTOM TRANSACTION-------------");
+                Console.WriteLine();
+                Console.WriteLine();
+
+                Console.WriteLine("-------------Cambio valoracion media producto-------------");
+
+                Console.WriteLine("La valoracion media del producto es: " + prodEN.Val_media);
+                Console.WriteLine();
+
+                Console.WriteLine("Se va a añadir una nueva valoracion para ver si cambia la media");
+                ValoracionEN valEN = valoracionCP.New_(1, "No me gusta cambialo", id_producto, id_usu4);
+                prodEN = new ProductoCAD().ReadOIDDefault(id_producto);
+                Console.WriteLine("La valoracion media del producto es: " + prodEN.Val_media);
+
+                Console.WriteLine("Se va a borrar la nueva valoracion para ver si cambia correctamente la media del producto");
+                valoracionCP.Destroy(valEN.Id);
+                prodEN = new ProductoCAD().ReadOIDDefault(id_producto);
+                Console.WriteLine("La valoracion media del producto es: " + prodEN.Val_media);
+
+                Console.WriteLine();
+                Console.WriteLine();
+
+                //CONFIRMAR RECEPCION
+
+                //DEVOLVER PRODUCTO
+
+                //FUNCIONAMIENTO DEL NEW Y DESTROY DE LINEAPEDIDO AUTOCOMPLETANDO LA CANTIDAD Y PRECIO DEL PEDIDO
+
+                //FUNCIONAMIENTO DEL NEW Y DESTROY DE ENTRADA AUTOCOMPLETANDO LA CANTIDAD DE ENTRADAS DE SUBFORO
+
                 Console.WriteLine ("-------------COMPROBACIONES DE LOS READFILTER-------------");
 
+                //GET TARJETAS USUARIO
 
+                //GET DIRECCIONES USUARIO
 
+                //GET PEDIDOS ESTADO
 
+                //GET PEDIDOS USUARIO
+
+                //GET LINEAS PEDIDO
+
+                //BUSCAR NOMBRE
+
+                //BUSCAR TIPO
+
+                //BUSCAR DESCRIPCION
+
+                //BUSCAR PRECIO
+
+                //GET PRODUCTOS DESEADOS USUARIO
+
+                //BUSCAR OFERTAS
+
+                //GET SUBFOROS USUARIO
+
+                //GET SEGUIDOS USUARIO
+
+                //BUSCAR TITULO
+
+                //GET VALORACIONES PRODUCTO
 
 
 
