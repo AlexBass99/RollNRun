@@ -420,7 +420,7 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_tloLFlYgEe2vguAXlNP9jw" name="p_Entrada_OID" type="OID" typeObject="_OYQOkE_JEe2okZAJRi4vlA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_R6MrUU_JEe2okZAJRi4vlA" name="readAll" operationType="ReadAll" type="Object" collectionType="List" typeObject="_OYQOkE_JEe2okZAJRi4vlA"/>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oTAxIFIeEe2oP9PluEzwQA" name="insertarProducto" type="Object" collectionType="List" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oTAxIFIeEe2oP9PluEzwQA" name="insertarProducto" operationType="CustomTransaction" type="Object" collectionType="List" typeObject="_veVygE4EEe2oPOAEyd8Jwg">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_oTCmUFIeEe2oP9PluEzwQA" name="p_Descripcion" type="OID" typeObject="_OYQOkE_JEe2okZAJRi4vlA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Nz27UFSbEe2eV_FNwkrMPw" name="getEntradasSubforo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_OYQOkE_JEe2okZAJRi4vlA" filter="select ent FROM EntradaEN as ent inner join ent.Subforo as subf where subf.Id = :p_subforo" automaticSynchronize="false">

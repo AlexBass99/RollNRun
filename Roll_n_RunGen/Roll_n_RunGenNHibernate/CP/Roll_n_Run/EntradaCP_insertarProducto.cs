@@ -21,12 +21,15 @@ namespace Roll_n_RunGenNHibernate.CP.Roll_n_Run
 {
 public partial class EntradaCP : BasicCP
 {
-public void InsertarProducto (int p_oid)
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> InsertarProducto (int p_Descripcion)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CP.Roll_n_Run_Entrada_insertarProducto) ENABLED START*/
 
         IEntradaCAD entradaCAD = null;
         EntradaCEN entradaCEN = null;
+
+            ProductoCAD productoCAD = null;
+            ProductoCEN productoCEN = null;
 
 
 
@@ -36,15 +39,16 @@ public void InsertarProducto (int p_oid)
                 entradaCAD = new EntradaCAD (session);
                 entradaCEN = new  EntradaCEN (entradaCAD);
 
+                productoCAD = new ProductoCAD();
+                productoCEN = new ProductoCEN(productoCAD);
 
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method InsertarProducto() not yet implemented.");
-
+                // CREAMOS UNA LISTA LLAMANDO AL READFILTER DEPRODUCTOCAD PASANDOLE POR PARAMTRO LA BUSQUEDA
+                IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> lista = productoCAD.BuscarDescripcion(p_Descripcion);
 
 
                 SessionCommit ();
+
+                return lista;
         }
         catch (Exception ex)
         {
