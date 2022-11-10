@@ -533,7 +533,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select pro FROM ProductoEN as pro where pro.Descripcion like '%:p_Descripcion%'";
+                //String sql = @"FROM ProductoEN self where select pro FROM ProductoEN as pro where pro.Descripcion like '%' + :p_Descripcion + '%' ";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarDescripcionHQL");
                 query.SetParameter ("p_Descripcion", p_Descripcion);

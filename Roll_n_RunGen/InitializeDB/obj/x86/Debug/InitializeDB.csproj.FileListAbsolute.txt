@@ -94,3 +94,27 @@ F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistem
 F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
 F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 F:\YandexDisk\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\Diseño de Sistemas Multimedia\Practicas\DSM2022-23\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.exe
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\InitializeDB.pdb
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\log4net.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\NHibernate.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\nunit.core.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\nunit.framework.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\jose-jwt.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.pdb
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\bin\Debug\Roll_n_RunGenNHibernate.dll.config
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.AssemblyReference.cache
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CoreCompileInputs.cache
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+C:\Users\Samuel\Desktop\Universidad\5o año\Diseño de Sistemas Multimedia\practica\RollNRun\Roll_n_RunGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
