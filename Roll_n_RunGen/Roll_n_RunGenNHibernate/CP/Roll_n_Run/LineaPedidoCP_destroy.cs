@@ -34,8 +34,8 @@ public void Destroy (int p_LineaPedido_OID)
         try
         {
                 SessionInitializeTransaction ();
-                pedidoCAD = new PedidoCAD(session);
-                pedidoCEN = new PedidoCEN(pedidoCAD);
+                pedidoCAD = new PedidoCAD (session);
+                pedidoCEN = new PedidoCEN (pedidoCAD);
 
                 lineaPedidoCAD = new LineaPedidoCAD (session);
                 lineaPedidoCEN = new  LineaPedidoCEN (lineaPedidoCAD);

@@ -420,7 +420,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Su
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM SubforoEN self where select sfor FROM SubforoEN as sfor where sfor.Titulo = :p_titulo";
+                //String sql = @"FROM SubforoEN self where select sfor FROM SubforoEN as sfor where sfor.Titulo like '%' + :p_titulo + '%' ";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("SubforoENbuscarTituloHQL");
                 query.SetParameter ("p_titulo", p_titulo);

@@ -31,21 +31,21 @@ public void DevolverPedido (int p_oid, string p_descripcion, Roll_n_RunGenNHiber
         DevolucionCAD devolucionCAD = null;
         DevolucionCEN devolucionCEN = null;
 
-            
+
 
 
         try
         {
                 SessionInitializeTransaction ();
-                devolucionCAD = new DevolucionCAD(session);
-                devolucionCEN = new DevolucionCEN(devolucionCAD);
+                devolucionCAD = new DevolucionCAD (session);
+                devolucionCEN = new DevolucionCEN (devolucionCAD);
 
                 pedidoCAD = new PedidoCAD (session);
                 pedidoCEN = new  PedidoCEN (pedidoCAD);
                 PedidoEN pedidoEN = pedidoCEN.ReadOID (p_oid);
 
                 pedidoEN.Estado = Enumerated.Roll_n_Run.EstadoEnum.enDevolucion;
-                pedidoCAD.ModifyDefault(pedidoEN);
+                pedidoCAD.ModifyDefault (pedidoEN);
 
                 int idDev = devolucionCEN.New_ (p_descripcion, p_motivo, p_oid, p_usuario);
                 //DevolucionEN devEN = devolucionCEN.ReadOID(idDev);

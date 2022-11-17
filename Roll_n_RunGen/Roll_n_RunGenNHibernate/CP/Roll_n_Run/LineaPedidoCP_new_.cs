@@ -21,7 +21,7 @@ namespace Roll_n_RunGenNHibernate.CP.Roll_n_Run
 {
 public partial class LineaPedidoCP : BasicCP
 {
-public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad, double p_precio, int p_pedido, int p_producto)
+public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad, int p_pedido, int p_producto)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CP.Roll_n_Run_LineaPedido_new_) ENABLED START*/
 
@@ -29,26 +29,29 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad,
         LineaPedidoCEN lineaPedidoCEN = null;
         PedidoCAD pedidoCAD = null;
         PedidoCEN pedidoCEN = null;
-        
+
+        ProductoCAD productoCAD = null;
+        ProductoCEN productoCEN = null;
+
         Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN result = null;
 
 
         try
         {
                 SessionInitializeTransaction ();
-                pedidoCAD = new PedidoCAD(session);
-                pedidoCEN = new PedidoCEN(pedidoCAD);
+                pedidoCAD = new PedidoCAD (session);
+                pedidoCEN = new PedidoCEN (pedidoCAD);
 
                 lineaPedidoCAD = new LineaPedidoCAD (session);
                 lineaPedidoCEN = new LineaPedidoCEN (lineaPedidoCAD);
+
+                productoCAD = new ProductoCAD (session);
+                productoCEN = new ProductoCEN (productoCAD);
 
                 int oid;
                 //Initialized LineaPedidoEN
                 LineaPedidoEN lineaPedidoEN;
                 lineaPedidoEN = new LineaPedidoEN ();
-                lineaPedidoEN.Cantidad = p_cantidad;
-
-                lineaPedidoEN.Precio = p_precio;
 
 
                 if (p_pedido != -1) {
@@ -61,6 +64,14 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad,
                         lineaPedidoEN.Producto = new Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN ();
                         lineaPedidoEN.Producto.Id = p_producto;
                 }
+                ProductoEN productoEN = productoCEN.ReadOID (lineaPedidoEN.Producto.Id);
+                lineaPedidoEN.Cantidad = p_cantidad;
+
+                //Igual aqui hace falta restarle el precio de la oferta
+
+                lineaPedidoEN.Precio = productoEN.Precio - (productoEN.Precio * (productoEN.Oferta/100));
+                lineaPedidoEN.Precio = (double)(Math.Round((double)lineaPedidoEN.Precio, 2));
+
 
                 //Call to LineaPedidoCAD
 

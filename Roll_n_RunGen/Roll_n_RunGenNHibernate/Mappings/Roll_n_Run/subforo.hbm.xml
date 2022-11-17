@@ -72,6 +72,6 @@
 		  <query name="SubforoENReadAllHQL">from SubforoEN</query>
 		  <query name="SubforoENgetSubforosUsuarioHQL"><![CDATA[select sfor FROM SubforoEN as sfor inner join sfor.Autor as usu where usu.Id = :p_autor]]></query>
 		  <query name="SubforoENgetSeguidosUsuarioHQL"><![CDATA[select sfor FROM SubforoEN as sfor inner join sfor.Usuarios as usu where usu.Id = :p_usuarios]]></query>
-		  <query name="SubforoENbuscarTituloHQL"><![CDATA[select sfor FROM SubforoEN as sfor where sfor.Titulo = :p_titulo]]></query>
+		  <query name="SubforoENbuscarTituloHQL"><![CDATA[select sfor FROM SubforoEN as sfor where sfor.Titulo like '%' + :p_titulo + '%' ]]></query>
 		</hibernate-mapping>
 	

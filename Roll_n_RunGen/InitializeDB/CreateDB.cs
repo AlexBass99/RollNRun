@@ -133,12 +133,12 @@ public static void InitializeData ()
 
                 //LINEAS DE PEDIDO
                 LineaPedidoCP lineaPedidoCP = new LineaPedidoCP ();
-                lineaPedidoCP.New_ (3, 30, id_pedido, id_producto);
-                lineaPedidoCP.New_ (2, 20, id_pedido, id_producto2);
-                lineaPedidoCP.New_ (5, 10, id_pedido3, id_producto3);
-                lineaPedidoCP.New_ (1, 50, id_pedido4, id_producto4);
-                lineaPedidoCP.New_ (2, 20, id_pedido5, id_producto5);
-                lineaPedidoCP.New_ (3, 1, id_pedido6, id_producto6);
+                lineaPedidoCP.New_ (3, id_pedido, id_producto);
+                lineaPedidoCP.New_ (2, id_pedido, id_producto2);
+                lineaPedidoCP.New_ (5, id_pedido3, id_producto3);
+                lineaPedidoCP.New_ (1, id_pedido4, id_producto4);
+                lineaPedidoCP.New_ (2, id_pedido5, id_producto5);
+                lineaPedidoCP.New_ (3, id_pedido6, id_producto6);
 
 
                 //FACTURAS
@@ -270,20 +270,20 @@ public static void InitializeData ()
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
                 Console.WriteLine ();
 
-                Console.WriteLine("Se va a intentar cambiar el estado del pedido2 a 'enProceso'");
-                pedidoCEN.CambiarEstado(id_pedido2, EstadoEnum.enProceso);
-                pedEN = new PedidoCAD().ReadOIDDefault(id_pedido2);
-                Console.WriteLine("El estado actual del pedido es: " + pedEN.Estado);
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine ("Se va a intentar cambiar el estado del pedido2 a 'enProceso'");
+                pedidoCEN.CambiarEstado (id_pedido2, EstadoEnum.enProceso);
+                pedEN = new PedidoCAD ().ReadOIDDefault (id_pedido2);
+                Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
+                Console.WriteLine ();
+                Console.WriteLine ();
 
-                Console.WriteLine("Se va a intentar cambiar el estado del pedido3 a 'enProceso'");
-                pedidoCEN.CambiarEstado(id_pedido3, EstadoEnum.enProceso);
-                pedEN = new PedidoCAD().ReadOIDDefault(id_pedido3);
-                Console.WriteLine("El estado actual del pedido es: " + pedEN.Estado);
+                Console.WriteLine ("Se va a intentar cambiar el estado del pedido3 a 'enProceso'");
+                pedidoCEN.CambiarEstado (id_pedido3, EstadoEnum.enProceso);
+                pedEN = new PedidoCAD ().ReadOIDDefault (id_pedido3);
+                Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
 
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine ();
+                Console.WriteLine ();
 
 
 
@@ -326,30 +326,30 @@ public static void InitializeData ()
                 Console.WriteLine ("Tras unos días el pedido le llega a casa y el usuario '" + usuarioEN.Nombre + "' confirma su llegada, siendo ahora el estado: " + pedEN.Estado + ".");
                 Console.WriteLine ();
 
-                 
-                Console.WriteLine("-------------Devolver un pedido-------------");
-                 
-                pedidoEN = new PedidoCAD().ReadOIDDefault(id_pedido3);
+
+                Console.WriteLine ("-------------Devolver un pedido-------------");
+
+                pedidoEN = new PedidoCAD ().ReadOIDDefault (id_pedido3);
 
                 DevolucionEN dev = pedidoEN.Devolucion;
-                 
-                Console.WriteLine("El pedido actual tiene esta devolución: ");
-                Console.WriteLine("No tiene ahora mismo ninguna devolución. (El valor es nulo)");
-                Console.WriteLine("Ahora procedemos a devolver el pedido y comprobamos que exista la devolución: ");
-                 
-                PedidoCP pedidoCP = new PedidoCP();
-                pedidoCP.DevolverPedido(id_pedido3, "No me gusta, cambiamelo", Motivo_DevolucionEnum.otros, id_usu);
-                pedidoEN = new PedidoCAD().ReadOIDDefault(id_pedido3);
+
+                Console.WriteLine ("El pedido actual tiene esta devolución: ");
+                Console.WriteLine ("No tiene ahora mismo ninguna devolución. (El valor es nulo)");
+                Console.WriteLine ("Ahora procedemos a devolver el pedido y comprobamos que exista la devolución: ");
+
+                PedidoCP pedidoCP = new PedidoCP ();
+                pedidoCP.DevolverPedido (id_pedido3, "No me gusta, cambiamelo", Motivo_DevolucionEnum.otros, id_usu);
+                pedidoEN = new PedidoCAD ().ReadOIDDefault (id_pedido3);
                 int idDev = pedidoEN.Devolucion.Id;
-                dev = new DevolucionCAD().ReadOIDDefault(idDev);
+                dev = new DevolucionCAD ().ReadOIDDefault (idDev);
 
-                Console.WriteLine("El pedido actual tiene ahora esta devolución:");
+                Console.WriteLine ("El pedido actual tiene ahora esta devolución:");
 
-                Console.WriteLine("Devolución " + i + ": " + dev.Motivo + " y el estado del Pedido es '" + pedidoEN.Estado + "'.");
-                  
-                Console.WriteLine();
-                Console.WriteLine();
-                 
+                Console.WriteLine ("Devolución " + i + ": " + dev.Motivo + " y el estado del Pedido es '" + pedidoEN.Estado + "'.");
+
+                Console.WriteLine ();
+                Console.WriteLine ();
+
 
                 //FUNCIONAMIENTO DEL NEW Y DESTROY DE LINEAPEDIDO AUTOCOMPLETANDO LA CANTIDAD Y PRECIO DEL PEDIDO
                 Console.WriteLine ("-------------Crear Lineas de pedido afectando al Pedido-------------");
@@ -375,8 +375,8 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ("Ahora creamos un par de lineas de pedido para actualizarlo");
 
-                int idLinea1 = lineaPedidoCP.New_ (2, productoEN.Precio, id_pedido2, id_producto3).Id;
-                lineaPedidoCP.New_ (3, productoEN2.Precio, id_pedido2, id_producto);
+                int idLinea1 = lineaPedidoCP.New_ (2, id_pedido2, id_producto3).Id;
+                lineaPedidoCP.New_ (3, id_pedido2, id_producto);
 
                 pedidoEN = new PedidoCAD ().ReadOIDDefault (id_pedido2);
 
@@ -392,49 +392,49 @@ public static void InitializeData ()
                 }
 
                 /*Console.WriteLine("Se va a intentar eliminar una de las lineas de pedido para que cambie el precio");
-
-                lineaPedidoCP.Destroy(idLinea1);
-
-                pedidoEN = new PedidoCAD().ReadOIDDefault(id_pedido2);
-
-                Console.WriteLine("Precio total: " + pedidoEN.Total);
-                Console.WriteLine("Cantidad total de productos: " + pedidoEN.Cantidad);
-
-                lineas = lineaPedidoCEN.GetLineasPedido(id_pedido2);
-
-                i = 0;
-                foreach (LineaPedidoEN linea in lineas)
-                {
-                    i++;
-                    Console.WriteLine("Linea " + i + ": " + linea.Precio + "$ -- x" + linea.Cantidad);
-                }*/
+                 *
+                 * lineaPedidoCP.Destroy(idLinea1);
+                 *
+                 * pedidoEN = new PedidoCAD().ReadOIDDefault(id_pedido2);
+                 *
+                 * Console.WriteLine("Precio total: " + pedidoEN.Total);
+                 * Console.WriteLine("Cantidad total de productos: " + pedidoEN.Cantidad);
+                 *
+                 * lineas = lineaPedidoCEN.GetLineasPedido(id_pedido2);
+                 *
+                 * i = 0;
+                 * foreach (LineaPedidoEN linea in lineas)
+                 * {
+                 *  i++;
+                 *  Console.WriteLine("Linea " + i + ": " + linea.Precio + "$ -- x" + linea.Cantidad);
+                 * }*/
 
 
                 Console.WriteLine ("-------------Crear y borrar Entradas autocompletando la cantidad del Subforo-------------");
-                SubforoEN subfEN = new SubforoCAD().ReadOIDDefault(id_subforo);
-                Console.WriteLine("El subforo tiene " + subfEN.NumEntradas + "entradas");
+                SubforoEN subfEN = new SubforoCAD ().ReadOIDDefault (id_subforo);
+                Console.WriteLine ("El subforo tiene " + subfEN.NumEntradas + "entradas");
 
-                Console.WriteLine();
+                Console.WriteLine ();
 
-                Console.WriteLine("Se va a intentar añadir una entrada al subforo para comprobar que se modifica el numero de entradas");
+                Console.WriteLine ("Se va a intentar añadir una entrada al subforo para comprobar que se modifica el numero de entradas");
 
-                EntradaEN entEN = entradaCP.New_(id_subforo, id_usu2, "Que si que no me apetece pensar uevo.");
+                EntradaEN entEN = entradaCP.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar uevo.");
 
-                subfEN = new SubforoCAD().ReadOIDDefault(id_subforo);
-                Console.WriteLine("El subforo tiene " + subfEN.NumEntradas + " entradas");
+                subfEN = new SubforoCAD ().ReadOIDDefault (id_subforo);
+                Console.WriteLine ("El subforo tiene " + subfEN.NumEntradas + " entradas");
 
-                Console.WriteLine();
+                Console.WriteLine ();
 
-                Console.WriteLine("Se va a intentar eliminar la nueva entrada de subforo para comprobar que se modifica el numero de entradas");
+                Console.WriteLine ("Se va a intentar eliminar la nueva entrada de subforo para comprobar que se modifica el numero de entradas");
 
-                entradaCP.Destroy(entEN.Id);
+                entradaCP.Destroy (entEN.Id);
 
 
-                subfEN = new SubforoCAD().ReadOIDDefault(id_subforo);
-                Console.WriteLine("El subforo tiene " + subfEN.NumEntradas + "entradas");
+                subfEN = new SubforoCAD ().ReadOIDDefault (id_subforo);
+                Console.WriteLine ("El subforo tiene " + subfEN.NumEntradas + "entradas");
 
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine ();
+                Console.WriteLine ();
 
 
 
@@ -641,15 +641,14 @@ public static void InitializeData ()
 
 
                 Console.WriteLine ("------------- Filtro de obtener los subforos creados por un usuario -------------");
-                Console.WriteLine("Los subforos que ha creado usu son: ");
-                Console.WriteLine();
-                foreach (SubforoEN subf in subforoCEN.GetSubforosUsuario(id_usu))
-                {
-                    Console.WriteLine("Subforo con titulo: " + subf.Titulo);
+                Console.WriteLine ("Los subforos que ha creado usu son: ");
+                Console.WriteLine ();
+                foreach (SubforoEN subf in subforoCEN.GetSubforosUsuario (id_usu)) {
+                        Console.WriteLine ("Subforo con titulo: " + subf.Titulo);
                 }
 
-                Console.WriteLine();
-                Console.WriteLine();
+                Console.WriteLine ();
+                Console.WriteLine ();
 
 
                 Console.WriteLine ("------------- Filtro de obtener los subforos con un titulo -------------");

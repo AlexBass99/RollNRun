@@ -31,7 +31,7 @@ public void Destroy (int p_Entrada_OID)
         SubforoCAD subforoCAD = null;
         SubforoCEN subforoCEN = null;
 
-        
+
 
 
         try
@@ -40,8 +40,8 @@ public void Destroy (int p_Entrada_OID)
                 entradaCAD = new EntradaCAD (session);
                 entradaCEN = new  EntradaCEN (entradaCAD);
 
-                subforoCAD = new SubforoCAD(session);
-                subforoCEN = new SubforoCEN(subforoCAD);
+                subforoCAD = new SubforoCAD (session);
+                subforoCEN = new SubforoCEN (subforoCAD);
 
                 EntradaEN entradaEN = entradaCEN.ReadOID (p_Entrada_OID);
 
