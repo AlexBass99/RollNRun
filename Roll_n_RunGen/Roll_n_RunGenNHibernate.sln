@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitializeDB", "InitializeD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roll_n_RunGenNHibernate", "Roll_n_RunGenNHibernate\Roll_n_RunGenNHibernate.csproj", "{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollNRunWeb", "RollNRunWeb\RollNRunWeb.csproj", "{42157D79-04D4-4841-8EA9-3309F00BAA7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,14 @@ Global
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|x86.ActiveCfg = Release|Any CPU
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|x86.Build.0 = Release|Any CPU
+		{42157D79-04D4-4841-8EA9-3309F00BAA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42157D79-04D4-4841-8EA9-3309F00BAA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42157D79-04D4-4841-8EA9-3309F00BAA7E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{42157D79-04D4-4841-8EA9-3309F00BAA7E}.Debug|x86.Build.0 = Debug|Any CPU
+		{42157D79-04D4-4841-8EA9-3309F00BAA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42157D79-04D4-4841-8EA9-3309F00BAA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42157D79-04D4-4841-8EA9-3309F00BAA7E}.Release|x86.ActiveCfg = Release|Any CPU
+		{42157D79-04D4-4841-8EA9-3309F00BAA7E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
