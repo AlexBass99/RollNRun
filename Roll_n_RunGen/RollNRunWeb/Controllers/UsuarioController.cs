@@ -3,35 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
+using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 
 namespace RollNRunWeb.Controllers
 {
-    public class ProductoController : BasicController
+    public class UsuarioController : BasicController
     {
-        // GET: Producto
+        // GET: Usuario
         public ActionResult Index()
         {
-            ProductoCEN productoCEN = new ProductoCEN();
-            IList<ProductoEN> productos = productoCEN.ReadAll(0,20).ToList<ProductoEN>();
+            UsuarioCEN usuarioCEN = new UsuarioCEN();
+            IList<UsuarioEN> usuarios = usuarioCEN.ReadAll(0, -1).ToList<UsuarioEN>();
 
-            return View(productos);
+            return View(usuarios);
         }
 
-        // GET: Producto/Details/5
+        // GET: Usuario/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Producto/Create
+        // GET: Usuario/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Producto/Create
+        // POST: Usuario/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -47,13 +47,13 @@ namespace RollNRunWeb.Controllers
             }
         }
 
-        // GET: Producto/Edit/5
+        // GET: Usuario/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Producto/Edit/5
+        // POST: Usuario/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -69,13 +69,13 @@ namespace RollNRunWeb.Controllers
             }
         }
 
-        // GET: Producto/Delete/5
+        // GET: Usuario/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Producto/Delete/5
+        // POST: Usuario/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
