@@ -1,10 +1,4 @@
-﻿@model IEnumerable<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN>
-
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
+﻿@model IEnumerable<RollNRunWeb.Models.ProductoViewModel>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,64 +6,70 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => model.nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Marca)
+            @Html.DisplayNameFor(model => model.marca)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Stock)
+            @Html.DisplayNameFor(model => model.tipo_producto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Precio)
+            @Html.DisplayNameFor(model => model.stock)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Imagen)
+            @Html.DisplayNameFor(model => model.precio)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
+            @Html.DisplayNameFor(model => model.imagen)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Val_media)
+            @Html.DisplayNameFor(model => model.descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Oferta)
+            @Html.DisplayNameFor(model => model.valMedia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oferta)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Marca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imagen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Val_media)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Oferta)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.marca)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tipo_producto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.stock)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.imagen)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.valMedia)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.oferta)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+    </td>
+</tr>
 }
 
 </table>
