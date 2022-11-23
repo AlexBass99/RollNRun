@@ -1,4 +1,11 @@
-﻿@model IEnumerable<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN>
+﻿@model IEnumerable<RollNRunWeb.Models.DireccionViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,7 +19,7 @@
             @Html.DisplayNameFor(model => model.Localidad)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cp)
+            @Html.DisplayNameFor(model => model.CP)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Calle)
@@ -29,15 +36,15 @@
             @Html.DisplayFor(modelItem => item.Localidad)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Cp)
+            @Html.DisplayFor(modelItem => item.CP)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Calle)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
         </td>
     </tr>
 }
