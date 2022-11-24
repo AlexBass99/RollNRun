@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
 using RollNRunWeb.Models;
 
 namespace RollNRunWeb.Controllers
@@ -79,7 +80,14 @@ namespace RollNRunWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                  //  UsuarioCEN usuarioCEN = new UsuarioCEN();
+                  //  bool valServer = usuarioCEN.Login(model.Email, model.Password);
+
+                  //  if (valServer)
+                  //  {
+                        return RedirectToLocal(returnUrl);
+                  //  }
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

@@ -99,16 +99,26 @@ namespace RollNRunWeb.Controllers
         // GET: Producto/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            SessionInitialize();
+            ProductoCAD productoCAD = new ProductoCAD(session);
+            ProductoCEN productoCEN = new ProductoCEN(productoCAD);
+
+            ProductoEN productoEN = productoCEN.ReadOID(id);
+            ProductoViewModel productoViewModel = new ProductoAssembler().ConvertENToModelUI(productoEN);
+
+            SessionClose();
+
+            return View(productoViewModel);
         }
 
         // POST: Producto/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, ProductoViewModel prod)
         {
             try
             {
-                // TODO: Add delete logic here
+                ProductoCEN productoCEN = new ProductoCEN();
+                productoCEN.Destroy(id);
 
                 return RedirectToAction("Index");
             }
