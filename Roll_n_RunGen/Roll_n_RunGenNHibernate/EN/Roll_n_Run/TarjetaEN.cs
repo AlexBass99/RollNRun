@@ -22,7 +22,7 @@ private string numero;
 /**
  *	Atributo cvv
  */
-private int cvv;
+private string cvv;
 
 
 
@@ -62,7 +62,7 @@ public virtual string Numero {
 
 
 
-public virtual int Cvv {
+public virtual string Cvv {
         get { return cvv; } set { cvv = value;  }
 }
 
@@ -94,7 +94,7 @@ public TarjetaEN()
 
 
 
-public TarjetaEN(int id, string titular, string numero, int cvv, Nullable<DateTime> fechaCad, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario
+public TarjetaEN(int id, string titular, string numero, string cvv, Nullable<DateTime> fechaCad, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario
                  )
 {
         this.init (Id, titular, numero, cvv, fechaCad, usuario);
@@ -107,7 +107,7 @@ public TarjetaEN(TarjetaEN tarjeta)
 }
 
 private void init (int id
-                   , string titular, string numero, int cvv, Nullable<DateTime> fechaCad, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario)
+                   , string titular, string numero, string cvv, Nullable<DateTime> fechaCad, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario)
 {
         this.Id = id;
 

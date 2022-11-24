@@ -69,8 +69,8 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN New_ (int p_cantidad,
 
                 //Igual aqui hace falta restarle el precio de la oferta
 
-                lineaPedidoEN.Precio = productoEN.Precio - (productoEN.Precio * (productoEN.Oferta/100));
-                lineaPedidoEN.Precio = (double)(Math.Round((double)lineaPedidoEN.Precio, 2));
+                lineaPedidoEN.Precio = productoEN.Precio - (productoEN.Precio * (productoEN.Oferta / 100));
+                lineaPedidoEN.Precio = (double)(Math.Round ((double)lineaPedidoEN.Precio, 2));
 
 
                 //Call to LineaPedidoCAD

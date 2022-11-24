@@ -39,7 +39,7 @@ public ITarjetaCAD get_ITarjetaCAD ()
         return this._ITarjetaCAD;
 }
 
-public int New_ (string p_titular, string p_numero, int p_cvv, Nullable<DateTime> p_fechaCad, int p_usuario)
+public int New_ (string p_titular, string p_numero, string p_cvv, Nullable<DateTime> p_fechaCad, int p_usuario)
 {
         TarjetaEN tarjetaEN = null;
         int oid;
@@ -68,7 +68,7 @@ public int New_ (string p_titular, string p_numero, int p_cvv, Nullable<DateTime
         return oid;
 }
 
-public void Modify (int p_Tarjeta_OID, string p_titular, string p_numero, int p_cvv, Nullable<DateTime> p_fechaCad)
+public void Modify (int p_Tarjeta_OID, string p_titular, string p_numero, string p_cvv, Nullable<DateTime> p_fechaCad)
 {
         TarjetaEN tarjetaEN = null;
 

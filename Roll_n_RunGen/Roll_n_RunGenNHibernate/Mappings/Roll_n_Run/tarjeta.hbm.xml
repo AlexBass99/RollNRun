@@ -18,7 +18,7 @@
 					<property name="Numero" type="string"> 
 						<column name="numero"  not-null="true"/>
 					</property>
-					<property name="Cvv" type="integer"> 
+					<property name="Cvv" type="string"> 
 						<column name="cvv"  not-null="true"/>
 					</property>
 					<property name="FechaCad" type="date"> 

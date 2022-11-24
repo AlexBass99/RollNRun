@@ -54,24 +54,24 @@
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_W82PIE4DEe2oPOAEyd8Jwg" name="Tarjeta" alias="Tarjeta" asociationTarget="_eG3MgE4IEe2oPOAEyd8Jwg">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_zb1YQU4DEe2oPOAEyd8Jwg" name="new" operationType="New" type="Object" typeObject="_W82PIE4DEe2oPOAEyd8Jwg">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPcE4IEe2oPOAEyd8Jwg" name="p_titular"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPcU4IEe2oPOAEyd8Jwg" name="p_numero"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPck4IEe2oPOAEyd8Jwg" name="p_cvv" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPc04IEe2oPOAEyd8Jwg" name="p_fechaCad" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPdE4IEe2oPOAEyd8Jwg" name="p_usuario" type="OID" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exLIGmNEe2TVIpwcxOnXg" name="p_titular"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exLIWmNEe2TVIpwcxOnXg" name="p_numero"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exLImmNEe2TVIpwcxOnXg" name="p_cvv"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exLI2mNEe2TVIpwcxOnXg" name="p_fechaCad" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exLJGmNEe2TVIpwcxOnXg" name="p_usuario" type="OID" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_zb1_UE4DEe2oPOAEyd8Jwg" name="modify" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPdU4IEe2oPOAEyd8Jwg" name="p_Tarjeta_OID" type="OID" typeObject="_W82PIE4DEe2oPOAEyd8Jwg"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPdk4IEe2oPOAEyd8Jwg" name="p_titular"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPd04IEe2oPOAEyd8Jwg" name="p_numero"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPeE4IEe2oPOAEyd8Jwg" name="p_cvv" type="Integer"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPeU4IEe2oPOAEyd8Jwg" name="p_fechaCad" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exyMGmNEe2TVIpwcxOnXg" name="p_Tarjeta_OID" type="OID" typeObject="_W82PIE4DEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exyMWmNEe2TVIpwcxOnXg" name="p_titular"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exyMmmNEe2TVIpwcxOnXg" name="p_numero"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exyM2mNEe2TVIpwcxOnXg" name="p_cvv"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exyNGmNEe2TVIpwcxOnXg" name="p_fechaCad" type="Date"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_zb1_Vk4DEe2oPOAEyd8Jwg" name="destroy" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPek4IEe2oPOAEyd8Jwg" name="p_Tarjeta_OID" type="OID" typeObject="_W82PIE4DEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exyNWmNEe2TVIpwcxOnXg" name="p_Tarjeta_OID" type="OID" typeObject="_W82PIE4DEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_1LsMUE4DEe2oPOAEyd8Jwg" name="readOID" operationType="ReadOID" type="Object" typeObject="_W82PIE4DEe2oPOAEyd8Jwg">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_pRRPe04IEe2oPOAEyd8Jwg" name="p_Tarjeta_OID" type="OID" typeObject="_W82PIE4DEe2oPOAEyd8Jwg"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="__exyNmmNEe2TVIpwcxOnXg" name="p_Tarjeta_OID" type="OID" typeObject="_W82PIE4DEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_1LszYU4DEe2oPOAEyd8Jwg" name="readAll" operationType="ReadAll" type="Object" collectionType="List" typeObject="_W82PIE4DEe2oPOAEyd8Jwg"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_mQFTME4EEe2oPOAEyd8Jwg" name="getTarjetasUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_W82PIE4DEe2oPOAEyd8Jwg" filter="select tarj FROM TarjetaEN as tarj inner join tarj.Usuario as usu where usu.Id = :p_usuario" automaticSynchronize="false">
@@ -79,7 +79,7 @@
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_kYlbgE4DEe2oPOAEyd8Jwg" alias="titular" name="titular"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_mXk3wE4DEe2oPOAEyd8Jwg" alias="numero" name="numero"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_pGjmgE4DEe2oPOAEyd8Jwg" alias="cvv" name="cvv" type="Integer"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_pGjmgE4DEe2oPOAEyd8Jwg" alias="cvv" name="cvv"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_vmoBQE4DEe2oPOAEyd8Jwg" alias="fechaCad" name="fechaCad" type="Date"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_zb1YQE4DEe2oPOAEyd8Jwg" alias="idTarjeta" name="id" type="Autogenerated" isOID="true" isToken="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_eG5BsE4IEe2oPOAEyd8Jwg" alias="idUsuario" associationTarget="_eG3MgE4IEe2oPOAEyd8Jwg" name="usuario" type="Object"/>
