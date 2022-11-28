@@ -83,7 +83,7 @@ public static void InitializeData ()
 
                 //USUARIOS
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
-                int id_usu = usuarioCEN.New_ (p_nombre: "Yo", p_email: "yo@gmail.com", p_apellidos: "Yomismo", p_nickname: "Mimismo1", p_pass: "1234", p_rol: RolEnum.usuario_base);
+                int id_usu = usuarioCEN.New_ (p_nombre: "Yo", p_email: "yo@gmail.com", p_apellidos: "Yomismo", p_nickname: "Mimismo1", p_pass: "Aguacate88#", p_rol: RolEnum.usuario_base);
                 int id_usu2 = usuarioCEN.New_ (p_nombre: "Tu", p_email: "tu@gmail.com", p_apellidos: "Tumismo", p_nickname: "Mimismo2", p_pass: "1234", p_rol: RolEnum.administrador);
                 int id_usu3 = usuarioCEN.New_ (p_nombre: "El", p_email: "el@gmail.com", p_apellidos: "Elmismo", p_nickname: "Mimismo3", p_pass: "1234", p_rol: RolEnum.usuario_base);
                 int id_usu4 = usuarioCEN.New_ (p_nombre: "Nosotros", p_email: "nosotros@gmail.com", p_apellidos: "Nosotrosmismos", p_nickname: "Mimismo4", p_pass: "1234", p_rol: RolEnum.administrador);
@@ -92,18 +92,18 @@ public static void InitializeData ()
                 //LOGIN usuario
                 Console.WriteLine ("-------------COMPROBACION DEL LOGIN-------------");
                 Console.WriteLine ();
-                if (usuarioCEN.Login (id_usu, "1234") != null) {
+                if (usuarioCEN.Login ("yo@gmail.com", "Aguacate88#") != null) {
                         Console.WriteLine ("El Login es correcto");
                         Console.WriteLine ();
                 }
 
                 //TARJETAS
                 TarjetaCEN tarjetaCEN = new TarjetaCEN ();
-                tarjetaCEN.New_ ("Yo Yomismo", "12341234", 123, new DateTime (2023, 1, 1), id_usu);
-                tarjetaCEN.New_ ("Tu Tumismo", "98769876", 123, new DateTime (2023, 1, 2), id_usu);
-                tarjetaCEN.New_ ("El Elmismo", "12986745", 123, new DateTime (2023, 1, 3), id_usu3);
-                tarjetaCEN.New_ ("Nosotros Nosotrosmismos", "98765432", 123, new DateTime (2023, 1, 4), id_usu4);
-                tarjetaCEN.New_ ("Vosotros Vosotrosmismos", "51369251", 123, new DateTime (2023, 1, 5), id_usu5);
+                tarjetaCEN.New_ ("Yo Yomismo", "12341234", "123", new DateTime (2023, 1, 1), id_usu);
+                tarjetaCEN.New_ ("Tu Tumismo", "98769876", "123", new DateTime (2023, 1, 2), id_usu);
+                tarjetaCEN.New_ ("El Elmismo", "12986745", "123", new DateTime (2023, 1, 3), id_usu3);
+                tarjetaCEN.New_ ("Nosotros Nosotrosmismos", "98765432", "123", new DateTime (2023, 1, 4), id_usu4);
+                tarjetaCEN.New_ ("Vosotros Vosotrosmismos", "51369251", "123", new DateTime (2023, 1, 5), id_usu5);
 
                 //DIRECCIONES
                 DireccionCEN direccionCEN = new DireccionCEN ();
@@ -781,6 +781,22 @@ public static void InitializeData ()
                 }
                 Console.WriteLine ();
                 Console.WriteLine ();
+
+
+                Console.WriteLine ("-------------Meter numero de telefono en usuario-------------");
+
+                Console.WriteLine ("Se va a intentar ponerle numero de telefono a usuario");
+                UsuarioEN usuario = new UsuarioCAD ().ReadOID (id_usu);
+                string numero = "901234567";
+                usuario.Telefono = numero;
+                // Ver si cambiar esto o poner nueva funcion
+                new UsuarioCAD().ModifyDefault(usuario);
+                usuario = new UsuarioCAD().ReadOID(id_usu);
+                Console.WriteLine ("El numero de telefono de usu1 es: " + usuario.Telefono);
+
+
+
+
                 /*PROTECTED REGION END*/
         }
         catch (Exception ex)

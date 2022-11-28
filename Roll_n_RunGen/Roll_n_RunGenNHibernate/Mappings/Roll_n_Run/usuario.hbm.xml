@@ -24,7 +24,7 @@
 					<property name="Nickname" type="string"> 
 						<column name="nickname"  unique="true" not-null="true"/>
 					</property>
-					<property name="Telefono" type="integer"> 
+					<property name="Telefono" type="string"> 
 						<column name="telefono" />
 					</property>
 					<property name="Pass" type="string"> 
@@ -162,5 +162,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENgetUsuarioEmailHQL"><![CDATA[FROM UsuarioEN as usu where usu.Email = :p_email ]]></query>
 		</hibernate-mapping>
 	

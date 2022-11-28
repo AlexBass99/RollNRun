@@ -122,8 +122,10 @@
 			
 			
 			
+			<Compile Include="CEN\Roll_n_Run\UsuarioCEN_Login.cs" />
 			
 			<Compile Include="CP\Roll_n_Run\UsuarioCP_ConfirmarRecepcion.cs" />
+			
 			
 	<Compile Include="EN\Roll_n_Run\TarjetaEN.cs" />
 	<Compile Include="CEN\Roll_n_Run\TarjetaCEN.cs" />

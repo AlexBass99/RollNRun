@@ -104,17 +104,10 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         list = _IUsuarioCAD.ReadAll (first, size);
         return list;
 }
-public string Login (int p_Usuario_OID, string p_pass)
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> GetUsuarioEmail (string p_email)
 {
-        string result = null;
-        UsuarioEN en = _IUsuarioCAD.ReadOIDDefault (p_Usuario_OID);
-
-        if (en != null && en.Pass.Equals (Utils.Util.GetEncondeMD5 (p_pass)))
-                result = this.GetToken (en.Id);
-
-        return result;
+        return _IUsuarioCAD.GetUsuarioEmail (p_email);
 }
-
 
 
 

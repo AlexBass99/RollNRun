@@ -20,8 +20,8 @@ namespace RollNRunWeb.Models
         public string titular { get; set; }
 
         [Display(Prompt = "Número de la tarjeta", Description = "Número de la tarjeta", Name = "Número")]
-        [Required(ErrorMessage = "Debe introducir el número de la tarjeta")]
-        [StringLength(maximumLength: 16, MinimumLength = 16, ErrorMessage = "El número de la tarjeta debe tener 16 caracteres")]
+        [Required(ErrorMessage = "Este es un campo requerido")]
+        [DataType(DataType.CreditCard, ErrorMessage = "Debe introducir un número de tarjeta de crédito")]
         public string numero { get; set; }
 
         [Display(Prompt = "CVV de la tarjeta", Description = "CVV de la tarjeta", Name = "CVV")]

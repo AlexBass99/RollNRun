@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -9,6 +10,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
+using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 using RollNRunWeb.Models;
 
 namespace RollNRunWeb.Controllers
@@ -80,18 +82,27 @@ namespace RollNRunWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                  //  UsuarioCEN usuarioCEN = new UsuarioCEN();
-                  //  bool valServer = usuarioCEN.Login(model.Email, model.Password);
-
-                  //  if (valServer)
-                  //  {
+                    UsuarioCEN usu = new UsuarioCEN();
+                    string token = usu.Login(model.Email, model.Password);
+                    IList<UsuarioEN> listaUsuarios = usu.GetUsuarioEmail(model.Email);
+                    if (listaUsuarios.Count > 0)
+                    {
+                        Session["Usuario"] = listaUsuarios[0];
+                    }
+                    if (token != null)
+                    {
                         return RedirectToLocal(returnUrl);
-                  //  }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
+                        return View(model);
+                    }
 
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl });
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
@@ -155,7 +166,7 @@ namespace RollNRunWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(UsuarioViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -164,7 +175,11 @@ namespace RollNRunWeb.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    UsuarioCEN usuCEN = new UsuarioCEN();
+                    // Acordarse de que aqui he puesto que al registrarse siempre es usuario base, Preguntar otra vez a Profeta :3
+                    int idUsu = usuCEN.New_(model.nombre, model.Email, model.apellidos, model.alias, model.Password, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum.usuario_base);
+                    Session["Usuario"] = usuCEN.ReadOID(idUsu);
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

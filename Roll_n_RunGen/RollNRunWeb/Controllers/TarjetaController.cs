@@ -11,6 +11,7 @@ using RollNRunWeb.Models;
 
 namespace RollNRunWeb.Controllers
 {
+    [Authorize]
     public class TarjetaController : BasicController
     {
         // GET: Tarjeta
@@ -44,12 +45,11 @@ namespace RollNRunWeb.Controllers
         {
             try
             {
-                SessionInitialize();
                 TarjetaCEN tarCEN = new TarjetaCEN();
-                tarCEN.New_(tar.titular, tar.numero, tar.cvv, tar.fechaCad, tar.usuario);
-
-                SessionClose();
-
+                if (Session["Usuario"] != null) {
+                    tar.usuario = ((UsuarioEN)Session["Usuario"]).Id;
+                    tarCEN.New_(tar.titular, tar.numero, tar.cvv, tar.fechaCad, tar.usuario);
+                }
                 return RedirectToAction("Index");
             }
             catch

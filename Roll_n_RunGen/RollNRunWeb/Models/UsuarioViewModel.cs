@@ -24,14 +24,9 @@ namespace RollNRunWeb.Models
         [Required(ErrorMessage = "Debe indicar al menos un apellido para el usuario")]
         public string apellidos { get; set; }
 
-        [Display(Prompt = "Email del usuario", Description = "Email del usuario", Name = "Email")]
-        [Required(ErrorMessage = "Debe indicar un email")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "No se ha introducido correctamente el email")]
-        public string email { get; set; }
-
 
         [Display(Prompt = "Telefono del usuario", Description = "Telefono del usuario", Name = "Telefono ")]
-        [Required(ErrorMessage = "Debe indicar un telefono de usuario")]
+        [DataType(DataType.PhoneNumber, ErrorMessage = "Debe introducir un número de teléfono")]
         public string telefono { get; set; }
     }
 }

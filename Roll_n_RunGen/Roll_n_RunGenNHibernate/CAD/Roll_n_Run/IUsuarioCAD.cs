@@ -29,5 +29,10 @@ UsuarioEN ReadOID (int id
 
 
 System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size);
+
+
+
+
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> GetUsuarioEmail (string p_email);
 }
 }
