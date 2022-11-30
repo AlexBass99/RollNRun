@@ -284,7 +284,6 @@
     <Content Include="Views\Producto\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Direccion\Index.cshtml" />
-    <Content Include="Views\Direccion\Create.cshtml" />
     <Content Include="Views\Producto\Create.cshtml" />
     <Content Include="Views\Producto\Details.cshtml" />
     <Content Include="Views\Producto\Edit.cshtml" />
@@ -296,6 +295,8 @@
     <Content Include="Views\Tarjeta\Details.cshtml" />
     <Content Include="Views\Tarjeta\Edit.cshtml" />
     <Content Include="Views\Tarjeta\Delete.cshtml" />
+    <Content Include="Views\Direccion\Delete.cshtml" />
+    <Content Include="Views\Direccion\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
