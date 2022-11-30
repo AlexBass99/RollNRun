@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
+using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
+using RollNRunWeb.Assemblers;
+using RollNRunWeb.Models;
 
 namespace RollNRunWeb.Controllers
 {
@@ -13,16 +16,31 @@ namespace RollNRunWeb.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
-            UsuarioCEN usuarioCEN = new UsuarioCEN();
-            IList<UsuarioEN> usuarios = usuarioCEN.ReadAll(0, -1).ToList<UsuarioEN>();
+            SessionInitialize();
+            UsuarioCAD usuarioCAD = new UsuarioCAD(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
 
-            return View(usuarios);
+            IList<UsuarioEN> usuariosEN = usuarioCEN.ReadAll(0, -1);
+            IEnumerable<UsuarioViewModel> usuariosViewModel = new UsuarioAssembler().ConvertListENToModel(usuariosEN).ToList();
+            SessionClose();
+
+            return View(usuariosViewModel);
         }
 
         // GET: Usuario/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+
+            UsuarioCAD usuarioCAD = new UsuarioCAD(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
+
+            UsuarioEN usuarioEN = usuarioCEN.ReadOID(id);
+            UsuarioViewModel usuarioViewModel = new UsuarioAssembler().ConvertENToModelUI(usuarioEN);
+
+            SessionClose();
+
+            return View(usuarioViewModel);
         }
 
         // GET: Usuario/Create
@@ -33,11 +51,23 @@ namespace RollNRunWeb.Controllers
 
         // POST: Usuario/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(UsuarioViewModel usu)
         {
             try
             {
-                // TODO: Add insert logic here
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
+                int idUsu = usuarioCEN.New_(usu.nombre, usu.Email, usu.apellidos, usu.alias, usu.Password, usu.rol);
+                UsuarioEN usuarioEN = usuarioCEN.ReadOID(idUsu);
+
+                if (usu.telefono != null)           //Si no es un campo vacio se le añade ese nuevo telefono
+                {
+                    usuarioEN.Telefono = usu.telefono;
+                }
+
+                else
+                {
+                    usuarioEN.Telefono = "Sin registrar";
+                }
 
                 return RedirectToAction("Index");
             }
@@ -50,16 +80,32 @@ namespace RollNRunWeb.Controllers
         // GET: Usuario/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            SessionInitialize();
+            UsuarioCAD usuarioCAD = new UsuarioCAD(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
+
+            UsuarioEN usuarioEN = usuarioCEN.ReadOID(id);
+            UsuarioViewModel usuarioViewModel = new UsuarioAssembler().ConvertENToModelUI(usuarioEN);
+
+            SessionClose();
+
+            return View(usuarioViewModel);
         }
 
         // POST: Usuario/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, UsuarioViewModel usu)
         {
             try
             {
-                // TODO: Add update logic here
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
+                usuarioCEN.Modify(id, usu.nombre, usu.Email, usu.apellidos, usu.alias, usu.Password, usu.rol);
+
+                if (usu.telefono != null)     //Si no es un campo vacio se le añade ese nuevo telefono
+                {
+                    UsuarioEN usuarioEN = usuarioCEN.ReadOID(id);
+                    usuarioEN.Telefono = usu.telefono;
+                }
 
                 return RedirectToAction("Index");
             }
@@ -72,7 +118,16 @@ namespace RollNRunWeb.Controllers
         // GET: Usuario/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            SessionInitialize();
+            UsuarioCAD usuarioCAD = new UsuarioCAD(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
+
+            UsuarioEN usuarioEN = usuarioCEN.ReadOID(id);
+            UsuarioViewModel usuarioViewModel = new UsuarioAssembler().ConvertENToModelUI(usuarioEN);
+
+            SessionClose();
+
+            return View(usuarioViewModel);
         }
 
         // POST: Usuario/Delete/5
@@ -81,7 +136,8 @@ namespace RollNRunWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
+                usuarioCEN.Destroy(id);
 
                 return RedirectToAction("Index");
             }

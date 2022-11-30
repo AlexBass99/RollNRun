@@ -54,6 +54,13 @@
         @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
     </div>
 </div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.rol, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EnumDropDownListFor(m => m.rol)
+    </div>
+</div>
 <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
         <input type="submit" class="btn btn-default" value="Registrarse" />

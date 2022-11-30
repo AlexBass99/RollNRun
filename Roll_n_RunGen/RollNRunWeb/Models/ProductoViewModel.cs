@@ -51,7 +51,6 @@ namespace RollNRunWeb.Models
 
         [Display(Prompt = "Tipo de producto", Description = "Tipo de producto", Name = "Tipo")]
         [Required(ErrorMessage = "Debe indicar el tipo de producto")]
-        [Range(minimum: 1, maximum: 6, ErrorMessage = "El tipo debe ser entre 1 y 6")]
         public Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo_producto { get; set; }
 
         [Display(Prompt = "Oferta al producto", Description = "Oferta al producto", Name = "Oferta")]

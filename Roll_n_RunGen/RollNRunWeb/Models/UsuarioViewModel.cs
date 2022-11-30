@@ -24,9 +24,11 @@ namespace RollNRunWeb.Models
         [Required(ErrorMessage = "Debe indicar al menos un apellido para el usuario")]
         public string apellidos { get; set; }
 
+        [Display(Prompt = "Tipo de Usuario", Description = "Rol del Usuario en la página", Name = "Rol")]
+        [Required(ErrorMessage = "Debe indicar el rol de Usuario")]
+        public Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum rol { get; set; }
 
         [Display(Prompt = "Telefono del usuario", Description = "Telefono del usuario", Name = "Telefono ")]
-        [DataType(DataType.PhoneNumber, ErrorMessage = "Debe introducir un número de teléfono")]
         public string telefono { get; set; }
     }
 }
