@@ -20,7 +20,7 @@ namespace RollNRunWeb.Controllers
             SessionInitialize();
             TarjetaCAD tarCAD = new TarjetaCAD(session);
             TarjetaCEN tarCEN = new TarjetaCEN(tarCAD);
-            IList<TarjetaEN> listEN = tarCEN.ReadAll(0, -1);
+            IList<TarjetaEN> listEN = tarCEN.GetTarjetasUsuario(((UsuarioEN)Session["Usuario"]).Id);
             IEnumerable<TarjetaViewModel> listViewModel = new TarjetaAssembler().ConvertListENToModel(listEN).ToList();
             SessionClose();
 
