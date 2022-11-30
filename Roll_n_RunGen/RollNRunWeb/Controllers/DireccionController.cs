@@ -56,7 +56,11 @@ namespace RollNRunWeb.Controllers
             {
                 // TODO: Add insert logic here
                 DireccionCEN dirCEN = new DireccionCEN();
-                dirCEN.New_(dir.Provincia, dir.Localidad, dir.CP, dir.Calle, 0); //el 0 debería ser la ID de un Usuario, como aun no
+                if (Session["Usuario"] != null)
+                {
+                    dir.usuario = ((UsuarioEN)Session["Usuario"]).Id;
+                }
+                dirCEN.New_(dir.Provincia, dir.Localidad, dir.CP, dir.Calle, dir.usuario); //el 0 debería ser la ID de un Usuario, como aun no
                 // hemos hecho Usuario lo he dejado como "0" para no crear un Usuario por si acaso
 
 
@@ -114,7 +118,8 @@ namespace RollNRunWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                DireccionCEN dirCEN = new DireccionCEN();
+                dirCEN.Destroy(id);
 
                 return RedirectToAction("Index");
             }
