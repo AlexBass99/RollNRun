@@ -23,18 +23,18 @@ public string Login (string p_email, string p_pass)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CEN.Roll_n_Run_Usuario_login) ENABLED START*/
         string result = null;
-        IList<UsuarioEN> listEn = GetUsuarioEmail(p_email);
+
+        IList<UsuarioEN> listEn = GetUsuarioEmail (p_email);
 
 
-            if (listEn.Count > 0)
-            {
-                UsuarioEN en = listEn[0];
-                if (en.Pass.Equals(Utils.Util.GetEncondeMD5(p_pass))) {
-                    result = this.GetToken (en.Id);
+        if (listEn.Count > 0) {
+                UsuarioEN en = listEn [0];
+                if (en.Pass.Equals (Utils.Util.GetEncondeMD5 (p_pass))) {
+                        result = this.GetToken (en.Id);
                 }
-            }
-            
-                
+        }
+
+
 
         return result;
         /*PROTECTED REGION END*/

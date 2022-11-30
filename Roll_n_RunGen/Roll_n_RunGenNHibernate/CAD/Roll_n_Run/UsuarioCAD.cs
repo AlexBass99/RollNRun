@@ -297,7 +297,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Us
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN as usu where usu.Email = :p_email ";
+                //String sql = @"FROM UsuarioEN self where select usu FROM UsuarioEN as usu where usu.Email = :p_email ";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENgetUsuarioEmailHQL");
                 query.SetParameter ("p_email", p_email);

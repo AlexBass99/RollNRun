@@ -162,6 +162,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
-		  <query name="UsuarioENgetUsuarioEmailHQL"><![CDATA[FROM UsuarioEN as usu where usu.Email = :p_email ]]></query>
+		  <query name="UsuarioENgetUsuarioEmailHQL"><![CDATA[select usu FROM UsuarioEN as usu where usu.Email = :p_email ]]></query>
 		</hibernate-mapping>
 	

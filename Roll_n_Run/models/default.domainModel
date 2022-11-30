@@ -34,7 +34,7 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_mCsCIFBOEe2iNN73jFHcyA" name="p_oid" type="OID" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_e28GcGBPEe2Ye-_g8YAwsA" name="p_pedido" type="OID" typeObject="_mVjMkE4FEe2oPOAEyd8Jwg"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_mQP38GwkEe262rGGSP2Buw" name="getUsuarioEmail" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg" filter="FROM UsuarioEN as usu where usu.Email = :p_email " automaticSynchronize="false">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_mQP38GwkEe262rGGSP2Buw" name="getUsuarioEmail" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg" filter="select usu FROM UsuarioEN as usu where usu.Email = :p_email " automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_qxRMEGwkEe262rGGSP2Buw" name="p_email"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_slsRwE4BEe2oPOAEyd8Jwg" alias="nombre" name="nombre"/>

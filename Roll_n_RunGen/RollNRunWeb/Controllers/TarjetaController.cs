@@ -30,7 +30,16 @@ namespace RollNRunWeb.Controllers
         // GET: Tarjeta/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+            TarjetaCAD tarjetaCAD = new TarjetaCAD(session);
+            TarjetaCEN tarjetaCEN = new TarjetaCEN(tarjetaCAD);
+
+            TarjetaEN tarjetaEN = tarjetaCEN.ReadOID(id);
+            TarjetaViewModel tarjetaViewModel = new TarjetaAssembler().ConvertENToModelUI(tarjetaEN);
+
+            SessionClose();
+
+            return View(tarjetaViewModel);
         }
 
         // GET: Tarjeta/Create
@@ -48,9 +57,10 @@ namespace RollNRunWeb.Controllers
                 TarjetaCEN tarCEN = new TarjetaCEN();
                 if (Session["Usuario"] != null) {
                     tar.usuario = ((UsuarioEN)Session["Usuario"]).Id;
-                    tarCEN.New_(tar.titular, tar.numero, tar.cvv, tar.fechaCad, tar.usuario);
                 }
+                tarCEN.New_(tar.titular, tar.numero, tar.cvv, tar.fechaCad, tar.usuario);
                 return RedirectToAction("Index");
+                //Aqui falta que muestre algun error si pasa algo aunque deberia de tener siempre usuario porque sino no va a llegar aqui
             }
             catch
             {
@@ -61,16 +71,28 @@ namespace RollNRunWeb.Controllers
         // GET: Tarjeta/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            SessionInitialize();
+            TarjetaCAD tarjetaCAD = new TarjetaCAD(session);
+            TarjetaCEN tarjetaCEN = new TarjetaCEN(tarjetaCAD);
+
+            TarjetaEN tarjetaEN = tarjetaCEN.ReadOID(id);
+            TarjetaViewModel tarjetaViewModel = new TarjetaAssembler().ConvertENToModelUI(tarjetaEN);
+
+            SessionClose();
+
+            return View(tarjetaViewModel);
         }
 
         // POST: Tarjeta/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, TarjetaViewModel tarj)
         {
             try
             {
-                // TODO: Add update logic here
+
+                TarjetaCEN tarjetaCEN = new TarjetaCEN();
+                TarjetaEN tarjetaEN = tarjetaCEN.ReadOID(id);
+                tarjetaCEN.Modify(id, tarj.titular, tarj.numero, tarj.cvv, tarj.fechaCad);
 
                 return RedirectToAction("Index");
             }
@@ -83,16 +105,25 @@ namespace RollNRunWeb.Controllers
         // GET: Tarjeta/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            SessionInitialize();
+            TarjetaCAD tarjetaCAD = new TarjetaCAD(session);
+            TarjetaCEN tarjetaCEN = new TarjetaCEN(tarjetaCAD);
+
+            TarjetaEN tarjetaEN = tarjetaCEN.ReadOID(id);
+            TarjetaViewModel tarjetaViewModel = new TarjetaAssembler().ConvertENToModelUI(tarjetaEN);
+
+            SessionClose();
+            return View(tarjetaViewModel);
         }
 
         // POST: Tarjeta/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, TarjetaViewModel tarj)
         {
             try
             {
-                // TODO: Add delete logic here
+                TarjetaCEN tarjetaCEN = new TarjetaCEN();
+                tarjetaCEN.Destroy(id);
 
                 return RedirectToAction("Index");
             }

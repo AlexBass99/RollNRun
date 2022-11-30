@@ -37,6 +37,8 @@ namespace RollNRunWeb.Controllers
             ProductoEN productoEN = productoCEN.ReadOID(id);
             ProductoViewModel productoViewModel = new ProductoAssembler().ConvertENToModelUI(productoEN);
 
+            SessionClose();
+
             return View(productoViewModel);
         }
 

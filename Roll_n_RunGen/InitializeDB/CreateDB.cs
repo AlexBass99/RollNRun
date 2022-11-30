@@ -790,8 +790,8 @@ public static void InitializeData ()
                 string numero = "901234567";
                 usuario.Telefono = numero;
                 // Ver si cambiar esto o poner nueva funcion
-                new UsuarioCAD().ModifyDefault(usuario);
-                usuario = new UsuarioCAD().ReadOID(id_usu);
+                new UsuarioCAD ().ModifyDefault (usuario);
+                usuario = new UsuarioCAD ().ReadOID (id_usu);
                 Console.WriteLine ("El numero de telefono de usu1 es: " + usuario.Telefono);
 
 
