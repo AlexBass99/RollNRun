@@ -8,6 +8,7 @@ using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using RollNRunWeb.Assemblers;
 using RollNRunWeb.Models;
+using System.IO;
 
 namespace RollNRunWeb.Controllers
 {
@@ -50,8 +51,19 @@ namespace RollNRunWeb.Controllers
 
         // POST: Producto/Create
         [HttpPost]
-        public ActionResult Create(ProductoViewModel prod)
+        public ActionResult Create(ProductoViewModel prod, HttpPostedFileBase file)
         {
+            string fileName = "", path = "";
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the fielname
+                fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
+                file.SaveAs(path);
+            }
+
             try
             {
                 ProductoCEN productoCEN = new ProductoCEN();

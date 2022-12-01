@@ -17,7 +17,6 @@ namespace RollNRunWeb.Models
         [ScaffoldColumn(false)]
         public int entrada { get; set; }
 
-
         [Display(Prompt = "Nombre", Description = "Nombre del producto", Name = "Nombre del producto")]
         [Required(ErrorMessage = "Debe indicar un nombre para el producto")]
         [StringLength(maximumLength: 50, ErrorMessage = "El nombre debe tener como mucho 50 caracteres")]
