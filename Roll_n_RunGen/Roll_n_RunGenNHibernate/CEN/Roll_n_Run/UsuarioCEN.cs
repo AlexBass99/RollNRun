@@ -39,7 +39,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public int New_ (string p_nombre, string p_email, string p_apellidos, string p_nickname, String p_pass, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum p_rol)
+public int New_ (string p_nombre, string p_email, string p_apellidos, string p_nickname, String p_pass, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum p_rol, string p_imagen)
 {
         UsuarioEN usuarioEN = null;
         int oid;
@@ -58,13 +58,15 @@ public int New_ (string p_nombre, string p_email, string p_apellidos, string p_n
 
         usuarioEN.Rol = p_rol;
 
+        usuarioEN.Imagen = p_imagen;
+
         //Call to UsuarioCAD
 
         oid = _IUsuarioCAD.New_ (usuarioEN);
         return oid;
 }
 
-public void Modify (int p_Usuario_OID, string p_nombre, string p_email, string p_apellidos, string p_nickname, String p_pass, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum p_rol)
+public void Modify (int p_Usuario_OID, string p_nombre, string p_email, string p_apellidos, string p_nickname, String p_pass, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum p_rol, string p_imagen)
 {
         UsuarioEN usuarioEN = null;
 
@@ -77,6 +79,7 @@ public void Modify (int p_Usuario_OID, string p_nombre, string p_email, string p
         usuarioEN.Nickname = p_nickname;
         usuarioEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
         usuarioEN.Rol = p_rol;
+        usuarioEN.Imagen = p_imagen;
         //Call to UsuarioCAD
 
         _IUsuarioCAD.Modify (usuarioEN);

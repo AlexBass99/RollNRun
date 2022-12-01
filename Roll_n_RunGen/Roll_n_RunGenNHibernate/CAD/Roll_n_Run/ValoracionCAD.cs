@@ -301,5 +301,35 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Va
 
         return result;
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> GetValoracionesUsuario (int ? p_usuario)
+{
+        System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ValoracionEN self where select val FROM ValoracionEN as val inner join val.Usuario as usu where usu.Id = :p_usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ValoracionENgetValoracionesUsuarioHQL");
+                query.SetParameter ("p_usuario", p_usuario);
+
+                result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in ValoracionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

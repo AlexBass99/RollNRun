@@ -56,7 +56,7 @@ namespace RollNRunWeb.Controllers
             try
             {
                 UsuarioCEN usuarioCEN = new UsuarioCEN();
-                int idUsu = usuarioCEN.New_(usu.nombre, usu.Email, usu.apellidos, usu.alias, usu.Password, usu.rol);
+                int idUsu = usuarioCEN.New_(usu.nombre, usu.Email, usu.apellidos, usu.alias, usu.Password, usu.rol, usu.imagen_perfil);
                 UsuarioEN usuarioEN = usuarioCEN.ReadOID(idUsu);
 
                 if (usu.telefono != null)           //Si no es un campo vacio se le añade ese nuevo telefono
@@ -99,7 +99,7 @@ namespace RollNRunWeb.Controllers
             try
             {
                 UsuarioCEN usuarioCEN = new UsuarioCEN();
-                usuarioCEN.Modify(id, usu.nombre, usu.Email, usu.apellidos, usu.alias, usu.Password, usu.rol);
+                usuarioCEN.Modify(id, usu.nombre, usu.Email, usu.apellidos, usu.alias, usu.Password, usu.rol, usu.imagen_perfil);
 
                 if (usu.telefono != null)     //Si no es un campo vacio se le añade ese nuevo telefono
                 {

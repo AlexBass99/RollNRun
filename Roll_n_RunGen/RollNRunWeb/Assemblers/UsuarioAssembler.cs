@@ -20,6 +20,7 @@ namespace RollNRunWeb.Assemblers
             usu.apellidos = en.Apellidos;
             usu.telefono = en.Telefono;
             usu.rol = en.Rol;
+            usu.imagen_perfil = en.Imagen;
 
             return usu;
         }

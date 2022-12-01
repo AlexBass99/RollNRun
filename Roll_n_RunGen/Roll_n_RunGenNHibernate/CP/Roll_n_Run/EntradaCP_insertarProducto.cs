@@ -21,7 +21,7 @@ namespace Roll_n_RunGenNHibernate.CP.Roll_n_Run
 {
 public partial class EntradaCP : BasicCP
 {
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> InsertarProducto (string p_Descripcion)
+public void InsertarProducto (int p_producto, int p_oid)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CP.Roll_n_Run_Entrada_insertarProducto) ENABLED START*/
 
@@ -42,13 +42,14 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
                 productoCAD = new ProductoCAD ();
                 productoCEN = new ProductoCEN (productoCAD);
 
-                // CREAMOS UNA LISTA LLAMANDO AL READFILTER DEPRODUCTOCAD PASANDOLE POR PARAMTRO LA BUSQUEDA
-                IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> lista = productoCAD.BuscarDescripcion (p_Descripcion);
+                EntradaEN entradaEN = entradaCEN.ReadOID (p_oid);
+
+                entradaEN.Producto = productoCEN.ReadOID (p_producto);;
+
+                entradaCAD.Modify (entradaEN);
 
 
                 SessionCommit ();
-
-                return lista;
         }
         catch (Exception ex)
         {

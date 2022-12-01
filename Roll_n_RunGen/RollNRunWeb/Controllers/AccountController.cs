@@ -178,7 +178,7 @@ namespace RollNRunWeb.Controllers
 
                     UsuarioCEN usuCEN = new UsuarioCEN();
                     // Acordarse de que aqui he puesto que al registrarse siempre es usuario base, Preguntar otra vez a Profeta :3
-                    int idUsu = usuCEN.New_(model.nombre, model.Email, model.apellidos, model.alias, model.Password, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum.usuario_base);
+                    int idUsu = usuCEN.New_(model.nombre, model.Email, model.apellidos, model.alias, model.Password, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum.usuario_base, model.imagen_perfil);
                     Session["Usuario"] = usuCEN.ReadOID(idUsu);
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo

@@ -120,6 +120,9 @@ public void ModifyDefault (UsuarioEN usuario)
                 usuarioEN.Rol = usuario.Rol;
 
 
+
+                usuarioEN.Imagen = usuario.Imagen;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -188,6 +191,9 @@ public void Modify (UsuarioEN usuario)
 
 
                 usuarioEN.Rol = usuario.Rol;
+
+
+                usuarioEN.Imagen = usuario.Imagen;
 
                 session.Update (usuarioEN);
                 SessionCommit ();

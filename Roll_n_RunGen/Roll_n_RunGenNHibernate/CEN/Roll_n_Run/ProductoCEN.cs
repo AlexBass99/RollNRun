@@ -145,9 +145,5 @@ public void QuitarDeseado (int p_Producto_OID, System.Collections.Generic.IList<
 
         _IProductoCAD.QuitarDeseado (p_Producto_OID, p_usuarios_OIDs);
 }
-public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> BuscarDescripcion (string p_Descripcion)
-{
-        return _IProductoCAD.BuscarDescripcion (p_Descripcion);
-}
 }
 }

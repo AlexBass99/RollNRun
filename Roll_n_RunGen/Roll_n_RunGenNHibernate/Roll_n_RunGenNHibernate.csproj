@@ -174,7 +174,6 @@
 			
 			
 			
-			
 	<Compile Include="EN\Roll_n_Run\ValoracionEN.cs" />
 	<Compile Include="CEN\Roll_n_Run\ValoracionCEN.cs" />
 	<Compile Include="CAD\Roll_n_Run\IValoracionCAD.cs" />
@@ -184,6 +183,7 @@
 			
 			
 			<Compile Include="CP\Roll_n_Run\ValoracionCP_Destroy.cs" />
+			
 			
 			
 			

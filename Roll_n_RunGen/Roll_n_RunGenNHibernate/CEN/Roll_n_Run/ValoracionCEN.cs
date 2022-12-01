@@ -73,5 +73,9 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Va
 {
         return _IValoracionCAD.GetValoracionesProducto (p_producto);
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> GetValoracionesUsuario (int ? p_usuario)
+{
+        return _IValoracionCAD.GetValoracionesUsuario (p_usuario);
+}
 }
 }

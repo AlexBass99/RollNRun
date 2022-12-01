@@ -33,6 +33,9 @@
 					<property name="Rol" > 
 						<column name="rol"  not-null="true"/>
 					</property>
+					<property name="Imagen" type="string"> 
+						<column name="imagen"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -140,6 +143,8 @@
 					      	</key>
 							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN"/>
 					    </bag>
+					
+			
 					
 					
 					

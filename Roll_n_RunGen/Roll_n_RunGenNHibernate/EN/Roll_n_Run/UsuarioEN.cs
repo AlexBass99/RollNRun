@@ -124,6 +124,13 @@ private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.D
 
 
 
+/**
+ *	Atributo imagen
+ */
+private string imagen;
+
+
+
 
 
 
@@ -229,6 +236,12 @@ public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_
 
 
 
+public virtual string Imagen {
+        get { return imagen; } set { imagen = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
@@ -246,20 +259,20 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(int id, string nombre, string email, string apellidos, string nickname, string telefono, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> tarjeta, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> direccion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> subforo_autor, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, String pass, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> productos_deseados, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> subforos, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum rol, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN> devolucion
+public UsuarioEN(int id, string nombre, string email, string apellidos, string nickname, string telefono, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> tarjeta, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> direccion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> subforo_autor, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, String pass, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> productos_deseados, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> subforos, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum rol, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN> devolucion, string imagen
                  )
 {
-        this.init (Id, nombre, email, apellidos, nickname, telefono, tarjeta, direccion, pedido, valoracion, subforo_autor, entrada, pass, productos_deseados, subforos, rol, devolucion);
+        this.init (Id, nombre, email, apellidos, nickname, telefono, tarjeta, direccion, pedido, valoracion, subforo_autor, entrada, pass, productos_deseados, subforos, rol, devolucion, imagen);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Id, usuario.Nombre, usuario.Email, usuario.Apellidos, usuario.Nickname, usuario.Telefono, usuario.Tarjeta, usuario.Direccion, usuario.Pedido, usuario.Valoracion, usuario.Subforo_autor, usuario.Entrada, usuario.Pass, usuario.Productos_deseados, usuario.Subforos, usuario.Rol, usuario.Devolucion);
+        this.init (Id, usuario.Nombre, usuario.Email, usuario.Apellidos, usuario.Nickname, usuario.Telefono, usuario.Tarjeta, usuario.Direccion, usuario.Pedido, usuario.Valoracion, usuario.Subforo_autor, usuario.Entrada, usuario.Pass, usuario.Productos_deseados, usuario.Subforos, usuario.Rol, usuario.Devolucion, usuario.Imagen);
 }
 
 private void init (int id
-                   , string nombre, string email, string apellidos, string nickname, string telefono, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> tarjeta, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> direccion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> subforo_autor, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, String pass, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> productos_deseados, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> subforos, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum rol, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN> devolucion)
+                   , string nombre, string email, string apellidos, string nickname, string telefono, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN> tarjeta, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN> direccion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> subforo_autor, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, String pass, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN> productos_deseados, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> subforos, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum rol, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN> devolucion, string imagen)
 {
         this.Id = id;
 
@@ -295,6 +308,8 @@ private void init (int id
         this.Rol = rol;
 
         this.Devolucion = devolucion;
+
+        this.Imagen = imagen;
 }
 
 public override bool Equals (object obj)

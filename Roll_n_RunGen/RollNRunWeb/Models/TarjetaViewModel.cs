@@ -33,7 +33,7 @@ namespace RollNRunWeb.Models
         [Display(Prompt = "Fecha de caducidad", Description = "Fecha de caducidad", Name = "FechaCad ")]
         [Required(ErrorMessage = "Debe indicar una fecha")]
         [DataType(DataType.DateTime, ErrorMessage = "Debe introducir una fecha")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime fechaCad { get; set; }
     }
 }

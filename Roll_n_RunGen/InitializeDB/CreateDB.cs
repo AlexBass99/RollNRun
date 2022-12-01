@@ -83,11 +83,11 @@ public static void InitializeData ()
 
                 //USUARIOS
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
-                int id_usu = usuarioCEN.New_ (p_nombre: "Yo", p_email: "yo@gmail.com", p_apellidos: "Yomismo", p_nickname: "Mimismo1", p_pass: "Aguacate88#", p_rol: RolEnum.usuario_base);
-                int id_usu2 = usuarioCEN.New_ (p_nombre: "Tu", p_email: "tu@gmail.com", p_apellidos: "Tumismo", p_nickname: "Mimismo2", p_pass: "1234", p_rol: RolEnum.administrador);
-                int id_usu3 = usuarioCEN.New_ (p_nombre: "El", p_email: "el@gmail.com", p_apellidos: "Elmismo", p_nickname: "Mimismo3", p_pass: "1234", p_rol: RolEnum.usuario_base);
-                int id_usu4 = usuarioCEN.New_ (p_nombre: "Nosotros", p_email: "nosotros@gmail.com", p_apellidos: "Nosotrosmismos", p_nickname: "Mimismo4", p_pass: "1234", p_rol: RolEnum.administrador);
-                int id_usu5 = usuarioCEN.New_ (p_nombre: "Vosotros", p_email: "vosotros@gmail.com", p_apellidos: "Vosotrosmismos", p_nickname: "Mimismo5", p_pass: "1234", p_rol: RolEnum.usuario_base);
+                int id_usu = usuarioCEN.New_ (p_nombre: "Yo", p_email: "yo@gmail.com", p_apellidos: "Yomismo", p_nickname: "Mimismo1", p_pass: "Aguacate88#", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
+                int id_usu2 = usuarioCEN.New_ (p_nombre: "Tu", p_email: "tu@gmail.com", p_apellidos: "Tumismo", p_nickname: "Mimismo2", p_pass: "1234", p_rol: RolEnum.administrador, p_imagen: "Imagen");
+                int id_usu3 = usuarioCEN.New_ (p_nombre: "El", p_email: "el@gmail.com", p_apellidos: "Elmismo", p_nickname: "Mimismo3", p_pass: "1234", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
+                int id_usu4 = usuarioCEN.New_ (p_nombre: "Nosotros", p_email: "nosotros@gmail.com", p_apellidos: "Nosotrosmismos", p_nickname: "Mimismo4", p_pass: "1234", p_rol: RolEnum.administrador, p_imagen: "Imagen");
+                int id_usu5 = usuarioCEN.New_ (p_nombre: "Vosotros", p_email: "vosotros@gmail.com", p_apellidos: "Vosotrosmismos", p_nickname: "Mimismo5", p_pass: "1234", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
 
                 //LOGIN usuario
                 Console.WriteLine ("-------------COMPROBACION DEL LOGIN-------------");
@@ -547,17 +547,6 @@ public static void InitializeData ()
                 Console.WriteLine ();
 
 
-                Console.WriteLine ("------------- Filtro de obtener los productos filtrados por descripcion -------------");
-                IList<ProductoEN> listadesc = productoCEN.BuscarDescripcion ("de");
-                i = 0;
-                foreach (ProductoEN prod in listadesc) {
-                        i++;
-                        Console.WriteLine ("Producto con id: " + prod.Id + " tiene 'de' en la descricion desc: " + prod.Descripcion);
-                }
-                Console.WriteLine ("productos que tienen coincidencias: " + i);
-                Console.WriteLine ();
-                Console.WriteLine ();
-
 
                 Console.WriteLine ("------------- Filtro de obtener los productos dentro de un rango de precios -------------");
                 IList<ProductoEN> listprodPrec = productoCEN.BuscarPrecio (1.99);
@@ -677,7 +666,7 @@ public static void InitializeData ()
                 ValoracionCEN valoracionCEN = new ValoracionCEN ();
 
                 ProductoCAD productoCAD = new ProductoCAD ();
-                IList<ProductoEN> listaproductos = productoCAD.BuscarDescripcion ("");
+                IList<ProductoEN> listaproductos = productoCAD.ReadAll (0, -1);
 
                 int o;
                 foreach (ProductoEN prod in listaproductos) {
