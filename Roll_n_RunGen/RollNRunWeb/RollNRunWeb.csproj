@@ -231,6 +231,7 @@
     <Compile Include="Models\TarjetaViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Models\ValoracionViewModel.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -239,6 +240,8 @@
     <Content Include="App_Data\aspnet-RollNRunWeb-20221117101253_log.ldf">
       <DependentUpon>aspnet-RollNRunWeb-20221117101253.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\RollNRunWeb.dll" />
+    <Content Include="bin\RollNRunWeb.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -327,6 +330,10 @@
     <Content Include="Views\Valoracion\Index.cshtml" />
     <Content Include="Views\Valoracion\Create.cshtml" />
     <Content Include="Views\Pedido\Index.cshtml" />
+    <Content Include="Views\Pedido\Create.cshtml" />
+    <Content Include="Views\Pedido\Details.cshtml" />
+    <Content Include="Views\Pedido\Edit.cshtml" />
+    <Content Include="Views\Pedido\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

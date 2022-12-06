@@ -10,6 +10,8 @@ using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using RollNRunWeb.Models;
 using RollNRunWeb.Assemblers;
+using System.IO;
+
 
 namespace RollNRunWeb.Controllers
 {
@@ -34,7 +36,14 @@ namespace RollNRunWeb.Controllers
         // GET: Pedido/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+            PedidoCAD pedCAD = new PedidoCAD(session);
+            PedidoCEN pedCEN = new PedidoCEN(pedCAD);
+
+            PedidoEN pedEN = pedCEN.ReadOID(id);
+            PedidoViewModel pedidoViewModel = new PedidoAssembler().ConvertENToModelUI(pedEN);
+
+            return View(pedidoViewModel);
         }
 
         // GET: Pedido/Create
@@ -45,12 +54,19 @@ namespace RollNRunWeb.Controllers
 
         // POST: Pedido/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PedidoViewModel ped)
+        //Al crear, pues no crea el total y la cantidad, entiendo el porqué, ya que abajo no lo pongo, pero como no
+        //me dejaba ponerlo, prefiero preguntar primero antes de tocar algo y liarla
         {
             try
             {
                 // TODO: Add insert logic here
-
+                PedidoCEN pedCEN = new PedidoCEN();
+                if (Session["Usuario"] != null)
+                {
+                    ped.usuario = ((UsuarioEN)Session["Usuario"]).Id;
+                }
+                pedCEN.New_(ped.Fecha, ped.Dirección, ped.usuario);
                 return RedirectToAction("Index");
             }
             catch
@@ -62,16 +78,29 @@ namespace RollNRunWeb.Controllers
         // GET: Pedido/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            SessionInitialize();
+            PedidoCAD pedidoCAD = new PedidoCAD(session);
+            PedidoCEN pedidoCEN = new PedidoCEN(pedidoCAD);
+
+            PedidoEN pedidoEN = pedidoCEN.ReadOID(id);
+            PedidoViewModel pedidoViewModel = new PedidoAssembler().ConvertENToModelUI(pedidoEN);
+
+            SessionClose();
+
+            return View(pedidoViewModel);
         }
 
         // POST: Pedido/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, PedidoViewModel ped)
+        //Hay un problema al editar el Total, solo permite editar números enteros, si pones una "," no te deja y si pones un "."
+        //lo asume como 0
         {
             try
             {
-                // TODO: Add update logic here
+                PedidoCEN pedidoCEN = new PedidoCEN();
+                PedidoEN pedidoEN = pedidoCEN.ReadOID(id);
+                pedidoCEN.Modify(id, ped.Fecha, ped.Dirección, ped.Total, ped.Cantidad, ped.MetodoPago, ped.Estado);
 
                 return RedirectToAction("Index");
             }
@@ -84,16 +113,26 @@ namespace RollNRunWeb.Controllers
         // GET: Pedido/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            SessionInitialize();
+            PedidoCAD pedCAD = new PedidoCAD(session);
+            PedidoCEN pedCEN = new PedidoCEN(pedCAD);
+
+            PedidoEN pedEN = pedCEN.ReadOID(id);
+            PedidoViewModel pedViewModel = new PedidoAssembler().ConvertENToModelUI(pedEN);
+
+            SessionClose();
+
+            return View(pedViewModel);
         }
 
         // POST: Pedido/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, PedidoViewModel ped)
         {
             try
             {
-                // TODO: Add delete logic here
+                PedidoCEN pedCEN = new PedidoCEN();
+                pedCEN.Destroy(id);
 
                 return RedirectToAction("Index");
             }
