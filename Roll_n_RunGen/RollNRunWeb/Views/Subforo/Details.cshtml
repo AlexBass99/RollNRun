@@ -51,6 +51,14 @@
             @Html.DisplayFor(model => model.NumEntradas)
         </dd>
 
+        <dd>
+            @{ Html.RenderAction("Comentarios", "Subforo", new { id = Model.id });}
+        </dd>
+
+        <dd>
+            @{ Html.RenderAction("Comentar", "Subforo", new { id = Model.id });}
+        </dd>
+
     </dl>
 </div>
 <p>

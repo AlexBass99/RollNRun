@@ -22,10 +22,10 @@ namespace RollNRunWeb.Controllers
             EntradaCEN entradaCEN = new EntradaCEN(entradaCAD);
 
             IList<EntradaEN> entradasEN = entradaCEN.ReadAll(0, -1);
-            IEnumerable<EntradaViewModel> entradaViewModel = new EntradaAssembler().ConvertListENToModel(entradasEN).ToList();
+            IEnumerable<EntradaViewModel> entradasViewModel = new EntradaAssembler().ConvertListENToModel(entradasEN).ToList();
             SessionClose();
 
-            return View(entradaViewModel);
+            return View(entradasViewModel);
         }
 
         // GET: Entrada/Details/5

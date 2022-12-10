@@ -319,16 +319,6 @@
     <Content Include="Views\Tarjeta\Delete.cshtml" />
     <Content Include="Views\Direccion\Delete.cshtml" />
     <Content Include="Views\Direccion\Create.cshtml" />
-    <Content Include="Views\Entrada\Create.cshtml" />
-    <Content Include="Views\Entrada\Delete.cshtml" />
-    <Content Include="Views\Entrada\Details.cshtml" />
-    <Content Include="Views\Entrada\Edit.cshtml" />
-    <Content Include="Views\Entrada\Index.cshtml" />
-    <Content Include="Views\Subforo\Create.cshtml" />
-    <Content Include="Views\Subforo\Delete.cshtml" />
-    <Content Include="Views\Subforo\Details.cshtml" />
-    <Content Include="Views\Subforo\Edit.cshtml" />
-    <Content Include="Views\Subforo\Index.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Usuario\Delete.cshtml" />
     <Content Include="Views\Usuario\Details.cshtml" />
@@ -349,6 +339,18 @@
     <Content Include="Views\Factura\Create.cshtml" />
     <Content Include="Views\Factura\Delete.cshtml" />
     <Content Include="Views\Factura\Details.cshtml" />
+    <Content Include="Views\Subforo\Comentar.cshtml" />
+    <Content Include="Views\Subforo\Comentarios.cshtml" />
+    <Content Include="Views\Subforo\Create.cshtml" />
+    <Content Include="Views\Subforo\Delete.cshtml" />
+    <Content Include="Views\Subforo\Details.cshtml" />
+    <Content Include="Views\Subforo\Edit.cshtml" />
+    <Content Include="Views\Subforo\Index.cshtml" />
+    <Content Include="Views\Entrada\Create.cshtml" />
+    <Content Include="Views\Entrada\Delete.cshtml" />
+    <Content Include="Views\Entrada\Details.cshtml" />
+    <Content Include="Views\Entrada\Edit.cshtml" />
+    <Content Include="Views\Entrada\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
+using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
 using RollNRunWeb.Models;
 using RollNRunWeb.Assemblers;
 
@@ -57,7 +58,7 @@ namespace RollNRunWeb.Controllers
                 if (Session["Usuario"] != null)
                 {
                     sforo.Autor = ((UsuarioEN)Session["Usuario"]).Nickname;
-                    subforoCEN.New_(((UsuarioEN)Session["Usuario"]).Id, sforo.Titulo, new DateTime(2022, 11, 20), sforo.Descripcion, 0);
+                    subforoCEN.New_(((UsuarioEN)Session["Usuario"]).Id, sforo.Titulo, DateTime.Now, sforo.Descripcion, 0);
                 }
 
                 return RedirectToAction("Index");
@@ -92,7 +93,7 @@ namespace RollNRunWeb.Controllers
                 // TODO: Add update logic here
                 SubforoCEN subforoCEN = new SubforoCEN();
                 SubforoEN subforoEN = subforoCEN.ReadOID(id);
-                subforoCEN.Modify(id, sforo.Titulo, sforo.Fecha, sforo.Descripcion, sforo.NumEntradas);
+                subforoCEN.Modify(id, sforo.Titulo, DateTime.Now, sforo.Descripcion, subforoEN.NumEntradas);
 
                 return RedirectToAction("Index");
             }
@@ -124,6 +125,13 @@ namespace RollNRunWeb.Controllers
             {
                 // TODO: Add delete logic here
                 SubforoCEN subforoCEN = new SubforoCEN();
+                EntradaCEN entradaCEN = new EntradaCEN();
+                EntradaCP entradaCP = new EntradaCP();
+                IList<EntradaEN> comentarios = entradaCEN.GetEntradasSubforo(id);
+                foreach(EntradaEN en in comentarios)
+                {
+                    entradaCP.Destroy(en.Id);
+                }
                 subforoCEN.Destroy(id);
 
                 return RedirectToAction("Index");
@@ -133,5 +141,44 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
+
+        public ActionResult Comentarios(int id)
+        {
+            SessionInitialize();
+            EntradaCAD entradaCAD = new EntradaCAD(session);
+            EntradaCEN entradaCEN = new EntradaCEN(entradaCAD);
+
+            IList<EntradaEN> entradasEN = entradaCEN.GetEntradasSubforo(id);
+            IEnumerable<EntradaViewModel> entradasViewModel = new EntradaAssembler().ConvertListENToModel(entradasEN).ToList();
+            SessionClose();
+
+            return View(entradasViewModel);
+        }
+        public ActionResult Comentar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Comentar(int id, EntradaViewModel comentario)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                EntradaCP entradaCP = new EntradaCP();
+                if (Session["Usuario"] != null)
+                {
+                    comentario.Usuario = ((UsuarioEN)Session["Usuario"]).Nickname;
+                    comentario.idUsuario = ((UsuarioEN)Session["Usuario"]).Id;
+                    comentario.idSubforo = id;
+                    entradaCP.New_(comentario.idSubforo, comentario.idUsuario, comentario.Texto);
+                }
+
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        } 
     }
 }

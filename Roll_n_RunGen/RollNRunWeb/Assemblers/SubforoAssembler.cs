@@ -13,8 +13,6 @@ namespace RollNRunWeb.Assemblers
         {
             SubforoViewModel dir = new SubforoViewModel();
             dir.id = en.Id;
-            //dir.usuario = (IList<int>)en.Usuarios;
-            //dir.entrada = (IList<int>)en.Entrada;
             dir.Autor = en.Autor.Nickname;
             dir.Titulo = en.Titulo;
             dir.Fecha = (DateTime)en.Fecha;
