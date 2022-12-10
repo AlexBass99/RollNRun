@@ -103,6 +103,9 @@ public void ModifyDefault (FacturaEN factura)
                 facturaEN.MetodoPago = factura.MetodoPago;
 
 
+
+                facturaEN.FechaFacturacion = factura.FechaFacturacion;
+
                 session.Update (facturaEN);
                 SessionCommit ();
         }
@@ -172,6 +175,9 @@ public void Modify (FacturaEN factura)
 
 
                 facturaEN.MetodoPago = factura.MetodoPago;
+
+
+                facturaEN.FechaFacturacion = factura.FechaFacturacion;
 
                 session.Update (facturaEN);
                 SessionCommit ();

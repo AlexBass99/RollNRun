@@ -39,7 +39,7 @@ public IFacturaCAD get_IFacturaCAD ()
         return this._IFacturaCAD;
 }
 
-public void Modify (int p_Factura_OID, Nullable<DateTime> p_fecha, string p_direccion, double p_precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum p_metodoPago)
+public void Modify (int p_Factura_OID, Nullable<DateTime> p_fecha, string p_direccion, double p_precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum p_metodoPago, Nullable<DateTime> p_fechaFacturacion)
 {
         FacturaEN facturaEN = null;
 
@@ -50,6 +50,7 @@ public void Modify (int p_Factura_OID, Nullable<DateTime> p_fecha, string p_dire
         facturaEN.Direccion = p_direccion;
         facturaEN.Precio = p_precio;
         facturaEN.MetodoPago = p_metodoPago;
+        facturaEN.FechaFacturacion = p_fechaFacturacion;
         //Call to FacturaCAD
 
         _IFacturaCAD.Modify (facturaEN);

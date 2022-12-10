@@ -21,7 +21,7 @@ namespace Roll_n_RunGenNHibernate.CP.Roll_n_Run
 {
 public partial class FacturaCP : BasicCP
 {
-public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> p_fecha, int p_pedido)
+public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> p_fechaFacturacion, int p_pedido)
 {
         /*PROTECTED REGION ID(Roll_n_RunGenNHibernate.CP.Roll_n_Run_Factura_new_) ENABLED START*/
 
@@ -47,7 +47,7 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> 
                 //Initialized FacturaEN
                 FacturaEN facturaEN;
                 facturaEN = new FacturaEN ();
-                facturaEN.Fecha = p_fecha;
+                facturaEN.FechaFacturacion = p_fechaFacturacion;
 
                 PedidoEN pedidoEN = pedidoCEN.ReadOID (p_pedido);
 
@@ -57,6 +57,7 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> 
                         facturaEN.Pedido.Id = p_pedido;
                 }
 
+                facturaEN.Fecha = pedidoEN.Fecha;
                 facturaEN.MetodoPago = pedidoEN.MetodoPago;
                 facturaEN.Precio = pedidoEN.Total;
                 facturaEN.Direccion = pedidoEN.Direccion;

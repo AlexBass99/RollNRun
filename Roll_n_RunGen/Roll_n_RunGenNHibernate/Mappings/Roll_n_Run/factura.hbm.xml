@@ -24,6 +24,9 @@
 					<property name="MetodoPago" > 
 						<column name="metodoPago"  not-null="true"/>
 					</property>
+					<property name="FechaFacturacion" type="date"> 
+						<column name="fechaFacturacion"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -36,6 +39,8 @@
 							   <one-to-one name="Pedido" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN" property-ref="Factura" />							
 					 
 						
+			
+					
 					
 					
 					

@@ -47,6 +47,13 @@ private Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido;
 
 
 
+/**
+ *	Atributo fechaFacturacion
+ */
+private Nullable<DateTime> fechaFacturacion;
+
+
+
 
 
 
@@ -86,6 +93,12 @@ public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN Pedido {
 
 
 
+public virtual Nullable<DateTime> FechaFacturacion {
+        get { return fechaFacturacion; } set { fechaFacturacion = value;  }
+}
+
+
+
 
 
 public FacturaEN()
@@ -94,20 +107,20 @@ public FacturaEN()
 
 
 
-public FacturaEN(int id, Nullable<DateTime> fecha, string direccion, double precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido
+public FacturaEN(int id, Nullable<DateTime> fecha, string direccion, double precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido, Nullable<DateTime> fechaFacturacion
                  )
 {
-        this.init (Id, fecha, direccion, precio, metodoPago, pedido);
+        this.init (Id, fecha, direccion, precio, metodoPago, pedido, fechaFacturacion);
 }
 
 
 public FacturaEN(FacturaEN factura)
 {
-        this.init (Id, factura.Fecha, factura.Direccion, factura.Precio, factura.MetodoPago, factura.Pedido);
+        this.init (Id, factura.Fecha, factura.Direccion, factura.Precio, factura.MetodoPago, factura.Pedido, factura.FechaFacturacion);
 }
 
 private void init (int id
-                   , Nullable<DateTime> fecha, string direccion, double precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido)
+                   , Nullable<DateTime> fecha, string direccion, double precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido, Nullable<DateTime> fechaFacturacion)
 {
         this.Id = id;
 
@@ -121,6 +134,8 @@ private void init (int id
         this.MetodoPago = metodoPago;
 
         this.Pedido = pedido;
+
+        this.FechaFacturacion = fechaFacturacion;
 }
 
 public override bool Equals (object obj)
