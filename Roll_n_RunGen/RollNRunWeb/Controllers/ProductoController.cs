@@ -62,12 +62,18 @@ namespace RollNRunWeb.Controllers
                 // store the file inside ~/App_Data/uploads folder
                 path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
                 file.SaveAs(path);
+                fileName = "/Images/Uploads/" + fileName;
+            }
+
+            else
+            {
+                fileName = "Sin Imagen";
             }
 
             try
             {
                 ProductoCEN productoCEN = new ProductoCEN();
-                productoCEN.New_(prod.nombre, prod.marca, prod.stock, prod.precio, prod.imagen, prod.descripcion, 0, (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum)prod.tipo_producto, prod.oferta);
+                productoCEN.New_(prod.nombre, prod.marca, prod.stock, prod.precio, fileName, prod.descripcion, 0, (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum)prod.tipo_producto, prod.oferta);
 
                 return RedirectToAction("Index");
             }
@@ -94,13 +100,30 @@ namespace RollNRunWeb.Controllers
 
         // POST: Producto/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, ProductoViewModel prod)
+        public ActionResult Edit(int id, ProductoViewModel prod, HttpPostedFileBase file)
         {
+            string fileName = "", path = "";
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the fielname
+                fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
+                file.SaveAs(path);
+                fileName = "/Images/Uploads/" + fileName;
+            }
+
+            else
+            {
+                fileName = prod.imagen;
+            }
+
             try
             {
                 ProductoCEN productoCEN = new ProductoCEN();
                 ProductoEN productoEN = productoCEN.ReadOID(id);
-                productoCEN.Modify(id, prod.nombre, prod.marca, prod.stock, prod.precio, prod.imagen, prod.descripcion, productoEN.Val_media, prod.tipo_producto, prod.oferta);
+                productoCEN.Modify(id, prod.nombre, prod.marca, prod.stock, prod.precio, fileName, prod.descripcion, productoEN.Val_media, prod.tipo_producto, prod.oferta);
 
                 return RedirectToAction("Index");
             }

@@ -8,6 +8,7 @@ using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using RollNRunWeb.Assemblers;
 using RollNRunWeb.Models;
+using System.IO;
 
 namespace RollNRunWeb.Controllers
 {
@@ -51,12 +52,29 @@ namespace RollNRunWeb.Controllers
 
         // POST: Usuario/Create
         [HttpPost]
-        public ActionResult Create(UsuarioViewModel usu)
+        public ActionResult Create(UsuarioViewModel usu, HttpPostedFileBase file)
         {
+            string fileName = "", path = "";
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the fielname
+                fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                path = Path.Combine(Server.MapPath("~/Images/ProfilePics"), fileName);
+                file.SaveAs(path);
+                fileName = "/Images/ProfilePics/" + fileName;
+            }
+
+            else
+            {
+                fileName = "Sin Imagen";
+            }
+
             try
             {
                 UsuarioCEN usuarioCEN = new UsuarioCEN();
-                int idUsu = usuarioCEN.New_(usu.nombre, usu.Email, usu.apellidos, usu.alias, usu.Password, usu.rol, usu.imagen_perfil);
+                int idUsu = usuarioCEN.New_(usu.nombre, usu.Email, usu.apellidos, usu.alias, usu.Password, usu.rol, fileName);
                 UsuarioEN usuarioEN = usuarioCEN.ReadOID(idUsu);
 
                 if (usu.telefono != null)           //Si no es un campo vacio se le añade ese nuevo telefono
@@ -94,8 +112,25 @@ namespace RollNRunWeb.Controllers
 
         // POST: Usuario/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, UsuarioViewModel usu)
+        public ActionResult Edit(int id, UsuarioViewModel usu, HttpPostedFileBase file)
         {
+            string fileName = "", path = "";
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the fielname
+                fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                path = Path.Combine(Server.MapPath("~/Images/ProfilePics"), fileName);
+                file.SaveAs(path);
+                fileName = "/Images/ProfilePics/" + fileName;
+            }
+
+            else
+            {
+                fileName = usu.imagen_perfil;
+            }
+
             try
             {
                 UsuarioCEN usuarioCEN = new UsuarioCEN();
