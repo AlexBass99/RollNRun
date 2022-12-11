@@ -37,6 +37,7 @@ namespace RollNRunWeb.Controllers
 
             EntradaEN entradaEN = entradaCEN.ReadOID(id);
             EntradaViewModel entradaViewModel = new EntradaAssembler().ConvertENToModelUI(entradaEN);
+            SessionClose();
 
             return View(entradaViewModel);
         }

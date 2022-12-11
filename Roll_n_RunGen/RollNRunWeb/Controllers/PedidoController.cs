@@ -42,6 +42,7 @@ namespace RollNRunWeb.Controllers
 
             PedidoEN pedEN = pedCEN.ReadOID(id);
             PedidoViewModel pedidoViewModel = new PedidoAssembler().ConvertENToModelUI(pedEN);
+            SessionClose();
 
             return View(pedidoViewModel);
         }

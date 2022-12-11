@@ -37,6 +37,7 @@ namespace RollNRunWeb.Controllers
 
             SubforoEN subforoEN = subforoCEN.ReadOID(id);
             SubforoViewModel subforoViewModel = new SubforoAssembler().ConvertENToModelUI(subforoEN);
+            SessionClose();
 
             return View(subforoViewModel);
         }

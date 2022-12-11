@@ -38,6 +38,7 @@ namespace RollNRunWeb.Controllers
 
             DireccionEN dirEN = dirCEN.ReadOID(id);
             DireccionViewModel direccionViewModel = new DireccionAssembler().ConvertENToModelUI(dirEN);
+            SessionClose();
 
             return View(direccionViewModel);
         }

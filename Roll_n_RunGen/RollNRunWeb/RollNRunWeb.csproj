@@ -197,6 +197,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Assemblers\DevolucionAssembler.cs" />
     <Compile Include="Assemblers\DireccionAssembler.cs" />
     <Compile Include="Assemblers\EntradaAssembler.cs" />
     <Compile Include="Assemblers\FacturaAssembler.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="Assemblers\ValoracionAssembler.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
+    <Compile Include="Controllers\DevolucionController.cs" />
     <Compile Include="Controllers\DireccionController.cs" />
     <Compile Include="Controllers\EntradaController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
@@ -225,6 +227,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DevolucionViewModel.cs" />
     <Compile Include="Models\DireccionViewModel.cs" />
     <Compile Include="Models\EntradaViewModel.cs" />
     <Compile Include="Models\FacturaViewModel.cs" />
@@ -351,8 +354,15 @@
     <Content Include="Views\Entrada\Details.cshtml" />
     <Content Include="Views\Entrada\Edit.cshtml" />
     <Content Include="Views\Entrada\Index.cshtml" />
+    <Content Include="Views\Devolucion\Index.cshtml" />
+    <Content Include="Views\Devolucion\Details.cshtml" />
+    <Content Include="Views\Devolucion\Create.cshtml" />
+    <Content Include="Views\Devolucion\Delete.cshtml" />
+    <Content Include="Views\Devolucion\Edit.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\DevolucionViewModel\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
