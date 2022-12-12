@@ -201,6 +201,7 @@
     <Compile Include="Assemblers\DireccionAssembler.cs" />
     <Compile Include="Assemblers\EntradaAssembler.cs" />
     <Compile Include="Assemblers\FacturaAssembler.cs" />
+    <Compile Include="Assemblers\LineaPedidoAssembler.cs" />
     <Compile Include="Assemblers\PedidoAssembler.cs" />
     <Compile Include="Assemblers\PreguntaFrecuenteAssembler.cs" />
     <Compile Include="Assemblers\ProductoAssembler.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Controllers\EntradaController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LineaPedidoController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\PreguntaFrecuenteController.cs" />
@@ -232,6 +234,7 @@
     <Compile Include="Models\EntradaViewModel.cs" />
     <Compile Include="Models\FacturaViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LineaPedidoViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PedidoViewModel.cs" />
     <Compile Include="Models\PreguntaFrecuenteViewModel.cs" />
@@ -359,6 +362,8 @@
     <Content Include="Views\Devolucion\Create.cshtml" />
     <Content Include="Views\Devolucion\Delete.cshtml" />
     <Content Include="Views\Devolucion\Edit.cshtml" />
+    <Content Include="Views\LineaPedido\Index.cshtml" />
+    <Content Include="Views\LineaPedido\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\DevolucionViewModel\" />

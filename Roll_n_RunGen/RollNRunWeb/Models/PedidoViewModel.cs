@@ -15,10 +15,10 @@ namespace RollNRunWeb.Models
 
 
 
-        [Display(Prompt = "Fecha ", Description = "Fecha ", Name = "Fecha ")]
-        [Required(ErrorMessage = "Debe indicar una fecha")]
-        [DataType(DataType.DateTime, ErrorMessage = "Debes introducir una fecha")]
+        [Display(Prompt = "Fecha: ", Description = "Fecha: ", Name = "Fecha ")]
+        [DataType(DataType.DateTime, ErrorMessage = "Debe introducir una fecha")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+
         public DateTime Fecha { get; set; }
 
 
@@ -32,7 +32,6 @@ namespace RollNRunWeb.Models
 
 
         [Display(Prompt = "Total: ", Description = "Total: ", Name = "Total")]
-        [Required(ErrorMessage = "Debes indicar un valor")]
         [Range(minimum: 0, maximum: 1000000, ErrorMessage = "El total ha de ser mayor que 0 y menor que 1000000")]
 
         public double Total { get; set; }
@@ -40,7 +39,7 @@ namespace RollNRunWeb.Models
 
 
         [Display(Prompt = "Cantidad: ", Description = "Cantidad: ", Name = "Cantidad")]
-        [Required(ErrorMessage = "Debes indicar una cantidad")]
+        //[Required(ErrorMessage = "Debes indicar una cantidad")]
         [Range(minimum: 0, maximum: 10000, ErrorMessage = "La cantidad ha de ser mayor que 0 y menor que 10000")]
         public int Cantidad { get; set; }
 
@@ -53,7 +52,7 @@ namespace RollNRunWeb.Models
 
 
         [Display(Prompt = "Estado: ", Description = "Estado: ", Name = "Estado")]
-        [Required(ErrorMessage = "Debes indicar un estado")]
+        //[Required(ErrorMessage = "Debes indicar un estado")]
         public Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum Estado { get; set; }
 
     }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
@@ -66,8 +64,9 @@ namespace RollNRunWeb.Controllers
                 if (Session["Usuario"] != null)
                 {
                     ped.usuario = ((UsuarioEN)Session["Usuario"]).Id;
+                    pedCEN.New_(DateTime.Now, ped.Dirección, ((UsuarioEN)Session["Usuario"]).Id);
                 }
-                pedCEN.New_(ped.Fecha, ped.Dirección, ped.usuario);
+                // pedCEN.New_(ped.Fecha, ped.Dirección, ped.usuario);
                 return RedirectToAction("Index");
             }
             catch
@@ -101,7 +100,7 @@ namespace RollNRunWeb.Controllers
             {
                 PedidoCEN pedidoCEN = new PedidoCEN();
                 PedidoEN pedidoEN = pedidoCEN.ReadOID(id);
-                pedidoCEN.Modify(id, ped.Fecha, ped.Dirección, ped.Total, ped.Cantidad, ped.MetodoPago, ped.Estado);
+                pedidoCEN.Modify(id, DateTime.Now, ped.Dirección, ped.Total, ped.Cantidad, ped.MetodoPago, ped.Estado);
 
                 return RedirectToAction("Index");
             }
