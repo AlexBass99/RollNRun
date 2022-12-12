@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
+using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
 using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 using RollNRunWeb.Assemblers;
 using RollNRunWeb.Models;
@@ -88,16 +89,26 @@ namespace RollNRunWeb.Controllers
         // GET: LineaPedido/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            SessionInitialize();
+            LineaPedidoCAD linpeCAD = new LineaPedidoCAD(session);
+            LineaPedidoCEN linpeCEN = new LineaPedidoCEN(linpeCAD);
+
+            LineaPedidoEN linpeEN = linpeCEN.ReadOID(id);
+            LineaPedidoViewModel linpeViewModel = new LineaPedidoAssembler().ConvertENToModelUI(linpeEN);
+
+            SessionClose();
+
+            return View(linpeViewModel);
         }
 
         // POST: LineaPedido/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, LineaPedidoViewModel linpe)
         {
             try
             {
-                // TODO: Add delete logic here
+                LineaPedidoCP linpeCP = new LineaPedidoCP();
+                linpeCP.Destroy(id);
 
                 return RedirectToAction("Index");
             }

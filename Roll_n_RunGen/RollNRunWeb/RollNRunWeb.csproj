@@ -364,6 +364,7 @@
     <Content Include="Views\Devolucion\Edit.cshtml" />
     <Content Include="Views\LineaPedido\Index.cshtml" />
     <Content Include="Views\LineaPedido\Details.cshtml" />
+    <Content Include="Views\LineaPedido\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\DevolucionViewModel\" />

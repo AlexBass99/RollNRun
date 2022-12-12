@@ -27,7 +27,7 @@
 @foreach (var item in Model) {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.Producto.Tipo)
+        @Html.DisplayFor(modelItem => item.Producto.Nombre)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.Pedido.Id)
@@ -39,7 +39,9 @@
         @Html.DisplayFor(modelItem => item.precio)
     </td>
     <td>
-        @Html.ActionLink("Details", "Details", new { id = item.id })
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
     </td>
 </tr>
 }
