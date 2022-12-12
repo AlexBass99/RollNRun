@@ -100,7 +100,7 @@ namespace RollNRunWeb.Controllers
             {
                 PedidoCEN pedidoCEN = new PedidoCEN();
                 PedidoEN pedidoEN = pedidoCEN.ReadOID(id);
-                pedidoCEN.Modify(id, DateTime.Now, ped.Dirección, ped.Total, ped.Cantidad, ped.MetodoPago, ped.Estado);
+                pedidoCEN.Modify(id, DateTime.Now, ped.Dirección, pedidoEN.Total, pedidoEN.Cantidad, ped.MetodoPago, pedidoEN.Estado);
 
                 return RedirectToAction("Index");
             }
