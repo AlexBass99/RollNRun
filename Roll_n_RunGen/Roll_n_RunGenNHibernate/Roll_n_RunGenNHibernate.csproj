@@ -181,6 +181,7 @@
 	<Compile Include="CP\Roll_n_Run\ValoracionCP.cs" />
 			<Compile Include="CP\Roll_n_Run\ValoracionCP_New_.cs" />
 			
+			<Compile Include="CP\Roll_n_Run\ValoracionCP_Modify.cs" />
 			
 			<Compile Include="CP\Roll_n_Run\ValoracionCP_Destroy.cs" />
 			

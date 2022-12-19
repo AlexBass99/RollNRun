@@ -32,7 +32,16 @@ namespace RollNRunWeb.Controllers
         // GET: Valoracion/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+            ValoracionCAD valCAD = new ValoracionCAD(session);
+            ValoracionCEN valCEN = new ValoracionCEN(valCAD);
+
+            ValoracionEN valEN = valCEN.ReadOID(id);
+            ValoracionViewModel valViewModel = new ValoracionAssembler().ConvertENToModelUI(valEN);
+
+            SessionClose();
+
+            return View(valViewModel);
         }
 
         // GET: Valoracion/Create
@@ -74,16 +83,33 @@ namespace RollNRunWeb.Controllers
         // GET: Valoracion/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            SessionInitialize();
+            ValoracionCAD valCAD = new ValoracionCAD(session);
+            ValoracionCEN valCEN = new ValoracionCEN(valCAD);
+
+            ValoracionEN valEN = valCEN.ReadOID(id);
+            ValoracionViewModel valViewModel = new ValoracionAssembler().ConvertENToModelUI(valEN);
+
+            SessionClose();
+
+            return View(valViewModel);
         }
 
         // POST: Valoracion/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, ValoracionViewModel val)
         {
             try
             {
-                // TODO: Add update logic here
+                SessionInitialize();
+                ValoracionCAD valCAD = new ValoracionCAD(session);
+                ValoracionCEN valCEN = new ValoracionCEN(valCAD);
+
+                ValoracionEN valEN = valCEN.ReadOID(id);
+                ValoracionCP valCP = new ValoracionCP();
+                valCP.Modify(val.id, val.valor, val.comentario, valEN.Producto.Id);
+
+                SessionClose();
 
                 return RedirectToAction("Index");
             }
@@ -96,16 +122,26 @@ namespace RollNRunWeb.Controllers
         // GET: Valoracion/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            SessionInitialize();
+            ValoracionCAD valCAD = new ValoracionCAD(session);
+            ValoracionCEN valCEN = new ValoracionCEN(valCAD);
+
+            ValoracionEN valEN = valCEN.ReadOID(id);
+            ValoracionViewModel valViewModel = new ValoracionAssembler().ConvertENToModelUI(valEN);
+
+            SessionClose();
+
+            return View(valViewModel);
         }
 
         // POST: Valoracion/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, ValoracionViewModel val)
         {
             try
             {
-                // TODO: Add delete logic here
+                ValoracionCP valCP = new ValoracionCP();
+                valCP.Destroy(val.id);
 
                 return RedirectToAction("Index");
             }
