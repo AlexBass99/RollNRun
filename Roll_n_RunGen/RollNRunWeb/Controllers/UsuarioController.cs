@@ -9,6 +9,7 @@ using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using RollNRunWeb.Assemblers;
 using RollNRunWeb.Models;
 using System.IO;
+using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
 
 namespace RollNRunWeb.Controllers
 {
@@ -172,6 +173,64 @@ namespace RollNRunWeb.Controllers
             try
             {
                 UsuarioCEN usuarioCEN = new UsuarioCEN();
+                UsuarioEN usuarioEN = usuarioCEN.ReadOID(id);
+
+                TarjetaCEN tarjetaCEN = new TarjetaCEN();
+                IList<TarjetaEN> tarjetas = tarjetaCEN.GetTarjetasUsuario(id);
+                foreach (TarjetaEN tarjeta in tarjetas)
+                {
+                    tarjetaCEN.Destroy(tarjeta.Id);
+                }
+
+                DireccionCEN direccionCEN = new DireccionCEN();
+                IList<DireccionEN> direcciones = direccionCEN.GetDireccionesUsuario(id);
+                foreach (DireccionEN direccion in direcciones)
+                {
+                    direccionCEN.Destroy(direccion.Id);
+                }
+
+                PedidoCEN pedidoCEN = new PedidoCEN();
+                IList<PedidoEN> pedidos = pedidoCEN.GetPedidosUsuario(id);
+                foreach (PedidoEN pedido in pedidos)
+                {
+                    pedidoCEN.Destroy(pedido.Id);
+                }
+
+                ValoracionCEN valoracionCEN = new ValoracionCEN();
+                ValoracionCP valoracionCP = new ValoracionCP();
+                IList<ValoracionEN> valoraciones = valoracionCEN.GetValoracionesUsuario(id);
+                foreach (ValoracionEN valoracion in valoraciones)
+                {
+                    valoracionCP.Destroy(valoracion.Id);
+                }
+
+                SubforoCEN subforoCEN = new SubforoCEN();
+                IList<SubforoEN> subforos = subforoCEN.GetSubforosUsuario(id);
+                foreach (SubforoEN subforo in subforos)
+                {
+                    subforoCEN.Destroy(subforo.Id);
+                }
+
+                EntradaCEN entradaCEN = new EntradaCEN();
+                EntradaCP entradaCP = new EntradaCP();
+                IList<EntradaEN> entradas = usuarioEN.Entrada;
+                foreach (EntradaEN entrada in entradas)
+                {
+                    entradaCP.Destroy(entrada.Id);
+                }
+
+
+                ProductoCEN productoCEN = new ProductoCEN();
+                IList<ProductoEN> productos = usuarioEN.Productos_deseados;
+                IList<int> idUsuario = null;
+                idUsuario.Add(id);
+                foreach (ProductoEN producto in productos)
+                {
+                    productoCEN.QuitarDeseado(producto.Id, idUsuario);
+                }
+
+                //UNRELATIONER DE SUBFOROS SEGUIDOS
+
                 usuarioCEN.Destroy(id);
 
                 return RedirectToAction("Index");
