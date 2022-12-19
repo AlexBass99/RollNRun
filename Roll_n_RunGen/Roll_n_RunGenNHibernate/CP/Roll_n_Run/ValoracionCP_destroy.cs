@@ -55,13 +55,12 @@ public void Destroy (int p_Valoracion_OID)
                 cont_val--;
                 sum_val = sum_val - valoracionEN.Valor;
                 if (cont_val > 0) {
-                    productoEN.Val_media = sum_val / cont_val;
+                        productoEN.Val_media = sum_val / cont_val;
                 }
-                else
-                {
-                    productoEN.Val_media = 0;
+                else{
+                        productoEN.Val_media = 0;
                 }
-                productoCAD.ModifyDefault(productoEN);
+                productoCAD.ModifyDefault (productoEN);
 
                 valoracionCAD.Destroy (p_Valoracion_OID);
 

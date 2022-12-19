@@ -46,5 +46,6 @@
 		  
 		  <query name="EntradaENReadAllHQL">from EntradaEN</query>
 		  <query name="EntradaENgetEntradasSubforoHQL"><![CDATA[select ent FROM EntradaEN as ent inner join ent.Subforo as subf where subf.Id = :p_subforo]]></query>
+		  <query name="EntradaENgetEntradasUsuarioHQL"><![CDATA[select ent FROM EntradaEN as ent inner join ent.Usuario as usu where usu.Id = :p_usu]]></query>
 		</hibernate-mapping>
 	

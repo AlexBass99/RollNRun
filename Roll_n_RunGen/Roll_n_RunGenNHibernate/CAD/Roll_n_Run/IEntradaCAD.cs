@@ -33,5 +33,8 @@ System.Collections.Generic.IList<EntradaEN> ReadAll (int first, int size);
 
 
 System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> GetEntradasSubforo (int ? p_subforo);
+
+
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> GetEntradasUsuario (int p_usu);
 }
 }

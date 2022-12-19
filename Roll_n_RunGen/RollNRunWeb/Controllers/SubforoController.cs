@@ -127,12 +127,24 @@ namespace RollNRunWeb.Controllers
                 // TODO: Add delete logic here
                 SubforoCEN subforoCEN = new SubforoCEN();
                 EntradaCEN entradaCEN = new EntradaCEN();
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
                 EntradaCP entradaCP = new EntradaCP();
                 IList<EntradaEN> comentarios = entradaCEN.GetEntradasSubforo(id);
                 foreach(EntradaEN en in comentarios)
                 {
                     entradaCP.Destroy(en.Id);
                 }
+
+                //UNRELATIONER DE USUARIOS (puede dar errores)
+
+                IList<int> idUsuario = new List<int>();
+                IList<UsuarioEN> seguidores = subforoCEN.GetUsuariosSubforo(id);
+                foreach (UsuarioEN usu in seguidores)
+                {
+                    idUsuario.Add(usu.Id);
+                }
+                subforoCEN.DejarSeguirSubforo(id, idUsuario);
+
                 subforoCEN.Destroy(id);
 
                 return RedirectToAction("Index");

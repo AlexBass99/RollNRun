@@ -444,5 +444,35 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Su
 
         return result;
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> GetUsuariosSubforo (int p_id)
+{
+        System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM SubforoEN self where select usu FROM UsuarioEN as usu inner join usu.Subforos as sfor where sfor.Id = :p_id";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("SubforoENgetUsuariosSubforoHQL");
+                query.SetParameter ("p_id", p_id);
+
+                result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in SubforoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

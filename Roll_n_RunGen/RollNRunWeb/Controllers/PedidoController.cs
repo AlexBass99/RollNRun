@@ -9,7 +9,7 @@ using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using RollNRunWeb.Models;
 using RollNRunWeb.Assemblers;
 using System.IO;
-
+using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
 
 namespace RollNRunWeb.Controllers
 {
@@ -132,6 +132,15 @@ namespace RollNRunWeb.Controllers
             try
             {
                 PedidoCEN pedCEN = new PedidoCEN();
+                LineaPedidoCEN lpedCEN = new LineaPedidoCEN();
+                LineaPedidoCP lpedCP = new LineaPedidoCP();
+                IList<LineaPedidoEN> lineas = lpedCEN.GetLineasPedido(id);
+
+                foreach (LineaPedidoEN pe in lineas)
+                {
+                    lpedCP.Destroy(pe.Id);
+                }
+
                 pedCEN.Destroy(id);
 
                 return RedirectToAction("Index");

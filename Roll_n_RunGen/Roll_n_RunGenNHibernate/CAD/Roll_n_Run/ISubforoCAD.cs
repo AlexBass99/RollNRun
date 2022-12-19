@@ -42,5 +42,8 @@ System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN
 void DejarSeguirSubforo (int p_Subforo_OID, System.Collections.Generic.IList<int> p_usuarios_OIDs);
 
 System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.SubforoEN> BuscarTitulo (string p_titulo);
+
+
+System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> GetUsuariosSubforo (int p_id);
 }
 }

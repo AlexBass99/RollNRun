@@ -296,5 +296,35 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.En
 
         return result;
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> GetEntradasUsuario (int p_usu)
+{
+        System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM EntradaEN self where select ent FROM EntradaEN as ent inner join ent.Usuario as usu where usu.Id = :p_usu";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("EntradaENgetEntradasUsuarioHQL");
+                query.SetParameter ("p_usu", p_usu);
+
+                result = query.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Roll_n_RunGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Roll_n_RunGenNHibernate.Exceptions.DataLayerException ("Error in EntradaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

@@ -130,5 +130,9 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Su
 {
         return _ISubforoCAD.BuscarTitulo (p_titulo);
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> GetUsuariosSubforo (int p_id)
+{
+        return _ISubforoCAD.GetUsuariosSubforo (p_id);
+}
 }
 }

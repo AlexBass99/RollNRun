@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
 
 namespace RollNRunWeb.Models
 {
@@ -12,9 +13,14 @@ namespace RollNRunWeb.Models
         [ScaffoldColumn(false)]
         public int id { get; set; }
         [ScaffoldColumn(false)]
-        public IList<int> usuario { get; set; }
+        public IList<UsuarioEN> usuario { get; set; }
         [ScaffoldColumn(false)]
         public IList<int> entrada { get; set; }
+
+        [Display(Prompt = "NumSeguidores: ", Description = "NumSeguidores: ", Name = "Número de seguidores")]
+        [Required(ErrorMessage = "Debes india un numSeguidores")]
+
+        public int Seguidores { get; set; }
 
         [Display(Prompt = "Autor: ", Description = "Autor: ", Name = "Autor del subforo")]
         [Required(ErrorMessage = "Debes indicar un autor")]

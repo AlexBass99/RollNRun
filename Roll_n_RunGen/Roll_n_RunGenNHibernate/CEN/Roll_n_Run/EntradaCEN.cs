@@ -72,5 +72,9 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.En
 {
         return _IEntradaCAD.GetEntradasSubforo (p_subforo);
 }
+public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> GetEntradasUsuario (int p_usu)
+{
+        return _IEntradaCAD.GetEntradasUsuario (p_usu);
+}
 }
 }
