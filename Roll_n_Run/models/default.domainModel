@@ -212,10 +212,11 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xEQk_IEe2okZAJRi4vlA" name="p_producto" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xEQ0_IEe2okZAJRi4vlA" name="p_usuario" type="OID" typeObject="_rHfOYE4BEe2oPOAEyd8Jwg"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_fwCRIk4FEe2oPOAEyd8Jwg" name="modify" operationType="Modifier" type="Void">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_fwCRIk4FEe2oPOAEyd8Jwg" name="modify" operationType="Modifier" type="Void" automaticSynchronize="false" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xERE_IEe2okZAJRi4vlA" name="p_Valoracion_OID" type="OID" typeObject="_X7v1cE4FEe2oPOAEyd8Jwg"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xERU_IEe2okZAJRi4vlA" name="p_valor" type="Double"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xERk_IEe2okZAJRi4vlA" name="p_comentario"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_CR4d8HxQEe2KtpdA3Whhow" name="p_producto" type="OID" typeObject="_veVygE4EEe2oPOAEyd8Jwg"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_fwC4ME4FEe2oPOAEyd8Jwg" name="destroy" operationType="Destroy" type="Void" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_y7xER0_IEe2okZAJRi4vlA" name="p_Valoracion_OID" type="OID" typeObject="_X7v1cE4FEe2oPOAEyd8Jwg"/>

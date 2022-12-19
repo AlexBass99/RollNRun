@@ -39,20 +39,6 @@ public IValoracionCAD get_IValoracionCAD ()
         return this._IValoracionCAD;
 }
 
-public void Modify (int p_Valoracion_OID, double p_valor, string p_comentario)
-{
-        ValoracionEN valoracionEN = null;
-
-        //Initialized ValoracionEN
-        valoracionEN = new ValoracionEN ();
-        valoracionEN.Id = p_Valoracion_OID;
-        valoracionEN.Valor = p_valor;
-        valoracionEN.Comentario = p_comentario;
-        //Call to ValoracionCAD
-
-        _IValoracionCAD.Modify (valoracionEN);
-}
-
 public ValoracionEN ReadOID (int id
                              )
 {
