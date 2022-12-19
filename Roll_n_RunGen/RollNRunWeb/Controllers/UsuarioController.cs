@@ -229,7 +229,12 @@ namespace RollNRunWeb.Controllers
                     productoCEN.QuitarDeseado(producto.Id, idUsuario);
                 }
 
-                //UNRELATIONER DE SUBFOROS SEGUIDOS
+                //UNRELATIONER DE SUBFOROS
+                subforos = subforoCEN.GetSeguidosUsuario(id);
+                foreach (SubforoEN subforo in subforos)
+                {
+                    subforoCEN.DejarSeguirSubforo(subforo.Id, idUsuario);
+                }
 
                 usuarioCEN.Destroy(id);
 
