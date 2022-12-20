@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
+using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
+using Roll_n_RunGenNHibernate.EN.Roll_n_Run;
+using RollNRunWeb.Assemblers;
+using RollNRunWeb.Models;
 
 namespace RollNRunWeb.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BasicController
     {
         public ActionResult Index()
         {
-            return View();
+            SessionInitialize();
+            ProductoCAD productoCAD = new ProductoCAD(session);
+            ProductoCEN productoCEN = new ProductoCEN(productoCAD);
+
+            IList<ProductoEN> productosEN = productoCEN.BuscarOfertas();
+            IEnumerable<ProductoViewModel> productosViewModel = new ProductoAssembler().ConvertListENToModel(productosEN).ToList();
+            SessionClose();
+
+            return View(productosViewModel);
         }
 
         public ActionResult About()
