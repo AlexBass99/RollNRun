@@ -59,7 +59,7 @@
             @Html.DisplayFor(model => model.NumEntradas)
         </dd>
 
-        <dd>
+        <dd id='coment'>
             @{ Html.RenderAction("Comentarios", "Subforo", new { id = Model.id });}
         </dd>
 
@@ -67,6 +67,15 @@
             @{ Html.RenderAction("Comentar", "Subforo", new { id = Model.id });}
         </dd>
 
+    </dl>
+    <dl class="dl-horizontal">
+        <dd>
+            @{ Html.RenderAction("Seguir", "Subforo", new { id = Model.id });}
+        </dd>
+
+        <dd>
+            @{ Html.RenderAction("DejarSeguir", "Subforo", new { id = Model.id });}
+        </dd>
     </dl>
 </div>
 <p>

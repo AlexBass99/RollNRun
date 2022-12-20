@@ -193,6 +193,11 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
+        public ActionResult Seguir()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult Seguir(int id)
         {
             try
@@ -213,6 +218,11 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
+        public ActionResult DejarSeguir()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult DejarSeguir(int id)
         {
             try

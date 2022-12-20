@@ -30,7 +30,5 @@ namespace RollNRunWeb.Models
         [StringLength(maximumLength: 500, ErrorMessage = "El texto no puede tener más de 500 caracteres")]
         public string Texto { get; set; }
 
-        [Display(Prompt = "Producto: ", Description = "Producto: ", Name = "Producto de la entrada")]
-        public string ProductoEntrada { get; set; }
     }
 }
