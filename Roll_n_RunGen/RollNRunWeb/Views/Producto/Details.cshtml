@@ -1,84 +1,50 @@
 ﻿@model RollNRunWeb.Models.ProductoViewModel
 
+@{ ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Detalles</h2>
+
 <div>
-    <h4>ProductoViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-lg-8">
+                <table>
+                    <tr>
+                        <td style="width:300px; padding-right:20px">
+                            <img class="img-responsive" src="@Html.DisplayFor(model => model.imagen)" />
+                        </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+                        <td style="width: 500px; text-align:left">
+                            <h2>
+                                <b>@Html.DisplayFor(model => model.nombre)</b>
+                                <h3>Valoración: @Html.DisplayFor(model => model.valMedia)</h3>
+                            </h2>
+                            <br>
+                            <h3><b>Marca: </b> @Html.DisplayFor(model => model.marca)</h3>
+                            <h3><b>Descripcion: </b> @Html.DisplayFor(model => model.descripcion)</h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.marca)
-        </dt>
+                            @if (Model.oferta > 0)
+                            {
+                                <h3><del>@Html.DisplayFor(model => model.precio)</del></h3>
+                            }
 
-        <dd>
-            @Html.DisplayFor(model => model.marca)
-        </dd>
+                            else
+                            {
+                                <h3><b>@Html.DisplayFor(model => model.precio)</b></h3>
+                            }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_producto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tipo_producto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.stock)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.stock)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.precio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.precio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.imagen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.imagen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.valMedia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.valMedia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.oferta)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.oferta)
-        </dd>
-
-    </dl>
+                            <input type="number" style="height:25px; width:40px" name="cantidad" id="cantidad">
+                            <button type="button" style="margin-left: 15px">@Html.ActionLink("Añadir a la Cesta", "Index", "Pedido")</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <button type="button">@Html.ActionLink("Vuelve a Página de inicio", "Index", "Home")</button>
 </p>
