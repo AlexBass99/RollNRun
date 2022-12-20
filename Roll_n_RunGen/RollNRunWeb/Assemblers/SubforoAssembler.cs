@@ -14,11 +14,6 @@ namespace RollNRunWeb.Assemblers
             SubforoViewModel dir = new SubforoViewModel();
             dir.id = en.Id;
             int cont = 0;
-            /*foreach(UsuarioEN usu in en.Usuarios)
-            {
-                dir.usuario.Add(en.Usuarios.ElementAt<UsuarioEN>(cont).Id);
-                cont++;
-            }*/
             dir.usuario = en.Usuarios;
             dir.Seguidores = en.Usuarios.Count;
             dir.Autor = en.Autor.Nickname;

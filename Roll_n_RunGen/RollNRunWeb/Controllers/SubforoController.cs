@@ -135,7 +135,7 @@ namespace RollNRunWeb.Controllers
                     entradaCP.Destroy(en.Id);
                 }
 
-                //UNRELATIONER DE USUARIOS (puede dar errores)
+                //UNRELATIONER DE USUARIOS
 
                 IList<int> idUsuario = new List<int>();
                 IList<UsuarioEN> seguidores = subforoCEN.GetUsuariosSubforo(id);
@@ -192,6 +192,46 @@ namespace RollNRunWeb.Controllers
             {
                 return View();
             }
-        } 
+        }
+        public ActionResult Seguir(int id)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                SubforoCEN subforoCEN = new SubforoCEN();
+                IList<int> us = new List<int>();
+                if (Session["Usuario"] != null)
+                {
+                    us.Add(((UsuarioEN)Session["Usuario"]).Id);
+                    subforoCEN.SeguirSubforo(id, us);
+                }
+
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult DejarSeguir(int id)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                SubforoCEN subforoCEN = new SubforoCEN();
+                IList<int> us = new List<int>();
+                if (Session["Usuario"] != null)
+                {
+                    us.Add(((UsuarioEN)Session["Usuario"]).Id);
+                    subforoCEN.DejarSeguirSubforo(id, us);
+                }
+
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
