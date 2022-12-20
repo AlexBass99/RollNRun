@@ -69,7 +69,7 @@ namespace RollNRunWeb.Controllers
 
             else
             {
-                fileName = "Sin Imagen";
+                fileName = "/Images/Sin_Imagen.png";
             }
 
             try
