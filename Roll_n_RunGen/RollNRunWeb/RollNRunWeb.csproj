@@ -376,6 +376,7 @@
     <Content Include="Views\Valoracion\Delete.cshtml" />
     <Content Include="Views\Valoracion\Details.cshtml" />
     <Content Include="Views\Valoracion\Edit.cshtml" />
+    <Content Include="Views\Pedido\Devolver.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -59,6 +59,10 @@
             @Html.DisplayFor(model => model.Estado)
         </dd>
 
+        <dd>
+            @{ Html.RenderAction("Devolver", "Pedido", new { id = Model.id });}
+        </dd>
+
     </dl>
 </div>
 <p>

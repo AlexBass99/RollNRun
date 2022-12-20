@@ -59,7 +59,7 @@ namespace RollNRunWeb.Controllers
                 if (Session["Usuario"] != null)
                 {
                     dev.usuario = ((UsuarioEN)Session["Usuario"]).Id;
-                    //dev.pedido = id; cambiar esto a vista parcial en pedido donde en el actionResult se le pase la id del pedido
+                    //dev.pedido = id; se ha cambiado esto a vista parcial en pedido donde en el actionResult se le pase la id del pedido
                     devolucionCEN.New_(dev.Descripcion, dev.Motivo, dev.pedido, dev.usuario);
                 }
 

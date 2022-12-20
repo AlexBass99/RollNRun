@@ -150,5 +150,32 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
+
+        public ActionResult Devolver()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Devolver(int id, DevolucionViewModel dev)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                DevolucionCEN devolucionCEN = new DevolucionCEN();
+                PedidoCP pedidoCP = new PedidoCP();
+                if (Session["Usuario"] != null)
+                {
+                    dev.usuario = ((UsuarioEN)Session["Usuario"]).Id;
+                    pedidoCP.DevolverPedido(id, dev.Descripcion, dev.Motivo, dev.usuario);
+                }
+
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }
