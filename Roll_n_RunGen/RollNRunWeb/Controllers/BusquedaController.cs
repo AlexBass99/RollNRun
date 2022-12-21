@@ -22,12 +22,44 @@ namespace RollNRunWeb.Controllers
             ProductoCAD productoCAD = new ProductoCAD(session);
             ProductoCEN productoCEN = new ProductoCEN(productoCAD);
 
-            IList<ProductoEN> productosEN = productoCEN.ReadAll(0,-1);
+            string peticion = this.Request.RawUrl;
+            string[] palabras=peticion.Split('?');
+            IList<ProductoEN> productosEN = new List<ProductoEN>();
+            if (palabras.Length > 1)
+            {
+                string[] tipos = palabras[1].Split('=');
+                if (tipos.Length > 1)
+                {
+                    switch (tipos[0])
+                    {
+                        case "nombre":
+                            productosEN = productoCEN.BuscarNombre(tipos[1].Replace("+", " "));
+                            break;
+                        case "tipo":
+                            productosEN = productoCEN.BuscarTipo((Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum)int.Parse(tipos[1]));
+                            break;
+                        case "precio":
+                            productosEN = productoCEN.BuscarPrecio(Double.Parse(tipos[1].Replace(".", ",")));
+                        break;
+                    }
+                }
+                else {
+                    productosEN = productoCEN.ReadAll(0, -1);
+                }
+                
+                
+            }
+            else {
+                productosEN = productoCEN.ReadAll(0, -1);
+            }
+
+            
             IEnumerable<ProductoViewModel> productosViewModel = new ProductoAssembler().ConvertListENToModel(productosEN).ToList();
             SessionClose();
 
             return View(productosViewModel);
         }
+
 
     }
 }

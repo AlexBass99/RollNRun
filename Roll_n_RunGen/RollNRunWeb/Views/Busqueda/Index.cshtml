@@ -1,8 +1,67 @@
 ﻿@model IEnumerable<RollNRunWeb.Models.ProductoViewModel>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<hr />
+
+<h4>Búsqueda por nombre</h4>
+
+<form method="get">
+
+    <div class="col-md-10">
+
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Buscar" class="btn btn-default" />
+    </div>
+
+</form>
+<hr />
+<h4>Búsqueda por tipo</h4>
+
+<form method="get">
+
+    <div class="col-md-10">
+
+        <label for="tipo">Tipo:</label><br>
+        <select name="tipo">
+            <option value="1">dado</option>
+            <option value="2">libro</option>
+            <option value="3">figura</option>
+            <option value="4">juego_mesa</option>
+            <option value="5">juego_cartas</option>
+            <option value="6">otros</option>
+        </select><br>
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Buscar" class="btn btn-default" />
+    </div>
+
+</form>
+
+
+
+<hr />
+<h4>Búsqueda por precio</h4>
+
+<form method="get">
+
+    <div class="col-md-10">
+
+        <label for="precio">Precio máximo:</label><br>
+        <input type="number" id="precio" name="precio"><br>
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Buscar" class="btn btn-default" />
+    </div>
+
+</form>
+
+
+<hr />
 
 <div class="container-fluid">
     <div class="row">
@@ -41,3 +100,4 @@
         }
     </div>
 </div>
+

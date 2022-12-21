@@ -307,7 +307,7 @@ public System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.Pr
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.Precio = :p_precio";
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod where prod.Precio <= :p_precio";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENbuscarPrecioHQL");
                 query.SetParameter ("p_precio", p_precio);

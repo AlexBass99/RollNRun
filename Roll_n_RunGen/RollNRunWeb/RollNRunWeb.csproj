@@ -380,8 +380,12 @@
     <Content Include="Views\Valoracion\Edit.cshtml" />
     <Content Include="Views\Pedido\Devolver.cshtml" />
     <Content Include="Views\Busqueda\Index.cshtml" />
+    <Content Include="Views\Subforo\DejarSeguir.cshtml" />
+    <Content Include="Views\Subforo\Seguir.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Prueba\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />

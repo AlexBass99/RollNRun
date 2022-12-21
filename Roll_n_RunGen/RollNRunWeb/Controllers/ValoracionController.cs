@@ -70,7 +70,7 @@ namespace RollNRunWeb.Controllers
                     val.usuario = ((UsuarioEN)Session["Usuario"]).Id;
                 }
                 ValoracionCP valCP = new ValoracionCP();
-                valCP.New_(val.valor, val.comentario, val.producto, val.usuario);
+                valCP.New_(Double.Parse(val.valor.Replace(".", ",")), val.comentario, val.producto, val.usuario);
 
                 return RedirectToAction("Index");
             }
@@ -107,7 +107,7 @@ namespace RollNRunWeb.Controllers
 
                 ValoracionEN valEN = valCEN.ReadOID(id);
                 ValoracionCP valCP = new ValoracionCP();
-                valCP.Modify(val.id, val.valor, val.comentario, valEN.Producto.Id);
+                valCP.Modify(val.id, Double.Parse(val.valor.Replace(".", ",")), val.comentario, valEN.Producto.Id);
 
                 SessionClose();
 
