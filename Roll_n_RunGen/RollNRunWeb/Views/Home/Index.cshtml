@@ -11,6 +11,7 @@
 
 <h2>Ofertas</h2>
 
+
 <div id="my_carousel" class="carousel slide img-thumbnail push-down-1" data-ride="carousel" data-interval="3000">
     <div id="my_carousel" class="carousel slide img-thumbnail push-down-1" data-ride="carousel" data-interval="3000">
         <ol class="carousel-indicators">
@@ -34,20 +35,29 @@
             {
                 if (index == 0)
                 {
+                    double sale = Double.Parse(item.precio.Replace(".", ",")) - (Double.Parse(item.precio.Replace(".", ",")) * (item.oferta / 100));
+                    sale = (double)(Math.Round((double)sale, 2)); 
+
                     <div class="item active">
-                        <h2>"AQUI VA LA IMAGEN"</h2>
+                        <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="150" /> 
                         <h3>@item.nombre</h3>
-                        <p><del>@item.precio</del> €</p>
+                        <p><del>@item.precio €</del></p>
+                        <h4>@sale.ToString().Replace(",", ".") €</h4>
 
                         @Html.ActionLink("Ver producto", "Details", "Producto", routeValues: new { id = item.id }, htmlAttributes: null)
                     </div>
                 }
                 else
                 {
+
+                    double sale = Double.Parse(item.precio.Replace(".", ",")) - (Double.Parse(item.precio.Replace(".", ",")) * (item.oferta / 100));
+                    sale = (double)(Math.Round((double)sale, 2)); 
                     <div class="item">
-                        <h2>"AQUI VA LA IMAGEN"</h2>
+                        <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="150"/>
+
                         <h3>@item.nombre</h3>
-                        <p><del>@item.precio</del> €</p>
+                        <p><del>@item.precio €</del></p>
+                        <h4>@sale.ToString().Replace(",", ".") €</h4>
                         @Html.ActionLink("Ver producto", "Details", "Producto", routeValues: new { id = item.id }, htmlAttributes: null)
 
                     </div>

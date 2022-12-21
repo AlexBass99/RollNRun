@@ -16,7 +16,7 @@ namespace RollNRunWeb.Assemblers
             prod.nombre = en.Nombre;
             prod.marca = en.Marca;
             prod.stock = en.Stock;
-            prod.precio = en.Precio;
+            prod.precio = en.Precio.ToString().Replace(",", ".");
             prod.imagen = en.Imagen;
             prod.descripcion = en.Descripcion;
             prod.valMedia = en.Val_media;

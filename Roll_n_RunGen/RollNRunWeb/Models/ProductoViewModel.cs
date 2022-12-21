@@ -34,8 +34,8 @@ namespace RollNRunWeb.Models
         [Display(Prompt = "Precio del producto", Description = "Precio del producto", Name = "Precio")]
         [Required(ErrorMessage = "Debe indicar el precio del producto")]
         [DataType(DataType.Currency, ErrorMessage = "El precio debe ser un valor numérico")]
-        [Range(minimum: 0, maximum: 10000, ErrorMessage = "El precio debe ser mayor que 0 y menor que 10000")]
-        public double precio { get; set; }
+        [Range(minimum: 0, maximum: 10000, ErrorMessage = "El precio debe ser un número mayor que 0 y menor que 10000")]
+        public string precio { get; set; }
 
         [Display(Prompt = "Imagen de la máscarilla", Description = "Imagen del producto", Name = "Imagen")]
         public string imagen { get; set; }

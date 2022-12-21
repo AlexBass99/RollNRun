@@ -73,7 +73,8 @@ namespace RollNRunWeb.Controllers
             try
             {
                 ProductoCEN productoCEN = new ProductoCEN();
-                productoCEN.New_(prod.nombre, prod.marca, prod.stock, prod.precio, fileName, prod.descripcion, 0, (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum)prod.tipo_producto, prod.oferta);
+                double nuevo_precio = Double.Parse(prod.precio.Replace(".", ","));
+                productoCEN.New_(prod.nombre, prod.marca, prod.stock, nuevo_precio, fileName, prod.descripcion, 0, (Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum)prod.tipo_producto, prod.oferta);
 
                 return RedirectToAction("Index");
             }
@@ -123,7 +124,8 @@ namespace RollNRunWeb.Controllers
             {
                 ProductoCEN productoCEN = new ProductoCEN();
                 ProductoEN productoEN = productoCEN.ReadOID(id);
-                productoCEN.Modify(id, prod.nombre, prod.marca, prod.stock, prod.precio, fileName, prod.descripcion, productoEN.Val_media, prod.tipo_producto, prod.oferta);
+                double nuevo_precio = Double.Parse(prod.precio.Replace(".", ","));
+                productoCEN.Modify(id, prod.nombre, prod.marca, prod.stock, nuevo_precio, fileName, prod.descripcion, productoEN.Val_media, prod.tipo_producto, prod.oferta);
 
                 return RedirectToAction("Index");
             }
@@ -164,5 +166,6 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
+
     }
 }
