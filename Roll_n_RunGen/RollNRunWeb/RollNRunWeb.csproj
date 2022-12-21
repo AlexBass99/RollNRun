@@ -384,6 +384,7 @@
     <Content Include="Views\Subforo\Index.cshtml" />
     <Content Include="Views\Subforo\Seguir.cshtml" />
     <Content Include="Views\LineaPedido\Create.cshtml" />
+    <Content Include="Views\Producto\ListaDeseados.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

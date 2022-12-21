@@ -5,44 +5,65 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ListaDeseados</h2>
+<h2>Lista de Deseados</h2>
 
-<table class="table">
+<div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <img width="100" class="img-responsive" src="@Html.DisplayFor(modelItem => item.imagen)"/>
-        </td>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-lg-8">
 
-        <td>
-            <p>@Html.ActionLink(item.nombre, "Details", new { id = item.id })</p>
-            <p>@Html.DisplayFor(modelItem => item.marca)</p
-        </td>
+            </div>
+        </div>
+    </div>
 
-        @if (item.oferta > 0)
-        {
-            <td>
-                <del>@Html.DisplayFor(modelItem => item.precio)</del>
 
-                @{ 
-                    double precioOferta = item.precio - (item.precio * item.oferta / 100);
-                    Html.Display(precioOferta.ToString());
+
+
+
+
+
+
+            <table class="table">
+
+                @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        <img width="100" class="img-responsive" src="@Html.DisplayFor(modelItem => item.imagen)" />
+                    </td>
+
+                    <td>
+                        <p>@Html.ActionLink(item.nombre, "Details", new { id = item.id })</p>
+                        <p>@Html.DisplayFor(modelItem => item.marca)</p>
+                    </td>
+
+                    @if (item.oferta > 0)
+                    {
+                    <td>
+                        <del>@Html.DisplayFor(modelItem => item.precio)</del>
+                        <p>
+                            @{
+
+                            
+
+                            double precioOferta = item.precio - (item.precio * item.oferta / 100);
+                            Html.Display(precioOferta.ToString());
+                            }
+                            @Html.DisplayFor(modelItem => item.oferta) %
+                        </p>
+                    </td>
+                    }
+                    else
+                    {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precio)
+                    </td>
+                    }
+
+                    <td>
+                        |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
                 }
-                @Html.DisplayFor(modelItem => item.oferta) %
-            </td>
-        }
-        else
-        {
-            <td>
-                @Html.DisplayFor(modelItem => item.precio)
-            </td>
-        }
-
-        <td>
-             |
-            @Html.ActionLink("Delete", "Delete", new { id = item.id })
-        </td>
-    </tr>
-}
-</table>
+            </table>
