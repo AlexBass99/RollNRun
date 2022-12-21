@@ -28,6 +28,30 @@ namespace RollNRunWeb.Controllers
             return View(productosViewModel);
         }
 
+        
+        public ActionResult ListaDeseados()
+        {
+            try
+            {
+                SessionInitialize();
+                ProductoCAD productoCAD = new ProductoCAD(session);
+                ProductoCEN productoCEN = new ProductoCEN(productoCAD);
+
+                IList<ProductoEN> productosEN = productoCEN.ReadAll(0, -1);
+
+                IList<ProductoEN> productosDeseadosEN = productoCEN.GetProductosDeseadosUsuario(((UsuarioEN)Session["Usuario"]).Id);
+                IEnumerable<ProductoViewModel> productosViewModel = new ProductoAssembler().ConvertListENToModel(productosDeseadosEN).ToList();
+                SessionClose();
+
+                return View(productosViewModel);
+            }
+            
+            catch
+            {
+                return View();
+            }
+        }
+
         // GET: Producto/Details/5
         public ActionResult Details(int id)
         {
@@ -156,6 +180,15 @@ namespace RollNRunWeb.Controllers
             {
                 ProductoCEN productoCEN = new ProductoCEN();
                 productoCEN.Destroy(id);
+
+
+                IList<int> usuarioDeseado = new List<int>();
+                usuarioDeseado.Add(((UsuarioEN)Session["Usuario"]).Id);
+
+                IList<ProductoEN> productosEN = productoCEN.ReadAll(0, -1);
+                productoCEN.MarcarDeseado(productosEN[0].Id, usuarioDeseado);
+                productoCEN.MarcarDeseado(productosEN[1].Id, usuarioDeseado);
+                productoCEN.MarcarDeseado(productosEN[2].Id, usuarioDeseado);
 
                 return RedirectToAction("Index");
             }

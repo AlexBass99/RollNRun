@@ -1,7 +1,7 @@
 ﻿@model RollNRunWeb.Models.ProductoViewModel
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
