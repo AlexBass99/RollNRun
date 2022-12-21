@@ -14,15 +14,13 @@ namespace RollNRunWeb.Models
         [ScaffoldColumn(false)]
         public int usuario { get; set; }
 
-
         [ScaffoldColumn(false)]
-        [Display(Prompt = "Id del producto", Description = "Id del producto", Name = "Producto")]
         public int producto { get; set; }
 
         [Display(Prompt = "Valoración del producto", Description = "Valoración del producto", Name = "Valor")]
         [Required(ErrorMessage = "Este es un campo requerido")]
-        [Range(minimum:0, maximum: 5 , ErrorMessage = "Debe introducir un valor de 0 y 5")]
-        public string valor { get; set; }
+        [Range(minimum:1, maximum: 5 , ErrorMessage = "Debe introducir un valor de 0 y 5")]
+        public int valor { get; set; }
 
         [Display(Prompt = "Comentario sobre el producto", Description = "Comentario sobre el producto", Name = "Comentario")]
         [Required(ErrorMessage = "Este es un campo requerido")]

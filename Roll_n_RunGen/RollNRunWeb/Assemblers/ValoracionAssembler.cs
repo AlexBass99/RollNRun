@@ -15,7 +15,7 @@ namespace RollNRunWeb.Assemblers
             val.id = en.Id;
             val.usuario = en.Usuario.Id;
             val.producto = en.Producto.Id;
-            val.valor = en.Valor.ToString().Replace(",", ".");
+            val.valor = (int)en.Valor;
             val.comentario = en.Comentario;
 
             return val;

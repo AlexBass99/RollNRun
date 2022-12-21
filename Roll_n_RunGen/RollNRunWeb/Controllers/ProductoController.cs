@@ -9,6 +9,7 @@ using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using RollNRunWeb.Assemblers;
 using RollNRunWeb.Models;
 using System.IO;
+using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
 
 namespace RollNRunWeb.Controllers
 {
@@ -51,6 +52,50 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
+
+        public ActionResult ValoracionesProducto(int id)
+        {
+            SessionInitialize();
+            ValoracionCAD valoracionCAD = new ValoracionCAD(session);
+            ValoracionCEN valoracionCEN = new ValoracionCEN(valoracionCAD);
+
+            IList<ValoracionEN> valoracionesEN = valoracionCEN.GetValoracionesProducto(id);
+            IEnumerable<ValoracionViewModel> valoracionesViewModel = new ValoracionAssembler().ConvertListENToModel(valoracionesEN).ToList();
+            SessionClose();
+
+            return PartialView(valoracionesViewModel);
+        }
+
+        public ActionResult Valorar()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult Valorar(int id, ValoracionViewModel valoracion)
+        {
+            try
+            {
+                if (valoracion.valor < 1 || valoracion.valor > 5)
+                {
+                    return PartialView();
+                }
+                
+                ValoracionCP valoracionCP = new ValoracionCP();
+                if (Session["Usuario"] != null)
+                {
+                    valoracion.usuario = ((UsuarioEN)Session["Usuario"]).Id;
+                    valoracion.producto = id;
+                    valoracionCP.New_(valoracion.valor, valoracion.comentario, valoracion.producto, valoracion.usuario);
+                }
+
+                return PartialView();
+            }
+            catch
+            {
+                return PartialView();
+            }
+        }
+
 
         // GET: Producto/Details/5
         public ActionResult Details(int id)
@@ -200,5 +245,79 @@ namespace RollNRunWeb.Controllers
             }
         }
 
+
+        public ActionResult GuardarDeseado()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult GuardarDeseado(int id)
+        {
+            try
+            {
+                ProductoCEN productoCEN = new ProductoCEN();
+                IList<int> us = new List<int>();
+                if (Session["Usuario"] != null)
+                {
+                    us.Add(((UsuarioEN)Session["Usuario"]).Id);
+                    IList<ProductoEN> productosDeseados = productoCEN.GetProductosDeseadosUsuario(us[0]);
+                    foreach (ProductoEN producto in productosDeseados)
+                    {
+                        if (producto.Id == id)
+                        {
+                            return PartialView();
+                        }
+                    }
+
+                    productoCEN.MarcarDeseado(id, us);
+                }
+
+                return PartialView();
+            }
+            catch
+            {
+                return PartialView();
+            }
+        }
+
+        
+        public ActionResult QuitarDeseado()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult QuitarDeseado(int id)
+        {
+            try
+            {
+                ProductoCEN productoCEN = new ProductoCEN();
+                IList<int> us = new List<int>();
+                if (Session["Usuario"] != null)
+                {
+                    us.Add(((UsuarioEN)Session["Usuario"]).Id);
+                    IList<ProductoEN> productosDeseados = productoCEN.GetProductosDeseadosUsuario(us[0]);
+                    bool existe = true;
+                    foreach (ProductoEN producto in productosDeseados)
+                    {
+                        if (producto.Id == id)
+                        {
+                            existe = true;
+                        }
+                    }
+
+                    if (existe)
+                    {
+                        productoCEN.QuitarDeseado(id, us);
+                        return PartialView();
+                    }
+                }
+
+                return PartialView();
+            }
+            catch
+            {
+                return PartialView();
+            }
+        }
     }
 }

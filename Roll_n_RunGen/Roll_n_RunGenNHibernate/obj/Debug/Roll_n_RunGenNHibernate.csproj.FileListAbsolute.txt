@@ -108,7 +108,6 @@ C:\Users\MSI\Desktop\Cosas de Estudiar\DSM\Cosas\GitHub_Movidas\RollNRun\Roll_n_
 C:\Users\MSI\Desktop\Cosas de Estudiar\DSM\Cosas\GitHub_Movidas\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.CopyComplete
 C:\Users\MSI\Desktop\Cosas de Estudiar\DSM\Cosas\GitHub_Movidas\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.dll
 C:\Users\MSI\Desktop\Cosas de Estudiar\DSM\Cosas\GitHub_Movidas\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.pdb
-F:\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\DSM\DSM2022-23\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.AssemblyReference.cache
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.CoreCompileInputs.cache
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\bin\Debug\hibernate.cfg.xml
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\bin\Debug\Roll_n_RunGenNHibernate.dll.config
@@ -127,3 +126,4 @@ C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.CopyComplete
 F:\OOH4RIA\DSM2021\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.AssemblyReference.cache
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.AssemblyReference.cache
+F:\YandexDisk\Universidad\Multimedia 3º\1er Cuatri\DSM\DSM2022-23\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.AssemblyReference.cache
