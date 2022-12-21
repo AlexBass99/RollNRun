@@ -1,17 +1,20 @@
-﻿@model IEnumerable<RollNRunWeb.Models.SubforoViewModel>
+﻿@model RollNRunWeb.Models.SubforoViewModel
 
 @{
     ViewBag.Title = "Seguir";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <button>Seguir</button>
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <br />
+        <br />
+        <br />
+        <h4>¿Estás seguro?</h4>
+        <div class="form-actions no-color">
+            <input type="submit" value="Seguir" class="btn btn-default"/>
+        </div>
+    }
+</div>

@@ -165,11 +165,11 @@ namespace RollNRunWeb.Controllers
             IEnumerable<EntradaViewModel> entradasViewModel = new EntradaAssembler().ConvertListENToModel(entradasEN).ToList();
             SessionClose();
 
-            return View(entradasViewModel);
+            return PartialView(entradasViewModel);
         }
         public ActionResult Comentar()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
         public ActionResult Comentar(int id, EntradaViewModel comentario)
@@ -186,19 +186,19 @@ namespace RollNRunWeb.Controllers
                     entradaCP.New_(comentario.idSubforo, comentario.idUsuario, comentario.Texto);
                 }
 
-                return View();
+                return PartialView();
             }
             catch
             {
-                return View();
+                return PartialView();
             }
         }
         public ActionResult Seguir()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
-        public ActionResult Seguir(int id)
+        public ActionResult Seguir(int id, SubforoViewModel sforo)
         {
             try
             {
@@ -211,19 +211,19 @@ namespace RollNRunWeb.Controllers
                     subforoCEN.SeguirSubforo(id, us);
                 }
 
-                return View();
+                return PartialView();
             }
             catch
             {
-                return View();
+                return PartialView();
             }
         }
         public ActionResult DejarSeguir()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
-        public ActionResult DejarSeguir(int id)
+        public ActionResult DejarSeguir(int id, SubforoViewModel sforo)
         {
             try
             {
@@ -236,11 +236,11 @@ namespace RollNRunWeb.Controllers
                     subforoCEN.DejarSeguirSubforo(id, us);
                 }
 
-                return View();
+                return PartialView();
             }
             catch
             {
-                return View();
+                return PartialView();
             }
         }
     }

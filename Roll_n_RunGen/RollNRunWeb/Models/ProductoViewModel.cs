@@ -37,7 +37,7 @@ namespace RollNRunWeb.Models
         [Range(minimum: 0, maximum: 10000, ErrorMessage = "El precio debe ser un número mayor que 0 y menor que 10000")]
         public string precio { get; set; }
 
-        [Display(Prompt = "Imagen de la máscarilla", Description = "Imagen del producto", Name = "Imagen")]
+        [Display(Prompt = "Imagen del producto", Description = "Imagen del producto", Name = "Imagen")]
         public string imagen { get; set; }
 
         [Display(Prompt = "Descripcion", Description = "Descripcion del producto", Name = "Descripcion")]
