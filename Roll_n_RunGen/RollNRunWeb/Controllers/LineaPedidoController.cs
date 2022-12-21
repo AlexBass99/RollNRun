@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Roll_n_RunGenNHibernate.CAD.Roll_n_Run;
 using Roll_n_RunGenNHibernate.CEN.Roll_n_Run;
@@ -45,16 +43,37 @@ namespace RollNRunWeb.Controllers
         // GET: LineaPedido/Create
         public ActionResult Create()
         {
+            IList<PedidoEN> lisPeds = new PedidoCEN().ReadAll(0, -1);
+            IList<SelectListItem> pedIt = new List<SelectListItem>();
+
+            foreach (PedidoEN ped in lisPeds)
+            {
+                pedIt.Add(new SelectListItem { Text = ped.Id.ToString(), Value = ped.Id.ToString() });
+            }
+            ViewData["pedidoId"] = pedIt;
+
+            IList<ProductoEN> lisProds = new ProductoCEN().ReadAll(0, -1);
+            IList<SelectListItem> prodIt = new List<SelectListItem>();
+
+            foreach (ProductoEN prod in lisProds)
+            {
+                prodIt.Add(new SelectListItem { Text = prod.Nombre, Value = prod.Id.ToString() });
+            }
+            ViewData["productoId"] = prodIt;
+
             return View();
         }
 
         // POST: LineaPedido/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(LineaPedidoViewModel linpe)
         {
             try
             {
-                // TODO: Add insert logic here
+                LineaPedidoCP linpeCP = new LineaPedidoCP();
+                LineaPedidoEN linpeEN = linpeCP.New_(linpe.cantidad, linpe.pedidoId, linpe.productoId);
+
+
 
                 return RedirectToAction("Index");
             }
