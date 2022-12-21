@@ -1,0 +1,42 @@
+﻿@model RollNRunWeb.Models.PedidoViewModel
+
+@{
+    ViewBag.Title = "Tramite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tramite</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dirección)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Dirección)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cantidad)
+        </td>
+    </tr>
+
+</table>

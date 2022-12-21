@@ -382,6 +382,9 @@
     <Content Include="Views\Busqueda\Index.cshtml" />
     <Content Include="Views\Subforo\DejarSeguir.cshtml" />
     <Content Include="Views\Subforo\Seguir.cshtml" />
+    <Content Include="Views\Pedido\Carrito.cshtml" />
+    <Content Include="Views\Pedido\LineasCarrito.cshtml" />
+    <Content Include="Views\Pedido\Tramite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Prueba\" />

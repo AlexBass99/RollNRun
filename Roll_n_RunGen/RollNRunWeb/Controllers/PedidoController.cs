@@ -177,5 +177,82 @@ namespace RollNRunWeb.Controllers
             }
         }
 
+        public ActionResult Carrito()
+        {
+            try
+            {
+                SessionInitialize();
+
+                PedidoCAD pedCad = new PedidoCAD(session);
+                PedidoCEN pedCEN = new PedidoCEN(pedCad);
+
+                IList<PedidoEN> listEN = pedCEN.ReadAll(0, -1);
+                PedidoViewModel pedVM = new PedidoViewModel();
+
+                foreach (PedidoEN pedEN in listEN)
+                {
+                    if (pedEN.Estado == Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum.enCarrito)
+                    {
+                        pedVM = new PedidoAssembler().ConvertENToModelUI(pedEN);
+                        
+                    }
+
+                }
+                SessionClose();
+
+                return View(pedVM);
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult LineasCarrito(int id)
+        {
+
+            SessionInitialize();
+            LineaPedidoCAD linpedCAD = new LineaPedidoCAD(session);
+            LineaPedidoCEN linpedCEN = new LineaPedidoCEN(linpedCAD);
+
+            IList<LineaPedidoEN> linpedEN = linpedCEN.GetLineasPedido(id);
+            IList<LineaPedidoViewModel> lineapedidoViewModel = new LineaPedidoAssembler().ConvertListENToModel(linpedEN);
+            SessionClose();
+
+
+            return PartialView(lineapedidoViewModel);
+        }
+
+        public ActionResult Tramite()
+        {
+            try
+            {
+                SessionInitialize();
+
+                PedidoCAD pedCad = new PedidoCAD(session);
+                PedidoCEN pedCEN = new PedidoCEN(pedCad);
+
+                IList<PedidoEN> listEN = pedCEN.ReadAll(0, -1);
+                PedidoViewModel pedVM = new PedidoViewModel();
+
+                foreach (PedidoEN pedEN in listEN)
+                {
+                    if (pedEN.Estado == Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum.enCarrito)
+                    {
+                        pedVM = new PedidoAssembler().ConvertENToModelUI(pedEN);
+
+                    }
+                }
+                SessionClose();
+
+                return View(pedVM);
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
     }
 }
