@@ -1,0 +1,17 @@
+﻿@model IEnumerable<RollNRunWeb.Models.SubforoViewModel>
+
+@{
+    ViewBag.Title = "Seguir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <button>Seguir</button>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

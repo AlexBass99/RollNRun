@@ -194,7 +194,7 @@ public static void InitializeData ()
                 pedidoCEN.CambiarEstado (id_pedido, EstadoEnum.enProceso);
 
 
-
+                /*
                 PedidoEN pedidoEN = null;
 
                 //CUSTOM
@@ -375,8 +375,8 @@ public static void InitializeData ()
                 Console.WriteLine ();
                 Console.WriteLine ("Ahora creamos un par de lineas de pedido para actualizarlo");
 
-                int idLinea1 = lineaPedidoCP.New_ (2, id_pedido2, id_producto3).Id;
-                lineaPedidoCP.New_ (3, id_pedido2, id_producto);
+                //int idLinea1 = lineaPedidoCP.New_ (2, id_pedido2, id_producto3).Id;
+                //lineaPedidoCP.New_ (3, id_pedido2, id_producto);
 
                 pedidoEN = new PedidoCAD ().ReadOIDDefault (id_pedido2);
 
@@ -409,7 +409,7 @@ public static void InitializeData ()
                  *  Console.WriteLine("Linea " + i + ": " + linea.Precio + "$ -- x" + linea.Cantidad);
                  * }*/
 
-
+                /*
                 Console.WriteLine ("-------------Crear y borrar Entradas autocompletando la cantidad del Subforo-------------");
                 SubforoEN subfEN = new SubforoCAD ().ReadOIDDefault (id_subforo);
                 Console.WriteLine ("El subforo tiene " + subfEN.NumEntradas + "entradas");
@@ -784,7 +784,7 @@ public static void InitializeData ()
                 Console.WriteLine ("El numero de telefono de usu1 es: " + usuario.Telefono);
 
 
-
+                */
 
                 /*PROTECTED REGION END*/
         }

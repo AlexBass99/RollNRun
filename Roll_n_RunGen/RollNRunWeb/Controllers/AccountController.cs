@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -166,10 +167,27 @@ namespace RollNRunWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(UsuarioViewModel model)
+        public async Task<ActionResult> Register(UsuarioViewModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                string fileName = "", path = "";
+                // Verify that the user selected a file
+                if (file != null && file.ContentLength > 0)
+                {
+                    // extract only the fielname
+                    fileName = Path.GetFileName(file.FileName);
+                    // store the file inside ~/App_Data/uploads folder
+                    path = Path.Combine(Server.MapPath("~/Images/ProfilePics"), fileName);
+                    file.SaveAs(path);
+                    fileName = "/Images/ProfilePics/" + fileName;
+                }
+
+                else
+                {
+                    fileName = "/Images/ProfilePics/default.jpg";
+                }
+
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -178,8 +196,20 @@ namespace RollNRunWeb.Controllers
 
                     UsuarioCEN usuCEN = new UsuarioCEN();
                     // Acordarse de que aqui he puesto que al registrarse siempre es usuario base, Preguntar otra vez a Profeta :3
-                    int idUsu = usuCEN.New_(model.nombre, model.Email, model.apellidos, model.alias, model.Password, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum.usuario_base, model.imagen_perfil);
+                    int idUsu = usuCEN.New_(model.nombre, model.Email, model.apellidos, model.alias, model.Password, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum.usuario_base, fileName);
                     Session["Usuario"] = usuCEN.ReadOID(idUsu);
+                    UsuarioEN usuarioEN = usuCEN.ReadOID(idUsu);
+
+                    if (model.telefono != null)           //Si no es un campo vacio se le añade ese nuevo telefono
+                    {
+                        usuarioEN.Telefono = model.telefono;
+                    }
+
+                    else
+                    {
+                        usuarioEN.Telefono = "Sin registrar";
+                    }
+
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

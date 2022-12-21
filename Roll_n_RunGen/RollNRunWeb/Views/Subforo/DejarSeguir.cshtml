@@ -1,0 +1,17 @@
+﻿@model IEnumerable<RollNRunWeb.Models.SubforoViewModel>
+
+@{
+    ViewBag.Title = "DejarSeguir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <button>Dejar de seguir</button>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

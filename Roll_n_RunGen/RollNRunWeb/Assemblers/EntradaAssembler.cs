@@ -18,7 +18,6 @@ namespace RollNRunWeb.Assemblers
             dir.idUsuario = en.Usuario.Id;
             dir.Usuario = en.Usuario.Nickname;
             dir.Texto = en.Texto;
-            //dir.ProductoEntrada = en.Producto.Imagen;
 
             return dir;
         }

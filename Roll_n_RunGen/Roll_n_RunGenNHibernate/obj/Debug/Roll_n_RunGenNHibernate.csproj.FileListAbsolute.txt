@@ -126,3 +126,4 @@ C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\bin\Debug\log4net.dll
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.CopyComplete
 C:\Users\Portatil\Desktop\Cosas de DSM\RollNRun_git\RollNRun\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.AssemblyReference.cache
+F:\OOH4RIA\DSM2021\Roll_n_RunGen\Roll_n_RunGenNHibernate\obj\Debug\Roll_n_RunGenNHibernate.csproj.AssemblyReference.cache
