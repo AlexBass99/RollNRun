@@ -27,6 +27,19 @@ namespace RollNRunWeb.Controllers
             return View(preguntaFrecuentesViewModel);
         }
 
+        public ActionResult Indice()
+        {
+            SessionInitialize();
+            PreguntaFrecuenteCAD preguntaFrecuenteCAD = new PreguntaFrecuenteCAD(session);
+            PreguntaFrecuenteCEN preguntaFrecuenteCEN = new PreguntaFrecuenteCEN(preguntaFrecuenteCAD);
+
+            IList<PreguntaFrecuenteEN> preguntaFrecuentesEN = preguntaFrecuenteCEN.ReadAll(0, -1);
+            IEnumerable<PreguntaFrecuenteViewModel> preguntaFrecuentesViewModel = new PreguntaFrecuenteAssembler().ConvertListENToModel(preguntaFrecuentesEN).ToList();
+            SessionClose();
+
+            return View(preguntaFrecuentesViewModel);
+        }
+
         // GET: PreguntaFrecuente/Details/5
         public ActionResult Details(int id)
         {

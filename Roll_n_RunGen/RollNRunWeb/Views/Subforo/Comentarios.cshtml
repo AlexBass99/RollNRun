@@ -7,13 +7,20 @@
 
 <h2>Comentarios</h2>
 
- @foreach (var item in Model)
-    {
-    <h3>
-        @Html.DisplayFor(modelItem => item.Usuario)
-    </h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
 
-    <h4>
-        @Html.DisplayFor(modelItem => item.Texto)
-    </h4>
-    }
+        @foreach (var item in Model)
+        {
+            <dt>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.Texto)
+            </dd>
+        }
+
+    </dl>
+</div>

@@ -18,14 +18,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href='@string.Format("https://localhost:44368/")'><img class="img-responsive" src="~/Images/logo_transparente.png" style="height: 65px; width: 65px;" /></a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                <ul class="nav navbar-nav" style="
+                    padding: .5em;
+                ">
                     <li>@Html.ActionLink("Buscar", "Index", "Busqueda")</li>
-                    <li>@Html.ActionLink("Direcciones", "Index", "Direccion")</li>
-                    <li>@Html.ActionLink("Pedidos", "Index", "Pedido")</li>
+                    <li>@Html.ActionLink("Foro", "Indice", "Subforo")</li>
+                    <li>@Html.ActionLink("Dados", "Dados", "Subforo")</li>
+                    <li>@Html.ActionLink("Cesta", "Carrito", "Pedido")</li>
+                    <li>@Html.ActionLink("Deseados", "ListaDeseados", "Producto")</li>
+                    <li>@Html.ActionLink("Perfil", "Index", "Usuario")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Tarjetas", "Index", "Tarjeta")</li>

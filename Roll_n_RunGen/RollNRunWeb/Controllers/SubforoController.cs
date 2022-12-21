@@ -28,8 +28,40 @@ namespace RollNRunWeb.Controllers
             return View(subforoViewModel);
         }
 
+        public ActionResult Indice()
+        {
+            SessionInitialize();
+            SubforoCAD subforoCAD = new SubforoCAD(session);
+            SubforoCEN subforoCEN = new SubforoCEN(subforoCAD);
+
+            IList<SubforoEN> subforosEN = subforoCEN.ReadAll(0, -1);
+            IEnumerable<SubforoViewModel> subforoViewModel = new SubforoAssembler().ConvertListENToModel(subforosEN).ToList();
+            SessionClose();
+
+            return View(subforoViewModel);
+        }
+
+        public ActionResult Dados()
+        {
+
+            return View();
+        }
+
         // GET: Subforo/Details/5
         public ActionResult Details(int id)
+        {
+            SessionInitialize();
+            SubforoCAD subforoCAD = new SubforoCAD(session);
+            SubforoCEN subforoCEN = new SubforoCEN(subforoCAD);
+
+            SubforoEN subforoEN = subforoCEN.ReadOID(id);
+            SubforoViewModel subforoViewModel = new SubforoAssembler().ConvertENToModelUI(subforoEN);
+            SessionClose();
+
+            return View(subforoViewModel);
+        }
+
+        public ActionResult Detalles(int id)
         {
             SessionInitialize();
             SubforoCAD subforoCAD = new SubforoCAD(session);
@@ -63,6 +95,33 @@ namespace RollNRunWeb.Controllers
                 }
 
                 return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Crear()
+        {
+            return View();
+        }
+
+        // POST: Subforo/Create
+        [HttpPost]
+        public ActionResult Crear(SubforoViewModel sforo)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                SubforoCEN subforoCEN = new SubforoCEN();
+                if (Session["Usuario"] != null)
+                {
+                    sforo.Autor = ((UsuarioEN)Session["Usuario"]).Nickname;
+                    subforoCEN.New_(((UsuarioEN)Session["Usuario"]).Id, sforo.Titulo, DateTime.Now, sforo.Descripcion, 0);
+                }
+
+                return RedirectToAction("Indice");
             }
             catch
             {
@@ -208,6 +267,15 @@ namespace RollNRunWeb.Controllers
                 if (Session["Usuario"] != null)
                 {
                     us.Add(((UsuarioEN)Session["Usuario"]).Id);
+                    IList<UsuarioEN> seguidores = subforoCEN.GetUsuariosSubforo(id);
+                    foreach (UsuarioEN usu in seguidores)
+                    {
+                        if (usu.Id == us[0])
+                        {
+                            return PartialView();
+                        }
+                    }
+
                     subforoCEN.SeguirSubforo(id, us);
                 }
 
@@ -233,7 +301,15 @@ namespace RollNRunWeb.Controllers
                 if (Session["Usuario"] != null)
                 {
                     us.Add(((UsuarioEN)Session["Usuario"]).Id);
-                    subforoCEN.DejarSeguirSubforo(id, us);
+                    IList<UsuarioEN> seguidores = subforoCEN.GetUsuariosSubforo(id);
+                    foreach (UsuarioEN usu in seguidores)
+                    {
+                        if (usu.Id == us[0])
+                        {
+                            subforoCEN.DejarSeguirSubforo(id, us);
+                            return PartialView();
+                        }
+                    }
                 }
 
                 return PartialView();

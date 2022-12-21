@@ -2,19 +2,9 @@
 
 @{
     ViewBag.Title = "Seguir";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        <br />
-        <br />
-        <br />
-        <br />
-        <h4>Confirma que quieres añadir este producto a tu Lista de Deseados.</h4>
-        <div class="form-actions no-color">
-            <input type="submit" value="Añadir a Deseados" class="btn btn-default"/>
-        </div>
+        <input type="submit" value="Seguir" class="btn btn-default"/>
     }
-</div>
