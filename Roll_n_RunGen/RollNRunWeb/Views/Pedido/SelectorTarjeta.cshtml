@@ -1,0 +1,18 @@
+﻿@model IEnumerable<RollNRunWeb.Models.TarjetaViewModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+    @foreach(var item in Model){
+        <label>
+            <input type="checkbox" value="@item.numero"/>
+            @Html.DisplayFor(modelItem=>item.numero)
+        </label>
+        <br />
+    }
+    <label>
+    <input type="checkbox" value="Paypal" />
+        Paypal
+    </label>
+

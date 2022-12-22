@@ -30,10 +30,10 @@
 											 					
 			
 		  			
-					
-							   <one-to-one name="Producto" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN" property-ref="LineaPedido" />							
-					 
-						
+						<many-to-one name="Producto" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN" >	
+								<column name="FK_idProducto_idProducto"/> 
+						</many-to-one>
+											 					
 					
 					
 					

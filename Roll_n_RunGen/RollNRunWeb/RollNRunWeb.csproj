@@ -385,6 +385,8 @@
     <Content Include="Views\Pedido\Carrito.cshtml" />
     <Content Include="Views\Pedido\LineasCarrito.cshtml" />
     <Content Include="Views\Pedido\Tramite.cshtml" />
+    <Content Include="Views\LineaPedido\Create.cshtml" />
+    <Content Include="Views\Pedido\SelectorTarjeta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Prueba\" />

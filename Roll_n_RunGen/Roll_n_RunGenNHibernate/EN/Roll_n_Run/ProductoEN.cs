@@ -57,7 +57,7 @@ private int id;
 /**
  *	Atributo lineaPedido
  */
-private Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN lineaPedido;
+private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido;
 
 
 
@@ -148,7 +148,7 @@ public virtual int Id {
 
 
 
-public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN LineaPedido {
+public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> LineaPedido {
         get { return lineaPedido; } set { lineaPedido = value;  }
 }
 
@@ -194,6 +194,7 @@ public virtual double Oferta {
 
 public ProductoEN()
 {
+        lineaPedido = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN>();
         valoracion = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN>();
         usuarios = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN>();
         entrada = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN>();
@@ -201,7 +202,7 @@ public ProductoEN()
 
 
 
-public ProductoEN(int id, string nombre, string marca, int stock, double precio, string imagen, string descripcion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, double val_media, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuarios, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, double oferta
+public ProductoEN(int id, string nombre, string marca, int stock, double precio, string imagen, string descripcion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, double val_media, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuarios, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, double oferta
                   )
 {
         this.init (Id, nombre, marca, stock, precio, imagen, descripcion, lineaPedido, valoracion, val_media, usuarios, tipo, entrada, oferta);
@@ -214,7 +215,7 @@ public ProductoEN(ProductoEN producto)
 }
 
 private void init (int id
-                   , string nombre, string marca, int stock, double precio, string imagen, string descripcion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, double val_media, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuarios, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, double oferta)
+                   , string nombre, string marca, int stock, double precio, string imagen, string descripcion, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.ValoracionEN> valoracion, double val_media, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN> usuarios, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.Tipo_productoEnum tipo, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.EntradaEN> entrada, double oferta)
 {
         this.Id = id;
 

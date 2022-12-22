@@ -14,8 +14,9 @@ namespace RollNRunWeb.Assemblers
             LineaPedidoViewModel lp = new LineaPedidoViewModel();
             lp.id = linpe.Id;
             lp.pedidoId = linpe.Pedido.Id;
-            //lp.productoId = linpe.Producto.Id;
-            lp.Producto = linpe.Producto;
+            lp.productoId = linpe.Producto.Id;
+            lp.productoNombre = linpe.Producto.Nombre;
+            //lp.Producto = linpe.Producto;
             lp.cantidad = linpe.Cantidad;
             lp.precio = linpe.Precio;
 

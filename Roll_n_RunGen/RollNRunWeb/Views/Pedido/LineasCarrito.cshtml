@@ -13,27 +13,31 @@
             @Html.DisplayNameFor(model => model.precio)
         </th>
         <th></th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            <a href ='@string.Format("https://localhost:44368/Producto/Details/{0}", item.Producto.Id)'>
-                Detalles
-            </a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cantidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precio)
-        </td>
-        <td>
-            <a href='@string.Format("https://localhost:44368/LineaPedido/Delete/{0}", item.Producto.Id)'>
-                Borrar
-            </a>
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Producto.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cantidad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precio)
+    </td>
+    <td>
+        <a href='@string.Format("https://localhost:44368/Producto/Details/{0}", item.Producto.Id)'>
+            Detalles del Producto
+        </a>
+    </td>
+    <td>
+        <a href='@string.Format("https://localhost:44368/LineaPedido/Delete/{0}", item.Producto.Id)'>
+            Borrar Pedido
+        </a>
+    </td>
+</tr>
 }
 
 </table>
