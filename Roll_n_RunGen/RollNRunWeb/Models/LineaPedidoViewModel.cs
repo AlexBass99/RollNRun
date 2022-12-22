@@ -20,6 +20,10 @@ namespace RollNRunWeb.Models
         [Required(ErrorMessage = "Debes indicar un producto")]
         public int productoId { get; set; }
 
+        [Display(Prompt = "Nombre del producto: ", Description = "Nombre del Producto: ", Name = "Nombre Producto")]
+        [Required(ErrorMessage = "Debes indicar un nombre")]
+        public string productoNombre { get; set; }
+
         [Display(Prompt = "Cantidad: ", Description = "Cantidad: ", Name = "Cantidad")]
         [Required(ErrorMessage = "Debes indicar una cantidad")]
         [Range(minimum: 0, maximum: 10000, ErrorMessage = "La cantidad ha de ser mayor que 0 y menor que 10000")]
@@ -30,10 +34,12 @@ namespace RollNRunWeb.Models
         [Range(minimum: 0, maximum: 10000, ErrorMessage = "El precio ha de ser mayor que 0 y menor que 10000")]
         public double precio { get; set; }
 
+        /*
         [ScaffoldColumn(false)]
         [Display(Prompt = "Producto", Description = "Producto:", Name = "Producto")]
         [Required(ErrorMessage = "Debes indicar un producto")]
         public Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN Producto { get; set; }
 
+        */
     }
 }

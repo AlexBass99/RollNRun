@@ -134,7 +134,7 @@ public int New_ (LineaPedidoEN lineaPedido)
                         lineaPedido.Producto = (Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN)session.Load (typeof(Roll_n_RunGenNHibernate.EN.Roll_n_Run.ProductoEN), lineaPedido.Producto.Id);
 
                         lineaPedido.Producto.LineaPedido
-                                = lineaPedido;
+                        .Add (lineaPedido);
                 }
 
                 session.Save (lineaPedido);

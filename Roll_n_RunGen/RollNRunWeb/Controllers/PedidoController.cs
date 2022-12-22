@@ -253,6 +253,21 @@ namespace RollNRunWeb.Controllers
             }
         }
 
+        public ActionResult SelectorTarjeta(int id)
+        {
+
+            SessionInitialize();
+            TarjetaCAD tarCAD = new TarjetaCAD(session);
+            TarjetaCEN tarCEN = new TarjetaCEN(tarCAD);
+
+            IList<TarjetaEN> tarEN = tarCEN.GetTarjetasUsuario(((UsuarioEN)Session["Usuario"]).Id);
+            IList<TarjetaViewModel> tarViewModel = new TarjetaAssembler().ConvertListENToModel(tarEN);
+            SessionClose();
+
+
+            return PartialView(tarViewModel);
+        }
+
 
     }
 }

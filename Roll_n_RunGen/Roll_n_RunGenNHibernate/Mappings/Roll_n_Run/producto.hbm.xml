@@ -49,12 +49,15 @@
 			
 			
 		  			
+						<bag name="LineaPedido" >
+							<key>
+							
+								
+								<column name="FK_idProducto_idProducto"/>
+					      	</key>
+							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN"/>
+					    </bag>
 					
-							<many-to-one name="LineaPedido" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN" >
-								<column name="FK_idLineaPedido_idLineaPedido"/> 
-        					</many-to-one>
-					 
-						
 			
 		  			
 						<bag name="Valoracion" >

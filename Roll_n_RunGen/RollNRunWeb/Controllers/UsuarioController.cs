@@ -222,13 +222,13 @@ namespace RollNRunWeb.Controllers
                     direccionCEN.Destroy(direccion.Id);
                 }
 
-                /*PedidoCEN pedidoCEN = new PedidoCEN();
+                PedidoCEN pedidoCEN = new PedidoCEN();
                 IList<PedidoEN> pedidos = pedidoCEN.GetPedidosUsuario(id);
                 foreach (PedidoEN pedido in pedidos)
                 {
                     pedidoCEN.Destroy(pedido.Id);
                 }
-                */
+                
                 ValoracionCEN valoracionCEN = new ValoracionCEN();
                 ValoracionCP valoracionCP = new ValoracionCP();
                 IList<ValoracionEN> valoraciones = valoracionCEN.GetValoracionesUsuario(id);

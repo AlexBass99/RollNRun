@@ -1,0 +1,12 @@
+﻿@model RollNRunWeb.Models.ProductoViewModel
+
+@{
+    ViewBag.Title = "GuardarDeseado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Añadir a Deseados" class="btn btn-default"/>
+}
