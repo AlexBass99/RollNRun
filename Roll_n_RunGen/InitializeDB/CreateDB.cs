@@ -80,7 +80,7 @@ public static void InitializeData ()
         try
         {
                 int i = 0;
-
+                /*
                 //USUARIOS
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
                 int id_usu = usuarioCEN.New_ (p_nombre: "Yo", p_email: "yo@gmail.com", p_apellidos: "Yomismo", p_nickname: "Mimismo1", p_pass: "Aguacate88#", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
@@ -113,15 +113,45 @@ public static void InitializeData ()
                 direccionCEN.New_ ("Alicante", "Elda", "03603", "Va alegrate", id_usu4);
                 direccionCEN.New_ ("Alicante", "Petrer", "03608", "Es verdad tienes razon", id_usu5);
 
+                */
+
                 //PRODUCTOS
                 ProductoCEN productoCEN = new ProductoCEN ();
-                int id_producto = productoCEN.New_ ("Dados d6", "Marca Blanca", 270, 2.99, "Imagen", "Chulisimos dados de seis caras", 0, Tipo_productoEnum.dado, 0);
-                int id_producto2 = productoCEN.New_ ("Figura", "Marca 1", 300, 20.99, "Imagen", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
-                int id_producto3 = productoCEN.New_ ("Juego de Cartas", "Marca 2", 305, 25.99, "Imagen", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
-                int id_producto4 = productoCEN.New_ ("Juego de Mesa", "Marca 3", 400, 42.99, "Imagen", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
-                int id_producto5 = productoCEN.New_ ("Manual D&D", "Marca 4", 403, 32.99, "Imagen", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
-                int id_producto6 = productoCEN.New_ ("Colmillos Vampiro", "Marca 5", 600, 1.99, "Imagen", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
+                int id_producto = productoCEN.New_("Juego de Dados D&D", "Hasbro", 270, 10.59, "/Images/Uploads/dice.png", "El mejor set de dados que puedes encontrarte para fardar ante tus compañeros de rol y sacar las mejores tiradas", 0, Tipo_productoEnum.dado, 0);
+                int id_producto2 = productoCEN.New_ ("Minis D&D", "3DMaxim", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
+                int id_producto3 = productoCEN.New_ ("Juego de Cartas Bang", "Bang", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
+                int id_producto4 = productoCEN.New_ ("Resident Evil 2 the Board Game", "Capcom", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos y pasar el peor miedo", 0, Tipo_productoEnum.juego_mesa, 0);
+                int id_producto5 = productoCEN.New_ ("Manual D&D 5E", "Hasbro", 403, 32.99, "/Images/Uploads/book.png", "Manual del Dungeon Master D&D 5E, perfecto para empezar en el mundo del rol.", 0, Tipo_productoEnum.libro, 0);
+                int id_producto6 = productoCEN.New_ ("Colmillos Vampiro", "Marca Blanca", 600, 3.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro para Halloween o jugar a Vampiro: La Mascarada", 0, Tipo_productoEnum.otros, 0);
+                int id_producto7 = productoCEN.New_("Dados d6", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
+                int id_producto8 = productoCEN.New_("Figura 1", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
+                int id_producto9 = productoCEN.New_("Juego de Cartas 1", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
+                productoCEN.New_("Juego de Mesa 1", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
+                productoCEN.New_("Manual D&D 1", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
+                productoCEN.New_("Colmillos Vampiro 1", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
+                productoCEN.New_("Dados d6 nuevos", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
+                productoCEN.New_("Figura 2", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
+                productoCEN.New_("Juego de Cartas 2", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
+                productoCEN.New_("Juego de Mesa 2", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
+                productoCEN.New_("Manual D&D 3", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
+                productoCEN.New_("Colmillos Vampiro 2", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
+                productoCEN.New_("Dados d6 segunda mano", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
+                productoCEN.New_("Figura 3", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
+                productoCEN.New_("Juego de Cartas 3", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
+                productoCEN.New_("Juego de Mesa 3", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
+                productoCEN.New_("Manual D&D 4", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
+                productoCEN.New_("Colmillos Vampiro 3", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
 
+                productoCEN.CambiarOferta(id_producto, 20);
+                productoCEN.CambiarOferta(id_producto2, 10);
+                productoCEN.CambiarOferta(id_producto3, 40);
+                productoCEN.CambiarOferta(id_producto4, 50);
+                productoCEN.CambiarOferta(id_producto5, 10);
+                productoCEN.CambiarOferta(id_producto6, 5);
+                productoCEN.CambiarOferta(id_producto7, 30);
+                productoCEN.CambiarOferta(id_producto8, 90);
+                productoCEN.CambiarOferta(id_producto9, 75);
+                /*
                 //PEDIDOS
                 PedidoCEN pedidoCEN = new PedidoCEN ();
                 int id_pedido = pedidoCEN.New_ (new DateTime (2023, 1, 1), "Sigo igual", id_usu);
@@ -130,6 +160,8 @@ public static void InitializeData ()
                 int id_pedido4 = pedidoCEN.New_ (new DateTime (2023, 1, 4), "IES Carrus", id_usu);
                 int id_pedido5 = pedidoCEN.New_ (new DateTime (2023, 1, 5), "No se donde estoy", id_usu);
                 int id_pedido6 = pedidoCEN.New_ (new DateTime (2023, 1, 6), "Sigo andando", id_usu);
+
+                
 
                 //LINEAS DE PEDIDO
                 LineaPedidoCP lineaPedidoCP = new LineaPedidoCP ();
@@ -180,19 +212,20 @@ public static void InitializeData ()
                 DevolucionCEN devolucionCEN = new DevolucionCEN ();
                 devolucionCEN.New_ ("Estos no son los dados que pedi", Motivo_DevolucionEnum.producto_incorrecto, id_pedido, id_usu);
                 devolucionCEN.New_ ("No me gusta, cambialo", Motivo_DevolucionEnum.otros, id_pedido2, id_usu);
-
+                */
                 //PREGUNTAS FRECUENTES
                 PreguntaFrecuenteCEN preguntaFrecuenteCEN = new PreguntaFrecuenteCEN ();
-                preguntaFrecuenteCEN.New_ ("Como creo un subforo?", "Pues creandolo");
-                preguntaFrecuenteCEN.New_ ("Por qué existo?", "No se");
-                preguntaFrecuenteCEN.New_ ("Po qué sigo en la carrera?", "Porque no sabes hacer nada con tu vida");
-
+                preguntaFrecuenteCEN.New_ ("¿Cómo creo un subforo?", "Puedes acceder al Foro desde la barra superior de la página y en esa página encontrarás la opción de crearlo.");
+                preguntaFrecuenteCEN.New_ ("¿Por qué mi pedido aún no ha llegado?", "Si su pedido fue procesado tiene derecho a solicitar una Devolución si eso es lo que desea.");
+                preguntaFrecuenteCEN.New_ ("¿Por qué un producto ha cambiado de precio?", "Porque contamos con un grupo de Marketing que se dedica a ofrecer las mejores Ofertas.");
+                preguntaFrecuenteCEN.New_("¿Necesito estar registrado para algo?", "Si lo que te propones es comprar o interactuar en nuestros subforos deberás registrarte.");
+                /*
                 //DESEOS USUARIO
                 productoCEN.MarcarDeseado (id_producto, new List<int> { id_usu });
 
                 //ESTADOS EN PROCESO
                 pedidoCEN.CambiarEstado (id_pedido, EstadoEnum.enProceso);
-
+                */
 
                 /*
                  * PedidoEN pedidoEN = null;
