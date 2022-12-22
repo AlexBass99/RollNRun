@@ -4,7 +4,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Producto.Nombre)
+            @Html.DisplayNameFor(model => model.productoNombre)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.cantidad)
@@ -19,7 +19,7 @@
 @foreach (var item in Model) {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.Producto.Nombre)
+        @Html.DisplayFor(modelItem => item.productoNombre)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.cantidad)
@@ -28,12 +28,12 @@
         @Html.DisplayFor(modelItem => item.precio)
     </td>
     <td>
-        <a href='@string.Format("https://localhost:44368/Producto/Details/{0}", item.Producto.Id)'>
+        <a href='@string.Format("https://localhost:44368/Producto/Details/{0}", item.productoId)'>
             Detalles del Producto
         </a>
     </td>
     <td>
-        <a href='@string.Format("https://localhost:44368/LineaPedido/Delete/{0}", item.Producto.Id)'>
+        <a href='@string.Format("https://localhost:44368/LineaPedido/Delete/{0}", item.productoId)'>
             Borrar Pedido
         </a>
     </td>

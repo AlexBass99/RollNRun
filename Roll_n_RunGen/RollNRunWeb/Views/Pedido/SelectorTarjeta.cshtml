@@ -1,18 +1,10 @@
-﻿@model IEnumerable<RollNRunWeb.Models.TarjetaViewModel>
+﻿@model RollNRunWeb.Models.TarjetaViewModel
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
-    @foreach(var item in Model){
-        <label>
-            <input type="checkbox" value="@item.numero"/>
-            @Html.DisplayFor(modelItem=>item.numero)
-        </label>
-        <br />
-    }
-    <label>
-    <input type="checkbox" value="Paypal" />
-        Paypal
-    </label>
+<div class="form-group">
+    @Html.LabelFor(model => model.id, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.id, ViewData["tarjetaId"] as SelectList, "Selecciona un articulo")
+    </div>
+</div>
 

@@ -7,9 +7,6 @@
 
 <h2>Carrito</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
 
     @{Html.RenderAction("LineasCarrito", "Pedido", new { id = Model.id }); }

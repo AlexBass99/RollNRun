@@ -212,6 +212,10 @@ namespace RollNRunWeb.Controllers
                         usuarioEN.Telefono = "Sin registrar";
                     }
 
+                    PedidoCEN pedCEN = new PedidoCEN();
+                    pedCEN.New_(DateTime.Now, idUsu);
+
+
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
