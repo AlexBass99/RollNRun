@@ -136,5 +136,19 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
+
+        public ActionResult Entradas()
+        {
+            SessionInitialize();
+            EntradaCAD entradaCAD = new EntradaCAD(session);
+            EntradaCEN entradaCEN = new EntradaCEN(entradaCAD);
+
+            IList<EntradaEN> entradasEN = entradaCEN.GetEntradasUsuario((int)Session["Usu_id"]);
+            IEnumerable<EntradaViewModel> entradasViewModel = new EntradaAssembler().ConvertListENToModel(entradasEN).ToList();
+            SessionClose();
+
+            return View(entradasViewModel);
+        }
+
     }
 }

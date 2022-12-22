@@ -89,6 +89,7 @@ namespace RollNRunWeb.Controllers
                     if (listaUsuarios.Count > 0)
                     {
                         Session["Usuario"] = listaUsuarios[0];
+                        Session["Usu_id"] = listaUsuarios[0].Id;
                     }
                     if (token != null)
                     {
@@ -198,6 +199,7 @@ namespace RollNRunWeb.Controllers
                     // Acordarse de que aqui he puesto que al registrarse siempre es usuario base, Preguntar otra vez a Profeta :3
                     int idUsu = usuCEN.New_(model.nombre, model.Email, model.apellidos, model.alias, model.Password, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.RolEnum.usuario_base, fileName);
                     Session["Usuario"] = usuCEN.ReadOID(idUsu);
+                    Session["Usu_id"] = idUsu;
                     UsuarioEN usuarioEN = usuCEN.ReadOID(idUsu);
 
                     if (model.telefono != null)           //Si no es un campo vacio se le añade ese nuevo telefono

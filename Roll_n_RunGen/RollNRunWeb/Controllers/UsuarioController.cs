@@ -45,6 +45,22 @@ namespace RollNRunWeb.Controllers
             return View(usuarioViewModel);
         }
 
+        // GET: Usuario/Details/5
+        public ActionResult Perfil()
+        {
+            SessionInitialize();
+
+            UsuarioCAD usuarioCAD = new UsuarioCAD(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioCAD);
+
+            UsuarioEN usuarioEN = usuarioCEN.ReadOID( (int) Session["Usu_id"]);
+            UsuarioViewModel usuarioViewModel = new UsuarioAssembler().ConvertENToModelUI(usuarioEN);
+
+            SessionClose();
+
+            return View(usuarioViewModel);
+        }
+
         // GET: Usuario/Create
         public ActionResult Create()
         {

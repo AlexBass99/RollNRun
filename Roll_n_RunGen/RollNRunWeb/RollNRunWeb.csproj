@@ -385,6 +385,13 @@
     <Content Include="Views\Pedido\Carrito.cshtml" />
     <Content Include="Views\Pedido\LineasCarrito.cshtml" />
     <Content Include="Views\Pedido\Tramite.cshtml" />
+    <Content Include="Views\Subforo\Crear.cshtml" />
+    <Content Include="Views\Subforo\Dados.cshtml" />
+    <Content Include="Views\Subforo\Detalles.cshtml" />
+    <Content Include="Views\Subforo\Indice.cshtml" />
+    <Content Include="Views\Subforo\Seguidos.cshtml" />
+    <Content Include="Views\Entrada\Entradas.cshtml" />
+    <Content Include="Views\Usuario\Perfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Prueba\" />
