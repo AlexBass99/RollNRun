@@ -4,7 +4,7 @@
 
 
 <div id="my_carousel" class="carousel slide img-thumbnail push-down-1" data-ride="carousel" data-interval="3000" style="width: 300px;">
-    <div id="my_carousel" class="carousel slide img-thumbnail push-down-1" data-ride="carousel" data-interval="3000">
+    <div id="my_carousel" class="carousel slide img-thumbnail push-down-1" data-ride="carousel" data-interval="3000" style="display: grid; grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); grid-gap: .5em;">
         <ol class="carousel-indicators">
             @{ int index = 0;}
             @foreach (var item in Model)
@@ -30,12 +30,10 @@
                     sale = (double)(Math.Round((double)sale, 2));
 
                     <div class="item active" style="text-align:center">
-                        <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="150" />
-                        <h3>@item.nombre</h3>
+                        <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="200" />
+                        <h4>@Html.ActionLink(item.nombre, "Details", new { id = item.id })</h4>
                         <p><del>@item.precio €</del></p>
                         <h4>@sale.ToString().Replace(",", ".") €</h4>
-
-                        @Html.ActionLink("Ver producto", "Details", "Producto", routeValues: new { id = item.id }, htmlAttributes: null)
                     </div>
                 }
                 else
@@ -44,13 +42,11 @@
                     double sale = Double.Parse(item.precio.Replace(".", ",")) - (Double.Parse(item.precio.Replace(".", ",")) * (item.oferta / 100));
                     sale = (double)(Math.Round((double)sale, 2));
                     <div class="item" style="text-align:center">
-                        <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="150" />
+                        <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="200" />
 
-                        <h3>@item.nombre</h3>
+                        <h4>@Html.ActionLink(item.nombre, "Details", new { id = item.id })</h4>
                         <p><del>@item.precio €</del></p>
                         <h4>@sale.ToString().Replace(",", ".") €</h4>
-                        @Html.ActionLink("Ver producto", "Details", "Producto", routeValues: new { id = item.id }, htmlAttributes: null)
-
                     </div>
 
                 }
