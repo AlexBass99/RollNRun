@@ -190,7 +190,7 @@ public static void InitializeData ()
                 valoracionCP.New_ (3, "Pues esta bastante bien", id_producto2, id_usu);
                 valoracionCP.New_ (1, "Pues esta bastante bien", id_producto2, id_usu2);
                 valoracionCP.New_ (5, "Pues esta bastante bien", id_producto2, id_usu3);
-                valoracionCP.New_ (4, "Pues esta bastante bien", id_producto2, id_usu4);
+                valoracionCP.New_ (4, "Pues esta bastante bien", id_producto2, id_usu4); 
 
                 //SUBFOROS
                 SubforoCEN subforoCEN = new SubforoCEN ();
