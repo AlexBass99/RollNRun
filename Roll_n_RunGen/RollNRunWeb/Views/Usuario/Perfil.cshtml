@@ -25,13 +25,6 @@
 
     <tr>
         <td>
-            <button type="button" style="margin-left: 15px">@Html.ActionLink("Ver mis tarjetas", "Index", "Tarjeta")</button>
-        </td>
-    </tr>
-
-
-    <tr>
-        <td>
             <button type="button" style="margin-left: 15px">@Html.ActionLink("Ver mis entradas", "Entradas", "Entrada")</button>
         </td>
     </tr>
@@ -116,8 +109,7 @@
                 </dl>
             </div>
             <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-                @Html.ActionLink("Back to List", "Index")
+                @Html.ActionLink("Editar", "Edit", new { id = Model.id })
             </p>
         </td>
     </tr>

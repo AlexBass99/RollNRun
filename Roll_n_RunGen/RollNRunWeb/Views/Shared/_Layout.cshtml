@@ -29,13 +29,10 @@
                     <li>@Html.ActionLink("Dados", "Dados", "Subforo")</li>
                     <li>@Html.ActionLink("Cesta", "Carrito", "Pedido")</li>
                     <li>@Html.ActionLink("Deseados", "ListaDeseados", "Producto")</li>
-                    <li>@Html.ActionLink("Perfil", "Index", "Usuario")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Tarjetas", "Index", "Tarjeta")</li>
                     }
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -45,7 +42,11 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <a href='@string.Format("https://localhost:44368/PreguntaFrecuente/Indice")'>
+                Preguntas frecuentes <br />
+                &copy; Roll&Run 2022-2023
+            </a>
+
         </footer>
     </div>
 
