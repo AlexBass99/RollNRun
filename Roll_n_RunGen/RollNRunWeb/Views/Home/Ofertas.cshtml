@@ -31,7 +31,7 @@
 
                     <div class="item active" style="text-align:center">
                         <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="200" />
-                        <h4>@Html.ActionLink(item.nombre, "Details", new { id = item.id })</h4>
+                        <h4>@Html.ActionLink(item.nombre, "Details", "Producto", routeValues: new { id = item.id }, htmlAttributes: null)</h4>
                         <p><del>@item.precio €</del></p>
                         <h4>@sale.ToString().Replace(",", ".") €</h4>
                     </div>
@@ -44,7 +44,7 @@
                     <div class="item" style="text-align:center">
                         <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="200" />
 
-                        <h4>@Html.ActionLink(item.nombre, "Details", new { id = item.id })</h4>
+                        <h4>@Html.ActionLink(item.nombre, "Details", "Producto", new { id = item.id })</h4>
                         <p><del>@item.precio €</del></p>
                         <h4>@sale.ToString().Replace(",", ".") €</h4>
                     </div>

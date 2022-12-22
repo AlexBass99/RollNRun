@@ -47,7 +47,7 @@
 
             <img src="@Html.DisplayFor(modelItem => item.imagen)" alt="Sample Image" width="200" />
 
-            <h4>@Html.ActionLink(item.nombre, "Details", new { id = item.id })</h4>
+            <h4>@Html.ActionLink(item.nombre, "Details", "Producto", routeValues: new { id = item.id }, htmlAttributes: null)</h4>
 
             @{if (item.oferta > 0)
                 {
