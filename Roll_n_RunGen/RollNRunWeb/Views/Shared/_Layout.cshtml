@@ -27,11 +27,10 @@
                     <li>@Html.ActionLink("Buscar", "Index", "Busqueda")</li>
                     <li>@Html.ActionLink("Foro", "Indice", "Subforo")</li>
                     <li>@Html.ActionLink("Dados", "Dados", "Subforo")</li>
-                    <li>@Html.ActionLink("Cesta", "Carrito", "Pedido")</li>
-                    <li>@Html.ActionLink("Deseados", "ListaDeseados", "Producto")</li>
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Tarjetas", "Index", "Tarjeta")</li>
+                        <li>@Html.ActionLink("Cesta", "Carrito", "Pedido")</li>
+                        <li>@Html.ActionLink("Deseados", "ListaDeseados", "Producto")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

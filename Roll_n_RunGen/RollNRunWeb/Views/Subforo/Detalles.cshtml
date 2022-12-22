@@ -26,15 +26,18 @@
             @Html.DisplayFor(model => model.Fecha)
         </dd>
 
-        <dt>
-            @{Html.RenderAction("Seguir", "Subforo", new { id = Model.id }); }
-        </dt>
-        <dd></dd>
+        @if (Request.IsAuthenticated)
+        {
+            <dt>
+                @{Html.RenderAction("Seguir", "Subforo", new { id = Model.id }); }
+            </dt>
+            <dd></dd>
 
-        <dt>
-            @Html.ActionLink("Dejar de Seguir", "DejarSeguir", new { id = Model.id })
-        </dt>
-        <dd></dd>
+            <dt>
+                @Html.ActionLink("Dejar de Seguir", "DejarSeguir", new { id = Model.id })
+            </dt>
+            <dd></dd>
+        }
 
         <dt>
             Seguidores:
@@ -52,15 +55,18 @@
             @Html.DisplayFor(model => model.Descripcion)
         </dd>
 
-        <dd>
-            @{ Html.RenderAction("Comentar", "Subforo", new { id = Model.id });}
-        </dd>
+        @if (Request.IsAuthenticated)
+        {
+            <dd>
+                @{ Html.RenderAction("Comentar", "Subforo", new { id = Model.id });}
+            </dd>
+        }
 
-        <dd>
-            @{ Html.RenderAction("Comentarios", "Subforo", new { id = Model.id });}
-        </dd>
+            <dd>
+                @{ Html.RenderAction("Comentarios", "Subforo", new { id = Model.id });}
+            </dd>
 
-    </dl>
+        </dl>
 </div>
 <div>
     @Html.ActionLink("Volver al foro", "Indice")

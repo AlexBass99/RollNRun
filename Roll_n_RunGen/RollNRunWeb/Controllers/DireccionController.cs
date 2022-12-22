@@ -11,6 +11,7 @@ using RollNRunWeb.Assemblers;
 
 namespace RollNRunWeb.Controllers
 {
+    [Authorize]
     public class DireccionController : BasicController
     {
         // GET: Direccion

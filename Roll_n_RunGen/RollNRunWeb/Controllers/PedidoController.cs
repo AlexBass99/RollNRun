@@ -64,7 +64,7 @@ namespace RollNRunWeb.Controllers
                 if (Session["Usuario"] != null)
                 {
                     ped.usuario = ((UsuarioEN)Session["Usuario"]).Id;
-                    pedCEN.New_(DateTime.Now, ped.Dirección, ((UsuarioEN)Session["Usuario"]).Id);
+                    pedCEN.New_(DateTime.Now, ((UsuarioEN)Session["Usuario"]).Id);
                 }
                 // pedCEN.New_(ped.Fecha, ped.Dirección, ped.usuario);
                 return RedirectToAction("Index");
@@ -264,9 +264,61 @@ namespace RollNRunWeb.Controllers
             IList<TarjetaViewModel> tarViewModel = new TarjetaAssembler().ConvertListENToModel(tarEN);
             SessionClose();
 
+            IList<DireccionEN> dirs = new DireccionCEN().GetDireccionesUsuario(((UsuarioEN)Session["Usuario"]).Id);
+            IList<SelectListItem> dirIt = new List<SelectListItem>();
 
-            return PartialView(tarViewModel);
+            foreach (DireccionEN dir in dirs)
+            {
+                dirIt.Add(new SelectListItem { Text = dir.Calle, Value = dir.Id.ToString() });
+            }
+            ViewData["direccionId"] = dirIt;
+
+            IList<TarjetaEN> tarjs = new TarjetaCEN().GetTarjetasUsuario(((UsuarioEN)Session["Usuario"]).Id);
+            IList<SelectListItem> tarjIt = new List<SelectListItem>();
+
+            foreach (TarjetaEN tar in tarjs)
+            {
+                tarjIt.Add(new SelectListItem { Text = tar.Numero, Value = tar.Id.ToString() });
+            }
+            tarjIt.Add(new SelectListItem {Text = "Paypal", Value = 2.ToString()});
+            ViewData["tarjetaId"] = tarjIt;
+
+            return PartialView();
         }
+
+        public ActionResult Paga()
+        {
+            /*
+            try
+            {
+                SessionInitialize();
+                
+                PedidoCAD pedCad = new PedidoCAD(session);
+                PedidoCEN pedCEN = new PedidoCEN(pedCad);
+
+                IList<PedidoEN> listEN = pedCEN.ReadAll(0, -1);
+                PedidoViewModel pedVM = new PedidoViewModel();
+
+                foreach (PedidoEN pedEN in listEN)
+                {
+                    if (pedEN.Estado == Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum.enCarrito)
+                    {
+                        pedVM = new PedidoAssembler().ConvertENToModelUI(pedEN);
+
+                    }
+                }
+                SessionClose();
+
+                return View(pedVM);
+            }
+            catch
+            {
+                return View();
+            }
+                */
+            return View();
+        }
+
 
 
     }

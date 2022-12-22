@@ -45,31 +45,42 @@
                                 </h3>
                             }
 
-                            <input type="number" style="height:25px; width:40px" name="cantidad" id="cantidad">
-                            <button type="button" style="margin-left: 15px">@Html.ActionLink("Añadir a la Cesta", "MeterCarrito", "Pedido")</button>
-                            
-                            
+
+
+                            @if (Request.IsAuthenticated)
+                            {
+                                <input type="number" style="height:25px; width:40px" name="cantidad" id="cantidad">
+                                <button type="button" style="margin-left: 15px">@Html.ActionLink("Añadir a la Cesta", "MeterCarrito", "Pedido")</button>
+                            }
+
+
                         </td>
                     </tr>
                 </table>
 
-                <table>
-                    <tr>
-                        <td>
-                            @{Html.RenderAction("GuardarDeseado", "Producto", new { id = Model.id }); }
-                        </td>
-                    </tr>
-                </table>
-                    
-                <table>
-                    <tr>
-                        <td>
-                            @{ Html.RenderAction("Valorar", "Producto", new { id = Model.id });}
-                            @{ Html.RenderAction("ValoracionesProducto", "Producto", new { id = Model.id });}
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                @if (Request.IsAuthenticated)
+                {
+                    <table>
+                        <tr>
+                            <td>
+                                @{Html.RenderAction("GuardarDeseado", "Producto", new { id = Model.id }); }
+                            </td>
+                        </tr>
+                    </table>
+                }
+                    <table>
+                        <tr>
+                            <td>
+
+                                @if (Request.IsAuthenticated)
+                                {
+                                     Html.RenderAction("Valorar", "Producto", new { id = Model.id });
+                                }
+                                @{ Html.RenderAction("ValoracionesProducto", "Producto", new { id = Model.id });}
+                                </td>
+                        </tr>
+                    </table>
+                </div>
         </div>
     </div>
 </div>

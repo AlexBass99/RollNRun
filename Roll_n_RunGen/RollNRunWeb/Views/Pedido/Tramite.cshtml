@@ -8,10 +8,19 @@
 <h2>Tramite</h2>
 
 
+@Html.BeginForm(){
 
 @{Html.RenderAction("SelectorTarjeta", "Pedido", new { id = Model.id }); }
 
+<br />
 @Html.ActionLink("Añadir Tarjeta", "Create", "Tarjeta")
 
+<br />
 @{Html.RenderAction("LineasCarrito", "Pedido", new { id = Model.id }); }
 
+<br />
+<a href='@string.Format("https://localhost:44368/Pedido/Paga/{0}", Model.id)'>
+    <b>PEDIR Y PAGAR</b>
+</a>
+
+}
