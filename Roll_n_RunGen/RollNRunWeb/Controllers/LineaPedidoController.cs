@@ -10,6 +10,7 @@ using RollNRunWeb.Models;
 
 namespace RollNRunWeb.Controllers
 {
+    [Authorize]
     public class LineaPedidoController : BasicController
     {
         // GET: LineaPedido

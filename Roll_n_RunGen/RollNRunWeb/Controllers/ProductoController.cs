@@ -29,7 +29,7 @@ namespace RollNRunWeb.Controllers
             return View(productosViewModel);
         }
 
-        
+        [Authorize]
         public ActionResult ListaDeseados()
         {
             try
@@ -65,7 +65,7 @@ namespace RollNRunWeb.Controllers
 
             return PartialView(valoracionesViewModel);
         }
-
+        [Authorize]
         public ActionResult Valorar()
         {
             return PartialView();
@@ -111,7 +111,7 @@ namespace RollNRunWeb.Controllers
 
             return View(productoViewModel);
         }
-
+        [Authorize]
         // GET: Producto/Create
         public ActionResult Create()
         {
@@ -152,7 +152,7 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Producto/Edit/5
         public ActionResult Edit(int id)
         {
@@ -203,7 +203,7 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Producto/Delete/5
         public ActionResult Delete(int id)
         {
@@ -244,7 +244,7 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
-
+        [Authorize]
 
         public ActionResult GuardarDeseado()
         {
@@ -280,7 +280,7 @@ namespace RollNRunWeb.Controllers
             }
         }
 
-        
+        [Authorize]
         public ActionResult QuitarDeseado()
         {
             return PartialView();

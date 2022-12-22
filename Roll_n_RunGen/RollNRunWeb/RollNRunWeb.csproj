@@ -410,6 +410,8 @@
     <Content Include="Views\PreguntaFrecuente\Indice.cshtml" />
     <Content Include="Views\Pedido\SelectorTarjeta.cshtml" />
     <Content Include="Views\LineaPedido\Create.cshtml" />
+    <Content Include="Views\Home\Ofertas.cshtml" />
+    <Content Include="Views\Pedido\Paga.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\ProfilePics\" />

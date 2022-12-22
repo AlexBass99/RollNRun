@@ -41,7 +41,7 @@ namespace RollNRunWeb.Controllers
 
             return View(entradaViewModel);
         }
-
+        [Authorize]
         // GET: Entrada/Create
         public ActionResult Create()
         {
@@ -70,7 +70,7 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Entrada/Edit/5
         public ActionResult Edit(int id)
         {
@@ -104,7 +104,7 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Entrada/Delete/5
         public ActionResult Delete(int id)
         {

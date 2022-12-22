@@ -27,7 +27,7 @@ namespace RollNRunWeb.Controllers
 
             return View(devolucionViewModel);
         }
-
+        [Authorize]
         // GET: Devolucion/Details/5
         public ActionResult Details(int id)
         {
@@ -41,7 +41,7 @@ namespace RollNRunWeb.Controllers
 
             return View(devolucionViewModel);
         }
-
+        [Authorize]
         // GET: Devolucion/Create
         public ActionResult Create()
         {
@@ -70,7 +70,7 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Devolucion/Edit/5
         public ActionResult Edit(int id)
         {
@@ -105,7 +105,7 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         // GET: Devolucion/Delete/5
         public ActionResult Delete(int id)
         {

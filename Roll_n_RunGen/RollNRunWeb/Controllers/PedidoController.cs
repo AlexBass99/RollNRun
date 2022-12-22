@@ -13,6 +13,7 @@ using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
 
 namespace RollNRunWeb.Controllers
 {
+    [Authorize]
     public class PedidoController : BasicController
     {
         // GET: Pedido

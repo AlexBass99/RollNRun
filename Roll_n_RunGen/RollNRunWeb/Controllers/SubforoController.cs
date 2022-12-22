@@ -75,6 +75,7 @@ namespace RollNRunWeb.Controllers
         }
 
         // GET: Subforo/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -101,7 +102,7 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         public ActionResult Crear()
         {
             return View();
@@ -226,6 +227,7 @@ namespace RollNRunWeb.Controllers
 
             return PartialView(entradasViewModel);
         }
+        [Authorize]
         public ActionResult Comentar()
         {
             return PartialView();
@@ -252,6 +254,7 @@ namespace RollNRunWeb.Controllers
                 return PartialView();
             }
         }
+        [Authorize]
         public ActionResult Seguir()
         {
             return PartialView();
@@ -286,6 +289,7 @@ namespace RollNRunWeb.Controllers
                 return PartialView();
             }
         }
+        [Authorize]
         public ActionResult DejarSeguir()
         {
             return PartialView();

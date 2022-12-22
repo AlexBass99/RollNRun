@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace RollNRunWeb.Controllers
 {
+    [Authorize]
     public class FacturaController : BasicController
     {
         // GET: Factura
