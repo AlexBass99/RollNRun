@@ -319,5 +319,18 @@ namespace RollNRunWeb.Controllers
                 return PartialView();
             }
         }
+
+        public ActionResult Seguidos()
+        {
+            SessionInitialize();
+            SubforoCAD subforoCAD = new SubforoCAD(session);
+            SubforoCEN subforoCEN = new SubforoCEN(subforoCAD);
+
+            IList<SubforoEN> subforosEN = subforoCEN.GetSeguidosUsuario((int) Session["Usu_id"]);
+            IEnumerable<SubforoViewModel> subforoViewModel = new SubforoAssembler().ConvertListENToModel(subforosEN).ToList();
+            SessionClose();
+
+            return View(subforoViewModel);
+        }
     }
 }

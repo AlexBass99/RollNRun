@@ -21,7 +21,7 @@ namespace RollNRunWeb.Controllers
             DireccionCAD dirCad = new DireccionCAD(session);
             DireccionCEN dirCEN = new DireccionCEN(dirCad);
 
-            IList<DireccionEN> listEN = dirCEN.ReadAll(0, -1);
+            IList<DireccionEN> listEN = dirCEN.GetDireccionesUsuario(((UsuarioEN)Session["Usuario"]).Id);
             IEnumerable<DireccionViewModel> listViewModel = new DireccionAssembler().ConvertListENToModel(listEN).ToList();
 
             SessionClose();

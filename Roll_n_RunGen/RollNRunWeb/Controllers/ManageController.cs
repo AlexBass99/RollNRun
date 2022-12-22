@@ -11,7 +11,7 @@ using RollNRunWeb.Models;
 namespace RollNRunWeb.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : BasicController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

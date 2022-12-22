@@ -272,7 +272,17 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo_transparente.png" />
+    <Content Include="Images\Para usar\default.jpg" />
+    <Content Include="Images\Para usar\huevo.png" />
     <Content Include="Images\Sin_Imagen.png" />
+    <Content Include="Images\Uploads\board_game.png" />
+    <Content Include="Images\Uploads\book.png" />
+    <Content Include="Images\Uploads\card_game.png" />
+    <Content Include="Images\Uploads\dice.png" />
+    <Content Include="Images\Uploads\figure.png" />
+    <Content Include="Images\Uploads\other.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -385,10 +395,24 @@
     <Content Include="Views\Pedido\Carrito.cshtml" />
     <Content Include="Views\Pedido\LineasCarrito.cshtml" />
     <Content Include="Views\Pedido\Tramite.cshtml" />
-    <Content Include="Views\LineaPedido\Create.cshtml" />
+    <Content Include="Views\Subforo\Crear.cshtml" />
+    <Content Include="Views\Subforo\Dados.cshtml" />
+    <Content Include="Views\Subforo\Detalles.cshtml" />
+    <Content Include="Views\Subforo\Indice.cshtml" />
+    <Content Include="Views\Subforo\Seguidos.cshtml" />
+    <Content Include="Views\Entrada\Entradas.cshtml" />
+    <Content Include="Views\Usuario\Perfil.cshtml" />
+    <Content Include="Views\Producto\GuardarDeseado.cshtml" />
+    <Content Include="Views\Producto\ListaDeseados.cshtml" />
+    <Content Include="Views\Producto\QuitarDeseado.cshtml" />
+    <Content Include="Views\Producto\ValoracionesProducto.cshtml" />
+    <Content Include="Views\Producto\Valorar.cshtml" />
+    <Content Include="Views\PreguntaFrecuente\Indice.cshtml" />
     <Content Include="Views\Pedido\SelectorTarjeta.cshtml" />
+    <Content Include="Views\LineaPedido\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\ProfilePics\" />
     <Folder Include="Views\Prueba\" />
   </ItemGroup>
   <ItemGroup>

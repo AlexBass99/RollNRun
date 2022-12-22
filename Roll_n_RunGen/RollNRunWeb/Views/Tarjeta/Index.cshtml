@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Mis Tarjetas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<button type="button" style="margin-left: 15px">@Html.ActionLink("Añadir tarjeta", "Create", "Tarjeta")</button>
 <table class="table">
     <tr>
         <th>
@@ -48,13 +46,20 @@
                         @Html.DisplayFor(modelItem => item.fechaCad)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+
+                        <button type="button" style="margin-left: 15px">
+                            @Html.ActionLink("Editar tarjeta", "Edit", new { id = item.id })
+                        </button> |
+                        <button type="button" style="margin-left: 15px">
+                            @Html.ActionLink("Ver tarjeta", "Details", new { id = item.id })
+                        </button> |
+                        <button type="button" style="margin-left: 15px">
+                            @Html.ActionLink("Borrar tarjeta", "Delete", new { id = item.id })
+                        </button>
                     </td>
                 </tr>
                 </div>
-    }
+            }
         </div>
     </div>
 
