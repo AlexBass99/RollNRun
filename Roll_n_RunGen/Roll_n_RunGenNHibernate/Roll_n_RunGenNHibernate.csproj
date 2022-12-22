@@ -213,6 +213,7 @@
 	<Compile Include="CP\Roll_n_Run\LineaPedidoCP.cs" />
 			<Compile Include="CP\Roll_n_Run\LineaPedidoCP_New_.cs" />
 			
+			<Compile Include="CP\Roll_n_Run\LineaPedidoCP_Modify.cs" />
 			
 			<Compile Include="CP\Roll_n_Run\LineaPedidoCP_Destroy.cs" />
 			

@@ -412,6 +412,9 @@
     <Content Include="Views\LineaPedido\Create.cshtml" />
     <Content Include="Views\Home\Ofertas.cshtml" />
     <Content Include="Views\Pedido\Paga.cshtml" />
+    <Content Include="Views\Producto\MeterCarrito.cshtml" />
+    <Content Include="Views\LineaPedido\Edit.cshtml" />
+    <Content Include="Views\Pedido\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\ProfilePics\" />

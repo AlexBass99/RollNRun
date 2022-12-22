@@ -13,13 +13,6 @@ private Nullable<DateTime> fecha;
 
 
 /**
- *	Atributo direccion
- */
-private string direccion;
-
-
-
-/**
  *	Atributo precio
  */
 private double precio;
@@ -63,12 +56,6 @@ public virtual Nullable<DateTime> Fecha {
 
 
 
-public virtual string Direccion {
-        get { return direccion; } set { direccion = value;  }
-}
-
-
-
 public virtual double Precio {
         get { return precio; } set { precio = value;  }
 }
@@ -107,27 +94,25 @@ public FacturaEN()
 
 
 
-public FacturaEN(int id, Nullable<DateTime> fecha, string direccion, double precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido, Nullable<DateTime> fechaFacturacion
+public FacturaEN(int id, Nullable<DateTime> fecha, double precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido, Nullable<DateTime> fechaFacturacion
                  )
 {
-        this.init (Id, fecha, direccion, precio, metodoPago, pedido, fechaFacturacion);
+        this.init (Id, fecha, precio, metodoPago, pedido, fechaFacturacion);
 }
 
 
 public FacturaEN(FacturaEN factura)
 {
-        this.init (Id, factura.Fecha, factura.Direccion, factura.Precio, factura.MetodoPago, factura.Pedido, factura.FechaFacturacion);
+        this.init (Id, factura.Fecha, factura.Precio, factura.MetodoPago, factura.Pedido, factura.FechaFacturacion);
 }
 
 private void init (int id
-                   , Nullable<DateTime> fecha, string direccion, double precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido, Nullable<DateTime> fechaFacturacion)
+                   , Nullable<DateTime> fecha, double precio, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN pedido, Nullable<DateTime> fechaFacturacion)
 {
         this.Id = id;
 
 
         this.Fecha = fecha;
-
-        this.Direccion = direccion;
 
         this.Precio = precio;
 

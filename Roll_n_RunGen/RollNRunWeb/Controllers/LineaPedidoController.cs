@@ -87,18 +87,31 @@ namespace RollNRunWeb.Controllers
         // GET: LineaPedido/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            SessionInitialize();
+            LineaPedidoCAD linpeCAD = new LineaPedidoCAD(session);
+            LineaPedidoCEN linpeCEN = new LineaPedidoCEN(linpeCAD);
+
+            LineaPedidoEN linpeEN = linpeCEN.ReadOID(id);
+            LineaPedidoViewModel linpeViewModel = new LineaPedidoAssembler().ConvertENToModelUI(linpeEN);
+
+            SessionClose();
+
+            return View(linpeViewModel);
         }
 
         // POST: LineaPedido/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, LineaPedidoViewModel linpe)
         {
             try
             {
-                // TODO: Add update logic here
+                LineaPedidoCP linpeCP = new LineaPedidoCP();
+                LineaPedidoCEN linpeCEN = new LineaPedidoCEN();
+                LineaPedidoEN linpeEN = linpeCEN.ReadOID(id);
+                linpeCP.Modify(id, linpe.cantidad, linpeEN.Precio);
 
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Carrito", "Pedido");
             }
             catch
             {
@@ -130,7 +143,7 @@ namespace RollNRunWeb.Controllers
                 LineaPedidoCP linpeCP = new LineaPedidoCP();
                 linpeCP.Destroy(id);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Carrito", "Pedido");
             }
             catch
             {

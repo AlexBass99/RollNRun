@@ -15,11 +15,18 @@ namespace RollNRunWeb.Assemblers
             PedidoViewModel ped = new PedidoViewModel();
             ped.id = P.Id;
             ped.Fecha = (DateTime)P.Fecha;
-            ped.Dirección = P.Direccion;
             ped.Total = P.Total;
             ped.Cantidad = P.Cantidad;
             ped.MetodoPago = P.MetodoPago;
             ped.Estado = P.Estado;
+            if (P.Tarjeta != null) {
+                ped.tarjeta = P.Tarjeta.Id;
+            }
+            if (P.Direccion != null)
+            {
+                ped.direccion = P.Direccion.Id;
+            }
+
 
             return ped;
         }

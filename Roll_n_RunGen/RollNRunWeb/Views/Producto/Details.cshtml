@@ -49,8 +49,8 @@
 
                             @if (Request.IsAuthenticated)
                             {
-                                <input type="number" style="height:25px; width:40px" name="cantidad" id="cantidad">
-                                <button type="button" style="margin-left: 15px">@Html.ActionLink("Añadir a la Cesta", "MeterCarrito", "Pedido")</button>
+                                
+                                Html.RenderAction("MeterCarrito", "Producto", new { id = Model.id});
                             }
 
 

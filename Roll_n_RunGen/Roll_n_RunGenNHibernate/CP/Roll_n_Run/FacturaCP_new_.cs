@@ -60,7 +60,6 @@ public Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN New_ (Nullable<DateTime> 
                 facturaEN.Fecha = pedidoEN.Fecha;
                 facturaEN.MetodoPago = pedidoEN.MetodoPago;
                 facturaEN.Precio = pedidoEN.Total;
-                facturaEN.Direccion = pedidoEN.Direccion;
 
                 //Call to FacturaCAD
 

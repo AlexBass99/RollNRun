@@ -81,151 +81,151 @@ public static void InitializeData ()
         {
                 int i = 0;
                 /*
-                //USUARIOS
-                UsuarioCEN usuarioCEN = new UsuarioCEN ();
-                int id_usu = usuarioCEN.New_ (p_nombre: "Yo", p_email: "yo@gmail.com", p_apellidos: "Yomismo", p_nickname: "Mimismo1", p_pass: "Aguacate88#", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
-                int id_usu2 = usuarioCEN.New_ (p_nombre: "Tu", p_email: "tu@gmail.com", p_apellidos: "Tumismo", p_nickname: "Mimismo2", p_pass: "1234", p_rol: RolEnum.administrador, p_imagen: "Imagen");
-                int id_usu3 = usuarioCEN.New_ (p_nombre: "El", p_email: "el@gmail.com", p_apellidos: "Elmismo", p_nickname: "Mimismo3", p_pass: "1234", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
-                int id_usu4 = usuarioCEN.New_ (p_nombre: "Nosotros", p_email: "nosotros@gmail.com", p_apellidos: "Nosotrosmismos", p_nickname: "Mimismo4", p_pass: "1234", p_rol: RolEnum.administrador, p_imagen: "Imagen");
-                int id_usu5 = usuarioCEN.New_ (p_nombre: "Vosotros", p_email: "vosotros@gmail.com", p_apellidos: "Vosotrosmismos", p_nickname: "Mimismo5", p_pass: "1234", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
-
-                //LOGIN usuario
-                Console.WriteLine ("-------------COMPROBACION DEL LOGIN-------------");
-                Console.WriteLine ();
-                if (usuarioCEN.Login ("yo@gmail.com", "Aguacate88#") != null) {
-                        Console.WriteLine ("El Login es correcto");
-                        Console.WriteLine ();
-                }
-
-                //TARJETAS
-                TarjetaCEN tarjetaCEN = new TarjetaCEN ();
-                tarjetaCEN.New_ ("Yo Yomismo", "12341234", "123", new DateTime (2023, 1, 1), id_usu);
-                tarjetaCEN.New_ ("Tu Tumismo", "98769876", "123", new DateTime (2023, 1, 2), id_usu);
-                tarjetaCEN.New_ ("El Elmismo", "12986745", "123", new DateTime (2023, 1, 3), id_usu3);
-                tarjetaCEN.New_ ("Nosotros Nosotrosmismos", "98765432", "123", new DateTime (2023, 1, 4), id_usu4);
-                tarjetaCEN.New_ ("Vosotros Vosotrosmismos", "51369251", "123", new DateTime (2023, 1, 5), id_usu5);
-
-                //DIRECCIONES
-                DireccionCEN direccionCEN = new DireccionCEN ();
-                direccionCEN.New_ ("Alicante", "Alcoy", "03803", "Odio existir", id_usu);
-                direccionCEN.New_ ("Alicante", "Elche", "03205", "Tampoco es para tanto", id_usu2);
-                direccionCEN.New_ ("Alicante", "Alicante", "03103", "Que si que si", id_usu3);
-                direccionCEN.New_ ("Alicante", "Elda", "03603", "Va alegrate", id_usu4);
-                direccionCEN.New_ ("Alicante", "Petrer", "03608", "Es verdad tienes razon", id_usu5);
-
-                */
+                 * //USUARIOS
+                 * UsuarioCEN usuarioCEN = new UsuarioCEN ();
+                 * int id_usu = usuarioCEN.New_ (p_nombre: "Yo", p_email: "yo@gmail.com", p_apellidos: "Yomismo", p_nickname: "Mimismo1", p_pass: "Aguacate88#", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
+                 * int id_usu2 = usuarioCEN.New_ (p_nombre: "Tu", p_email: "tu@gmail.com", p_apellidos: "Tumismo", p_nickname: "Mimismo2", p_pass: "1234", p_rol: RolEnum.administrador, p_imagen: "Imagen");
+                 * int id_usu3 = usuarioCEN.New_ (p_nombre: "El", p_email: "el@gmail.com", p_apellidos: "Elmismo", p_nickname: "Mimismo3", p_pass: "1234", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
+                 * int id_usu4 = usuarioCEN.New_ (p_nombre: "Nosotros", p_email: "nosotros@gmail.com", p_apellidos: "Nosotrosmismos", p_nickname: "Mimismo4", p_pass: "1234", p_rol: RolEnum.administrador, p_imagen: "Imagen");
+                 * int id_usu5 = usuarioCEN.New_ (p_nombre: "Vosotros", p_email: "vosotros@gmail.com", p_apellidos: "Vosotrosmismos", p_nickname: "Mimismo5", p_pass: "1234", p_rol: RolEnum.usuario_base, p_imagen: "Imagen");
+                 *
+                 * //LOGIN usuario
+                 * Console.WriteLine ("-------------COMPROBACION DEL LOGIN-------------");
+                 * Console.WriteLine ();
+                 * if (usuarioCEN.Login ("yo@gmail.com", "Aguacate88#") != null) {
+                 *      Console.WriteLine ("El Login es correcto");
+                 *      Console.WriteLine ();
+                 * }
+                 *
+                 * //TARJETAS
+                 * TarjetaCEN tarjetaCEN = new TarjetaCEN ();
+                 * tarjetaCEN.New_ ("Yo Yomismo", "12341234", "123", new DateTime (2023, 1, 1), id_usu);
+                 * tarjetaCEN.New_ ("Tu Tumismo", "98769876", "123", new DateTime (2023, 1, 2), id_usu);
+                 * tarjetaCEN.New_ ("El Elmismo", "12986745", "123", new DateTime (2023, 1, 3), id_usu3);
+                 * tarjetaCEN.New_ ("Nosotros Nosotrosmismos", "98765432", "123", new DateTime (2023, 1, 4), id_usu4);
+                 * tarjetaCEN.New_ ("Vosotros Vosotrosmismos", "51369251", "123", new DateTime (2023, 1, 5), id_usu5);
+                 *
+                 * //DIRECCIONES
+                 * DireccionCEN direccionCEN = new DireccionCEN ();
+                 * direccionCEN.New_ ("Alicante", "Alcoy", "03803", "Odio existir", id_usu);
+                 * direccionCEN.New_ ("Alicante", "Elche", "03205", "Tampoco es para tanto", id_usu2);
+                 * direccionCEN.New_ ("Alicante", "Alicante", "03103", "Que si que si", id_usu3);
+                 * direccionCEN.New_ ("Alicante", "Elda", "03603", "Va alegrate", id_usu4);
+                 * direccionCEN.New_ ("Alicante", "Petrer", "03608", "Es verdad tienes razon", id_usu5);
+                 *
+                 */
 
                 //PRODUCTOS
                 ProductoCEN productoCEN = new ProductoCEN ();
-                int id_producto = productoCEN.New_("Juego de Dados D&D", "Hasbro", 270, 10.59, "/Images/Uploads/dice.png", "El mejor set de dados que puedes encontrarte para fardar ante tus compañeros de rol y sacar las mejores tiradas", 0, Tipo_productoEnum.dado, 0);
+                int id_producto = productoCEN.New_ ("Juego de Dados D&D", "Hasbro", 270, 10.59, "/Images/Uploads/dice.png", "El mejor set de dados que puedes encontrarte para fardar ante tus compañeros de rol y sacar las mejores tiradas", 0, Tipo_productoEnum.dado, 0);
                 int id_producto2 = productoCEN.New_ ("Minis D&D", "3DMaxim", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
                 int id_producto3 = productoCEN.New_ ("Juego de Cartas Bang", "Bang", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
                 int id_producto4 = productoCEN.New_ ("Resident Evil 2 the Board Game", "Capcom", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos y pasar el peor miedo", 0, Tipo_productoEnum.juego_mesa, 0);
                 int id_producto5 = productoCEN.New_ ("Manual D&D 5E", "Hasbro", 403, 32.99, "/Images/Uploads/book.png", "Manual del Dungeon Master D&D 5E, perfecto para empezar en el mundo del rol.", 0, Tipo_productoEnum.libro, 0);
                 int id_producto6 = productoCEN.New_ ("Colmillos Vampiro", "Marca Blanca", 600, 3.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro para Halloween o jugar a Vampiro: La Mascarada", 0, Tipo_productoEnum.otros, 0);
-                int id_producto7 = productoCEN.New_("Dados d6", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
-                int id_producto8 = productoCEN.New_("Figura 1", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
-                int id_producto9 = productoCEN.New_("Juego de Cartas 1", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
-                productoCEN.New_("Juego de Mesa 1", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
-                productoCEN.New_("Manual D&D 1", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
-                productoCEN.New_("Colmillos Vampiro 1", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
-                productoCEN.New_("Dados d6 nuevos", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
-                productoCEN.New_("Figura 2", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
-                productoCEN.New_("Juego de Cartas 2", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
-                productoCEN.New_("Juego de Mesa 2", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
-                productoCEN.New_("Manual D&D 3", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
-                productoCEN.New_("Colmillos Vampiro 2", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
-                productoCEN.New_("Dados d6 segunda mano", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
-                productoCEN.New_("Figura 3", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
-                productoCEN.New_("Juego de Cartas 3", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
-                productoCEN.New_("Juego de Mesa 3", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
-                productoCEN.New_("Manual D&D 4", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
-                productoCEN.New_("Colmillos Vampiro 3", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
+                int id_producto7 = productoCEN.New_ ("Dados d6", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
+                int id_producto8 = productoCEN.New_ ("Figura 1", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
+                int id_producto9 = productoCEN.New_ ("Juego de Cartas 1", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
+                productoCEN.New_ ("Juego de Mesa 1", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
+                productoCEN.New_ ("Manual D&D 1", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
+                productoCEN.New_ ("Colmillos Vampiro 1", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
+                productoCEN.New_ ("Dados d6 nuevos", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
+                productoCEN.New_ ("Figura 2", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
+                productoCEN.New_ ("Juego de Cartas 2", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
+                productoCEN.New_ ("Juego de Mesa 2", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
+                productoCEN.New_ ("Manual D&D 3", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
+                productoCEN.New_ ("Colmillos Vampiro 2", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
+                productoCEN.New_ ("Dados d6 segunda mano", "Marca Blanca", 270, 2.99, "/Images/Sin_Imagen.png", "Chulisimos dados de seis caras y bonitos a mas no poder", 0, Tipo_productoEnum.dado, 0);
+                productoCEN.New_ ("Figura 3", "Marca 1", 300, 20.99, "/Images/Uploads/figure.png", "Figura de tus personajes favoritos", 0, Tipo_productoEnum.figura, 0);
+                productoCEN.New_ ("Juego de Cartas 3", "Marca 2", 305, 25.99, "/Images/Uploads/card_game.png", "El nuevo juego de cartas de Marca 2", 0, Tipo_productoEnum.juego_cartas, 0);
+                productoCEN.New_ ("Juego de Mesa 3", "Marca 3", 400, 42.99, "/Images/Uploads/board_game.png", "Preparate para noches divertidas con tus amigos", 0, Tipo_productoEnum.juego_mesa, 0);
+                productoCEN.New_ ("Manual D&D 4", "Marca 4", 403, 32.99, "/Images/Sin_Imagen.png", "Manual del Dungeon Master D&D 5E", 0, Tipo_productoEnum.libro, 0);
+                productoCEN.New_ ("Colmillos Vampiro 3", "Marca 5", 600, 1.99, "/Images/Uploads/other.png", "Colmillos falsos de vampiro", 0, Tipo_productoEnum.otros, 0);
 
-                productoCEN.CambiarOferta(id_producto, 20);
-                productoCEN.CambiarOferta(id_producto2, 10);
-                productoCEN.CambiarOferta(id_producto3, 40);
-                productoCEN.CambiarOferta(id_producto4, 50);
-                productoCEN.CambiarOferta(id_producto5, 10);
-                productoCEN.CambiarOferta(id_producto6, 5);
-                productoCEN.CambiarOferta(id_producto7, 30);
-                productoCEN.CambiarOferta(id_producto8, 90);
-                productoCEN.CambiarOferta(id_producto9, 75);
+                productoCEN.CambiarOferta (id_producto, 20);
+                productoCEN.CambiarOferta (id_producto2, 10);
+                productoCEN.CambiarOferta (id_producto3, 40);
+                productoCEN.CambiarOferta (id_producto4, 50);
+                productoCEN.CambiarOferta (id_producto5, 10);
+                productoCEN.CambiarOferta (id_producto6, 5);
+                productoCEN.CambiarOferta (id_producto7, 30);
+                productoCEN.CambiarOferta (id_producto8, 90);
+                productoCEN.CambiarOferta (id_producto9, 75);
                 /*
-                //PEDIDOS
-                PedidoCEN pedidoCEN = new PedidoCEN ();
-                int id_pedido = pedidoCEN.New_ (new DateTime (2023, 1, 1), "Sigo igual", id_usu);
-                int id_pedido2 = pedidoCEN.New_ (new DateTime (2023, 1, 2), "Calle Falsa 123", id_usu);
-                int id_pedido3 = pedidoCEN.New_ (new DateTime (2023, 1, 3), "Calle Real 321", id_usu);
-                int id_pedido4 = pedidoCEN.New_ (new DateTime (2023, 1, 4), "IES Carrus", id_usu);
-                int id_pedido5 = pedidoCEN.New_ (new DateTime (2023, 1, 5), "No se donde estoy", id_usu);
-                int id_pedido6 = pedidoCEN.New_ (new DateTime (2023, 1, 6), "Sigo andando", id_usu);
-
-                
-
-                //LINEAS DE PEDIDO
-                LineaPedidoCP lineaPedidoCP = new LineaPedidoCP ();
-                lineaPedidoCP.New_ (3, id_pedido, id_producto);
-                lineaPedidoCP.New_ (2, id_pedido, id_producto2);
-                lineaPedidoCP.New_ (5, id_pedido3, id_producto3);
-                lineaPedidoCP.New_ (1, id_pedido4, id_producto4);
-                lineaPedidoCP.New_ (2, id_pedido5, id_producto5);
-                lineaPedidoCP.New_ (3, id_pedido6, id_producto6);
-
-
-                //FACTURAS
-                FacturaCP facturaCP = new FacturaCP ();
-                facturaCP.New_ (new DateTime (2023, 1, 4), id_pedido);
-                facturaCP.New_ (new DateTime (2023, 1, 5), id_pedido2);
-                facturaCP.New_ (new DateTime (2023, 1, 6), id_pedido3);
-                facturaCP.New_ (new DateTime (2023, 1, 7), id_pedido4);
-                facturaCP.New_ (new DateTime (2023, 1, 8), id_pedido5);
-                facturaCP.New_ (new DateTime (2023, 1, 9), id_pedido6);
-
-                //VALORACIONES
-                ValoracionCP valoracionCP = new ValoracionCP ();
-                valoracionCP.New_ (3, "Pues esta bastante bien", id_producto, id_usu);
-                valoracionCP.New_ (2, "Pues esta bastante bien", id_producto, id_usu2);
-                valoracionCP.New_ (5, "Pues esta bastante bien", id_producto, id_usu3);
-                valoracionCP.New_ (3, "Pues esta bastante bien", id_producto2, id_usu);
-                valoracionCP.New_ (1, "Pues esta bastante bien", id_producto2, id_usu2);
-                valoracionCP.New_ (5, "Pues esta bastante bien", id_producto2, id_usu3);
-                valoracionCP.New_ (4, "Pues esta bastante bien", id_producto2, id_usu4); 
-
-                //SUBFOROS
-                SubforoCEN subforoCEN = new SubforoCEN ();
-                int id_subforo = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje 1", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3); // El numero de comentarios esta por cambiar a falta de confirmacion
-                int id_subforo2 = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje 2", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
-                int id_subforo3 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje 3", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
-                int id_subforo4 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje 4", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
-
-                //ENTRADAS
-                EntradaCP entradaCP = new EntradaCP ();
-                entradaCP.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar1.");
-                entradaCP.New_ (id_subforo, id_usu, "Que si que no me apetece pensar 2.");
-                entradaCP.New_ (id_subforo, id_usu3, "Que si que no me apetece pensar 3.");
-                entradaCP.New_ (id_subforo2, id_usu, "Que si que no me apetece pensar 4.");
-                entradaCP.New_ (id_subforo3, id_usu2, "Que si que no me apetece pensar 5.");
-                entradaCP.New_ (id_subforo2, id_usu3, "Que si que no me apetece pensar 6.");
-
-                //DEVOLUCIONES
-                DevolucionCEN devolucionCEN = new DevolucionCEN ();
-                devolucionCEN.New_ ("Estos no son los dados que pedi", Motivo_DevolucionEnum.producto_incorrecto, id_pedido, id_usu);
-                devolucionCEN.New_ ("No me gusta, cambialo", Motivo_DevolucionEnum.otros, id_pedido2, id_usu);
-                */
+                 * //PEDIDOS
+                 * PedidoCEN pedidoCEN = new PedidoCEN ();
+                 * int id_pedido = pedidoCEN.New_ (new DateTime (2023, 1, 1), "Sigo igual", id_usu);
+                 * int id_pedido2 = pedidoCEN.New_ (new DateTime (2023, 1, 2), "Calle Falsa 123", id_usu);
+                 * int id_pedido3 = pedidoCEN.New_ (new DateTime (2023, 1, 3), "Calle Real 321", id_usu);
+                 * int id_pedido4 = pedidoCEN.New_ (new DateTime (2023, 1, 4), "IES Carrus", id_usu);
+                 * int id_pedido5 = pedidoCEN.New_ (new DateTime (2023, 1, 5), "No se donde estoy", id_usu);
+                 * int id_pedido6 = pedidoCEN.New_ (new DateTime (2023, 1, 6), "Sigo andando", id_usu);
+                 *
+                 *
+                 *
+                 * //LINEAS DE PEDIDO
+                 * LineaPedidoCP lineaPedidoCP = new LineaPedidoCP ();
+                 * lineaPedidoCP.New_ (3, id_pedido, id_producto);
+                 * lineaPedidoCP.New_ (2, id_pedido, id_producto2);
+                 * lineaPedidoCP.New_ (5, id_pedido3, id_producto3);
+                 * lineaPedidoCP.New_ (1, id_pedido4, id_producto4);
+                 * lineaPedidoCP.New_ (2, id_pedido5, id_producto5);
+                 * lineaPedidoCP.New_ (3, id_pedido6, id_producto6);
+                 *
+                 *
+                 * //FACTURAS
+                 * FacturaCP facturaCP = new FacturaCP ();
+                 * facturaCP.New_ (new DateTime (2023, 1, 4), id_pedido);
+                 * facturaCP.New_ (new DateTime (2023, 1, 5), id_pedido2);
+                 * facturaCP.New_ (new DateTime (2023, 1, 6), id_pedido3);
+                 * facturaCP.New_ (new DateTime (2023, 1, 7), id_pedido4);
+                 * facturaCP.New_ (new DateTime (2023, 1, 8), id_pedido5);
+                 * facturaCP.New_ (new DateTime (2023, 1, 9), id_pedido6);
+                 *
+                 * //VALORACIONES
+                 * ValoracionCP valoracionCP = new ValoracionCP ();
+                 * valoracionCP.New_ (3, "Pues esta bastante bien", id_producto, id_usu);
+                 * valoracionCP.New_ (2, "Pues esta bastante bien", id_producto, id_usu2);
+                 * valoracionCP.New_ (5, "Pues esta bastante bien", id_producto, id_usu3);
+                 * valoracionCP.New_ (3, "Pues esta bastante bien", id_producto2, id_usu);
+                 * valoracionCP.New_ (1, "Pues esta bastante bien", id_producto2, id_usu2);
+                 * valoracionCP.New_ (5, "Pues esta bastante bien", id_producto2, id_usu3);
+                 * valoracionCP.New_ (4, "Pues esta bastante bien", id_producto2, id_usu4);
+                 *
+                 * //SUBFOROS
+                 * SubforoCEN subforoCEN = new SubforoCEN ();
+                 * int id_subforo = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje 1", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3); // El numero de comentarios esta por cambiar a falta de confirmacion
+                 * int id_subforo2 = subforoCEN.New_ (id_usu, "Mesa cuadrada para flexear de personaje 2", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
+                 * int id_subforo3 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje 3", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
+                 * int id_subforo4 = subforoCEN.New_ (id_usu2, "Mesa cuadrada para flexear de personaje 4", new DateTime (2022, 10, 25), "Pues eso, que se habla de cosas de rol", 3);
+                 *
+                 * //ENTRADAS
+                 * EntradaCP entradaCP = new EntradaCP ();
+                 * entradaCP.New_ (id_subforo, id_usu2, "Que si que no me apetece pensar1.");
+                 * entradaCP.New_ (id_subforo, id_usu, "Que si que no me apetece pensar 2.");
+                 * entradaCP.New_ (id_subforo, id_usu3, "Que si que no me apetece pensar 3.");
+                 * entradaCP.New_ (id_subforo2, id_usu, "Que si que no me apetece pensar 4.");
+                 * entradaCP.New_ (id_subforo3, id_usu2, "Que si que no me apetece pensar 5.");
+                 * entradaCP.New_ (id_subforo2, id_usu3, "Que si que no me apetece pensar 6.");
+                 *
+                 * //DEVOLUCIONES
+                 * DevolucionCEN devolucionCEN = new DevolucionCEN ();
+                 * devolucionCEN.New_ ("Estos no son los dados que pedi", Motivo_DevolucionEnum.producto_incorrecto, id_pedido, id_usu);
+                 * devolucionCEN.New_ ("No me gusta, cambialo", Motivo_DevolucionEnum.otros, id_pedido2, id_usu);
+                 */
                 //PREGUNTAS FRECUENTES
                 PreguntaFrecuenteCEN preguntaFrecuenteCEN = new PreguntaFrecuenteCEN ();
                 preguntaFrecuenteCEN.New_ ("¿Cómo creo un subforo?", "Puedes acceder al Foro desde la barra superior de la página y en esa página encontrarás la opción de crearlo.");
                 preguntaFrecuenteCEN.New_ ("¿Por qué mi pedido aún no ha llegado?", "Si su pedido fue procesado tiene derecho a solicitar una Devolución si eso es lo que desea.");
                 preguntaFrecuenteCEN.New_ ("¿Por qué un producto ha cambiado de precio?", "Porque contamos con un grupo de Marketing que se dedica a ofrecer las mejores Ofertas.");
-                preguntaFrecuenteCEN.New_("¿Necesito estar registrado para algo?", "Si lo que te propones es comprar o interactuar en nuestros subforos deberás registrarte.");
+                preguntaFrecuenteCEN.New_ ("¿Necesito estar registrado para algo?", "Si lo que te propones es comprar o interactuar en nuestros subforos deberás registrarte.");
                 /*
-                //DESEOS USUARIO
-                productoCEN.MarcarDeseado (id_producto, new List<int> { id_usu });
-
-                //ESTADOS EN PROCESO
-                pedidoCEN.CambiarEstado (id_pedido, EstadoEnum.enProceso);
-                */
+                 * //DESEOS USUARIO
+                 * productoCEN.MarcarDeseado (id_producto, new List<int> { id_usu });
+                 *
+                 * //ESTADOS EN PROCESO
+                 * pedidoCEN.CambiarEstado (id_pedido, EstadoEnum.enProceso);
+                 */
 
                 /*
                  * PedidoEN pedidoEN = null;

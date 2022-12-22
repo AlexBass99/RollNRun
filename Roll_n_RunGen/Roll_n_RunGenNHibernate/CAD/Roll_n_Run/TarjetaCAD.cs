@@ -103,6 +103,7 @@ public void ModifyDefault (TarjetaEN tarjeta)
                 tarjetaEN.FechaCad = tarjeta.FechaCad;
 
 
+
                 session.Update (tarjetaEN);
                 SessionCommit ();
         }

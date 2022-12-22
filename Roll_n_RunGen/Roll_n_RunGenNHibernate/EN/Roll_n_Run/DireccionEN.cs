@@ -47,6 +47,13 @@ private Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario;
 
 
 
+/**
+ *	Atributo pedido
+ */
+private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido;
+
+
+
 
 
 
@@ -86,28 +93,35 @@ public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN Usuario {
 
 
 
-
-
-public DireccionEN()
-{
+public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> Pedido {
+        get { return pedido; } set { pedido = value;  }
 }
 
 
 
-public DireccionEN(int id, string provincia, string localidad, string cp, string calle, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario
+
+
+public DireccionEN()
+{
+        pedido = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN>();
+}
+
+
+
+public DireccionEN(int id, string provincia, string localidad, string cp, string calle, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido
                    )
 {
-        this.init (Id, provincia, localidad, cp, calle, usuario);
+        this.init (Id, provincia, localidad, cp, calle, usuario, pedido);
 }
 
 
 public DireccionEN(DireccionEN direccion)
 {
-        this.init (Id, direccion.Provincia, direccion.Localidad, direccion.Cp, direccion.Calle, direccion.Usuario);
+        this.init (Id, direccion.Provincia, direccion.Localidad, direccion.Cp, direccion.Calle, direccion.Usuario, direccion.Pedido);
 }
 
 private void init (int id
-                   , string provincia, string localidad, string cp, string calle, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario)
+                   , string provincia, string localidad, string cp, string calle, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido)
 {
         this.Id = id;
 
@@ -121,6 +135,8 @@ private void init (int id
         this.Calle = calle;
 
         this.Usuario = usuario;
+
+        this.Pedido = pedido;
 }
 
 public override bool Equals (object obj)

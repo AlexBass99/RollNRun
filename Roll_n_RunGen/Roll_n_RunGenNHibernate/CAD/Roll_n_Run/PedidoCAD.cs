@@ -94,9 +94,6 @@ public void ModifyDefault (PedidoEN pedido)
                 pedidoEN.Fecha = pedido.Fecha;
 
 
-                pedidoEN.Direccion = pedido.Direccion;
-
-
                 pedidoEN.Total = pedido.Total;
 
 
@@ -107,6 +104,8 @@ public void ModifyDefault (PedidoEN pedido)
 
 
                 pedidoEN.Estado = pedido.Estado;
+
+
 
 
 
@@ -172,9 +171,6 @@ public void Modify (PedidoEN pedido)
                 PedidoEN pedidoEN = (PedidoEN)session.Load (typeof(PedidoEN), pedido.Id);
 
                 pedidoEN.Fecha = pedido.Fecha;
-
-
-                pedidoEN.Direccion = pedido.Direccion;
 
 
                 pedidoEN.Total = pedido.Total;

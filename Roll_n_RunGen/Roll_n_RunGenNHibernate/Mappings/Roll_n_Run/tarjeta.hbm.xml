@@ -36,6 +36,18 @@
 								<column name="FK_idUsuario_idUsuario"/> 
 						</many-to-one>
 											 					
+			
+		  			
+						<bag name="Pedido" >
+							<key>
+							
+								
+								<column name="FK_idTarjeta_idTarjeta"/>
+					      	</key>
+							<one-to-many class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN"/>
+					    </bag>
+					
+					
 					
 					
 					

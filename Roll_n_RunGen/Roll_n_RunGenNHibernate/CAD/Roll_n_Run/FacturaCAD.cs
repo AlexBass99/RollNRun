@@ -94,9 +94,6 @@ public void ModifyDefault (FacturaEN factura)
                 facturaEN.Fecha = factura.Fecha;
 
 
-                facturaEN.Direccion = factura.Direccion;
-
-
                 facturaEN.Precio = factura.Precio;
 
 
@@ -166,9 +163,6 @@ public void Modify (FacturaEN factura)
                 FacturaEN facturaEN = (FacturaEN)session.Load (typeof(FacturaEN), factura.Id);
 
                 facturaEN.Fecha = factura.Fecha;
-
-
-                facturaEN.Direccion = factura.Direccion;
 
 
                 facturaEN.Precio = factura.Precio;

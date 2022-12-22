@@ -47,6 +47,8 @@ public int New_ (Nullable<DateTime> p_fecha, int p_usuario)
         pedidoEN.Estado = Enumerated.Roll_n_Run.EstadoEnum.enCarrito;
         pedidoEN.MetodoPago = Enumerated.Roll_n_Run.PagoEnum.tarjeta;
 
+
+
         oid = _IPedidoCAD.New_ (pedidoEN);
 
         return oid;

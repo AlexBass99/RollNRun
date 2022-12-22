@@ -14,6 +14,18 @@ namespace RollNRunWeb.Models
         public int usuario { get; set; }
 
 
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Tarjeta: ", Description = "Tarjeta: ", Name = "Tarjeta ")]
+        public int tarjeta { get; set; }
+
+
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Dirección: ", Description = "Dirección: ", Name = "Dirección ")]
+        public int direccion { get; set; }
+
+
+
+
 
         [Display(Prompt = "Fecha: ", Description = "Fecha: ", Name = "Fecha ")]
         [DataType(DataType.DateTime, ErrorMessage = "Debe introducir una fecha")]
@@ -23,11 +35,6 @@ namespace RollNRunWeb.Models
 
 
 
-        [Display(Prompt = "Dirección: ", Description = "Dirección: ", Name = "Dirección")]
-        [Required(ErrorMessage = "Debes indicar una dirección")]
-        [StringLength(maximumLength: 125, ErrorMessage = "La dirección no puede tener más de 125 caracteres")]
-
-        public string Dirección { get; set; }
 
 
 

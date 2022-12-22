@@ -15,9 +15,6 @@
 					<property name="Fecha" type="date"> 
 						<column name="fecha"  not-null="true"/>
 					</property>
-					<property name="Direccion" type="string"> 
-						<column name="direccion"  not-null="true"/>
-					</property>
 					<property name="Precio" type="double"> 
 						<column name="precio"  not-null="true"/>
 					</property>
@@ -33,14 +30,12 @@
 			
 			
 			
-			
 		  			
 					
 							   <one-to-one name="Pedido" class="Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN" property-ref="Factura" />							
 					 
 						
 			
-					
 					
 					
 					

@@ -21,8 +21,6 @@ namespace RollNRunWeb.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime fechaFacturacion { get; set; }
 
-        [Display(Prompt = "Dirección: ", Description = "Dirección: ", Name = "Dirección")]
-        public string direccion { get; set; }
 
         [Display(Prompt = "Total: ", Description = "Total: ", Name = "Total")]
         public double precio { get; set; }

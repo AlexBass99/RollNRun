@@ -47,6 +47,13 @@ private Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario;
 
 
 
+/**
+ *	Atributo pedido
+ */
+private System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido;
+
+
+
 
 
 
@@ -86,28 +93,35 @@ public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN Usuario {
 
 
 
-
-
-public TarjetaEN()
-{
+public virtual System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> Pedido {
+        get { return pedido; } set { pedido = value;  }
 }
 
 
 
-public TarjetaEN(int id, string titular, string numero, string cvv, Nullable<DateTime> fechaCad, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario
+
+
+public TarjetaEN()
+{
+        pedido = new System.Collections.Generic.List<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN>();
+}
+
+
+
+public TarjetaEN(int id, string titular, string numero, string cvv, Nullable<DateTime> fechaCad, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido
                  )
 {
-        this.init (Id, titular, numero, cvv, fechaCad, usuario);
+        this.init (Id, titular, numero, cvv, fechaCad, usuario, pedido);
 }
 
 
 public TarjetaEN(TarjetaEN tarjeta)
 {
-        this.init (Id, tarjeta.Titular, tarjeta.Numero, tarjeta.Cvv, tarjeta.FechaCad, tarjeta.Usuario);
+        this.init (Id, tarjeta.Titular, tarjeta.Numero, tarjeta.Cvv, tarjeta.FechaCad, tarjeta.Usuario, tarjeta.Pedido);
 }
 
 private void init (int id
-                   , string titular, string numero, string cvv, Nullable<DateTime> fechaCad, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario)
+                   , string titular, string numero, string cvv, Nullable<DateTime> fechaCad, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.PedidoEN> pedido)
 {
         this.Id = id;
 
@@ -121,6 +135,8 @@ private void init (int id
         this.FechaCad = fechaCad;
 
         this.Usuario = usuario;
+
+        this.Pedido = pedido;
 }
 
 public override bool Equals (object obj)

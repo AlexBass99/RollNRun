@@ -10,6 +10,7 @@ using RollNRunWeb.Models;
 using RollNRunWeb.Assemblers;
 using System.IO;
 using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
+using Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run;
 
 namespace RollNRunWeb.Controllers
 {
@@ -101,7 +102,7 @@ namespace RollNRunWeb.Controllers
             {
                 PedidoCEN pedidoCEN = new PedidoCEN();
                 PedidoEN pedidoEN = pedidoCEN.ReadOID(id);
-                pedidoCEN.Modify(id, DateTime.Now, ped.Dirección, pedidoEN.Total, pedidoEN.Cantidad, ped.MetodoPago, pedidoEN.Estado);
+                pedidoCEN.Modify(id, DateTime.Now,  pedidoEN.Total, pedidoEN.Cantidad, ped.MetodoPago, pedidoEN.Estado);
 
                 return RedirectToAction("Index");
             }
@@ -244,6 +245,30 @@ namespace RollNRunWeb.Controllers
 
                     }
                 }
+                //Añadiendo las tarjetas al selector
+                TarjetaCAD tarCAD = new TarjetaCAD(session);
+                TarjetaCEN tarCEN = new TarjetaCEN(tarCAD);
+                IList<TarjetaEN> tarjs = new TarjetaCEN().GetTarjetasUsuario(((UsuarioEN)Session["Usuario"]).Id);
+                IList<SelectListItem> tarjIt = new List<SelectListItem>();
+                foreach (TarjetaEN tar in tarjs)
+                {
+                    tarjIt.Add(new SelectListItem { Text = tar.Numero, Value = tar.Id.ToString() });
+                }
+                
+                ViewData["tarjetaId"] = tarjIt;
+
+
+                //Añadiendo las direcciones al selector
+
+                IList<DireccionEN> dirs = new DireccionCEN().GetDireccionesUsuario(((UsuarioEN)Session["Usuario"]).Id);
+                IList<SelectListItem> dirIt = new List<SelectListItem>();
+
+                foreach (DireccionEN dir in dirs)
+                {
+                    dirIt.Add(new SelectListItem { Text = dir.Calle, Value = dir.Id.ToString() });
+                }
+                tarjIt.Add(new SelectListItem { Text = "Paypal", Value = 2.ToString() });
+                ViewData["direccionId"] = dirIt;
                 SessionClose();
 
                 return View(pedVM);
@@ -253,6 +278,32 @@ namespace RollNRunWeb.Controllers
                 return View();
             }
         }
+
+
+        [HttpPost]
+        public ActionResult Tramite(int id, PedidoViewModel ped)
+        {
+
+            try
+            {
+                if (ped.direccion != 0 && ped.tarjeta != 0 ) {
+
+                    PedidoCEN pedidoCEN = new PedidoCEN();
+                    pedidoCEN.CambiarEstado(id, EstadoEnum.enProceso);
+                    return RedirectToAction("Paga");
+                }
+                else{
+                    return RedirectToAction("Error");
+                }
+                
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
+
 
         public ActionResult SelectorTarjeta(int id)
         {
@@ -286,8 +337,7 @@ namespace RollNRunWeb.Controllers
 
             return PartialView();
         }
-
-        public ActionResult Paga()
+            public ActionResult Paga()
         {
             /*
             try
@@ -297,20 +347,13 @@ namespace RollNRunWeb.Controllers
                 PedidoCAD pedCad = new PedidoCAD(session);
                 PedidoCEN pedCEN = new PedidoCEN(pedCad);
 
-                IList<PedidoEN> listEN = pedCEN.ReadAll(0, -1);
+                PedidoEN pedEN = pedCEN.ReadOID(id);
                 PedidoViewModel pedVM = new PedidoViewModel();
 
-                foreach (PedidoEN pedEN in listEN)
-                {
-                    if (pedEN.Estado == Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum.enCarrito)
-                    {
-                        pedVM = new PedidoAssembler().ConvertENToModelUI(pedEN);
 
-                    }
-                }
+
                 SessionClose();
-
-                return View(pedVM);
+                return View();
             }
             catch
             {
@@ -320,7 +363,15 @@ namespace RollNRunWeb.Controllers
             return View();
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
 
 
-    }
+
+
+
+
+        }
 }

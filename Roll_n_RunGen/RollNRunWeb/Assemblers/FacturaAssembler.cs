@@ -17,7 +17,6 @@ namespace RollNRunWeb.Assemblers
             fact.fechaFacturacion = (System.DateTime)en.FechaFacturacion;
             fact.precio = en.Precio;
             fact.metodoPago = en.MetodoPago;
-            fact.direccion = en.Direccion;
 
             return fact;
         }

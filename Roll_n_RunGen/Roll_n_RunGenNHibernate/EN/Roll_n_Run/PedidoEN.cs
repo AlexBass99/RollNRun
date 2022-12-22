@@ -13,13 +13,6 @@ private Nullable<DateTime> fecha;
 
 
 /**
- *	Atributo direccion
- */
-private string direccion;
-
-
-
-/**
  *	Atributo total
  */
 private double total;
@@ -82,17 +75,25 @@ private Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN devolucion;
 
 
 
+/**
+ *	Atributo direccion
+ */
+private Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN direccion;
+
+
+
+/**
+ *	Atributo tarjeta
+ */
+private Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN tarjeta;
+
+
+
 
 
 
 public virtual Nullable<DateTime> Fecha {
         get { return fecha; } set { fecha = value;  }
-}
-
-
-
-public virtual string Direccion {
-        get { return direccion; } set { direccion = value;  }
 }
 
 
@@ -151,6 +152,18 @@ public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN Devolucion {
 
 
 
+public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN Direccion {
+        get { return direccion; } set { direccion = value;  }
+}
+
+
+
+public virtual Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN Tarjeta {
+        get { return tarjeta; } set { tarjeta = value;  }
+}
+
+
+
 
 
 public PedidoEN()
@@ -160,27 +173,25 @@ public PedidoEN()
 
 
 
-public PedidoEN(int id, Nullable<DateTime> fecha, string direccion, double total, int cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum estado, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN factura, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN devolucion
+public PedidoEN(int id, Nullable<DateTime> fecha, double total, int cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum estado, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN factura, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN devolucion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN direccion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN tarjeta
                 )
 {
-        this.init (Id, fecha, direccion, total, cantidad, metodoPago, estado, usuario, factura, lineaPedido, devolucion);
+        this.init (Id, fecha, total, cantidad, metodoPago, estado, usuario, factura, lineaPedido, devolucion, direccion, tarjeta);
 }
 
 
 public PedidoEN(PedidoEN pedido)
 {
-        this.init (Id, pedido.Fecha, pedido.Direccion, pedido.Total, pedido.Cantidad, pedido.MetodoPago, pedido.Estado, pedido.Usuario, pedido.Factura, pedido.LineaPedido, pedido.Devolucion);
+        this.init (Id, pedido.Fecha, pedido.Total, pedido.Cantidad, pedido.MetodoPago, pedido.Estado, pedido.Usuario, pedido.Factura, pedido.LineaPedido, pedido.Devolucion, pedido.Direccion, pedido.Tarjeta);
 }
 
 private void init (int id
-                   , Nullable<DateTime> fecha, string direccion, double total, int cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum estado, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN factura, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN devolucion)
+                   , Nullable<DateTime> fecha, double total, int cantidad, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.PagoEnum metodoPago, Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run.EstadoEnum estado, Roll_n_RunGenNHibernate.EN.Roll_n_Run.UsuarioEN usuario, Roll_n_RunGenNHibernate.EN.Roll_n_Run.FacturaEN factura, System.Collections.Generic.IList<Roll_n_RunGenNHibernate.EN.Roll_n_Run.LineaPedidoEN> lineaPedido, Roll_n_RunGenNHibernate.EN.Roll_n_Run.DevolucionEN devolucion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.DireccionEN direccion, Roll_n_RunGenNHibernate.EN.Roll_n_Run.TarjetaEN tarjeta)
 {
         this.Id = id;
 
 
         this.Fecha = fecha;
-
-        this.Direccion = direccion;
 
         this.Total = total;
 
@@ -197,6 +208,10 @@ private void init (int id
         this.LineaPedido = lineaPedido;
 
         this.Devolucion = devolucion;
+
+        this.Direccion = direccion;
+
+        this.Tarjeta = tarjeta;
 }
 
 public override bool Equals (object obj)

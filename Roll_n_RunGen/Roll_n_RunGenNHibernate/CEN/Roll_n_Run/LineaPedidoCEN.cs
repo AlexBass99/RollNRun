@@ -39,20 +39,6 @@ public ILineaPedidoCAD get_ILineaPedidoCAD ()
         return this._ILineaPedidoCAD;
 }
 
-public void Modify (int p_LineaPedido_OID, int p_cantidad, double p_precio)
-{
-        LineaPedidoEN lineaPedidoEN = null;
-
-        //Initialized LineaPedidoEN
-        lineaPedidoEN = new LineaPedidoEN ();
-        lineaPedidoEN.Id = p_LineaPedido_OID;
-        lineaPedidoEN.Cantidad = p_cantidad;
-        lineaPedidoEN.Precio = p_precio;
-        //Call to LineaPedidoCAD
-
-        _ILineaPedidoCAD.Modify (lineaPedidoEN);
-}
-
 public LineaPedidoEN ReadOID (int id
                               )
 {

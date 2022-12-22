@@ -10,6 +10,7 @@ using RollNRunWeb.Assemblers;
 using RollNRunWeb.Models;
 using System.IO;
 using Roll_n_RunGenNHibernate.CP.Roll_n_Run;
+using Roll_n_RunGenNHibernate.Enumerated.Roll_n_Run;
 
 namespace RollNRunWeb.Controllers
 {
@@ -313,6 +314,51 @@ namespace RollNRunWeb.Controllers
                 }
 
                 return PartialView();
+            }
+            catch
+            {
+                return PartialView();
+            }
+        }
+
+        public ActionResult MeterCarrito()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public ActionResult MeterCarrito(int id)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                SessionInitialize();
+                PedidoCEN pedCEN = new PedidoCEN();
+                LineaPedidoCP lin_pedCP = new LineaPedidoCP();
+                IList<PedidoEN> pedidos = pedCEN.GetPedidosEstado(EstadoEnum.enCarrito);
+                PedidoEN pedidoEN = new PedidoEN();
+                PedidoCEN pedidoCEN = new PedidoCEN();
+                if (pedidos.Count > 0)
+                {
+                    pedidoEN = pedidos[0];
+                }
+                else
+                {
+                    int id_ped = pedidoCEN.New_(DateTime.Now, ((UsuarioEN)Session["Usuario"]).Id);
+                    pedidoCEN.CambiarEstado(id_ped, EstadoEnum.enCarrito);
+
+                    pedidoEN = pedCEN.ReadOID(id_ped);
+                }
+
+                if (Session["Usuario"] != null)
+                {
+                    lin_pedCP.New_(1, pedidoEN.Id, id);
+                }
+
+                SessionClose();
+
+                return PartialView();
+
             }
             catch
             {
